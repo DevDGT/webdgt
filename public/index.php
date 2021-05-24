@@ -2,14 +2,19 @@
 
 // Valid PHP Version?
 $minPHPVersion = '7.3';
-if (version_compare(PHP_VERSION, $minPHPVersion, '<'))
-{
+if (version_compare(PHP_VERSION, $minPHPVersion, '<')) {
 	die("Your PHP version must be {$minPHPVersion} or higher to run CodeIgniter. Current version: " . PHP_VERSION);
 }
 unset($minPHPVersion);
 
 // Path to the front controller (this file)
 define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
+
+$base_url_ = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http");
+$base_url_ .= "://" . $_SERVER['HTTP_HOST'];
+define('ORIGIN_URL', $base_url_);
+$base_url_ .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
+define('BASE_URL', $base_url_);
 
 /*
  *---------------------------------------------------------------

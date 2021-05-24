@@ -23,7 +23,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $baseURL = 'http://localhost:8081/';
+    public $baseURL = BASE_URL;
 
     /**
      * --------------------------------------------------------------------------
@@ -194,7 +194,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $sessionSavePath = WRITEPATH.'session';
+    public $sessionSavePath = WRITEPATH . 'session';
 
     /**
      * --------------------------------------------------------------------------
