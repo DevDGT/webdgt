@@ -1,70 +1,100 @@
 <footer id="footer">
 
     <div class="footer-top">
-    <div class="container">
-        <div class="row">
+        <div class="container">
+            <div class="row">
 
-        <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>Company</h3>
-            <p>
-            A108 Adam Street <br>
-            New York, NY 535022<br>
-            United States <br><br>
-            <strong>Phone:</strong> +1 5589 55488 55<br>
-            <strong>Email:</strong> info@example.com<br>
-            </p>
-        </div>
+                <div class="col-lg-6 col-md-8 footer-contact">
+                    <div class="row">
+                        <div class="col-auto">
+                            <img src="<?php echo base_url('assets/img/logo.png'); ?>" alt="logo" class="img-fluid mx-2" width="50pt" height="auto">
+                        </div>
+                        <div class="col-auto">
+                            <h3>DIAN GLOBAL TECH</h3>
+                            <h4>Tech Suppport - IT Consulting - App Dev - Training</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-auto">
+                            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                                <a href="#" class="google-plus"><i class="bx bxl-google"></i></a>
+                                <a href="#" class="google-plus"><i class="bx bxl-linkedin"></i></a>
+                                <a href="#" class="linkedin"><i class="bx bxl-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
-        </div>
+                <div class="col-lg-6 col-md-8 footer-newsletter">
+                    <div class="container">
+                        <div class="row align-items-start">
+                            <div class="col-sm-3">
+                                <p class="text-start fs-6"><i class="bi bi-house-door mx-2"></i>Adress</p>
+                            </div>
+                            <div class="col-sm-9">: Jl.Neptunus Timur A23/A
+                            </div>
+                        </div>
+                        <div class="row align-items-start">
+                            <div class="col-sm-3">
+                                <p class="text-start fs-6"><i class="bi bi-telephone mx-2"></i>Phone</p>
+                            </div>
+                            <div class="col-sm-9">: +6282217211271
+                            </div>
+                        </div>
+                        <div class="row align-items-start">
+                            <div class="col-sm-3">
+                                <p class="text-start fs-6"><i class="bi bi-envelope mx-2"></i>Mail</p>
+                            </div>
+                            <div class="col-sm-9">: bentol@gmail.com
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <form action="" method="post" style='background: inherit;'>
+                            <div class="row my-3">
+                                <div class="col">
+                                    <input type="text" class="form-control form-control-sm" placeholder="Full Name" aria-label="Full Name">
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control form-control-sm" placeholder="Email" aria-label="Email">
+                                </div>
+                            </div>
+                            <div class="row my-3">
+                                <div class="col">
+                                    <input type="text" class="form-control form-control-sm" placeholder="Subject" aria-label="Subject">
+                                </div>
+                            </div>
+                            <div class="row my-3">
+                                <div class="col">
+                                    <textarea class="form-control" placeholder="Type Message Here..."></textarea>
+                                </div>
+                            </div>
+                            <div class="row my-3">
+                                <div class="col d-md-flex justify-content-md-end">
+                                    <input type="button" class="btn btn-primary btn-sm btn-block" value="Message">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- <form action="#" method="post">
+                        <input type="email" name="email">
+                        <input type="submit" value="Subscribe">
+                    </form> -->
+                </div>
 
-        <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-            </ul>
+            </div>
         </div>
-
-        <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Join Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
-            <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-        </div>
-
-        </div>
-    </div>
     </div>
 
     <div class="container d-md-flex py-4">
 
-    <div class="me-md-auto text-center text-md-start">
-        <div class="copyright">
-        &copy; Copyright <strong><span>Company</span></strong>. All Rights Reserved
+        <div class="me-md-auto text-center text-md-start">
+            <div class="copyright">
+                Copyright &copy;<strong><span>2021 Dian Global Tech</span></strong>. All Rights Reserved
+            </div>
         </div>
-        <div class="credits">
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        </div>
-    </div>
-    <div class="social-links text-center text-md-right pt-3 pt-md-0">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-    </div>
     </div>
 </footer>

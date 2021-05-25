@@ -33,6 +33,19 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/aboutus', 'Home::aboutus');
+// $routes->get('/ruangadmin/login', 'Login::index');
+// $routes->post('/ruangadmin/login/action', 'Login::action');
+
+$routes->group('/ruangadmin/login', ['namespace' => 'App\Controllers'], function ($routes) {
+    $routes->get('/', 'Login::index');
+    $routes->post('action', 'login::action');
+});
+
+$routes->group('ruangadmin', ['filter' => 'cekLogin', 'namespace' => 'App\Controllers\Admin'], function ($routes) {
+    $routes->get('/', 'Dashboard::index');
+    $routes->get('dashboard', 'Dashboard::index');
+});
+
 
 /*
  * --------------------------------------------------------------------
