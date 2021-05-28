@@ -20,6 +20,7 @@ class Filters extends BaseConfig
 		'toolbar'  => DebugToolbar::class,
 		'honeypot' => Honeypot::class,
 		'cekLogin' => \App\Filters\LoginFilter::class,
+		'hasAdmin' => \App\Filters\AdminFilter::class,
 		'sudahLogin' => \App\Filters\LoginFilter::class,
 	];
 
@@ -35,7 +36,7 @@ class Filters extends BaseConfig
 			// 'csrf',
 		],
 		'after'  => [
-			'toolbar',
+			// 'toolbar',
 			// 'honeypot',
 		],
 	];
