@@ -30,10 +30,30 @@ class Login extends BaseController
                 "password" => Enc(Input_("password"))
             ]);
 
+            // cek apakah Validator success atau tidak
             if (!$validate['success']) throw new \Exception("Error Processing Request");
 
+            // cek apakah user ada atau tidak
+            $user = $this->auth->getLogin($validate['data']);
+            if ($user->countAllResults() == 0) throw new \Exception("Username atau password salah !");
+
+            // cek apakah user aktif atau tidak
+            $userData = $user->get()->getRow();
+            if ($userData->active == 0) throw new \Exception("Akun tidak aktif, tidak dapat melanjutkan");
+
+            $session = [
+                'username' => $userData->username,
+                'name' => $userData->name,
+                'email' => $userData->email,
+                'level' => $userData->level,
+                'token' => Enc(SALT . time() . $userData->username . $userData->password)
+            ];
+
+            session()->set($session);
+
             $message = [
-                'status' => 'fail'
+                'status' => 'ok',
+                'message' => "Selamat datang $userData->name"
             ];
         } catch (\Throwable $th) {
             $message = [

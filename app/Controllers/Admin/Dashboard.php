@@ -8,44 +8,14 @@ class Dashboard extends BaseController
 {
     public function index()
     {
-        // echo "Dashboard";
-        // echo Input_("nama", true);
-        // echo DATE_NOW;
-        // Create(
-        //     "users",
-        //     [
-        //         'username' => "admin2",
-        //         'password' => "Hello",
-        //         "email"    => "hello@gmail.com",
-        //         "name"     => "Hello"
-        //     ]
-        // );
-        Print_(Create("users", [
-            [
-                'username' => "admin2",
-                'password' => "Hello",
-                "email"    => "hello@gmail.com",
-                "name"     => "Hello"
-            ],
-            [
-                'username' => "admin3",
-                'password' => "Hello",
-                "email"    => "hello@gmail.com",
-                "name"     => "Hello"
+        $data = [
+            'title' => 'Dashboard',
+            'menu' => 'dashboard',
+            'roti' => [
+                'Home:blank' => base_url(),
+                'Dashboard:active' => '',
             ]
-        ]));
-        // Print_(Where("users", [
-        //     'username' => "admin"
-        // ]));
-
-        // Delete("users", ['username' => "admin"]);
-
-        // Print_();
-        // Update("users", [
-        //     "username" => "Hello Edit",
-        //     "password" => "Hello Edit"
-        // ], [
-        //     "id" => "5"
-        // ]);
+        ];
+        return View('admin/dashboard', $data);
     }
 }

@@ -10,6 +10,7 @@ $base_url_ .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIP
 define('BASE_URL', $base_url_);
 define('ADMIN_PATH', '/ruangadmin');
 define('API_PATH', '/api');
+define('SALT', 'hehehehe');
 
 class App extends BaseConfig
 {

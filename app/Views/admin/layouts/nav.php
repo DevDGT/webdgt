@@ -1,23 +1,25 @@
 <!-- Sidebar Menu -->
 <nav class="mt-2">
 	<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <li class="nav-item">
-			<a href="{{ base_url(ADMIN_PATH.'/dashboard') }}" class="nav-link menu-item @isset($menu) {{ $menu == 'dashboard' ? 'active' : '' }} @endisset">
+		<li class="nav-item">
+			<a href="<?= base_url(ADMIN_PATH . '/dashboard') ?>" class="nav-link menu-item <?= ($menu ?? "") == 'dashboard' ? 'active' : '' ?>">
 				<i class="nav-icon fas fa-tachometer-alt"></i>
 				<p>
 					Dashboard
 				</p>
 			</a>
-        </li>
-        <li class="nav-item">
-			<a href="{{ base_url(ADMIN_PATH.'/users') }}" class="nav-link menu-item @isset($menu) {{ $menu == 'users' ? 'active' : '' }} @endisset">
-				<i class="nav-icon fas fa-users"></i>
-				<p>
-					Pengguna
-				</p>
-			</a>
-        </li>
-		<li class="nav-item @isset($menu) {{ $menu == 'post' ? 'menu-open' : '' }} @endisset">
+		</li>
+		<?php if (session('level') == '1') :  ?>
+			<li class="nav-item">
+				<a href="<?= base_url(ADMIN_PATH . '/users') ?>" class="nav-link menu-item <?= ($menu ?? "") == 'users' ? 'active' : '' ?>">
+					<i class="nav-icon fas fa-users"></i>
+					<p>
+						Pengguna
+					</p>
+				</a>
+			</li>
+		<?php endif ?>
+		<li class="nav-item <?= ($menu ?? "" == 'post') ? 'menu-open' : '' ?>">
 			<a href="#" class="nav-link">
 				<i class="nav-icon fas fa-paper-plane"></i>
 				<p>
@@ -27,19 +29,19 @@
 			</a>
 			<ul class="nav nav-treeview">
 				<li class="nav-item">
-					<a href="{{ base_url(ADMIN_PATH.'/category') }}" class="nav-link menu-item @isset($subMenu) {{ $subMenu == 'category' ? 'active' : '' }} @endisset">
+					<a href="<?= base_url(ADMIN_PATH . '/category') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'category' ? 'active' : '' ?>">
 						<i class="fas fa-tags nav-icon"></i>
 						<p>Kategori</p>
 					</a>
 				</li>
 				<li class="nav-item">
-					<a href="{{ base_url(ADMIN_PATH.'/news') }}" class="nav-link menu-item @isset($subMenu) {{ $subMenu == 'news' ? 'active' : '' }} @endisset">
+					<a href="<?= base_url(ADMIN_PATH . '/news') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'news' ? 'active' : '' ?>">
 						<i class="fas fa-newspaper nav-icon"></i>
 						<p>Berita</p>
 					</a>
 				</li>
 				<li class="nav-item">
-					<a href="{{ base_url(ADMIN_PATH.'/events') }}" class="nav-link menu-item @isset($subMenu) {{ $subMenu == 'events' ? 'active' : '' }} @endisset">
+					<a href="<?= base_url(ADMIN_PATH . '/events') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'events' ? 'active' : '' ?>">
 						<i class="fas fa-calendar-check nav-icon"></i>
 						<p>Event</p>
 					</a>
@@ -55,7 +57,7 @@
 				</p>
 			</a>
 			<ul class="nav nav-treeview">
-				{{-- <li class="nav-item">
+				<li class="nav-item">
 					<a href="./index.html" class="nav-link">
 						<i class="far fa-circle nav-icon"></i>
 						<p>Dashboard v1</p>
@@ -72,7 +74,7 @@
 						<i class="far fa-circle nav-icon"></i>
 						<p>Dashboard v3</p>
 					</a>
-				</li> --}}
+				</li>
 			</ul>
 		</li>
 		<li class="nav-header">Pengaturan Profile</li>

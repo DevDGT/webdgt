@@ -76,7 +76,7 @@
 					</div>
 				</div>
 				<div id="navSection">
-					<?php $this->include('admin/layouts/nav'); ?>
+					<?= $this->include('admin/layouts/nav'); ?>
 				</div>
 			</div>
 			<!-- /.sidebar -->

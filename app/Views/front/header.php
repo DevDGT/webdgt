@@ -28,10 +28,15 @@
 
     <!-- Template Main CSS File -->
     <link href="<?php echo base_url('/assets/css/style.css'); ?>" rel="stylesheet">
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
 
     <!-- Vendor JS Files -->
     <?php include 'vendor.php'; ?>
 
     <!-- Template Main JS File -->
     <?php include 'script.php'; ?>
+
 </head>
