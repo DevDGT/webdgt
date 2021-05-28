@@ -18,7 +18,7 @@ function setStatus(status, id) {
 					enableButton()
 				},
 				success: function (result) {
-					"ok" == result.status ? (refreshData(), toastSuccess(result.message), socket.emit("affectDataTable", {table: "users"})) : (enableButton(), toastError(result.message, "Gagal"))
+					"ok" == result.status ? (refreshData(), enableButton(), toastSuccess(result.message), socket.emit("affectDataTable", {table: "users"})) : (enableButton(), toastError(result.message, "Gagal"))
 				},
 				error: function (error) {
 					errorCode(error)
@@ -59,7 +59,7 @@ $(document).ready((function () {
 			$(nRow).attr('data-id', aData.id)
 		},
 		columns: dataColumnTable([
-			'id', 'username', 'name', 'role', 'active'
+			'id', 'username', 'name', 'email', 'level', 'active'
 		]),
 		columnDefs: [{
 			targets: [0],
@@ -70,21 +70,21 @@ $(document).ready((function () {
 			}
 		}, {
 			sClass: "text-center",
-			targets: [4],
+			targets: [5],
 			orderable: !0,
 			render: function (data, type, row) {
 				return 1 == data ? "<button class='btn btn-success btn-sm' id='on' data-id=" + row.id + " data-toggle='tooltip' title='User Aktif'><i class='fas fa-toggle-on'></i> On</button>" : "<button class='btn btn-danger btn-sm' id='off' data-id=" + row.id + " data-toggle='tooltip' title='User Tidak Aktif'><i class='fas fa-toggle-off'></i> Off</button>"
 			}
 		}, {
 			sClass: "text-center",
-			targets: [3],
+			targets: [4],
 			orderable: !0,
 			render: function (data, type, row) {
 				return 1 == data ? "Admin" : "User"
 			}
 		}, {
 			sClass: "text-center",
-			targets: [5],
+			targets: [6],
 			orderable: !0,
 			render: function (data, type, row) {
 				return "<button class='btn btn-danger btn-sm' id='delete' data-id=" + row.id + " data-toggle='tooltip' title='Hapus Data'><i class='fas fa-trash-alt'></i></button> \n <button class='btn btn-warning btn-sm' id='edit' data-id=" + row.id + " data-toggle='tooltip' title='Edit Data'><i class='fas fa-pencil-alt'></i></button> \n <button class='btn btn-info btn-sm' id='reset' data-id=" + row.id + " data-toggle='tooltip' title='Reset Password'><i class='fas fa-sync-alt'></i></button>"
@@ -195,14 +195,18 @@ $(document).ready((function () {
 	}, {
 		type: "text",
 		name: "name",
-		label: "Nama",
+		label: "Name"
+	}, {
+		type: "email",
+		name: "email",
+		label: "Email"
 	}, {
 		type: "select2",
-		name: "role",
-		label: "Level",
+		name: "level",
+		label: "Level", 
 		data: {
-			0:"User",
-			1:"Admin",
+			0: "User",
+			1: "Admin"
 		}
 	}])
 	$("#modalForm").modal('show')

@@ -11,6 +11,6 @@ class LoginModel extends Model
 
     public function getLogin($data)
     {
-        return $this->db->table($this->table)->where($data)->get();
+        return $this->db->table($this->table)->where($data);
     }
 }

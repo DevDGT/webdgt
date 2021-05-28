@@ -254,7 +254,7 @@ function addFloatingButton(options = {}) {
 		});
 		float.addClass('adminActions d-none"')
 		float.html(`
-			<link rel="stylesheet" href="${BASE_URL}assets/css/floatingButton.css">
+			<link rel="stylesheet" href="${BASE_URL}/assets/css/floatingButton.css">
 			<input type="checkbox" name="adminToggle" class="adminToggle" />
 			<a class="adminButton" href="#!"><i class="fas fa-bars"></i></a>
 			<div class="adminButtons">
@@ -274,7 +274,7 @@ function addFormInput(formBody, inputForm = {}) {
 	let cek = 0
 	Object.keys(inputForm).forEach(index => {
 		const options = inputForm[index]
-		if ($(`[name='${options.name??''}']`).length == 0) {
+		if ($(`input[name='${options.name??''}']`).length == 0 || $(`select[name='${options.name??''}']`).length == 0) {
 			cek += 1
 			let selectOptionList = ''
 			if (options.data) {
@@ -319,6 +319,7 @@ function addFormInput(formBody, inputForm = {}) {
 			const inputType = {
 				"hidden": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="hidden" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} readonly>`,
 				"text": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="text" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
+				"email": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="temail" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
 				"password": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="password" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
 				"number": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="number" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
 				"file": `<div class="custom-file"><input type="file" class="custom-file-input ${options.class}" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.required ?? ''}><label class="custom-file-label">Pilih File</label></div>`,

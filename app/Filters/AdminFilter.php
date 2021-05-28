@@ -6,11 +6,11 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
 
-class LoginFilter implements FilterInterface
+class AdminFilter implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
-        if (!session('token')) return redirect()->to(ADMIN_PATH . '/login');
+        if (session('token') && !session('level') == "1") return redirect()->to(ADMIN_PATH);
     }
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
