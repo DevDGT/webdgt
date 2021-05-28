@@ -11,6 +11,7 @@ class Users extends BaseController
     {
         $this->req = \Config\Services::request();
         $this->table = "users";
+        $this->db = \Config\Database::connect();
     }
 
     public function index()
@@ -31,12 +32,12 @@ class Users extends BaseController
         try {
             $validate = Validate([
                 'username' => 'required|min:5|max:20|username',
-                'name' => 'required|min:6|name',
+                'name' => 'required|min:2|name',
                 'email' => 'required|email',
                 'level' => 'required|number'
-            ], ['password' => $this->req->acak('123456')]);
+            ], ['password' => Enc('123456')]);
 
-            $user = $this->db->select('username')->from($this->table)->where('username', Input_('username'))->get()->row();
+            $user = $this->db->table($this->table)->where('username', Input_('username'))->get()->getRow();
             if ($user) $validate = ValidateAdd($validate, 'username', 'Username ada yang sama');
             if (!$validate['success']) throw new \Exception("Error Processing Request");
             if (!Create($this->table, $validate['data'])) throw new \Exception("Gagal memasukan data !");
@@ -57,6 +58,66 @@ class Users extends BaseController
             ];
         } finally {
             $message = array_merge($message, ['validate' => $validate]);
+            echo json_encode($message);
+        }
+    }
+
+    public function update()
+    {
+        try {
+            $validate = Validate([
+                'id' => 'required',
+                'username' => 'required|min:5|max:20|username',
+                'name' => 'required|min:2|name',
+                'email' => 'required|email',
+                'level' => 'required|number'
+            ]);
+            if (!$validate['success']) throw new \Exception("Error Processing Request");
+            if (!Update($this->table, Guard($validate['data'], ['id']), [EncKey('id') => Input_('id')])) throw new \Exception("Tidak ada perubahan");
+
+            $message = [
+                'status' => 'ok',
+                'message' => "Berhasil merubah data"
+            ];
+        } catch (\Throwable $th) {
+            $message = [
+                'status' => 'fail',
+                'message' => $th->getMessage()
+            ];
+        } catch (\Exception $ex) {
+            $message = [
+                'status' => 'fail',
+                'message' => $ex->getMessage()
+            ];
+        } finally {
+            $message = array_merge($message, ['validate' => $validate, 'modalClose' => true]);
+            echo json_encode($message);
+        }
+    }
+
+    public function reset_($id)
+    {
+        try {
+
+            if ($id == '') throw new \Exception("no param");
+
+            if (Update($this->table, ['password' => Enc("123456")], [EncKey('id') => $id]) == false) throw new \Exception("Gagal mereset password");
+
+            $message = [
+                'status' => 'ok',
+                'message' => 'Berhasil mereset password'
+            ];
+        } catch (\Throwable $th) {
+            $message = [
+                'status' => 'fail',
+                'message' => $th->getMessage()
+            ];
+        } catch (\Exception $ex) {
+            $message = [
+                'status' => 'fail',
+                'message' => $ex->getMessage()
+            ];
+        } finally {
             echo json_encode($message);
         }
     }
@@ -129,7 +190,7 @@ class Users extends BaseController
 
             $jmlSukses = 0;
             foreach ($dataId as $key) {
-                if (Delete($this->table, [$this->req->encKey('id') => $key])) $jmlSukses++;
+                if (Delete($this->table, [EncKey('id') => $key])) $jmlSukses++;
             }
 
             $message = [
@@ -161,7 +222,7 @@ class Users extends BaseController
 
             $jmlSukses = 0;
             foreach ($dataId as $key) {
-                if (Update($this->table, ['password' => $this->req->acak("123456")], [$this->req->encKey('id') => $key])) $jmlSukses++;
+                if (Update($this->table, ['password' => Enc("123456")], [EncKey('id') => $key])) $jmlSukses++;
             }
 
             $message = [
@@ -195,7 +256,7 @@ class Users extends BaseController
             $jmlSukses = 0;
 
             foreach ($dataId as $key) {
-                if (Update($this->table, ['active' => $status], [$this->req->encKey('id') => $key])) $jmlSukses++;
+                if (Update($this->table, ['active' => $status], [EncKey('id') => $key])) $jmlSukses++;
             }
 
             $message = [

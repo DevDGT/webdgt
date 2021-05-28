@@ -12,7 +12,7 @@
         <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
                 <li><a href="<?php echo base_url('/news'); ?>">News</a></li>
-                <li><a href="<?php echo base_url('/aboutus'); ?>">About Us</a></li>
+                <li><a href="<?php echo base_url('/password'); ?>">About Us</a></li>
                 <li><a href="<?php echo base_url('/product'); ?>">Product</a></li>
 
                 <li class="dropdown"><a href="#"><span>Company Profile</span> <i class="bi bi-chevron-down"></i></a>

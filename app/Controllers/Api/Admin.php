@@ -10,7 +10,7 @@ class Admin extends BaseController
     function __construct()
     {
         $this->masterModel = new \App\Models\MasterModel();
-        $this->db = \Config\Database::connect();;
+        $this->db = \Config\Database::connect();
     }
 
     public function dataTables($option)
@@ -57,11 +57,11 @@ class Admin extends BaseController
         }
     }
 
-    public function getRowTable($id)
+    public function getRowTable($option = ['table' => '', 'where' => []])
     {
         try {
 
-            $data = $this->db->get_where($this->table, [EncKey('id') => $id])->row_array();
+            $data = $this->db->table($option['table'])->where($option['where'])->get()->getRowArray();
             if (!$data) throw new \Exception("no data");
             $data = Guard($data, ["id:hash", "token", "password"]);
             $message = [
@@ -107,6 +107,45 @@ class Admin extends BaseController
                 'users u' => 'u.id = cat.user_id'
             ],
             'order' => ['id' => 'desc']
+        ]);
+    }
+
+    public function dataTags()
+    {
+        return $this->dataTables([
+            'table' => 'tags tag',
+            'selectData' => "tag.id, u.name as by, tag.name, tag.slug",
+            'field' => ['name', 'by', 'slug'],
+            'columnOrder' => [null, 'username', 'name', 'email', 'level', 'active'],
+            'columnSearch' => ['username', 'name', "level", "active"],
+            'join' => [
+                'users u' => 'u.id = tag.user_id'
+            ],
+            'order' => ['id' => 'desc']
+        ]);
+    }
+
+    public function getRowUsers($id)
+    {
+        return $this->getRowTable([
+            'table' => 'users',
+            'where' => [EncKey('id') => $id]
+        ]);
+    }
+
+    public function getRowCategory($id)
+    {
+        return $this->getRowTable([
+            'table' => 'category',
+            'where' => [EncKey('id') => $id]
+        ]);
+    }
+
+    public function getRowTags($id)
+    {
+        return $this->getRowTable([
+            'table' => 'tags',
+            'where' => [EncKey('id') => $id]
         ]);
     }
 }

@@ -42,6 +42,7 @@ class Login extends BaseController
             if ($userData->active == 0) throw new \Exception("Akun tidak aktif, tidak dapat melanjutkan");
 
             $session = [
+                'userId' => $userData->id,
                 'username' => $userData->username,
                 'name' => $userData->name,
                 'email' => $userData->email,
@@ -67,6 +68,33 @@ class Login extends BaseController
             ];
         } finally {
             $message = array_merge($message, ['validate' => $validate]);
+            echo json_encode($message);
+        }
+    }
+
+    public function destroy()
+    {
+        try {
+            $token = Input_('_token');
+            if (base64Enc(session('token'), 3) != $token) throw new \Exception("invalid token");
+
+            session()->destroy();
+
+            $message = [
+                'status' => 'ok',
+                'message' => 'Session destroyed'
+            ];
+        } catch (\Exception $ex) {
+            [
+                'status' => 'fail',
+                'message' => $ex->getMessage()
+            ];
+        } catch (\Throwable $th) {
+            $message = [
+                'status' => 'fail',
+                'message' => $th->getMessage()
+            ];
+        } finally {
             echo json_encode($message);
         }
     }

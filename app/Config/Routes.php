@@ -37,21 +37,24 @@ $routes->setAutoRoute(true);
 // $routes->get('/aboutus', 'Home::aboutus');
 
 $routes->get('/', 'Home::home');
-$routes->get('/aboutus', 'Home::aboutus');
-// $routes->get('/ruangadmin/login', 'Login::index');
-// $routes->post('/ruangadmin/login/action', 'Login::action');
+// $routes->get('/aboutus', 'Home::aboutus');
+
 $routes->group('/news', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->get('/', 'News::index');
+    $routes->get('read/article', 'News::article');
 });
 
 $routes->group('/ruangadmin/login', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->get('/', 'Login::index');
     $routes->post('action', 'login::action');
+    $routes->post('destroy', 'login::destroy');
 });
 
 $routes->group('ruangadmin', ['filter' => 'cekLogin', 'namespace' => 'App\Controllers\Admin'], function ($routes) {
     $routes->get('/', 'Dashboard::index');
     $routes->get('dashboard', 'Dashboard::index');
+
+    // User Management routes
     $routes->group('users', ['filter' => 'hasAdmin', 'namespace' => 'App\Controllers\Admin'], function ($routes) {
         $routes->get('/', 'Users::index');
         $routes->post('store', 'Users::store');
@@ -63,17 +66,56 @@ $routes->group('ruangadmin', ['filter' => 'cekLogin', 'namespace' => 'App\Contro
         $routes->post('reset-multiple', 'Users::resetMultiple');
         $routes->post('set-multiple', 'Users::setMultiple');
     });
+
+    // Category Management routes
+    $routes->group('category', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
+        $routes->get('/', 'Category::index');
+        $routes->post('store', 'Category::store');
+        $routes->post('delete', 'Category::delete');
+        $routes->post('update', 'Category::update');
+        $routes->post('reset/(:any)', 'Category::reset_/$1');
+        $routes->post('set/(:any)', 'Category::set_/$1');
+        $routes->post('delete-multiple', 'Category::deleteMultiple');
+        $routes->post('reset-multiple', 'Category::resetMultiple');
+        $routes->post('set-multiple', 'Category::setMultiple');
+    });
+
+    // Tags Management routes
+    $routes->group('tags', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
+        $routes->get('/', 'Tags::index');
+        $routes->post('store', 'Tags::store');
+        $routes->post('delete', 'Tags::delete');
+        $routes->post('update', 'Tags::update');
+        $routes->post('reset/(:any)', 'Tags::reset_/$1');
+        $routes->post('set/(:any)', 'Tags::set_/$1');
+        $routes->post('delete-multiple', 'Tags::deleteMultiple');
+        $routes->post('reset-multiple', 'Tags::resetMultiple');
+        $routes->post('set-multiple', 'Tags::setMultiple');
+    });
+
+    $routes->group('article', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
+        $routes->get('/', 'News::index');
+    });
 });
 
 $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes) {
+    $routes->get('test', 'Admin::dataCategory');
     $routes->group('data', ['filter' => 'cekLogin', 'namespace' => 'App\Controllers\Api'], function ($routes) {
         $routes->post('users', 'Admin::dataUsers');
-        $routes->get('category', 'Admin::dataCategory');
-
-        $routes->group('row', ['namespace' => 'App\Controllers\Api'], function ($routes) {
-            $routes->post('users/(:any)', 'Admin::dataUsers');
-        });
+        $routes->post('category', 'Admin::dataCategory');
+        $routes->post('tags', 'Admin::dataTags');
     });
+
+    $routes->group('row', ['namespace' => 'App\Controllers\Api'], function ($routes) {
+        $routes->post('users/(:any)', 'Admin::getRowUsers/$1');
+        $routes->post('category/(:any)', 'Admin::getRowCategory/$1');
+        $routes->post('tags/(:any)', 'Admin::getRowTags/$1');
+    });
+});
+
+// Test Route
+$routes->group('test', ['namespace' => 'App\Controllers'], function ($routes) {
+    $routes->get('/', 'Test::test');
 });
 
 

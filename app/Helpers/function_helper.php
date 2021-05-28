@@ -44,7 +44,7 @@ function Create($table, $data, $json = false)
         if ($json == true) {
             echo json_encode($message);
         } else {
-            return $message;
+            return $return_ ?? false;
         }
     }
 }
@@ -92,7 +92,7 @@ function Update($table, $data, $where, $json = false)
         if ($json == true) {
             echo json_encode($message);
         } else {
-            return $message;
+            return $return_ ?? false;
         }
     }
 }
@@ -124,7 +124,7 @@ function Delete($table, $where, $json = false)
         if ($json == true) {
             echo json_encode($message);
         } else {
-            return $message;
+            return $return_ ?? false;
         }
     }
 }
@@ -404,7 +404,7 @@ function Guard($data, $guard)
 function Input_($input = "", $escape = false)
 {
     $CI = new db();
-    return $escape == false ? trim(rtrim($_REQUEST[$input])) : ltrim(rtrim($CI->db->escapeString($_REQUEST[$input])));
+    return $escape == false ? trim(rtrim($_REQUEST[$input] ?? "")) : ltrim(rtrim($CI->db->escapeString($_REQUEST[$input] ?? "")));
 }
 
 function isMultiArray($a)

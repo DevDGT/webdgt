@@ -1,23 +1,23 @@
-CURRENT_PATH = ADMIN_PATH + "/category/";
+CURRENT_PATH = ADMIN_PATH + "/tags/";
 
 function refreshData() {
 	table.ajax.reload(null, !1)
 }
 $(document).ready((function () {
 	$("#actionField").attr('style', 'width:115px; text-align:center;')
-	table = $("#listCat").DataTable({
+	table = $("#listTag").DataTable({
 		processing: !0,
 		serverSide: !0,
 		order: [],
 		ajax: {
-			url: API_PATH + "data/category",
+			url: API_PATH + "data/tags",
 			type: "POST",
 			data: {
 				_token: TOKEN
 			},
 			complete: function () {
 				checkPilihan({
-					table: "#listCat",
+					table: "#listTag",
 					buttons: ['delete'],
 					path: CURRENT_PATH
 				})
@@ -46,7 +46,7 @@ $(document).ready((function () {
 			}
 		}]
 	})
-})), $("#listCat").delegate("#delete", "click", (function () {
+})), $("#listTag").delegate("#delete", "click", (function () {
 	confirmSweet("Anda yakin ingin menghapus data ?").then((result) => {
 		if (isConfirmed(result)) {
 			let id = $(this).data("id")
@@ -62,7 +62,7 @@ $(document).ready((function () {
 					disableButton()
 				},
 				success: function (result) {
-					"ok" == result.status ? (enableButton(), toastSuccess(result.message), refreshData(), socket.emit?.("affectDataTable", {table: "category"})) : toastError(result.message, "Gagal")
+					"ok" == result.status ? (enableButton(), toastSuccess(result.message), refreshData(), socket.emit?.("affectDataTable", {table: "tags"})) : toastError(result.message, "Gagal")
 				},
 				error: function (error) {
 					errorCode(error)
@@ -70,10 +70,10 @@ $(document).ready((function () {
 			})
 		}
 	})
-})), $("#listCat").delegate("#edit", "click", (function () {
+})), $("#listTag").delegate("#edit", "click", (function () {
 	let id = $(this).data("id");
 	$.ajax({
-		url: API_PATH + "row/category/" + id,
+		url: API_PATH + "row/tags/" + id,
 		type: "post",
 		data: {_token: TOKEN},
 		dataType: "json",
@@ -99,7 +99,7 @@ $(document).ready((function () {
 			errorCode(err)
 		}
 	})
-})), $("#listCat").delegate("#reset", "click", (function (e) {
+})), $("#listTag").delegate("#reset", "click", (function (e) {
 	confirmSweet("Anda yakin ingin mereset password ?").then((result) => {
 		if (isConfirmed(result)) {
 			let id = $(this).data("id");
@@ -125,9 +125,9 @@ $(document).ready((function () {
 			})
 		}
 	})
-})), $("#listCat").delegate("#on", "click", (function () {
+})), $("#listTag").delegate("#on", "click", (function () {
 	setStatus("off", $(this).data("id"))
-})), $("#listCat").delegate("#off", "click", (function () {
+})), $("#listTag").delegate("#off", "click", (function () {
 	setStatus("on", $(this).data("id"))
 })), $("#btnAdd").on('click', function () {
 	clearFormInput("#formBody")
@@ -158,7 +158,7 @@ $(document).ready((function () {
 			enableButton()
 		},
 		success: function (e) {
-			validate(e.validate.input),e.validate.success&&("ok"==e.status?(toastSuccess(e.message),refreshData(),1==e.modalClose&&$("#modalForm").modal("hide"),clearInput(e.validate.input),socket.emit?.("affectDataTable", {table: "category"})):toastWarning(e.message));
+			validate(e.validate.input),e.validate.success&&("ok"==e.status?(toastSuccess(e.message),refreshData(),1==e.modalClose&&$("#modalForm").modal("hide"),clearInput(e.validate.input),socket.emit?.("affectDataTable", {table: "tags"})):toastWarning(e.message));
 		},
 		error: function(err) {
 			errorCode(err)

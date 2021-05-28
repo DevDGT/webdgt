@@ -91,7 +91,7 @@
 							<ol class="breadcrumb" id="rotiId">
 								<?php foreach ($roti ?? [] as $menu => $link) : ?>
 									<?php $param = explode(":", $menu);
-									$target = $param[1] == 'blank' ? '_blank' : ''; ?>
+									$target = $param[1] ?? '' == 'blank' ? '_blank' : ''; ?>
 									<li class="breadcrumb-item"> <?= $link != '' ? "<a class='roti' href='$link' target='$target'>" . $param[0] . "</a>" : $param[0] ?></li>
 								<?php endforeach ?>
 							</ol>

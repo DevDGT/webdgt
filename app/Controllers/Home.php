@@ -85,3 +85,4 @@ class Home extends BaseController
         echo view('front/canvas', $data);
     }
 }
+//

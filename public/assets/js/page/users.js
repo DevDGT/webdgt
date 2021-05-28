@@ -118,7 +118,7 @@ $(document).ready((function () {
 })), $("#listUser").delegate("#edit", "click", (function () {
 	let id = $(this).data("id");
 	$.ajax({
-		url: API_PATH + "data/users/get/" + id,
+		url: API_PATH + "row/users/" + id,
 		type: "post",
 		data: {_token: TOKEN},
 		dataType: "json",
@@ -136,9 +136,13 @@ $(document).ready((function () {
 				type: "text",
 				name: "name",
 				label: "Nama",
+			},{
+				type: "email",
+				name: "email",
+				label: "Email",
 			}, {
 				type: "select2",
-				name: "role",
+				name: "level",
 				label: "Level",
 				data: {
 					0:"User",

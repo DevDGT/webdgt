@@ -26,7 +26,8 @@ function initTooltip() {
 }
 
 function disableButton() {
-	$(":submit").append(' <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'), $(":submit").attr("disabled", !0)
+	// $(":submit").append(' <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'), $(":submit").attr("disabled", !0)
+	$(":submit").attr("disabled", !0)
 }
 
 function enableButton() {
@@ -38,7 +39,10 @@ const nanobar = new Nanobar({
 	id: "loadingGan"
 });
 nanobar.go(80);
-nanobar.go(100);
+
+$(document).ready(function() {
+	nanobar.go(100);
+})
 
 function errorCode(event) {
 	iziToast.error({

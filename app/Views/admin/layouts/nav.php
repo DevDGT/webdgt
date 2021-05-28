@@ -23,32 +23,32 @@
 			<a href="#" class="nav-link">
 				<i class="nav-icon fas fa-paper-plane"></i>
 				<p>
-					Post
+					Konten
 					<i class="right fas fa-angle-left"></i>
 				</p>
 			</a>
 			<ul class="nav nav-treeview">
 				<li class="nav-item">
 					<a href="<?= base_url(ADMIN_PATH . '/category') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'category' ? 'active' : '' ?>">
-						<i class="fas fa-tags nav-icon"></i>
+						<i class="fas fa-tag nav-icon"></i>
 						<p>Kategori</p>
 					</a>
 				</li>
 				<li class="nav-item">
-					<a href="<?= base_url(ADMIN_PATH . '/news') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'news' ? 'active' : '' ?>">
-						<i class="fas fa-newspaper nav-icon"></i>
-						<p>Berita</p>
+					<a href="<?= base_url(ADMIN_PATH . '/tags') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'tags' ? 'active' : '' ?>">
+						<i class="fas fa-tags nav-icon"></i>
+						<p>Tags</p>
 					</a>
 				</li>
 				<li class="nav-item">
-					<a href="<?= base_url(ADMIN_PATH . '/events') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'events' ? 'active' : '' ?>">
-						<i class="fas fa-calendar-check nav-icon"></i>
-						<p>Event</p>
+					<a href="<?= base_url(ADMIN_PATH . '/article') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'artikel' ? 'active' : '' ?>">
+						<i class="fas fa-newspaper nav-icon"></i>
+						<p>Artikel</p>
 					</a>
 				</li>
 			</ul>
 		</li>
-		<li class="nav-item">
+		<!-- <li class="nav-item">
 			<a href="#" class="nav-link">
 				<i class="nav-icon fas fa-cogs"></i>
 				<p>
@@ -76,8 +76,16 @@
 					</a>
 				</li>
 			</ul>
+		</li> -->
+		<li class="nav-header">Profile</li>
+		<li class="nav-item">
+			<a href="<?= base_url(ADMIN_PATH . '/user/settings') ?>" class="nav-link menu-item <?= ($menu ?? "") == 'userSettings' ? 'active' : '' ?>">
+				<i class="nav-icon fas fa-user-cog"></i>
+				<p>
+					Pengaturan Profile
+				</p>
+			</a>
 		</li>
-		<li class="nav-header">Pengaturan Profile</li>
 	</ul>
 </nav>
 <!-- /.sidebar-menu -->
