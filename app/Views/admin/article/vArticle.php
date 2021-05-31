@@ -9,7 +9,7 @@
                         <i class="fas fa-plus mr-1"> </i>Baru
                     </button>
                 </div>
-                <table id="listNews" class="table table-bordered" style="width:100%">
+                <table id="listArticle" class="table table-bordered" style="width:100%">
                     <thead>
                         <tr>
                             <th></th>
@@ -66,3 +66,7 @@
     </div>
 </div>
 <?= $this->endSection(); ?>
+<?= $this->section('js'); ?>
+<script src="<?= base_url('/assets/modules/ckeditor/ckeditor.js') ?>" defer></script>
+<script src="<?= base_url('assets/js/page/article.js') ?>" defer></script>
+<?= $this->endSection() ?>

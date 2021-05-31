@@ -1,5 +1,9 @@
 CURRENT_PATH = ADMIN_PATH + "/users/";
 
+tableId = "#listUser"
+
+moveRoom(tableId)
+
 function setStatus(status, id) {
 	confirmSweet("Anda yakin ingin merubah status ?").then(result => {
 		if (isConfirmed(result)) {
@@ -18,7 +22,7 @@ function setStatus(status, id) {
 					enableButton()
 				},
 				success: function (result) {
-					"ok" == result.status ? (refreshData(), enableButton(), toastSuccess(result.message), socket.emit("affectDataTable", {table: "users"})) : (enableButton(), toastError(result.message, "Gagal"))
+					"ok" == result.status ? (refreshData(), enableButton(), toastSuccess(result.message), socket.emit("affectDataTable",tableId), socket.emit('logoutUser', {userId: id, reason: status})) : (enableButton(), toastError(result.message, "Gagal"))
 				},
 				error: function (error) {
 					errorCode(error)
@@ -34,7 +38,7 @@ function refreshData() {
 $(document).ready((function () {
 	$("#statusField").attr('style', 'width:70px')
 	$("#actionField").attr('style', 'width:115px; text-align:center')
-	table = $("#listUser").DataTable({
+	table = $(tableId).DataTable({
 		processing: !0,
 		serverSide: !0,
 		order: [],
@@ -46,7 +50,7 @@ $(document).ready((function () {
 			},
 			complete: function () {
 				checkPilihan({
-					table: "#listUser",
+					table: tableId,
 					buttons: ['reset', 'delete', 'active', 'deactive'],
 					path: CURRENT_PATH
 				})
@@ -91,7 +95,7 @@ $(document).ready((function () {
 			}
 		}]
 	})
-})), $("#listUser").delegate("#delete", "click", (function () {
+})), $(tableId).delegate("#delete", "click", (function () {
 	confirmSweet("Anda yakin ingin menghapus data ?").then((result) => {
 		if (isConfirmed(result)) {
 			let id = $(this).data("id")
@@ -107,7 +111,7 @@ $(document).ready((function () {
 					disableButton()
 				},
 				success: function (result) {
-					"ok" == result.status ? (enableButton(), toastSuccess(result.message), refreshData(), socket.emit("affectDataTable", {table: "users"})) : toastError(result.message, "Gagal")
+					"ok" == result.status ? (enableButton(), toastSuccess(result.message), refreshData(), socket.emit("affectDataTable", tableId)) : toastError(result.message, "Gagal")
 				},
 				error: function (error) {
 					errorCode(error)
@@ -115,7 +119,7 @@ $(document).ready((function () {
 			})
 		}
 	})
-})), $("#listUser").delegate("#edit", "click", (function () {
+})), $(tableId).delegate("#edit", "click", (function () {
 	let id = $(this).data("id");
 	$.ajax({
 		url: API_PATH + "row/users/" + id,
@@ -160,7 +164,7 @@ $(document).ready((function () {
 			errorCode(err)
 		}
 	})
-})), $("#listUser").delegate("#reset", "click", (function (e) {
+})), $(tableId).delegate("#reset", "click", (function (e) {
 	confirmSweet("Anda yakin ingin mereset password ?").then((result) => {
 		if (isConfirmed(result)) {
 			let id = $(this).data("id");
@@ -178,7 +182,7 @@ $(document).ready((function () {
 					enableButton()
 				},
 				success: function (result) {
-					"ok" == result.status ? (toastSuccess(result.message), socket.emit("affectDataTable", {table: "users"})) : toastError(result.message, "Gagal")
+					"ok" == result.status ? (toastSuccess(result.message), socket.emit("affectDataTable",tableId)) : toastError(result.message, "Gagal")
 				},
 				error: function (error) {
 					errorCode(error)
@@ -186,9 +190,9 @@ $(document).ready((function () {
 			})
 		}
 	})
-})), $("#listUser").delegate("#on", "click", (function () {
+})), $(tableId).delegate("#on", "click", (function () {
 	setStatus("off", $(this).data("id"))
-})), $("#listUser").delegate("#off", "click", (function () {
+})), $(tableId).delegate("#off", "click", (function () {
 	setStatus("on", $(this).data("id"))
 })), $("#btnAdd").on('click', function () {
 	clearFormInput("#formBody")
@@ -235,7 +239,7 @@ $(document).ready((function () {
 			enableButton()
 		},
 		success: function (e) {
-			validate(e.validate.input),e.validate.success&&("ok"==e.status?(toastSuccess(e.message),refreshData(),1==e.modalClose&&$("#modalForm").modal("hide"),clearInput(e.validate.input), socket.emit("affectDataTable", {table: "users"})):toastWarning(e.message));
+			validate(e.validate.input),e.validate.success&&("ok"==e.status?(toastSuccess(e.message),refreshData(),1==e.modalClose&&$("#modalForm").modal("hide"),clearInput(e.validate.input), socket.emit("affectDataTable", tableId)):toastWarning(e.message));
 		},
 		error: function(err) {
 			errorCode(err)

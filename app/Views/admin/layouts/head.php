@@ -12,6 +12,7 @@
 	<meta name="adminPath" content="<?= ADMIN_PATH ?>">
 	<meta name="apiPath" content="<?= API_PATH ?>">
 	<meta name="username" content="<?= session('username') ?>">
+	<meta name="userId" content="<?= session('userIdHash') ?>">
 	<meta name="_token" content="<?= base64Enc(session('token'), 3) ?>">
 	<title class="webTitle">DGT | <?= $title ?? 'Administrator' ?></title>
 	<link rel="shortcut icon" type="image/jpg" href="<?= base_url('assets/img/logo.png') ?>" />

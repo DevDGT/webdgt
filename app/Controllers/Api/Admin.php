@@ -83,6 +83,54 @@ class Admin extends BaseController
         }
     }
 
+    public function getDataOption($data = '')
+    {
+        try {
+            if ($data == '') throw new \Exception("no param");
+            $table = [
+                'users' => [
+                    'table'     => 'users',
+                    'protected' => ['id:hash', 'password', 'token']
+                ],
+                'tags' => [
+                    'table'     => 'tags',
+                    'protected' => ['id:hash']
+                ],
+                'category' => [
+                    'table'     => 'category',
+                    'protected' => ['id:hash']
+                ]
+            ];
+            if (!array_key_exists($data, $table)) throw new \Exception("nothing there");
+            $builder = $this->db->table($table[$data]['table']);
+            if (isset($_REQUEST['where'])) $builder->where($_REQUEST['where']);
+            if (isset($_REQUEST['order'])) $builder->orderBy(key($_REQUEST['order']), $_REQUEST['order'][key($_REQUEST['order'])]);
+            $data_ = $builder->get()->getResultArray();
+            $resultData = [];
+            foreach ($data_ as $rows) {
+                $rows = Guard($rows, $table[$data]['protected']);
+                unset($rows['created_at']);
+                $resultData[]  = $rows;
+            }
+            $message = [
+                'status' => 'ok',
+                'data' => $resultData
+            ];
+        } catch (\Throwable $th) {
+            $message = [
+                'status' => 'fail',
+                'message' => $th->getMessage()
+            ];
+        } catch (\Exception $ex) {
+            $message = [
+                'status' => 'fail',
+                'message' => $ex->getMessage()
+            ];
+        } finally {
+            echo json_encode($message);
+        }
+    }
+
     public function dataUsers()
     {
         return $this->dataTables([
@@ -125,6 +173,33 @@ class Admin extends BaseController
         ]);
     }
 
+    public function dataArticle()
+    {
+        return $this->dataTables([
+            'table' => 'article as a',
+            'selectData' => "a.id,
+                a.title, 
+                a.slug, 
+                a.cover, 
+                u.name as author,
+                up.name as update,
+                a.created_at,
+                a.updated_at,
+                a.status,
+                (SELECT CONCAT('[', GROUP_CONCAT(CONCAT('\"'," . EncKey('tags.id') . ",':',tags.name,'\"') SEPARATOR ','), ']' ) FROM article_tags atag JOIN tags ON tags.id = atag.tags_id WHERE atag.article_id = a.id) as tags_list,
+                cat.name as category
+            ",
+            'columnOrder"' => [null, 'title', 'u.name', null, 'a.updated_at', null, 'a.status'],
+            'columnSearch' => ['a.title', 'a.slug'],
+            'join' => [
+                'users as u' => 'u.id = a.user_id',
+                'users as up' => 'up.id = a.update_by',
+                'category as cat'  => 'cat.id = a.category_id',
+            ],
+            'field' => ['title', 'slug', 'cover', 'author', 'update', 'tags_list', 'category', 'created_at', 'updated_at', 'status']
+        ]);
+    }
+
     public function getRowUsers($id)
     {
         return $this->getRowTable([
@@ -132,6 +207,7 @@ class Admin extends BaseController
             'where' => [EncKey('id') => $id]
         ]);
     }
+
 
     public function getRowCategory($id)
     {
@@ -145,6 +221,14 @@ class Admin extends BaseController
     {
         return $this->getRowTable([
             'table' => 'tags',
+            'where' => [EncKey('id') => $id]
+        ]);
+    }
+
+    public function getRowArticle($id)
+    {
+        return $this->getRowTable([
+            'table' => 'article',
             'where' => [EncKey('id') => $id]
         ]);
     }

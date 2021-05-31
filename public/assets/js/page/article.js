@@ -1,4 +1,4 @@
-CURRENT_PATH = ADMIN_PATH + "/news/";
+CURRENT_PATH = ADMIN_PATH + "/article/";
 
 function refreshData() {
 	table.ajax.reload(null, !1)
@@ -35,19 +35,19 @@ function setStatus(status, id) {
 function initTable() {
 	$("#statusField").attr('style', 'width:70px')
 	$("#actionField").attr('style', 'width:115px')
-	table = $("#listNews").DataTable({
+	table = $("#listArticle").DataTable({
 		processing: !0,
 		serverSide: !0,
 		order: [],
 		ajax: {
-			url: API_PATH + "data/news",
+			url: API_PATH + "data/article",
 			type: "POST",
 			data: {
 				_token: TOKEN
 			},
 			complete: function () {
 				checkPilihan({
-					table: "#listNews",
+					table: "#listArticle",
 					buttons: ['delete', 'active', 'deactive'],
 					path: CURRENT_PATH
 				})
@@ -94,7 +94,7 @@ function initTable() {
 			orderable: !0,
 			render: function (data, type, row) {
 				let html = escapeHtml(row.title.length > 50 ? row.title.substr(0, 50) + '...' : row.title)
-				const dataTags = JSON.parse(row.category)
+				const dataTags = JSON.parse(row.tags_list)
 				let tags = dataTags == null ? [] : dataTags
 				let tag_ = ''
 				let title = ''
@@ -146,7 +146,7 @@ function initTable() {
 
 $(document).ready((function () {
 	initTable()
-})), $("#listNews").delegate("#delete", "click", (function () {
+})), $("#listArticle").delegate("#delete", "click", (function () {
 	confirmSweet("Anda yakin ingin menghapus data ?").then((result) => {
 		if (isConfirmed(result)) {
 			let id = $(this).data("id")
@@ -173,7 +173,7 @@ $(document).ready((function () {
 			})
 		}
 	})
-})), $("#listNews").delegate("#edit", "click", (function () {
+})), $("#listArticle").delegate("#edit", "click", (function () {
 	let id = $(this).data("id");
 	$.ajax({
 		url: API_PATH + "data/news/get/" + id,
@@ -249,9 +249,9 @@ $(document).ready((function () {
 			errorCode(err)
 		}
 	})
-})), $("#listNews").delegate("#on", "click", (function () {
+})), $("#listArticle").delegate("#on", "click", (function () {
 	setStatus("off", $(this).data("id"))
-})), $("#listNews").delegate("#off", "click", (function () {
+})), $("#listArticle").delegate("#off", "click", (function () {
 	setStatus("on", $(this).data("id"))
 })), $("#btnAdd").on('click', function () {
 	clearFormInput("#formBody")
@@ -261,11 +261,10 @@ $(document).ready((function () {
 		label: "Judul",
 		required: "required",
 	}, {
-		type: "selectMultiple",
-		name: "category",
-		label: "Kategori",
+		type: "select2",
+		name: "category_id",
+		label: "Kategory",
 		required: "required",
-		dataType: "json",
 		api: {
 			url: `${API_PATH}data/options/category`,
 			option: {
@@ -274,36 +273,48 @@ $(document).ready((function () {
 			}
 		}
 	}, {
+		type: "selectMultiple",
+		name: "tags",
+		label: "Tags",
+		required: "required",
+		dataType: "json",
+		api: {
+			url: `${API_PATH}data/options/tags`,
+			option: {
+				value: "id",
+				caption: "{name}"
+			}
+		}
+	}, {
 		type: "file",
-		name: "cover",
+		name: "",
 		id: "cover",
 		label: "Pilih Cover",
-		required: "required",
 	}, {
 		type: "editor",
 		name: "content",
 		label: "Konten",
 		required: "required",
 	}])
-	$("#formInput").validate({
-		rules: {
-			cover: "required",
-			title: "required",
-			cetegory: "required",
-			content: "required"
-		},
-		messages: {
-			cover: {
-				required: "Cover harus dipilih"
-			},
-			title: {
-				required: "Judul harus diisi"
-			},
-			cetegory: {
-				required: "Kategori harus dipilih"
-			},
-		}
-	})
+	// $("#formInput").validate({
+	// 	rules: {
+	// 		cover: "required",
+	// 		title: "required",
+	// 		cetegory: "required",
+	// 		content: "required"
+	// 	},
+	// 	messages: {
+	// 		cover: {
+	// 			required: "Cover harus dipilih"
+	// 		},
+	// 		title: {
+	// 			required: "Judul harus diisi"
+	// 		},
+	// 		cetegory: {
+	// 			required: "Kategori harus dipilih"
+	// 		},
+	// 	}
+	// })
 	$("#modalTitle").html('Tambah Berita')
 	$("#formInput").attr('action', CURRENT_PATH + "store")
 	$("#modalForm").modal('show')

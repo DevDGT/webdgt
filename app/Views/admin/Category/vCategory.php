@@ -18,7 +18,7 @@
                                 <i class="fas fa-plus mr-1"> </i>Baru
                             </button>
                         </div>
-                        <table id="listCat" class="table table-bordered" style="width:100%">
+                        <table id="listCat" class="table table-bordered w-100">
                             <thead>
                                 <tr>
                                     <th></th>

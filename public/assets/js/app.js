@@ -2,13 +2,16 @@ const BASE_URL = $('meta[name="baseUrl"]').attr("content"),
 	ADMIN_PATH = BASE_URL + $('meta[name="adminPath"]').attr("content"),
 	API_PATH = BASE_URL + $('meta[name="apiPath"]').attr("content") + "/",
 	TOKEN = $('meta[name="_token"]').attr("content"),
+	USERNAME = $('meta[name="username"]').attr("content"),
+	USERID = $('meta[name="userId"]').attr("content"),
 	REFRESH_TABLE_TIME = 30000;
-var table, table1, CURRENT_PATH, refreshTableInterval;
+var table, table1, CURRENT_PATH, refreshTableInterval, tableId;
 
 var socket = []
 
 if (typeof io !== 'undefined') {
-	socket = io.connect(`https://ipdn-socket.herokuapp.com`)
+	socket = io.connect(`http://192.168.1.25:6996`)
+	// socket = io.connect(`https://ipdn-socket.herokuapp.com`)
 }
 // socket.emit("join")
 
@@ -335,7 +338,7 @@ function addFormInput(formBody, inputForm = {}) {
 					<script>
 						CKEDITOR.replace('${options.name??''}-editor', {
 							height: 400,
-							filebrowserUploadUrl: '${ADMIN_PATH}/uploads',
+							filebrowserUploadUrl: '${ADMIN_PATH}/article/uploads',
 						})
 						CKEDITOR.instances['${options.name??''}-editor'].on('change', function() { 
 							$("#${options.name??''}-result").val(CKEDITOR.instances['${options.name??''}-editor'].getData())
@@ -368,6 +371,7 @@ $(document).delegate('a[id="itemFloat"]', 'click', function (e) {
 	var action = $(this).data('action')
 	const url = $(this).data('path')
 	const table = $($(this).data('table')).DataTable()
+	const tableName = $(this).data('table')
 	const dataId = $("#checkedListData").val().substr(0, $("#checkedListData").val().length - 1)
 	const jmlData = dataId.split(",").length
 	const message = {
@@ -395,7 +399,7 @@ $(document).delegate('a[id="itemFloat"]', 'click', function (e) {
 					enableButton()
 				},
 				success: function (result) {
-					"ok" == result.status ? (msgSweetSuccess(result.message), table.ajax.reload(null, false), $("#checkedListData").val(""), socket.emit("affectDataTable", {path: url})) : msgSweetError(result.message)
+					"ok" == result.status ? (msgSweetSuccess(result.message), table.ajax.reload(null, false), $("#checkedListData").val(""), socket.emit("affectDataTable", tableName)) : msgSweetError(result.message)
 				},
 				error: function (error) {
 					errorCode(error)
@@ -483,21 +487,26 @@ function pilihItem(idCek) {
 	// alert(idCek)
 }
 
+function doLogoutAjax() {
+	$.ajax({
+		url: ADMIN_PATH + "/login/destroy",
+		type: "POST",
+		data: {
+			_token: TOKEN
+		},
+		dataType: "JSON",
+		beforeSend: function () {},
+		success: function (result) {
+			"ok" == result.status ? redirect(ADMIN_PATH + "/login") : msgSweetError(result.message)
+		}
+	})
+}
+
+
 $(document).delegate("#btnLogout", "click", (function () {
 	confirmSweet("Anda yakin ingin keluar ?").then(result => {
 		if (isConfirmed(result)) { 
-			$.ajax({
-				url: ADMIN_PATH + "/login/destroy",
-				type: "POST",
-				data: {
-					_token: TOKEN
-				},
-				dataType: "JSON",
-				beforeSend: function () {},
-				success: function (result) {
-					"ok" == result.status ? redirect(ADMIN_PATH + "/login") : msgSweetError(result.message)
-				}
-			})
+			doLogoutAjax()
 		}
 	})
 }));
@@ -564,6 +573,26 @@ function dataColumnTable(data = []) {
 	return result
 
 }
+
+// socket client
+
+var currentRoom = ''
+function moveRoom(room) {
+	if (currentRoom != '') socket?.emit('leaveRoom', currentRoom)
+	socket?.emit("joinRoom", room)
+	currentRoom = room
+}
+
 socket.on?.("refreshDataTable", param => {
-	if (CURRENT_PATH == param.table != undefined ? `${ADMIN_PATH}/${param.table}/` : param.path) refreshData()
+	refreshData()
+})
+
+socket.on?.('logoutCall', message => {
+	alert(message)
+})
+
+socket.on?.('doLogoutUser', param => {
+	if (param.reason == "off" && USERID == param.userId) return msgSweetWarning("Sesi Anda berakhir !").then(msg=> {
+		doLogoutAjax()
+	})
 })
