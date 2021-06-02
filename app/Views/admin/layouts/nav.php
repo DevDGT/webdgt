@@ -28,22 +28,24 @@
 				</p>
 			</a>
 			<ul class="nav nav-treeview">
-				<li class="nav-item">
-					<a href="<?= base_url(ADMIN_PATH . '/category') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'category' ? 'active' : '' ?>">
-						<i class="fas fa-tag nav-icon"></i>
-						<p>Kategori</p>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a href="<?= base_url(ADMIN_PATH . '/tags') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'tags' ? 'active' : '' ?>">
-						<i class="fas fa-tags nav-icon"></i>
-						<p>Tags</p>
-					</a>
-				</li>
+				<?php if (session('level') == '1') :  ?>
+					<li class="nav-item">
+						<a href="<?= base_url(ADMIN_PATH . '/category') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'category' ? 'active' : '' ?>">
+							<i class="fas fa-tag nav-icon"></i>
+							<p>Kategori</p>
+						</a>
+					</li>
+					<!-- <li class="nav-item">
+						<a href="<?= base_url(ADMIN_PATH . '/tags') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'tags' ? 'active' : '' ?>">
+							<i class="fas fa-tags nav-icon"></i>
+							<p>Tags</p>
+						</a>
+					</li> -->
+				<?php endif ?>
 				<li class="nav-item">
 					<a href="<?= base_url(ADMIN_PATH . '/article') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'artikel' ? 'active' : '' ?>">
 						<i class="fas fa-newspaper nav-icon"></i>
-						<p>Artikel</p>
+						<p>Artikel & Berita</p>
 					</a>
 				</li>
 			</ul>

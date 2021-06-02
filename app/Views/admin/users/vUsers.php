@@ -66,5 +66,5 @@
 </div>
 <?= $this->endSection() ?>
 <?= $this->section('js') ?>
-<script src="<?= base_url('assets/js/page/users.js') ?>" defer></script>
+<script src="<?= base_url('assets/js/page/admin/users.js') ?>" defer></script>
 <?= $this->endSection() ?>

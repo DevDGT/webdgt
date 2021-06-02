@@ -4,6 +4,7 @@ const BASE_URL = $('meta[name="baseUrl"]').attr("content"),
 	TOKEN = $('meta[name="_token"]').attr("content"),
 	USERNAME = $('meta[name="username"]').attr("content"),
 	USERID = $('meta[name="userId"]').attr("content"),
+	ISADMIN = $('meta[name="admin"]').attr("content"),
 	REFRESH_TABLE_TIME = 30000;
 var table, table1, CURRENT_PATH, refreshTableInterval, tableId;
 
@@ -11,7 +12,12 @@ var socket = []
 
 if (typeof io !== 'undefined') {
 	socket = io.connect(`http://192.168.1.25:6996`)
+	// socket = io.connect(`http://localhost:6996`)
 	// socket = io.connect(`https://ipdn-socket.herokuapp.com`)
+	socket.on("connect", () => {
+		console.log("socket connected")
+		socket.emit("connected", USERNAME);
+	});
 }
 // socket.emit("join")
 
@@ -457,7 +463,7 @@ function selectClick(table = tableSelectClickData) {
 			cursor: pointer;
 		}
 	</style>`)
-	$(table).delegate('tr', 'click', function(e) {
+	$(document).delegate(table + ' tr', 'click', function(e) {
 		if (!$(e.target).is('button') && !$(e.target).is('i') && !$(e.target).is('input')) {
 			const data = $(this).data('id')
 			if ($(`input[id="checkItem-${data}"]`).is(":checked")) {

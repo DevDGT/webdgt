@@ -9,3 +9,6 @@
 </div>
 
 <?= $this->endSection(); ?>
+<?= $this->section('js'); ?>
+<script src="<?= base_url('assets/js/page/admin/dashboard.js') ?>" defer></script>
+<?= $this->endSection(); ?>

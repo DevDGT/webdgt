@@ -10,7 +10,8 @@ class LoginFilter implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
-        if (!session('token')) return redirect()->to(ADMIN_PATH . '/login');
+        $uri = service('uri');
+        if (!session('token') && $uri->getSegment(2) != 'login') return redirect()->to(ADMIN_PATH . '/login');
     }
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)

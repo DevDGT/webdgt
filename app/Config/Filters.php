@@ -21,7 +21,8 @@ class Filters extends BaseConfig
 		'honeypot' => Honeypot::class,
 		'cekLogin' => \App\Filters\LoginFilter::class,
 		'hasAdmin' => \App\Filters\AdminFilter::class,
-		'sudahLogin' => \App\Filters\LoginFilter::class,
+		'sudahLogin' => \App\Filters\SudahLogin::class,
+		'apiFilter' => \App\Filters\ApiFilter::class,
 	];
 
 	/**
@@ -61,5 +62,34 @@ class Filters extends BaseConfig
 	 *
 	 * @var array
 	 */
-	public $filters = [];
+	public $filters = [
+		'cekLogin' => [
+			'before' => [
+				'ruangadmin',
+				'ruangadmin/*',
+			],
+		],
+		'hasAdmin' => [
+			'before' => [
+				'ruangadmin/users',
+				'ruangadmin/users/*',
+				'ruangadmin/category',
+				'ruangadmin/category/*',
+				'ruangadmin/tags',
+				'ruangadmin/tags/*',
+				'ruangadmin/article/set*',
+				'ruangadmin/article/delete*',
+				'ruangadmin/article/update*',
+			]
+		],
+		'sudahLogin' => [
+			'before' => 'ruangadmin/login'
+		],
+		'apiFilter' => [
+			'before' => [
+				'api/data/*',
+				'api/row/*'
+			],
+		]
+	];
 }

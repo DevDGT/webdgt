@@ -70,5 +70,5 @@
 </div>
 <?= $this->endSection() ?>
 <?= $this->section('js'); ?>
-<script src="<?= base_url('assets/js/page/category.js') ?>" defer></script>
+<script src="<?= base_url('assets/js/page/admin/category.js') ?>" defer></script>
 <?= $this->endSection() ?>

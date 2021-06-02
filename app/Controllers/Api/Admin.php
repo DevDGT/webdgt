@@ -22,6 +22,7 @@ class Admin extends BaseController
             $this->masterModel->selectData = $option['selectData'] ?? "";
             $this->masterModel->tableJoin = $option['join'] ?? [];
             $this->masterModel->order = $option['order'] ?? ['id' => 'desc'];
+            $this->masterModel->whereData = $option['whereData'] ?? [];
             $field = $option['field'] ?? [];
             $listData = $this->masterModel->get_datatables();
             // echo $this->db->getLastQuery();
@@ -41,45 +42,47 @@ class Admin extends BaseController
                 "recordsFiltered" => $this->masterModel->count_filtered(),
                 "data" => $data,
             );
-            $message = $output;
+            $result = $output;
         } catch (\Throwable $th) {
-            $message = [
+            $result = [
                 'status' => 'fail',
                 'message' => $th->getMessage() . ", Line : " . $th->getLine() . ", File : " . $th->getFile()
             ];
         } catch (\Exception $ex) {
-            $message = [
+            $result = [
                 'status' => 'fail',
                 'message' => $ex->getMessage()
             ];
         } finally {
-            echo json_encode($message);
+            echo json_encode($result);
         }
     }
 
-    public function getRowTable($option = ['table' => '', 'where' => []])
+    public function getRowTable($option = ['table' => '', 'where' => [], 'guard' => []])
     {
         try {
 
             $data = $this->db->table($option['table'])->where($option['where'])->get()->getRowArray();
             if (!$data) throw new \Exception("no data");
-            $data = Guard($data, ["id:hash", "token", "password"]);
-            $message = [
+            $guard = ["id:hash", "token", "password"];
+            if (!empty($option['guard'])) $guard = array_merge($guard, $option['guard']);
+            $data = Guard($data, $guard);
+            $result = [
                 'status' => 'ok',
                 'data' => $data
             ];
         } catch (\Throwable $th) {
-            $message = [
+            $result = [
                 'status' => 'fail',
                 'message' => $th->getMessage()
             ];
         } catch (\Exception $ex) {
-            $message = [
+            $result = [
                 'status' => 'fail',
                 'message' => $ex->getMessage()
             ];
         } finally {
-            echo json_encode($message);
+            echo json_encode($result);
         }
     }
 
@@ -112,22 +115,22 @@ class Admin extends BaseController
                 unset($rows['created_at']);
                 $resultData[]  = $rows;
             }
-            $message = [
+            $result = [
                 'status' => 'ok',
                 'data' => $resultData
             ];
         } catch (\Throwable $th) {
-            $message = [
+            $result = [
                 'status' => 'fail',
                 'message' => $th->getMessage()
             ];
         } catch (\Exception $ex) {
-            $message = [
+            $result = [
                 'status' => 'fail',
                 'message' => $ex->getMessage()
             ];
         } finally {
-            echo json_encode($message);
+            echo json_encode($result);
         }
     }
 
@@ -175,6 +178,7 @@ class Admin extends BaseController
 
     public function dataArticle()
     {
+        // $userFilter = session('level') != "1" ? ['a.user_id' => session('userId')] : '';
         return $this->dataTables([
             'table' => 'article as a',
             'selectData' => "a.id,
@@ -182,21 +186,23 @@ class Admin extends BaseController
                 a.slug, 
                 a.cover, 
                 u.name as author,
+                u.username,
                 up.name as update,
                 a.created_at,
                 a.updated_at,
                 a.status,
-                (SELECT CONCAT('[', GROUP_CONCAT(CONCAT('\"'," . EncKey('tags.id') . ",':',tags.name,'\"') SEPARATOR ','), ']' ) FROM article_tags atag JOIN tags ON tags.id = atag.tags_id WHERE atag.article_id = a.id) as tags_list,
+                a.tags,
                 cat.name as category
             ",
-            'columnOrder"' => [null, 'title', 'u.name', null, 'a.updated_at', null, 'a.status'],
+            'columnOrder' => [null, 'a.title', 'u.name', null, 'a.updated_at', null, 'a.status'],
             'columnSearch' => ['a.title', 'a.slug'],
             'join' => [
                 'users as u' => 'u.id = a.user_id',
                 'users as up' => 'up.id = a.update_by',
                 'category as cat'  => 'cat.id = a.category_id',
             ],
-            'field' => ['title', 'slug', 'cover', 'author', 'update', 'tags_list', 'category', 'created_at', 'updated_at', 'status']
+            // 'whereData' => $userFilter,
+            'field' => ['title', 'slug', 'cover', 'username', 'author', 'update', 'tags', 'category', 'created_at', 'updated_at', 'status']
         ]);
     }
 
@@ -229,7 +235,8 @@ class Admin extends BaseController
     {
         return $this->getRowTable([
             'table' => 'article',
-            'where' => [EncKey('id') => $id]
+            'where' => [EncKey('id') => $id],
+            'guard' => ['category_id:hash']
         ]);
     }
 }

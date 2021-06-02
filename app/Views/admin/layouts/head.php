@@ -14,6 +14,7 @@
 	<meta name="username" content="<?= session('username') ?>">
 	<meta name="userId" content="<?= session('userIdHash') ?>">
 	<meta name="_token" content="<?= base64Enc(session('token'), 3) ?>">
+	<meta name="admin" content="<?= session('isAdmin') ?>">
 	<title class="webTitle">DGT | <?= $title ?? 'Administrator' ?></title>
 	<link rel="shortcut icon" type="image/jpg" href="<?= base_url('assets/img/logo.png') ?>" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">

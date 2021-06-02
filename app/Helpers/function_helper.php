@@ -2,8 +2,6 @@
 
 use CodeIgniter\Model as db;
 
-define('DATE_NOW', date('Y-m-d H:i:s', time()));
-
 function Create($table, $data, $json = false)
 {
     try {

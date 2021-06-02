@@ -47,6 +47,7 @@ class Login extends BaseController
 
             $session = [
                 'userId' => $userData->id,
+                'isAdmin' => $userData->level == '1' ? true : false,
                 'userIdHash' => Enc($userData->id),
                 'username' => $userData->username,
                 'name' => $userData->name,

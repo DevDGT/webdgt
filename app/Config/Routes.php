@@ -54,11 +54,11 @@ $routes->group('/ruangadmin/login', ['namespace' => 'App\Controllers'], function
     $routes->post('destroy', 'login::destroy');
 });
 
-$routes->group('ruangadmin', ['filter' => 'cekLogin', 'namespace' => 'App\Controllers\Admin'], function ($routes) {
+$routes->group('ruangadmin', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
     $routes->get('/', 'Dashboard::index');
     $routes->get('dashboard', 'Dashboard::index');
     // User Management routes
-    $routes->group('users', ['filter' => 'hasAdmin', 'namespace' => 'App\Controllers\Admin'], function ($routes) {
+    $routes->group('users', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
         $routes->get('/', 'Users::index');
         $routes->post('store', 'Users::store');
         $routes->post('delete', 'Users::delete');
@@ -71,7 +71,7 @@ $routes->group('ruangadmin', ['filter' => 'cekLogin', 'namespace' => 'App\Contro
     });
 
     // Category Management routes
-    $routes->group('category', ['filter' => 'cekLogin', 'namespace' => 'App\Controllers\Admin'], function ($routes) {
+    $routes->group('category', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
         $routes->get('/', 'Category::index');
         $routes->post('store', 'Category::store');
         $routes->post('delete', 'Category::delete');
@@ -100,15 +100,19 @@ $routes->group('ruangadmin', ['filter' => 'cekLogin', 'namespace' => 'App\Contro
         $routes->get('/', 'Article::index');
         $routes->post('check-title', 'Article::checkTitle');
         $routes->post('store', 'Article::store');
+        $routes->post('update', 'Article::update');
         $routes->post('set/(:any)', 'Article::set_/$1');
         $routes->post('delete', 'Article::delete');
-        $routes->add('uploads(:any)', 'Article::uploads');
+        $routes->post('uploads(:any)', 'Article::uploads');
+        $routes->post('set/(:any)', 'Article::set_/$1');
+        $routes->post('delete-multiple', 'Article::deleteMultiple');
+        $routes->post('set-multiple', 'Article::setMultiple');
     });
 });
 
 $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes) {
     $routes->get('test', 'Admin::dataCategory');
-    $routes->group('data', ['filter' => 'cekLogin', 'namespace' => 'App\Controllers\Api'], function ($routes) {
+    $routes->group('data', ['namespace' => 'App\Controllers\Api'], function ($routes) {
         $routes->post('options/(:any)', 'Admin::getDataOption/$1');
         $routes->post('users', 'Admin::dataUsers');
         $routes->post('category', 'Admin::dataCategory');

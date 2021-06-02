@@ -2,6 +2,8 @@
 
 // Path to the front controller (this file)
 define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
+date_default_timezone_set('Asia/Jakarta');
+define('DATE_NOW', date('Y-m-d H:i:s', time()));
 
 /*
  *---------------------------------------------------------------

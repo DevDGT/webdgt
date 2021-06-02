@@ -72,7 +72,7 @@
 						<img src="<?= base_url('assets/img/user.png') ?>" class="img-circle elevation-2" alt="User Image">
 					</div>
 					<div class="info">
-						<a href="#" class="d-block"><?= session('name') ?? "User" ?></a>
+						<a href="#" class="d-block"><?= strlen(session('name')) >= 20 ? substr(session('name'), 0, 20) : session('name') ?? "User" ?></a>
 					</div>
 				</div>
 				<div id="navSection">

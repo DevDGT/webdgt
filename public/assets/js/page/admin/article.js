@@ -1,5 +1,8 @@
 CURRENT_PATH = ADMIN_PATH + "/article/";
 
+tableId = "#listArticle"
+moveRoom(tableId)
+
 function refreshData() {
 	table.ajax.reload(null, !1)
 }
@@ -22,7 +25,7 @@ function setStatus(status, id) {
 					enableButton()
 				},
 				success: function (result) {
-					"ok" == result.status ? (refreshData(), toastSuccess(result.message), socket.emit("affectDataTable", {table: "users"})) : (enableButton(), toastError(result.message, "Gagal"))
+					"ok" == result.status ? (refreshData(), toastSuccess(result.message), socket.emit("affectDataTable", tableId)) : (enableButton(), toastError(result.message, "Gagal"))
 				},
 				error: function (error) {
 					errorCode(error)
@@ -35,7 +38,7 @@ function setStatus(status, id) {
 function initTable() {
 	$("#statusField").attr('style', 'width:70px')
 	$("#actionField").attr('style', 'width:115px')
-	table = $("#listArticle").DataTable({
+	table = $(tableId).DataTable({
 		processing: !0,
 		serverSide: !0,
 		order: [],
@@ -47,7 +50,7 @@ function initTable() {
 			},
 			complete: function () {
 				checkPilihan({
-					table: "#listArticle",
+					table: tableId,
 					buttons: ['delete', 'active', 'deactive'],
 					path: CURRENT_PATH
 				})
@@ -94,12 +97,13 @@ function initTable() {
 			orderable: !0,
 			render: function (data, type, row) {
 				let html = escapeHtml(row.title.length > 50 ? row.title.substr(0, 50) + '...' : row.title)
-				const dataTags = JSON.parse(row.tags_list)
-				let tags = dataTags == null ? [] : dataTags
+				let dataTags = row.tags.split(" ")
+				if (dataTags.length <= 1) dataTags = []
+				let tags = dataTags
 				let tag_ = ''
 				let title = ''
 				for (let index = 0; index < tags.length; index++) {
-					const tagName = tags[index].split(":")[1];
+					const tagName = tags[index];
 					index < 1 ? tag_ += `<span class="text-xs bg-info p-1 pl-2 pr-2 rounded">${tagName}</span> ` : title += `${tagName}\n`
 				}
 				tag_ += tags.length > 1 ? `<span class="text-xs p-1 pl-2 bg-info rounded-circle" title="${title}"> ${tags.length - 1}+ </span>` : ''
@@ -138,7 +142,10 @@ function initTable() {
 			targets: [7],
 			orderable: !1,
 			render: function (data, type, row) {
-				return "<button class='btn btn-danger btn-sm' id='delete' data-id=" + row.id + " title='Hapus Data'><i class='fas fa-trash-alt'></i></button> \n <button class='btn btn-warning btn-sm' id='edit' data-id=" + row.id + " title='Edit Data'><i class='fas fa-pencil-alt'></i></button>"
+				let button = ''
+				if (ISADMIN == 1) button += "<button class='btn btn-danger btn-sm' id='delete' data-id=" + row.id + " title='Hapus Data'><i class='fas fa-trash-alt'></i></button> "
+				button += ISADMIN == 1 ? " <button class='btn btn-warning btn-sm' id='edit' data-id=" + row.id + " title='Edit Data'><i class='fas fa-pencil-alt'></i></button>" : USERNAME == row.username ? " <button class='btn btn-warning btn-sm' id='edit' data-id=" + row.id + " title='Edit Data'><i class='fas fa-pencil-alt'></i></button>" : '-'
+				return button
 			}
 		}]
 	})
@@ -146,7 +153,7 @@ function initTable() {
 
 $(document).ready((function () {
 	initTable()
-})), $("#listArticle").delegate("#delete", "click", (function () {
+})), $(tableId).delegate("#delete", "click", (function () {
 	confirmSweet("Anda yakin ingin menghapus data ?").then((result) => {
 		if (isConfirmed(result)) {
 			let id = $(this).data("id")
@@ -165,7 +172,7 @@ $(document).ready((function () {
 					enableButton()
 				},
 				success: function (result) {
-					"ok" == result.status ? (toastSuccess(result.message), refreshData(), socket.emit("affectDataTable", {table: "users"})) : toastError(result.message, "Gagal")
+					"ok" == result.status ? (toastSuccess(result.message), refreshData(), socket.emit("affectDataTable", tableId)) : toastError(result.message, "Gagal")
 				},
 				error: function (error) {
 					errorCode(error)
@@ -173,10 +180,10 @@ $(document).ready((function () {
 			})
 		}
 	})
-})), $("#listArticle").delegate("#edit", "click", (function () {
+})), $(tableId).delegate("#edit", "click", (function () {
 	let id = $(this).data("id");
 	$.ajax({
-		url: API_PATH + "data/news/get/" + id,
+		url: API_PATH + "row/article/" + id,
 		type: "post",
 		data: {
 			_token: TOKEN
@@ -197,11 +204,10 @@ $(document).ready((function () {
 				label: "Judul",
 				required: "required",
 			}, {
-				type: "selectMultiple",
-				name: "category",
-				label: "Kategori",
+				type: "select2",
+				name: "category_id",
+				label: "Kategory",
 				required: "required",
-				dataType: "json",
 				api: {
 					url: `${API_PATH}data/options/category`,
 					option: {
@@ -209,6 +215,11 @@ $(document).ready((function () {
 						caption: "{name}"
 					}
 				}
+			},{
+				type: "text",
+				name: "tags",
+				label: "Tags (dipisah menggunakan spasi)",
+				required: "required",
 			}, {
 				type: "file",
 				name: "cover",
@@ -220,24 +231,6 @@ $(document).ready((function () {
 				label: "Konten",
 				required: "required",
 			}])
-			$("#formInput").validate({
-				rules: {
-					title: "required",
-					cetegory: "required",
-					content: "required"
-				},
-				messages: {
-					cover: {
-						required: "Cover harus dipilih"
-					},
-					title: {
-						required: "Judul harus diisi"
-					},
-					cetegory: {
-						required: "Kategori harus dipilih"
-					},
-				}
-			})
 		},
 		complete: function () {
 			enableButton()
@@ -249,9 +242,9 @@ $(document).ready((function () {
 			errorCode(err)
 		}
 	})
-})), $("#listArticle").delegate("#on", "click", (function () {
+})), $(tableId).delegate("#on", "click", (function () {
 	setStatus("off", $(this).data("id"))
-})), $("#listArticle").delegate("#off", "click", (function () {
+})), $(tableId).delegate("#off", "click", (function () {
 	setStatus("on", $(this).data("id"))
 })), $("#btnAdd").on('click', function () {
 	clearFormInput("#formBody")
@@ -272,49 +265,23 @@ $(document).ready((function () {
 				caption: "{name}"
 			}
 		}
-	}, {
-		type: "selectMultiple",
+	},{
+		type: "text",
 		name: "tags",
-		label: "Tags",
+		label: "Tags (dipisah menggunakan spasi)",
 		required: "required",
-		dataType: "json",
-		api: {
-			url: `${API_PATH}data/options/tags`,
-			option: {
-				value: "id",
-				caption: "{name}"
-			}
-		}
 	}, {
 		type: "file",
-		name: "",
+		name: "cover",
 		id: "cover",
 		label: "Pilih Cover",
+		required: "required",
 	}, {
 		type: "editor",
 		name: "content",
 		label: "Konten",
 		required: "required",
 	}])
-	// $("#formInput").validate({
-	// 	rules: {
-	// 		cover: "required",
-	// 		title: "required",
-	// 		cetegory: "required",
-	// 		content: "required"
-	// 	},
-	// 	messages: {
-	// 		cover: {
-	// 			required: "Cover harus dipilih"
-	// 		},
-	// 		title: {
-	// 			required: "Judul harus diisi"
-	// 		},
-	// 		cetegory: {
-	// 			required: "Kategori harus dipilih"
-	// 		},
-	// 	}
-	// })
 	$("#modalTitle").html('Tambah Berita')
 	$("#formInput").attr('action', CURRENT_PATH + "store")
 	$("#modalForm").modal('show')
@@ -340,7 +307,7 @@ $(document).ready((function () {
 			enableButton()
 		},
 		success: function (e) {
-			validate(e.validate.input), e.validate.success && ("ok" == e.status ? (toastSuccess(e.message), refreshData(), 1 == e.modalClose && $("#modalForm").modal("hide"), clearInput(e.validate.input), socket.emit("affectDataTable", {table: "news"})) : toastWarning(e.message));
+			validate(e.validate.input), e.validate.success && ("ok" == e.status ? (toastSuccess(e.message), refreshData(), 1 == e.modalClose && $("#modalForm").modal("hide"), clearInput(e.validate.input), socket.emit("affectDataTable", tableId)) : toastWarning(e.message));
 		},
 		error: function (err) {
 			errorCode(err)

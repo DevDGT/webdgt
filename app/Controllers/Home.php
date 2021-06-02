@@ -80,6 +80,7 @@ class Home extends BaseController
             'logoImg' => '',
             'logoName' => 'DGT',
             'section' => 'aboutus',
+            'js' => 'aboutus.js'
         ];
 
         echo view('front/canvas', $data);

@@ -6,16 +6,12 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
 
-class AdminFilter implements FilterInterface
+class SudahLogin implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
-        // if (session('token') && !session('level') == "1") return redirect()->to(ADMIN_PATH);
-        if (session('token') && !session('level') == "1") echo json_encode([
-            'status' => 'fail',
-            'message' => 'Tidak memiliki Akses'
-        ]);
-        if (session('level') != '1') exit();
+        $uri = service('uri');
+        if (session('token') && $uri->getSegment(2) != 'destroy') return redirect()->to(ADMIN_PATH);
     }
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
