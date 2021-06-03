@@ -50,8 +50,8 @@ $routes->group('/news', ['namespace' => 'App\Controllers'], function ($routes) {
 
 $routes->group('/ruangadmin/login', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->get('/', 'Login::index');
-    $routes->post('action', 'login::action');
-    $routes->post('destroy', 'login::destroy');
+    $routes->post('action', 'Login::action');
+    $routes->post('destroy', 'Login::destroy');
 });
 
 $routes->group('ruangadmin', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
