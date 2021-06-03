@@ -127,6 +127,12 @@ function Delete($table, $where, $json = false)
     }
 }
 
+/**
+ * Validate 
+ * @param array $input ['input' => 'rules']
+ * @param array $guard #remove index or replace value, use false for remove index ['input' => false]
+ */
+
 function Validate($data, $guarded = [])
 {
     $validate = [
@@ -428,6 +434,11 @@ function Print_($array, $clear = true, $stop = true)
             exit(0);
         }
     }
+}
+
+function slug($string)
+{
+    return preg_replace('/[^a-zA-Z0-9 -]/', '', str_replace([" ", ".", ","], "-", strtolower($string)));
 }
 
 function Render($view)
