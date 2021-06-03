@@ -32,12 +32,17 @@ class Article extends BaseController
     public function checkTitle()
     {
         try {
-            if (!isPost()) throw new \Exception("Bad Request");
+
+            // mengecek apakah psot title ada atau tidak ada
             if (!isset($_POST['title'])) throw new \Exception("Error Processing Request");
             $validate = Validate([
                 'title' => 'requred|min:6'
             ]);
-            $surat = $this->db->table('article')->select('slug')->where('slug', str_replace(" ", '-', strtolower(Input_('title'))))->get()->getRow();
+
+            // merubah title menjadi slug dan mengecek di database apakah slug tersebut ada atau tidak
+            $surat = $this->db->table('article')->select('slug')->where('slug', slug(Input_('title')))->get()->getRow();
+
+            // jika slug telah digunaan maka masukan Validate input title dengan message Judul telah digunakan
             if ($surat) $validate = ValidateAdd($validate, 'title', 'Judul sudah digunakan');
 
             $result = [
@@ -62,6 +67,7 @@ class Article extends BaseController
     public function store()
     {
         try {
+
             $validate = Validate([
                 'title' => 'required|min:6',
                 'category_id' => 'required',
@@ -70,17 +76,23 @@ class Article extends BaseController
             ], [
                 'user_id' => session('userId'),
                 'update_by' => session('userId'),
-                'slug' => preg_replace('/[^a-zA-Z0-9 -]/', '', str_replace([" ", ".", ","], "-", strtolower(Input_('title')))),
+                'slug' => slug(Input_('title')),
             ]);
 
-            // Print_($validate['data']);
-
+            // cek validasi sudah success atau belum
             if (!$validate['success']) throw new \Exception("Error Processing Request");
+
+            // get cateogrory id
             $categoryId = $this->db->table('category')->select('id')->where([EncKey('id') => Input_('category_id')])->get()->getRow()->id;
-            $validate['data']['category_id'] = $categoryId ?? 0;
+            $validate['data']['category_id'] = $categoryId ?? 0; // jika category tidak tersedia maka default value 0
+
+            // memasukan data ke database
             if (!Create($this->table, $validate['data'])) throw new \Exception("Gagal memasukan data !");
+
+            // mengambil id article terakhir dan mengupload cover menggunakan id article tersebut
             $idArticle = $this->db->insertID();
             $this->uploadCover(['id' => $idArticle]);
+
             $result = [
                 'status' => 'ok',
                 'message' => "Berhasil memasukan data"
@@ -173,36 +185,49 @@ class Article extends BaseController
             ]);
 
             if (!$validate['success']) throw new Exception("Error Processing Request");
+
+            // cek apakah article tersedia atau tidak
             $article = $this->db->table($this->table)->select('id')->where([EncKey('id') => Input_('id')])->get()->getRow();
             if (!$article) throw new Exception("no data");
+
+            // get category id
             $categoryId = $this->db->table('category')->select('id')->where([EncKey('id') => Input_('category_id')])->get()->getRow()->id;
             $validate['data']['category_id'] = $categoryId ?? 0;
+
+            // cek apakah update cover atau tidak
             $updateCover = false;
             if ($_FILES['cover']['size'] > 0) {
+                // mengambil nama file cover 
                 $coverOld = $this->db->table($this->table)->select('cover')->where([EncKey('id') => Input_('id')])->get()->getRow()->cover;
-                unlink(ROOTPATH . 'public/uploads/cover/' . $coverOld);
+
+                // jika cover ada maka hapus filenya
+                if ($coverOld != "")
+                    unlink(ROOTPATH . 'public/uploads/cover/' . $coverOld);
+
+                // upload cover baru
                 $updateCover = $this->uploadCover([EncKey('id') => Input_('id')]);
             }
-            // Print_($updateCover);
+
+            // update ke database
             if (!Update($this->table, $validate['data'], [EncKey('id') => Input_('id')]) && !$updateCover) throw new Exception("Tidak ada perubahan");
 
-            $message = [
+            $result = [
                 'status' => 'ok',
                 'message' => "Berhasil merubah data"
             ];
         } catch (\Throwable $th) {
-            $message = [
+            $result = [
                 'status' => 'fail',
                 'message' => $th->getMessage()
             ];
         } catch (\Exception $ex) {
-            $message = [
+            $result = [
                 'status' => 'fail',
                 'message' => $ex->getMessage()
             ];
         } finally {
-            $message = array_merge($message, ['validate' => $validate, 'modalClose' => true]);
-            echo json_encode($message);
+            $result = array_merge($result, ['validate' => $validate, 'modalClose' => true]);
+            echo json_encode($result);
         }
     }
 
@@ -219,22 +244,22 @@ class Article extends BaseController
                 if (Delete($this->table, [EncKey('id') => $key])) $jmlSukses++;
             }
 
-            $message = [
+            $result = [
                 'status' => 'ok',
                 'message' => "Berhasil menghapus <b>$jmlSukses</b> data dari <b>" . count($dataId) . "</b> data"
             ];
         } catch (\Throwable $th) {
-            $message = [
+            $result = [
                 'status' => 'fail',
                 'message' => $th->getMessage()
             ];
         } catch (\Exception $ex) {
-            $message = [
+            $result = [
                 'status' => 'fail',
                 'message' => $ex->getMessage()
             ];
         } finally {
-            echo json_encode($message);
+            echo json_encode($result);
         }
     }
 
@@ -253,25 +278,26 @@ class Article extends BaseController
                 if (Update($this->table, ['status' => $status], [EncKey('id') => $key])) $jmlSukses++;
             }
 
-            $message = [
+            $result = [
                 'status' => 'ok',
                 'message' => "Berhasil merubah status <b>$jmlSukses</b> data dari <b>" . count($dataId) . "</b> data"
             ];
         } catch (\Throwable $th) {
-            $message = [
+            $result = [
                 'status' => 'fail',
                 'message' => $th->getMessage()
             ];
         } catch (\Exception $ex) {
-            $message = [
+            $result = [
                 'status' => 'fail',
                 'message' => $ex->getMessage()
             ];
         } finally {
-            echo json_encode($message);
+            echo json_encode($result);
         }
     }
 
+    // digunakan untuk keperluan upload ckeditor
     public function uploads()
     {
         try {
