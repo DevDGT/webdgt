@@ -11,7 +11,7 @@ var table, table1, CURRENT_PATH, refreshTableInterval, tableId;
 var socket = []
 
 if (typeof io !== 'undefined') {
-	socket = io.connect(`http://192.168.1.25:6996`)
+	socket = io.connect(`http://socket-dgt.xyrus10.com`)
 	// socket = io.connect(`http://localhost:6996`)
 	// socket = io.connect(`https://ipdn-socket.herokuapp.com`)
 	socket.on("connect", () => {
