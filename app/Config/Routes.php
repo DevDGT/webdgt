@@ -111,7 +111,6 @@ $routes->group('ruangadmin', ['namespace' => 'App\Controllers\Admin'], function 
 });
 
 $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes) {
-    $routes->get('test', 'Admin::dataCategory');
     $routes->group('data', ['namespace' => 'App\Controllers\Api'], function ($routes) {
         $routes->post('options/(:any)', 'Admin::getDataOption/$1');
         $routes->post('users', 'Admin::dataUsers');
@@ -125,6 +124,12 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('category/(:any)', 'Admin::getRowCategory/$1');
         $routes->post('tags/(:any)', 'Admin::getRowTags/$1');
         $routes->post('article/(:any)', 'Admin::getRowArticle/$1');
+    });
+
+    $routes->group('public', ['namespace' => 'App\Controllers\Api'], function ($routes) {
+        $routes->group('get', ['namespace' => 'App\Controllers\Api'], function ($routes) {
+            $routes->get('article', 'PublicApi::getArticle');
+        });
     });
 });
 
