@@ -3,7 +3,6 @@
 namespace App\Controllers\Api;
 
 use App\Controllers\BaseController;
-use PharIo\Manifest\Extension;
 
 class Admin extends BaseController
 {
