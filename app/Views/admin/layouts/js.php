@@ -5,7 +5,7 @@
 <script src="<?= base_url('assets/admin') ?>/plugins/daterangepicker/daterangepicker.js" defer></script>
 <script src="<?= base_url('assets/admin') ?>/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js" defer></script>
 <script src="<?= base_url('assets/admin') ?>/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js" defer></script>
-<script src="<?= base_url('assets/admin') ?>/dist/js/adminlte.js" defer></script>
+<script src="<?= base_url('assets/admin') ?>/assets/js/adminlte.js" defer></script>
 <script src="<?= base_url('assets/admin') ?>/plugins/datatables/jquery.dataTables.min.js" defer></script>
 <script src="<?= base_url('assets/admin') ?>/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js" defer></script>
 <script src="<?= base_url('assets/admin') ?>/plugins/select2/js/select2.full.min.js" defer></script>
