@@ -8,8 +8,9 @@
     <!-- ======= Header ======= -->
     <?php include 'navbar.php'; ?>
     <!-- End Header -->
-
-    <?php echo $hero ?? ''; ?>
+    <div id="heroGan">
+        <?php echo $hero ?? ''; ?>
+    </div>
 
     <!-- Main Section -->
     <main id="main">

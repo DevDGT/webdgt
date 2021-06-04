@@ -2,7 +2,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>DGT | <?php echo $title ?? ''; ?></title>
+    <title class="webTitle">DGT | <?php echo $title ?? ''; ?></title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -11,6 +11,9 @@
     <link href="<?php echo base_url('/assets/img/apple-touch-icon.png') ?>" rel="apple-touch-icon" sizes="180x180">
     <link href="<?php echo base_url('/assets/img/favicon-32x32.png') ?>" rel="icon" type="image/png" sizes="32x32">
     <link href="<?php echo base_url('/assets/img/favicon-16x16.png') ?>" rel="icon" type="image/png" sizes="16x16">
+    <meta name="baseUrl" content="<?= base_url() ?>">
+    <meta name="apiPath" content="<?= API_PATH ?>">
+    <meta name="slug" content="<?= $slug ?? "" ?>">
     <link rel="manifest" href="/site.webmanifest">
 
     <!-- Google Fonts -->
