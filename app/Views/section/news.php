@@ -17,12 +17,15 @@
 
         <div class="row">
 
-            <div class="col-lg-8 entries">
+            <div class="col-lg-8 entries articles">
 
-                <article class="entry">
+                <div id="articleSection">
 
-                    <div class="entry-img">
-                        <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
+                </div>
+                <!-- <article class="entry" id="articleSection"> -->
+
+                <!-- <div class="entry-img images">
+                    <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
                     </div>
 
                     <h2 class="entry-title">
@@ -43,13 +46,16 @@
                             Et eveniet enim. Qui velit est ea dolorem doloremque deleniti aperiam unde soluta. Est cum et quod quos aut ut et sit sunt. Voluptate porro consequatur assumenda perferendis dolore.
                         </p>
                         <div class="read-more">
-                            <a href="<?php echo base_url('/news/read/article'); ?>">Read More</a>
+                            <a href="<?php //echo base_url('/news/read/article'); 
+                                        ?>">Read More</a>
                         </div>
-                    </div>
+                    </div> -->
 
-                </article><!-- End blog entry -->
+                <!-- </article> -->
 
-                <article class="entry">
+                <!-- End blog entry -->
+
+                <!-- <article class="entry">
 
                     <div class="entry-img">
                         <img src="assets/img/blog/blog-2.jpg" alt="" class="img-fluid">
@@ -77,7 +83,8 @@
                         </div>
                     </div>
 
-                </article><!-- End blog entry -->
+                </article> -->
+                <!-- End blog entry -->
 
 
                 <div class="blog-pagination">
@@ -104,15 +111,18 @@
 
                     <h3 class="sidebar-title">Categories</h3>
                     <div class="sidebar-item categories">
-                        <ul>
-                            <li><a href="#">General <span>(25)</span></a></li>
-                            <li><a href="#">Lifestyle <span>(12)</span></a></li>
-                            <li><a href="#">Travel <span>(5)</span></a></li>
-                            <li><a href="#">Design <span>(22)</span></a></li>
-                            <li><a href="#">Creative <span>(8)</span></a></li>
-                            <li><a href="#">Educaion <span>(14)</span></a></li>
+                        <ul id="newsCategory">
+                            <!-- <div id="newsCategory"> -->
+                            <!-- <li><a href="#">General <span>(25)</span></a></li>
+                                    <li><a href="#">Lifestyle <span>(12)</span></a></li>
+                                    <li><a href="#">Travel <span>(5)</span></a></li>
+                                    <li><a href="#">Design <span>(22)</span></a></li>
+                                    <li><a href="#">Creative <span>(8)</span></a></li>
+                                    <li><a href="#">Educaion <span>(14)</span></a></li> -->
+                            <!-- </div> -->
                         </ul>
-                    </div><!-- End sidebar categories-->
+                    </div>
+                    <!-- End sidebar categories-->
 
                     <h3 class="sidebar-title">Recent Posts</h3>
                     <div class="sidebar-item recent-posts">
@@ -151,7 +161,8 @@
                     <h3 class="sidebar-title">Tags</h3>
                     <div class="sidebar-item tags">
                         <ul>
-                            <li><a href="#">App</a></li>
+                            <div id="newsTags"></div>
+                            <!-- <li><a href="#">App</a></li>
                             <li><a href="#">IT</a></li>
                             <li><a href="#">Business</a></li>
                             <li><a href="#">Mac</a></li>
@@ -161,7 +172,7 @@
                             <li><a href="#">Studio</a></li>
                             <li><a href="#">Smart</a></li>
                             <li><a href="#">Tips</a></li>
-                            <li><a href="#">Marketing</a></li>
+                            <li><a href="#">Marketing</a></li> -->
                         </ul>
                     </div><!-- End sidebar tags-->
 
