@@ -2190,3 +2190,7 @@ section {
   color: #fff;
   text-decoration: none;
 }
+
+.loadingGan .bar {
+  background: #1bbd36;
+}
