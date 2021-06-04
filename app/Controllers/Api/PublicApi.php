@@ -21,7 +21,7 @@ class PublicApi extends BaseController
             $idArticle = isset($_REQUEST['id']) ? ($_REQUEST['id'] == '' ? '' : $_REQUEST['id']) : '';
             $slugArticle = isset($_REQUEST['slug']) ? ($_REQUEST['slug'] == '' ? '' : $_REQUEST['slug']) : '';
             $slugCategory = isset($_REQUEST['category']) ? ($_REQUEST['category'] == '' ? '' : $_REQUEST['category']) : '';
-            $tag = isset($_REQUEST['tag']) ? ($_REQUEST['tag'] == '' ? '' : $_REQUEST['tag']) : '';
+            $tag = isset($_REQUEST['tags']) ? ($_REQUEST['tags'] == '' ? '' : $_REQUEST['tags']) : '';
             $detail = isset($_REQUEST['detail']) ? ($_REQUEST['detail'] == '' ? '' : $_REQUEST['detail']) : '';
 
             $this->builder = $this->db->table('article a');
