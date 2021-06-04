@@ -12,7 +12,7 @@ class News extends BaseController
             'logoImg' => '',
             'logoName' => 'DGT',
             'section' => 'news',
-            'js' => ''
+            'js' => 'news.js'
         ];
 
         echo view('front/canvas', $data);
@@ -20,14 +20,15 @@ class News extends BaseController
 
     public function article()
     {
-
+        $uri = service('uri');
         $data = [
             'title' => 'Title News',
             'pageTitle' => 'Title News',
             'logoImg' => '',
             'logoName' => 'DGT',
             'section' => 'article',
-            'js' => ''
+            'slug' => $uri->getSegment(2),
+            'js' => 'detailsNews.js'
         ];
 
         echo view('front/canvas', $data);
