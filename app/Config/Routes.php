@@ -132,7 +132,6 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
             $routes->get('article', 'PublicApi::getArticle');
             $routes->get('category', 'PublicApi::getCategory');
             $routes->get('tags', 'PublicApi::getTags');
-            $routes->post('article', 'PublicApi::getArticle');
         });
     });
 });
