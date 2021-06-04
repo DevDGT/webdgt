@@ -47,6 +47,7 @@ class PublicApi extends BaseController
             if ($slugArticle != '') $this->builder->where('a.slug', $slugArticle);
             if ($slugCategory != '') $this->builder->where('c.slug', $slugCategory);
             if ($tag != '') $this->builder->like('a.tags', $tag, 'both');
+            $this->builder->where(['status' => '1']);
             $this->builder->limit($limit, ($page != 0 ? $page - 1 : 0) * $limit);
             $article = $this->builder->get()->getResultArray();
             $data = array();
