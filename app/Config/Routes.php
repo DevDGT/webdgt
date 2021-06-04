@@ -45,7 +45,8 @@ $routes->group('/abouts', ['namespace' => 'App\Controllers'], function ($routes)
 
 $routes->group('/news', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->get('/', 'News::index');
-    $routes->get('read/article', 'News::article');
+    $routes->get('read', 'News::index');
+    $routes->get('(:any)', 'News::article');
 });
 
 $routes->group('/ruangadmin/login', ['namespace' => 'App\Controllers'], function ($routes) {
@@ -129,6 +130,9 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
     $routes->group('public', ['namespace' => 'App\Controllers\Api'], function ($routes) {
         $routes->group('get', ['namespace' => 'App\Controllers\Api'], function ($routes) {
             $routes->get('article', 'PublicApi::getArticle');
+            $routes->get('category', 'PublicApi::getCategory');
+            $routes->get('tags', 'PublicApi::getTags');
+            $routes->post('article', 'PublicApi::getArticle');
         });
     });
 });
