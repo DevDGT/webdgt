@@ -69,8 +69,8 @@ class PublicApi extends BaseController
                 foreach ($field as $key) {
                     $row[$key] = $field_[$key];
                 }
-                $row['description'] = preg_replace('!\s+!', ' ', (substr(strip_tags($field_['content']), 0, 200) . "..."));
-                $row['content'] = $detail == 'true' ? $field_['content'] : preg_replace('!\s+!', ' ', (substr(strip_tags($field_['content']), 0, 200) . "..."));
+                $row['description'] = preg_replace('!\s+!', ' ', (substr(strip_tags($field_['content']), 0, 400) . "..."));
+                $row['content'] = $detail == 'true' ? $field_['content'] : preg_replace('!\s+!', ' ', (substr(strip_tags($field_['content']), 0, 400) . "..."));
                 $data[] = $row;
             }
 

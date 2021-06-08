@@ -20,7 +20,7 @@ $(document).ready(function(){
                         </div>
 
                         <h2 class="entry-title">
-                            <a href="#">${items.title}</a>
+                            <a href="${BASE_URL}/news/${items.slug}">${items.title}</a>
                         </h2>
 
                         <div class="entry-meta">

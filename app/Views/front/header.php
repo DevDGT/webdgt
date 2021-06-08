@@ -2,11 +2,11 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title class="webTitle">DGT | <?php echo $title ?? ''; ?></title>
+    <title class="webTitle"><?php echo $title ?? 'DGT'; ?></title>
     <meta content="" name="description">
     <meta content="" name="keywords">
-    <meta property="og:title" class="webTitle" content="">
-    <meta property="og:description" class="ogDesc" content="">
+    <meta property="og:title" content="<?= $newsData[0]->title ?? "WEB DGT" ?>">
+    <meta property="og:description" content="<?= $newsData[0]->description ?? "WEB Profile and Product Dianglobaltech" ?>">
     <meta property="og:image" content="<?php echo base_url('/assets/img/logo.png'); ?>">
     <meta property="og:url" content="<?php echo base_url('/assets/img/logo.png') ?>">
     <!-- Favicons -->
