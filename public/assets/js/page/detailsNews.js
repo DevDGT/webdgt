@@ -1,16 +1,21 @@
 $(document).ready(function(){
-    var tagsAPI = `${API_PATH}/public/get/article?slug=${SLUG}&detail=true`;
+    var detailApi = `${API_PATH}/public/get/article?slug=${SLUG}&detail=true`;
         
-        $.getJSON(tagsAPI, {
-            format: 'json'
-        }).done(function(response){
-            // let tags = '';
-            // $.each(response.data, function(i, items){
-            //     tags += `
-            //         <li><a href="${API_PATH}/public/get/article?limit=5&page=1&tags=${items}">${items}</a></li>
-            //     `;
-            //     $('#newsTags').html(tags);
-            // });
-            console.log(response);
-        });
+    $.getJSON(detailApi, {
+        format: 'json'
+    }).done(function(response){
+        if (response.status == 'ok') {
+            const newsData = response.data[0]
+            $(".newsTitle").text(`${newsData.title}`)
+            $(".webTitle").text(`${newsData.title}`)
+            $(".newsTime").text(` ${moment(newsData.updated_at).format('MMMM D YYYY')}`)
+            $(".newsContent").html(newsData.content)
+            $(".ogDesc").html(newsData.description)
+            $(".newsAuthor").html(` ${newsData.author}`)
+            $(".newsCover").attr('src',`${BASE_URL}/uploads/cover/${newsData.cover.trim()}`)
+            $(".newsRoti")
+                .append(`<li><a href="${BASE_URL}/category/${newsData.category_slug}">${newsData.category}</a></li>`)
+                .append(`<li><a href="${BASE_URL}">${newsData.title}</a></li>`)
+        }
+    });
 });

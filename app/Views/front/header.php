@@ -5,7 +5,10 @@
     <title class="webTitle">DGT | <?php echo $title ?? ''; ?></title>
     <meta content="" name="description">
     <meta content="" name="keywords">
-
+    <meta property="og:title" class="webTitle" content="">
+    <meta property="og:description" class="ogDesc" content="">
+    <meta property="og:image" content="<?php echo base_url('/assets/img/logo.png'); ?>">
+    <meta property="og:url" content="<?php echo base_url('/assets/img/logo.png') ?>">
     <!-- Favicons -->
     <link href="<?php echo base_url('/assets/img/logo.png'); ?>" rel="icon">
     <link href="<?php echo base_url('/assets/img/apple-touch-icon.png') ?>" rel="apple-touch-icon" sizes="180x180">

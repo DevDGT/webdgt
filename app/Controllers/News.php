@@ -12,7 +12,11 @@ class News extends BaseController
             'logoImg' => '',
             'logoName' => 'DGT',
             'section' => 'news',
-            'js' => 'news.js'
+            'js' => [
+                "<script src=" . base_url('assets/js/page/sidebars.js') . " defer></script>",
+                "<script src=" . base_url('assets/js/page/news.js') . " defer></script>",
+            ]
+
         ];
 
         echo view('front/canvas', $data);
@@ -22,13 +26,17 @@ class News extends BaseController
     {
         $uri = service('uri');
         $data = [
-            'title' => 'Title News',
-            'pageTitle' => 'Title News',
+            'title' => '',
+            'pageTitle' => '',
             'logoImg' => '',
             'logoName' => 'DGT',
             'section' => 'article',
             'slug' => $uri->getSegment(2),
-            'js' => 'detailsNews.js'
+            'js' => [
+                "<script src=" . base_url('assets/js/page/sidebars.js') . " defer></script>",
+                "<script src=" . base_url('assets/js/page/detailsNews.js') . " defer></script>",
+            ]
+
         ];
 
         echo view('front/canvas', $data);

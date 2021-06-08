@@ -15,8 +15,9 @@
 <script src="<?= base_url('assets/js/module/nanobar.min.js') ?>" defer></script>
 <script src="<?= base_url('assets/js/module/jquery.validate.min.js') ?>" defer></script>
 <script src="<?= base_url('assets/js/module/additional-methods.min.js') ?>" defer></script>
-<script src="https://socket.xyrus10.com/socket.io/socket.io.js" defer></script>
-<!-- <script src="http://192.168.1.:6996/socket.io/socket.io.js" defer></script> -->
+<script src="<?= base_url('assets/js/module/socket.io.js') ?>" defer></script>
+<!-- <script src="https://socket.xyrus10.com/socket.io/socket.io.js" defer></script> -->
+<!-- <script src="http://192.168.1.17:6996/socket.io/socket.io.js" defer></script> -->
 <script src="<?= base_url('assets/js/app.js') ?>" defer></script>
 <div id="customJsNa">
     <?= $this->renderSection('js'); ?>

@@ -66,7 +66,9 @@ class Home extends BaseController
                         </section>
                     EOD,
             'section' => 'dashboard',
-            'js' => 'dashboard.js'
+            'js' => [
+                "<script src=" . base_url('assets/js/page/dashboard.js') . " defer></script>",
+            ]
         ];
 
         echo view('front/canvas', $data);

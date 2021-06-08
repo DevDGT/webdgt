@@ -9,9 +9,15 @@
 <!-- End Main Script JS -->
 <div id="customJsNa">
     <!-- User Page Js  -->
-    <?php if ($js != '') : ?>
-        <script src="<?php echo base_url('assets/js/page/' . $js ?? ''); ?>" defer></script>
-    <?php endif; ?>
+    <?php if (gettype($js) == 'array') : ?>
+        <?php foreach ($js ?? [] as $jsNa) : ?>
+            <?php echo $jsNa ?? '' ?>
+        <?php endforeach; ?>
+    <?php else : ?>
+        <?php if ($js != '') : ?>
+            <script src="<?php echo base_url('assets/js/page/sidebars.js') ?>" defer></script>
+        <?php endif ?>
+    <?php endif ?>
 </div>
 
 <!-- End User Page Js  -->

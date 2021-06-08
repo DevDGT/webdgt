@@ -14,7 +14,7 @@ if (typeof io !== 'undefined') {
 	});
 }
 
-moment.locale('id');
+moment.locale('en');
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
