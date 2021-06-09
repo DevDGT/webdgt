@@ -1,3 +1,8 @@
+<style>
+    imgceo {
+        border-radius: 50%;
+    }
+</style>
 <section id="breadcrumbs" class="breadcrumbs">
     <div class="container">
 
@@ -33,168 +38,271 @@
             <h2>Meet Our <strong>Team</strong></h2>
         </div>
 
-        <div class="row">
-            <div class="col"></div>
-            a
-        </div>
-        <div class="col">
-            b
-        </div>
-    </div>
+        <!-- Ceo Line -->
+        <div class="row dgtCeo">
 
-    <div class="row dgtTeam">
-
-        <div class="col-lg-3 col-md-4 mx-2 p-6 d-flex align-items-stretch">
-            <div class="member aos-init aos-animate" data-aos="fade-up">
-                <div class="member-img">
-                    <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
-                    <div class="social">
-                        <a href=""><i class="bi bi-twitter"></i></a>
-                        <a href=""><i class="bi bi-facebook"></i></a>
-                        <a href=""><i class="bi bi-instagram"></i></a>
-                        <a href=""><i class="bi bi-linkedin"></i></a>
+            <div class="col-lg-12">
+                <div class="member aos-init aos-animate" data-aos="fade-up">
+                    <div class="member-img my-4">
+                        <img src="assets/img/testimonials/testimonials-1.jpg" class="img-fluid imgceo" alt="">
+                        <div class="container">
+                            <h3 class="text-uppercase my-4">Dian Endianingsih - CEO</h3>
+                            <p class="mx-auto">
+                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div class="member-info">
-                    <h4>Walter White</h4>
-                    <span>Chief Executive Officer</span>
-                </div>
             </div>
-        </div>
 
-        <div class="col-lg-3 col-md-4 mx-2 p-6 d-flex align-items-stretch">
-            <div class="member aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-                <div class="member-img">
-                    <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
-                    <div class="social">
-                        <a href=""><i class="bi bi-twitter"></i></a>
-                        <a href=""><i class="bi bi-facebook"></i></a>
-                        <a href=""><i class="bi bi-instagram"></i></a>
-                        <a href=""><i class="bi bi-linkedin"></i></a>
+        </div>
+        <!-- End Ceo Line -->
+
+        <div class="row dgtTeam">
+
+            <div class="col-lg-3 col-md-4 mx-2 p-6 d-flex align-items-stretch">
+                <div class="member aos-init aos-animate" data-aos="fade-up">
+                    <div class="member-img">
+                        <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
+                        <div class="social">
+                            <a href=""><i class="bi bi-twitter"></i></a>
+                            <a href=""><i class="bi bi-facebook"></i></a>
+                            <a href=""><i class="bi bi-instagram"></i></a>
+                            <a href=""><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h4>Walter White</h4>
+                        <span>Chief Executive Officer</span>
                     </div>
                 </div>
-                <div class="member-info">
-                    <h4>Sarah Jhonson</h4>
-                    <span>Product Manager</span>
-                </div>
             </div>
-        </div>
 
-        <div class="col-lg-3 col-md-4 mx-2 p-6 d-flex align-items-stretch">
-            <div class="member aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
-                <div class="member-img">
-                    <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
-                    <div class="social">
-                        <a href=""><i class="bi bi-twitter"></i></a>
-                        <a href=""><i class="bi bi-facebook"></i></a>
-                        <a href=""><i class="bi bi-instagram"></i></a>
-                        <a href=""><i class="bi bi-linkedin"></i></a>
+            <div class="col-lg-3 col-md-4 mx-2 p-6 d-flex align-items-stretch">
+                <div class="member aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                    <div class="member-img">
+                        <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
+                        <div class="social">
+                            <a href=""><i class="bi bi-twitter"></i></a>
+                            <a href=""><i class="bi bi-facebook"></i></a>
+                            <a href=""><i class="bi bi-instagram"></i></a>
+                            <a href=""><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h4>Sarah Jhonson</h4>
+                        <span>Product Manager</span>
                     </div>
                 </div>
-                <div class="member-info">
-                    <h4>William Anderson</h4>
-                    <span>CTO</span>
-                </div>
             </div>
-        </div>
 
-        <div class="col-lg-3 col-md-4 mx-2 p-6 d-flex align-items-stretch">
-            <div class="member aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
-                <div class="member-img">
-                    <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-                    <div class="social">
-                        <a href=""><i class="bi bi-twitter"></i></a>
-                        <a href=""><i class="bi bi-facebook"></i></a>
-                        <a href=""><i class="bi bi-instagram"></i></a>
-                        <a href=""><i class="bi bi-linkedin"></i></a>
+            <div class="col-lg-3 col-md-4 mx-2 p-6 d-flex align-items-stretch">
+                <div class="member aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                    <div class="member-img">
+                        <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
+                        <div class="social">
+                            <a href=""><i class="bi bi-twitter"></i></a>
+                            <a href=""><i class="bi bi-facebook"></i></a>
+                            <a href=""><i class="bi bi-instagram"></i></a>
+                            <a href=""><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h4>William Anderson</h4>
+                        <span>CTO</span>
                     </div>
                 </div>
-                <div class="member-info">
-                    <h4>Amanda Jepson</h4>
-                    <span>Accountant</span>
-                </div>
             </div>
-        </div>
 
-        <div class="col-lg-3 col-md-4 mx-2 p-6 d-flex align-items-stretch">
-            <div class="member aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
-                <div class="member-img">
-                    <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-                    <div class="social">
-                        <a href=""><i class="bi bi-twitter"></i></a>
-                        <a href=""><i class="bi bi-facebook"></i></a>
-                        <a href=""><i class="bi bi-instagram"></i></a>
-                        <a href=""><i class="bi bi-linkedin"></i></a>
+            <div class="col-lg-3 col-md-4 mx-2 p-6 d-flex align-items-stretch">
+                <div class="member aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+                    <div class="member-img">
+                        <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
+                        <div class="social">
+                            <a href=""><i class="bi bi-twitter"></i></a>
+                            <a href=""><i class="bi bi-facebook"></i></a>
+                            <a href=""><i class="bi bi-instagram"></i></a>
+                            <a href=""><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h4>Amanda Jepson</h4>
+                        <span>Accountant</span>
                     </div>
                 </div>
-                <div class="member-info">
-                    <h4>Amanda Jepson</h4>
-                    <span>Accountant</span>
-                </div>
             </div>
-        </div>
 
-        <div class="col-lg-3 col-md-4 mx-2 p-6 d-flex align-items-stretch">
-            <div class="member aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
-                <div class="member-img">
-                    <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-                    <div class="social">
-                        <a href=""><i class="bi bi-twitter"></i></a>
-                        <a href=""><i class="bi bi-facebook"></i></a>
-                        <a href=""><i class="bi bi-instagram"></i></a>
-                        <a href=""><i class="bi bi-linkedin"></i></a>
+            <div class="col-lg-3 col-md-4 mx-2 p-6 d-flex align-items-stretch">
+                <div class="member aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+                    <div class="member-img">
+                        <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
+                        <div class="social">
+                            <a href=""><i class="bi bi-twitter"></i></a>
+                            <a href=""><i class="bi bi-facebook"></i></a>
+                            <a href=""><i class="bi bi-instagram"></i></a>
+                            <a href=""><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h4>Amanda Jepson</h4>
+                        <span>Accountant</span>
                     </div>
                 </div>
-                <div class="member-info">
-                    <h4>Amanda Jepson</h4>
-                    <span>Accountant</span>
-                </div>
             </div>
-        </div>
 
-        <div class="col-lg-3 col-md-4 mx-2 p-6 d-flex align-items-stretch">
-            <div class="member aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
-                <div class="member-img">
-                    <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-                    <div class="social">
-                        <a href=""><i class="bi bi-twitter"></i></a>
-                        <a href=""><i class="bi bi-facebook"></i></a>
-                        <a href=""><i class="bi bi-instagram"></i></a>
-                        <a href=""><i class="bi bi-linkedin"></i></a>
+            <div class="col-lg-3 col-md-4 mx-2 p-6 d-flex align-items-stretch">
+                <div class="member aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+                    <div class="member-img">
+                        <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
+                        <div class="social">
+                            <a href=""><i class="bi bi-twitter"></i></a>
+                            <a href=""><i class="bi bi-facebook"></i></a>
+                            <a href=""><i class="bi bi-instagram"></i></a>
+                            <a href=""><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h4>Amanda Jepson</h4>
+                        <span>Accountant</span>
                     </div>
                 </div>
-                <div class="member-info">
-                    <h4>Amanda Jepson</h4>
-                    <span>Accountant</span>
-                </div>
             </div>
-        </div>
 
-        <div class="col-lg-3 col-md-4 mx-2 p-6 d-flex align-items-stretch">
-            <div class="member aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
-                <div class="member-img">
-                    <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-                    <div class="social">
-                        <a href=""><i class="bi bi-twitter"></i></a>
-                        <a href=""><i class="bi bi-facebook"></i></a>
-                        <a href=""><i class="bi bi-instagram"></i></a>
-                        <a href=""><i class="bi bi-linkedin"></i></a>
+            <div class="col-lg-3 col-md-4 mx-2 p-6 d-flex align-items-stretch">
+                <div class="member aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+                    <div class="member-img">
+                        <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
+                        <div class="social">
+                            <a href=""><i class="bi bi-twitter"></i></a>
+                            <a href=""><i class="bi bi-facebook"></i></a>
+                            <a href=""><i class="bi bi-instagram"></i></a>
+                            <a href=""><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h4>Amanda Jepson</h4>
+                        <span>Accountant</span>
                     </div>
                 </div>
-                <div class="member-info">
-                    <h4>Amanda Jepson</h4>
-                    <span>Accountant</span>
+            </div>
+
+            <div class="col-lg-3 col-md-4 mx-2 p-6 d-flex align-items-stretch">
+                <div class="member aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+                    <div class="member-img">
+                        <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
+                        <div class="social">
+                            <a href=""><i class="bi bi-twitter"></i></a>
+                            <a href=""><i class="bi bi-facebook"></i></a>
+                            <a href=""><i class="bi bi-instagram"></i></a>
+                            <a href=""><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h4>Amanda Jepson</h4>
+                        <span>Accountant</span>
+                    </div>
                 </div>
             </div>
+
         </div>
 
-    </div>
+        <!-- Video Line -->
+        <div class="row dgtVideo">
+
+            <div class="col-lg-12 aos-init">
+                <div class="member aos-init aos-animate d-flex" data-aos="fade-up">
+                    <div class="member-img my-4 align-self-center">
+                        <h2 class="text-center text-capitalize">Dian Global Tech Is</h2>
+                        <div class="container">
+                            <video width="100%" height="auto" controls="">
+                                <source src="http://techslides.com/demos/sample-videos/small.ogv" type="video/ogg">
+                            </video>
+                            <p class="text-start text-wrap">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- End Video Line -->
+
+        <h2 class="text-center text-capitalize my-2">Cooperation Benefits</h2>
+        <!-- Cooperation Line -->
+        <div class="row services section-bg benefits">
+            <!-- <div class="section benefits"> -->
+            <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box iconbox-blue">
+                    <div class="icon">
+                        <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174"></path>
+                        </svg>
+                        <i class="bx bxl-dribbble"></i>
+                    </div>
+                    <h4><a href="">Lorem Ipsum</a></h4>
+                    <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box iconbox-blue">
+                    <div class="icon">
+                        <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174"></path>
+                        </svg>
+                        <i class="bx bxl-dribbble"></i>
+                    </div>
+                    <h4><a href="">Lorem Ipsum</a></h4>
+                    <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-box iconbox-blue">
+                    <div class="icon">
+                        <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174"></path>
+                        </svg>
+                        <i class="bx bxl-dribbble"></i>
+                    </div>
+                    <h4><a href="">Lorem Ipsum</a></h4>
+                    <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="400">
+                <div class="icon-box iconbox-blue">
+                    <div class="icon">
+                        <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174"></path>
+                        </svg>
+                        <i class="bx bxl-dribbble"></i>
+                    </div>
+                    <h4><a href="">Lorem Ipsum</a></h4>
+                    <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="500">
+                <div class="icon-box iconbox-blue">
+                    <div class="icon">
+                        <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174"></path>
+                        </svg>
+                        <i class="bx bxl-dribbble"></i>
+                    </div>
+                    <h4><a href="">Lorem Ipsum</a></h4>
+                    <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+                </div>
+            </div>
+            <!-- </div> -->
+        </div>
+        <!-- End Cooperation Line -->
 
     </div>
 </section>
 
 <!-- ======= Services Section ======= -->
-<section id="services" class="services section-bg">
+<!-- <section id="services" class="services section-bg">
     <div class="container" data-aos="fade-up">
 
         <div class="row">
@@ -279,11 +387,11 @@
         </div>
 
     </div>
-</section>
+</section> -->
 <!-- End Services Section -->
 
 <!-- ======= Portfolio Section ======= -->
-<section id="portfolio" class="portfolio">
+<!-- <section id="portfolio" class="portfolio">
     <div class="container">
 
         <div class="row" data-aos="fade-up">
@@ -392,10 +500,11 @@
         </div>
 
     </div>
-</section><!-- End Portfolio Section -->
+</section> -->
+<!-- End Portfolio Section -->
 
 <!-- ======= Our Clients Section ======= -->
-<section id="clients" class="clients">
+<!-- <section id="clients" class="clients">
     <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -455,5 +564,5 @@
         </div>
 
     </div>
-</section>
+</section> -->
 <!-- End Our Clients Section -->
