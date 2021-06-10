@@ -176,6 +176,8 @@ class PublicApi extends BaseController
             ");
             $this->builder->join("users u", "u.id = t.user_id");
             $this->builder->join("jobs j", "j.id = t.job_id");
+            $this->builder->orderby('j.order', 'asc');
+            $this->builder->where('u.active', '1');
             $teams = $this->builder->get()->getResultArray();
             $field = ['name', 'quotes', 'photo', 'jobs'];
             $data = [];
