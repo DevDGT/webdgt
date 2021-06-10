@@ -45,7 +45,7 @@ class Admin extends BaseController
         } catch (\Throwable $th) {
             $result = [
                 'status' => 'fail',
-                'message' => $th->getMessage() . ", Line : " . $th->getLine() . ", File : " . $th->getFile()
+                'message' => $th->getMessage() . ", Line : " . $th->getLine() . ", File : " . $th->getFile() . ", Query : " . $this->db->getLastQuery()
             ];
         } catch (\Exception $ex) {
             $result = [
@@ -94,8 +94,8 @@ class Admin extends BaseController
                     'table'     => 'users',
                     'protected' => ['id:hash', 'password', 'token']
                 ],
-                'tags' => [
-                    'table'     => 'tags',
+                'jobs' => [
+                    'table'     => 'jobs',
                     'protected' => ['id:hash']
                 ],
                 'category' => [
@@ -151,8 +151,8 @@ class Admin extends BaseController
             'table' => 'category cat',
             'selectData' => "cat.id, u.name as by, cat.name, cat.slug",
             'field' => ['name', 'by', 'slug'],
-            'columnOrder' => [null, 'username', 'name', 'email', 'level', 'active'],
-            'columnSearch' => ['username', 'name', "level", "active"],
+            'columnOrder' => [null, 'name', 'slug'],
+            'columnSearch' => ['cat.name', 'cat.slug'],
             'join' => [
                 'users u' => 'u.id = cat.user_id'
             ],
@@ -160,18 +160,32 @@ class Admin extends BaseController
         ]);
     }
 
-    public function dataTags()
+    public function dataJobs()
     {
         return $this->dataTables([
-            'table' => 'tags tag',
-            'selectData' => "tag.id, u.name as by, tag.name, tag.slug",
-            'field' => ['name', 'by', 'slug'],
-            'columnOrder' => [null, 'username', 'name', 'email', 'level', 'active'],
-            'columnSearch' => ['username', 'name', "level", "active"],
+            'table' => 'jobs j',
+            'selectData' => "name, order, id",
+            'field' => ['name', 'order'],
+            'columnOrder' => [null, 'name', 'order'],
+            'columnSearch' => ['name'],
+            'order' => ['order' => 'asc']
+        ]);
+    }
+
+    public function dataTeams()
+    {
+        return $this->dataTables([
+            'table' => 'teams t',
+            'selectData' => "t.id, u.username, u.name, u.quotes, u.email, u.photo, j.name jobs, j.order",
+            'field' => ['name', 'quotes', 'email', 'photo', 'jobs', 'order'],
+            'columnOrder' => [null, 'name', 'order'],
+            'columnSearch' => ['u.name', 'u.quotes', 'u.email', 'j.name', 'u.username'],
             'join' => [
-                'users u' => 'u.id = tag.user_id'
+                "users u" => "u.id = t.user_id",
+                "jobs j" => "j.id = t.job_id"
             ],
-            'order' => ['id' => 'desc']
+            'whereData' => ["u.active" => '1'],
+            'order' => ['j.order' => 'asc']
         ]);
     }
 
@@ -222,11 +236,23 @@ class Admin extends BaseController
         ]);
     }
 
-    public function getRowTags($id)
+    public function getRowJobs($id)
     {
         return $this->getRowTable([
-            'table' => 'tags',
+            'table' => 'jobs',
             'where' => [EncKey('id') => $id]
+        ]);
+    }
+
+    public function getRowTeams($id)
+    {
+        return $this->getRowTable([
+            'table' => 'teams',
+            'where' => [EncKey('id') => $id],
+            'guard' => [
+                'user_id:hash',
+                'job_id:hash'
+            ]
         ]);
     }
 
