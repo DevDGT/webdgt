@@ -136,16 +136,18 @@ function Delete($table, $where, $json = false)
 function Validate($data, $guarded = [])
 {
     $validate = [
-        'required' => '$key harus diisi',
-        'min'      => '$key harus diisi setidaknya $n karakter',
-        'max'      => '$key tidak boleh diisi lebih dari $n karakter',
-        'number'   => '$key harus diisi oleh angka',
-        'string'   => '$key harus diisi oleh huruf',
-        'email'    => '$key harus diisi oleh Email yang benar',
-        'name'     => '$key hanya boleh diisi oleh huruf dan spasi',
-        'username' => '$key hanya boleh diisi oleh huruf dan nomor',
-        'password' => '$key harus mengandung karakter, angka, simbol dan huruf besar',
-        'sameas'   => '$key tidak sama dengan $target'
+        'required' => 'harus diisi',
+        'min'      => 'harus diisi setidaknya $n karakter',
+        'max'      => 'tidak boleh diisi lebih dari $n karakter',
+        'minNum'   => 'nilai harus lebih besar atau sama dengan $n',
+        'maxNum'   => 'nilai harus kurang dari atau sama dengan $n',
+        'number'   => 'harus diisi oleh angka',
+        'string'   => 'harus diisi oleh huruf',
+        'email'    => 'harus diisi oleh Email yang benar',
+        'name'     => 'hanya boleh diisi oleh huruf dan spasi',
+        'username' => 'hanya boleh diisi oleh huruf dan nomor',
+        'password' => 'harus mengandung karakter, angka, simbol dan huruf besar',
+        'sameAs'   => 'tidak sama dengan $target'
     ];
     $error = [];
     $errorCount = 0;
@@ -208,6 +210,46 @@ function Validate($data, $guarded = [])
                     ];
                 }
             }
+            if (substr($request_, 0, 6) == 'minNum') {
+                $param = explode(":", $request_);
+                // echo $_REQUEST[$key];
+                if (!isset($_REQUEST[$key]) || $_REQUEST[$key] < $param[1]) {
+                    $error[$key] = [
+                        'input'   => $key,
+                        'type'    => $request_,
+                        'valid'   => false,
+                        'message' => str_replace(['$key', '$n'], [$key, $param[1]], $validate[$param[0]]),
+                    ];
+                    $errorCount++;
+                    break;
+                } else {
+                    $error[$key] = [
+                        'input'   => $key,
+                        'type'    => $request_,
+                        'valid'   => true,
+                    ];
+                }
+            }
+            if (substr($request_, 0, 6) == 'maxNum') {
+                $param = explode(":", $request_);
+                // echo $_REQUEST[$key];
+                if (!isset($_REQUEST[$key]) || $_REQUEST[$key] > $param[1]) {
+                    $error[$key] = [
+                        'input'   => $key,
+                        'type'    => $request_,
+                        'valid'   => false,
+                        'message' => str_replace(['$key', '$n'], [$key, $param[1]], $validate[$param[0]]),
+                    ];
+                    $errorCount++;
+                    break;
+                } else {
+                    $error[$key] = [
+                        'input'   => $key,
+                        'type'    => $request_,
+                        'valid'   => true,
+                    ];
+                }
+            }
             if ($request_ == 'string') {
                 if (preg_match('/[^A-Za-z ]/', $_REQUEST[$key])) {
                     $error[$key] = [
@@ -227,7 +269,7 @@ function Validate($data, $guarded = [])
                 }
             }
             if ($request_ == 'number') {
-                if (preg_match('/[^0-9]/', $_REQUEST[$key])) {
+                if (preg_match('/[^0-9-]/', $_REQUEST[$key])) {
                     $error[$key] = [
                         'input'   => $key,
                         'type'    => $request_,
@@ -320,7 +362,7 @@ function Validate($data, $guarded = [])
                     ];
                 }
             }
-            if (substr($request_, 0, 6) == 'sameas') {
+            if (substr($request_, 0, 6) == 'sameAs') {
                 $param = explode(":", $request_);
                 if (!isset($_REQUEST[$key]) || $_REQUEST[$key] != $_REQUEST[$param[1]]) {
                     $error[$key] = [
