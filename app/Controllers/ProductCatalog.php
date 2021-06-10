@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class Product extends BaseController
+class ProductCatalog extends BaseController
 {
 
     function __construct()
@@ -27,6 +27,20 @@ class Product extends BaseController
                 "<script src=" . base_url('assets/js/page/product.js') . " defer></script>",
             ]
 
+        ];
+        // echo 'ok';
+        echo view('front/canvas', $data);
+    }
+
+    public function detailProduct()
+    {
+        $data = [
+            'title' => 'Detail Product',
+            'pageTitle' => 'Detail Product',
+            'logoImg' => '',
+            'logoName' => 'DGT',
+            'section' => 'detailProduct',
+            'js' => []
         ];
 
         echo view('front/canvas', $data);
