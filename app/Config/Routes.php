@@ -49,6 +49,12 @@ $routes->group('/news', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->get('(:any)', 'News::article');
 });
 
+$routes->group('/product', ['namespace' => 'App\Controllers'], function ($routes) {
+    $routes->get('/', 'ProductCatalog::index');
+    $routes->get('demo', 'ProductCatalog::index');
+    $routes->get('(:any)', 'ProductCatalog::detailProduct');
+});
+
 $routes->group('/ruangadmin/login', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->get('/', 'Login::index');
     $routes->post('action', 'Login::action');
@@ -77,24 +83,26 @@ $routes->group('ruangadmin', ['namespace' => 'App\Controllers\Admin'], function 
         $routes->post('store', 'Category::store');
         $routes->post('delete', 'Category::delete');
         $routes->post('update', 'Category::update');
-        $routes->post('reset/(:any)', 'Category::reset_/$1');
         $routes->post('set/(:any)', 'Category::set_/$1');
         $routes->post('delete-multiple', 'Category::deleteMultiple');
-        $routes->post('reset-multiple', 'Category::resetMultiple');
-        $routes->post('set-multiple', 'Category::setMultiple');
     });
 
-    // Tags Management routes
-    $routes->group('tags', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
-        $routes->get('/', 'Tags::index');
-        $routes->post('store', 'Tags::store');
-        $routes->post('delete', 'Tags::delete');
-        $routes->post('update', 'Tags::update');
-        $routes->post('reset/(:any)', 'Tags::reset_/$1');
-        $routes->post('set/(:any)', 'Tags::set_/$1');
-        $routes->post('delete-multiple', 'Tags::deleteMultiple');
-        $routes->post('reset-multiple', 'Tags::resetMultiple');
-        $routes->post('set-multiple', 'Tags::setMultiple');
+    // Jobs Management routes
+    $routes->group('jobs', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
+        $routes->get('/', 'Jobs::index');
+        $routes->post('store', 'Jobs::store');
+        $routes->post('delete', 'Jobs::delete');
+        $routes->post('update', 'Jobs::update');
+        $routes->post('delete-multiple', 'Jobs::deleteMultiple');
+    });
+
+    // Teams Management routes
+    $routes->group('teams', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
+        $routes->get('/', 'Teams::index');
+        $routes->post('store', 'Teams::store');
+        $routes->post('delete', 'Teams::delete');
+        $routes->post('update', 'Teams::update');
+        $routes->post('delete-multiple', 'Teams::deleteMultiple');
     });
 
     $routes->group('article', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
@@ -116,14 +124,17 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('options/(:any)', 'Admin::getDataOption/$1');
         $routes->post('users', 'Admin::dataUsers');
         $routes->post('category', 'Admin::dataCategory');
-        $routes->post('tags', 'Admin::dataTags');
+        $routes->post('jobs', 'Admin::dataJobs');
+        $routes->post('teams', 'Admin::dataTeams');
+        // $routes->get('teams', 'Admin::dataTeams');
         $routes->post('article', 'Admin::dataArticle');
     });
 
     $routes->group('row', ['namespace' => 'App\Controllers\Api'], function ($routes) {
         $routes->post('users/(:any)', 'Admin::getRowUsers/$1');
         $routes->post('category/(:any)', 'Admin::getRowCategory/$1');
-        $routes->post('tags/(:any)', 'Admin::getRowTags/$1');
+        $routes->post('jobs/(:any)', 'Admin::getRowJobs/$1');
+        $routes->post('teams/(:any)', 'Admin::getRowTeams/$1');
         $routes->post('article/(:any)', 'Admin::getRowArticle/$1');
     });
 
@@ -132,6 +143,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
             $routes->get('article', 'PublicApi::getArticle');
             $routes->get('category', 'PublicApi::getCategory');
             $routes->get('tags', 'PublicApi::getTags');
+            $routes->get('teams', 'PublicApi::getTeams');
         });
     });
 });
