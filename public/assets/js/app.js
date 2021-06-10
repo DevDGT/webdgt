@@ -455,7 +455,7 @@ var tableSelectClickData = ""
 function selectClick(table = tableSelectClickData) {
 	if (tableSelectClickData == table) return
 	tableSelectClickData = table
-	// console.log(tableSelectClickData)
+// console.log(tableSelectClickData)
 	$("#customCss").html(`
 	<style>
 		tbody tr:hover {
