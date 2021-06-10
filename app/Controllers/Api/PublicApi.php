@@ -31,6 +31,7 @@ class PublicApi extends BaseController
                     a.slug,
                     a.cover,
                     u.name author,
+                    u.photo author_photo,
                     up.name updated_by,
                     c.slug category_slug,
                     c.name category,
@@ -56,6 +57,7 @@ class PublicApi extends BaseController
                 'slug',
                 'cover',
                 'author',
+                'author_photo',
                 'updated_by',
                 'category_slug',
                 'category',
@@ -69,8 +71,8 @@ class PublicApi extends BaseController
                 foreach ($field as $key) {
                     $row[$key] = $field_[$key];
                 }
-                $row['description'] = preg_replace('!\s+!', ' ', (substr(strip_tags($field_['content']), 0, 400) . "..."));
-                $row['content'] = $detail == 'true' ? $field_['content'] : preg_replace('!\s+!', ' ', (substr(strip_tags($field_['content']), 0, 400) . "..."));
+                $row['description'] = trim(preg_replace('!\s+!', ' ', (substr(strip_tags($field_['content']), 0, 400) . "...")));
+                if ($detail == 'true') $row['content'] = $field_['content'];
                 $data[] = $row;
             }
 
@@ -146,6 +148,49 @@ class PublicApi extends BaseController
                 'status' => 'ok',
                 'count' => count($tagsData),
                 'data' => $tagsData
+            ];
+        } catch (\Throwable $th) {
+            $result = [
+                'status' => 'fail',
+                'message' => $th->getMessage()
+            ];
+        } catch (\Exception $ex) {
+            $result = [
+                'status' => 'fail',
+                'message' => $ex->getMessage()
+            ];
+        } finally {
+            echo json_encode($result);
+        }
+    }
+
+    public function getTeams()
+    {
+        try {
+            $this->builder = $this->db->table('teams t');
+            $this->builder->select("
+                u.name,
+                u.quotes,
+                u.photo,
+                j.name jobs
+            ");
+            $this->builder->join("users u", "u.id = t.user_id");
+            $this->builder->join("jobs j", "j.id = t.job_id");
+            $teams = $this->builder->get()->getResultArray();
+            $field = ['name', 'quotes', 'photo', 'jobs'];
+            $data = [];
+            foreach ($teams as $field_) {
+                $row = array();
+                foreach ($field as $key) {
+                    $row[$key] = $field_[$key];
+                }
+                $row['social'] = [];
+                $data[] = $row;
+            }
+            $result = [
+                'status' => 'ok',
+                'count' => count($data),
+                'data' => $data
             ];
         } catch (\Throwable $th) {
             $result = [
