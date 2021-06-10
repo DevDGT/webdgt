@@ -94,19 +94,14 @@
         <div class="row">
             <div class="col-lg-8 aos-init aos-animate" data-aos="fade-up">
                 <div class="testimonial-item d-flex flex-column p-2 my-2">
-                    <video width="auto" height="auto" controls>
+                    <video width="100%" height="auto" controls>
                         <source src="http://techslides.com/demos/sample-videos/small.ogv" type=video/ogg>
                     </video>
-                    <video width="auto" height="auto" controls>
-                        <source src="http://techslides.com/demos/sample-videos/small.ogv" type=video/ogg>
-                    </video>
+                    <h2 class="text-center text-wrap py-2">Lorem Ipsum</h2>
                 </div>
             </div>
             <div class="col-lg-4 aos-init aos-animate" data-aos="fade-up">
                 <div class="testimonial-item d-flex flex-column p-2 my-2">
-                    <video width="auto" height="auto" controls>
-                        <source src="http://techslides.com/demos/sample-videos/small.ogv" type=video/ogg>
-                    </video>
                     <video width="auto" height="auto" controls>
                         <source src="http://techslides.com/demos/sample-videos/small.ogv" type=video/ogg>
                     </video>

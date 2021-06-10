@@ -36,7 +36,7 @@
                             </div>
 
                             <h2 class="entry-title">
-                                <a href="<?= base_url('/news/' . $news->slug) ?>"><?= $news->slug ?></a>
+                                <a href="<?= base_url('/news/' . $news->slug) ?>"><?= $news->title ?></a>
                             </h2>
 
                             <div class="entry-meta">

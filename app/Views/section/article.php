@@ -66,7 +66,7 @@
                 <!-- End blog entry -->
 
                 <div class="blog-author d-flex align-items-center">
-                    <img src="assets/img/blog/blog-author.jpg" class="rounded-circle float-left" alt="">
+                    <img src="<?= $newsData[0]->author_photo == "" ? base_url('assets/img/user.png') : base_url('uploads/users/' . $newsData[0]->author_photo) ?>" class="rounded float-left" alt="">
                     <div>
                         <h4 class="newsAuthor"><?= $newsData[0]->author ?></h4>
                         <div class="social-links">

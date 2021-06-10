@@ -17,8 +17,8 @@
 
                 <li class="dropdown"><a href="#"><span>Company Profile</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
-                        <li><a href="<?php echo base_url('/profile/id'); ?>">ID <i class="bi bi-download"></i></a></li>
-                        <li><a href="<?php echo base_url('/profile/en'); ?>">EN <i class="bi bi-download"></i></a></li>
+                        <li><a href="<?php echo base_url('/assets/compro/id.pdf'); ?>">ID <i class="bi bi-download"></i></a></li>
+                        <li><a href="<?php echo base_url('/assets/compro/en.pdf'); ?>">EN <i class="bi bi-download"></i></a></li>
                     </ul>
                 </li>
 
@@ -27,7 +27,7 @@
         </nav><!-- .navbar -->
 
         <div class="header-social-links d-flex">
-            <a href="https://www.instagram.com/" target="_blank" class="instagram"><i class="bu bi-instagram"></i></a>
+            <a href="https://www.instagram.com/dianglobaltech/?hl=id" target="_blank" class="instagram"><i class="bu bi-instagram"></i></a>
             <a href="https://www.facebook.com/dian.globaltech.92/" target="_blank" class="facebook"><i class="bu bi-facebook"></i></a>
         </div>
 

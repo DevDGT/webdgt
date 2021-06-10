@@ -22,7 +22,7 @@
     <div class="container" data-aos="fade-up">
 
         <div class="row content">
-            <div class="col-lg-12" data-aos="fade-right">
+            <div class="col-lg-12" data-aos="fade">
                 <h2 class="text-uppercas text-center">Get To Know About Us</h2>
             </div>
         </div>
@@ -31,7 +31,7 @@
 </section>
 <!-- End About Us Section -->
 
-<section id="team" class="team section-bg">
+<section id="team" class="team section-bg" data-aos="fade-up">
     <div class="container">
 
         <div class="section-title aos-init aos-animate" data-aos="fade-up">
