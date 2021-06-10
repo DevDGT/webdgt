@@ -22,7 +22,7 @@ class Article extends BaseController
             'roti' => [
                 'Home:blank' => base_url(),
                 'Dashboard' => base_url(ADMIN_PATH . '/dashboard'),
-                'Post' => '',
+                'Konten' => '',
                 'Artikel & Berita:active' => '',
             ]
         ];
