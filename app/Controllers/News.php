@@ -39,6 +39,8 @@ class News extends BaseController
         $slug = $uri->getSegment(2);
         $jsonData = $this->api->get($this->apiPath . "/public/get/article?slug=$slug&detail=true");
         $newsData = json_decode($jsonData);
+        if ($newsData->count <= 0) throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+
         $data = [
             'title' => $newsData->data[0]->title ?? "",
             'pageTitle' => $newsData->data[0]->title ?? "",
