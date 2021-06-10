@@ -455,6 +455,7 @@ var tableSelectClickData = ""
 function selectClick(table = tableSelectClickData) {
 	if (tableSelectClickData == table) return
 	tableSelectClickData = table
+	// console.log(tableSelectClickData)
 	$("#customCss").html(`
 	<style>
 		tbody tr:hover {
@@ -463,7 +464,7 @@ function selectClick(table = tableSelectClickData) {
 			cursor: pointer;
 		}
 	</style>`)
-	$(document).delegate(table + ' tr', 'click', function(e) {
+	$(tableSelectClickData).delegate('tr', 'click', function(e) {
 		if (!$(e.target).is('button') && !$(e.target).is('i') && !$(e.target).is('input')) {
 			const data = $(this).data('id')
 			if ($(`input[id="checkItem-${data}"]`).is(":checked")) {
