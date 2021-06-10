@@ -35,12 +35,18 @@
 							<p>Kategori</p>
 						</a>
 					</li>
-					<!-- <li class="nav-item">
-						<a href="<?= base_url(ADMIN_PATH . '/tags') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'tags' ? 'active' : '' ?>">
-							<i class="fas fa-tags nav-icon"></i>
-							<p>Tags</p>
+					<li class="nav-item">
+						<a href="<?= base_url(ADMIN_PATH . '/jobs') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'jobs' ? 'active' : '' ?>">
+							<i class="fas fa-briefcase nav-icon"></i>
+							<p>Pekerjaan</p>
 						</a>
-					</li> -->
+					</li>
+					<li class="nav-item">
+						<a href="<?= base_url(ADMIN_PATH . '/teams') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'teams' ? 'active' : '' ?>">
+							<i class="fas fa-user-friends nav-icon"></i>
+							<p>Tim</p>
+						</a>
+					</li>
 				<?php endif ?>
 				<li class="nav-item">
 					<a href="<?= base_url(ADMIN_PATH . '/article') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'artikel' ? 'active' : '' ?>">
