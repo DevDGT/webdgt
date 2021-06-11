@@ -1,19 +1,24 @@
+<style>
+    .services .icon-box {
+        padding: 10px 0px 10px 0px;
+    }
+</style>
 <!-- About Section -->
 <section id="aboutSection" class="services section-bg">
 
     <div class="section-title">
         <div class="container">
             <div class="row">
-                <div class="col">
-                    <h2>About Us</h2>
-                    <div class="text-wrap" style="width: auto;">
-                        Dian Global Tech is an INFORMATION AND TECHNOLOGY (IT)
-                        consulting services company established in October 2009
-                        by experienced practitioners in their respective fields.
-                    </div>
+                <div class="col"></div>
+                <h2>About Us</h2>
+                <div class="text-wrap" style="width: auto;">
+                    Dian Global Tech is an INFORMATION AND TECHNOLOGY (IT)
+                    consulting services company established in October 2009
+                    by experienced practitioners in their respective fields.
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <div class="container aos-init aos-animate" data-aos="fade-up">
 
@@ -34,7 +39,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-4 d-flex justify-content-center aos-init aos-animate mt-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="col-lg-6 col-md-4 d-flex justify-content-center aos-init aos-animate mt-4" data-aos="zoom-in" data-aos-delay="200">
                 <div class="icon-box iconbox-blue">
                     <div class="container">
                         <div class="icon">
@@ -50,7 +55,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-4 d-flex justify-content-center aos-init aos-animate mt-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="col-lg-6 col-md-4 d-flex justify-content-center aos-init aos-animate mt-4" data-aos="zoom-in" data-aos-delay="300">
                 <div class="icon-box iconbox-blue">
                     <div class="container">
                         <div class="icon">
@@ -66,7 +71,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-4 d-flex justify-content-center aos-init aos-animate mt-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="col-lg-6 col-md-4 d-flex justify-content-center aos-init aos-animate mt-4" data-aos="zoom-in" data-aos-delay="400">
                 <div class="icon-box iconbox-blue">
                     <div class="container">
                         <div class="icon">
@@ -90,27 +95,61 @@
 <!-- End About Section -->
 
 <section id="testimonials" class="testimonials section-bg">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 aos-init aos-animate" data-aos="fade-up">
-                <div class="testimonial-item d-flex flex-column p-2 my-2">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+        <div class="row testimonial-item">
+            <div class="col-lg-5">
+                <div class="card" style="width: auto; border: none;">
                     <video width="100%" height="auto" controls>
                         <source src="http://techslides.com/demos/sample-videos/small.ogv" type=video/ogg>
                     </video>
-                    <h2 class="text-center text-wrap py-2">Lorem Ipsum</h2>
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-4 aos-init aos-animate" data-aos="fade-up">
-                <div class="testimonial-item d-flex flex-column p-2 my-2">
-                    <video width="auto" height="auto" controls>
-                        <source src="http://techslides.com/demos/sample-videos/small.ogv" type=video/ogg>
-                    </video>
-                    <video width="auto" height="auto" controls>
-                        <source src="http://techslides.com/demos/sample-videos/small.ogv" type=video/ogg>
-                    </video>
-                    <video width="auto" height="auto" controls>
-                        <source src="http://techslides.com/demos/sample-videos/small.ogv" type=video/ogg>
-                    </video>
+            <div class="col-lg-7">
+
+                <div class="card mb-3" style="max-width: auto; border: none;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <video width="100%" height="auto" controls>
+                                <source src="http://techslides.com/demos/sample-videos/small.ogv" type=video/ogg>
+                            </video>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3" style="max-width: auto; border: none;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <video width="100%" height="auto" controls>
+                                <source src="http://techslides.com/demos/sample-videos/small.ogv" type=video/ogg>
+                            </video>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3" style="max-width: auto; border: none;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <video width="100%" height="auto" controls>
+                                <source src="http://techslides.com/demos/sample-videos/small.ogv" type=video/ogg>
+                            </video>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

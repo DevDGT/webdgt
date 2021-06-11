@@ -11,8 +11,8 @@
                                 <img src="<?php echo base_url('assets/img/logo.png'); ?>" alt="logo" class="img-fluid mx-2 p-2" width="50pt" height="auto">
                             </div>
                             <div class="col my-2">
-                                <h3>DIAN GLOBAL TECH</h3>
-                                <p>Tech Suppport - IT Consulting - App Dev - Training</p>
+                                <h3 class="text-start fs-6">DIAN GLOBAL TECH</h3>
+                                <p class="text-start fs-6">Tech Suppport - IT Consulting - App Dev - Training</p>
                             </div>
                         </div>
                         <div class="row my-4">
@@ -23,8 +23,8 @@
                                         <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
                                         <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
                                         <a href="#" class="google-plus"><i class="bx bxl-google"></i></a>
-                                        <a href="#" class="google-plus"><i class="bx bxl-linkedin"></i></a>
-                                        <a href="#" class="linkedin"><i class="bx bxl-youtube"></i></a>
+                                        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                                        <a href="#" class="youtube"><i class="bx bxl-youtube"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -35,24 +35,18 @@
                 <div class="col-lg-6 col-md-8 footer-newsletter">
                     <div class="container">
                         <div class="row align-items-start">
-                            <div class="col-sm-4">
-                                <p class="text-start fs-6"><i class="bi bi-house-door mx-2"></i>Adress</p>
-                            </div>
-                            <div class="col-sm-8">: Jl.Neptunus Timur A23/A
+                            <div class="col-sm-12">
+                                <p class="text-start fs-6"><i class="bi bi-house-door mx-2"></i>Adress : Jl.Neptunus Timur A23/A</p>
                             </div>
                         </div>
                         <div class="row align-items-start">
-                            <div class="col-sm-4">
-                                <p class="text-start fs-6"><i class="bi bi-telephone mx-2"></i>Phone</p>
-                            </div>
-                            <div class="col-sm-8">: +6282217211271
+                            <div class="col-sm-12">
+                                <p class="text-start fs-6"><i class="bi bi-telephone mx-2"></i>Phone : +6282217211271 </p>
                             </div>
                         </div>
                         <div class="row align-items-start">
-                            <div class="col-sm-4">
-                                <p class="text-start fs-6"><i class="bi bi-envelope mx-2"></i>Mail</p>
-                            </div>
-                            <div class="col-sm-8">: bentol@gmail.com
+                            <div class="col-sm-12">
+                                <p class="text-start fs-6"><i class="bi bi-envelope mx-2"></i>Mail : bentol@gmail.com</p>
                             </div>
                         </div>
                     </div>

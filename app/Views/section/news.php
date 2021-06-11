@@ -69,7 +69,7 @@
 
             </div><!-- End blog entries list -->
 
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-6 col-sm-8">
 
                 <div class="sidebar">
 
