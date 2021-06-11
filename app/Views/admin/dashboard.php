@@ -2,9 +2,11 @@
 
 <?= $this->section('content'); ?>
 
-<div class="container">
-    <div class="card">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere cumque pariatur, laudantium voluptas eius officia eos, aspernatur numquam provident autem aliquam animi maiores iusto vel fuga quas laboriosam! Animi, rerum!
+<div class="container-fluid pb-3">
+    <div class="card shadow border-0">
+        <div class="card-body">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere cumque pariatur, laudantium voluptas eius officia eos, aspernatur numquam provident autem aliquam animi maiores iusto vel fuga quas laboriosam! Animi, rerum!
+        </div>
     </div>
 </div>
 
