@@ -64,6 +64,13 @@ $routes->group('/ruangadmin/login', ['namespace' => 'App\Controllers'], function
 $routes->group('ruangadmin', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
     $routes->get('/', 'Dashboard::index');
     $routes->get('dashboard', 'Dashboard::index');
+
+    // user profile routes
+
+    $routes->group('profile', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
+        $routes->get('/', 'Profile::index');
+    });
+
     // User Management routes
     $routes->group('users', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
         $routes->get('/', 'Users::index');
