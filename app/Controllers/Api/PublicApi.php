@@ -16,13 +16,13 @@ class PublicApi extends BaseController
     {
         try {
 
-            $limit = isset($_REQUEST['limit']) ? ($_REQUEST['limit'] == '' ? 0 : $_REQUEST['limit']) : 0;
-            $page = isset($_REQUEST['page']) ? ($_REQUEST['page'] == '' ? 0 : $_REQUEST['page']) : 0;
-            $idArticle = isset($_REQUEST['id']) ? ($_REQUEST['id'] == '' ? '' : $_REQUEST['id']) : '';
-            $slugArticle = isset($_REQUEST['slug']) ? ($_REQUEST['slug'] == '' ? '' : $_REQUEST['slug']) : '';
-            $slugCategory = isset($_REQUEST['category']) ? ($_REQUEST['category'] == '' ? '' : $_REQUEST['category']) : '';
-            $tag = isset($_REQUEST['tags']) ? ($_REQUEST['tags'] == '' ? '' : $_REQUEST['tags']) : '';
-            $detail = isset($_REQUEST['detail']) ? ($_REQUEST['detail'] == '' ? '' : $_REQUEST['detail']) : '';
+            $limit = getNewsParam('limit', 0);
+            $page = getNewsParam('page', 0);
+            $idArticle = getNewsParam('id');
+            $slugArticle = getNewsParam('slug');
+            $slugCategory = getNewsParam('category');
+            $tag = getNewsParam('tags');
+            $detail = getNewsParam('detail');
 
             $this->builder = $this->db->table('article a');
             $this->builder->select('
@@ -164,11 +164,17 @@ class PublicApi extends BaseController
         }
     }
 
+    private function getSocialTeam($userId)
+    {
+        return $this->db->table('social')->select('social, link')->where('user_id', $userId)->get()->getResultArray();
+    }
+
     public function getTeams()
     {
         try {
             $this->builder = $this->db->table('teams t');
             $this->builder->select("
+                u.id,
                 u.name,
                 u.quotes,
                 u.photo,
@@ -177,6 +183,7 @@ class PublicApi extends BaseController
             $this->builder->join("users u", "u.id = t.user_id");
             $this->builder->join("jobs j", "j.id = t.job_id");
             $this->builder->orderby('j.order', 'asc');
+            $this->builder->orderby('u.name', 'asc');
             $this->builder->where('u.active', '1');
             $teams = $this->builder->get()->getResultArray();
             $field = ['name', 'quotes', 'photo', 'jobs'];
@@ -186,7 +193,7 @@ class PublicApi extends BaseController
                 foreach ($field as $key) {
                     $row[$key] = $field_[$key];
                 }
-                $row['social'] = [];
+                $row['socials'] = $this->getSocialTeam($field_['id']);
                 $data[] = $row;
             }
             $result = [

@@ -11,6 +11,11 @@ define('ADMIN_PATH', '/ruangadmin');
 define('API_PATH', '/api');
 define('SALT', 'hehehehe');
 
+function getNewsParam($param, $default = '')
+{
+    return isset($_REQUEST[$param]) ? ($_REQUEST[$param] == '' ? $default : $_REQUEST[$param]) : $default;
+}
+
 /**
  * The goal of this file is to allow developers a location
  * where they can overwrite core procedural functions and
