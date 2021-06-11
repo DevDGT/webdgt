@@ -88,7 +88,8 @@ class Filters extends BaseConfig
 		'apiFilter' => [
 			'before' => [
 				'api/data/*',
-				'api/row/*'
+				'api/row/*',
+				'api/usersinfo'
 			],
 		]
 	];
