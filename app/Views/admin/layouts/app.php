@@ -67,9 +67,9 @@
 			<!-- Sidebar -->
 			<div class="sidebar">
 				<!-- Sidebar user panel (optional) -->
-				<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+				<div class="user-panel mt-3 pb-3 mb-3 d-flex" id="userLoginInfo">
 					<div class="image">
-						<img src="<?= base_url('assets/img/user.png') ?>" class="img-circle elevation-2" alt="User Image">
+						<img src="<?= base_url('uploads/users') . "/" . (session('photo') == "" ? 'default.png' : session('photo')) ?>" class="img-circle elevation-2" alt="User Image">
 					</div>
 					<div class="info">
 						<a href="#" class="d-block"><?= strlen(session('name')) >= 20 ? substr(session('name'), 0, 20) : session('name') ?? "User" ?></a>
