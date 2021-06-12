@@ -1,5 +1,25 @@
-$(document).ready(async function(){
+CURRENT_PATH = ADMIN_PATH + "/profile/";
+tableId = "#listSocials"
+moveRoom(tableId)
+
+$(document).ready(function(){
     addFormProfile()
+    getProfile()
+    CodeMirror.fromTextArea(document.getElementById("EditorHtml"), {
+        lineNumbers: true,
+        mode: "htmlmixed",
+        theme: "monokai"
+    });
+    CodeMirror.fromTextArea(document.getElementById("EditorCss"), {
+        lineNumbers: true,
+        mode: "css",
+        theme: "monokai"
+    });
+    CodeMirror.fromTextArea(document.getElementById("EditorJs"), {
+        lineNumbers: true,
+        mode: "javascript",
+        theme: "monokai"
+    });
 })
 
 $("#reset").on('click', function() {
@@ -20,7 +40,7 @@ function noValid(idNa) {
   $(idNa).removeClass("is-invalid is-valid")
 }
 function addFormProfile() {
-    addFormInput("#updateProfile", [{
+    addFormInput("#formBody", [{
         type: "text",
         name: "username",
         label: "Username"
@@ -39,16 +59,15 @@ function addFormProfile() {
     }, {
         type: "file",
         name: "photo",
-        label: "Foto Profile"
+        label: "Foto Profile (pilih untuk merubah)"
     }])
-    console.log("second?");
 }
 
 function getProfile() {
     return new Promise(resolve => {
         $.ajax({
             dataType: "json",
-            url: BASE_URL + 'admin/get/profile',
+            url: API_PATH + 'data/profile',
             beforeSend: function(){
                 disableButton()
             },
@@ -56,12 +75,8 @@ function getProfile() {
                 enableButton()
             },
             success: function (result) {
-                let response = jQuery.parseJSON(JSON.stringify(result))
-                $("#username").val(response.email)
-                $("#gelar_depan").val(response.gelar_depan)
-                $("#gelar_belakang").val(response.gelar_belakang)
-                $("#nama_user").val(response.nama_user)
-                $("#niy").val(response.niy)
+                fillForm(result.data)
+                $("#photoProfile").attr('src', result.data.photo != '' ? `${BASE_URL}/uploads/users/${result.data.photo}` : `${BASE_URL}/uploads/users/default.png`)
             }
         }).done(function(result) {
             resolve(result)
@@ -69,11 +84,12 @@ function getProfile() {
     })
 }
 
-$("#formProfile").submit(function (e) {
+$("#updateProfile").submit(function (e) {
     e.preventDefault();
     $.ajax({
-        url: `${baseUrl}admin/profile/set`,
+        url: `${CURRENT_PATH}update`,
         type: "post",
+        dataType: "json",
 		data: new FormData(this),
 		processData: false,
 		contentType: false,
@@ -85,27 +101,27 @@ $("#formProfile").submit(function (e) {
             enableButton()
         },
         success: function(result){
-            let response = JSON.parse(result)
-            if (response.status == "salah") {
-                isInvalid("#passwordUbahProfile")
-            } 
-            if (response.status == "ok") {
-                noValid("#passwordUbahProfile")
-                msgSweetSuccess(response.msg)
-                getProfile()
-                $("#passwordUbahProfile").val("")
-            } 
-            if (response.status == "fail") {
-                noValid("#passwordUbahProfile")
-                msgSweetWarning(response.msg)
-                $("#passwordUbahProfile").val("")
-            }
+            validate(result.validate.input)
+            result.validate.success && "ok" == result.status ? (toastSuccess(result.message),getProfile(), $(`input[name="photo"]`).val(''), updateInfo()) : toastWarning(result.message)
+            // validate(e.validate.input),e.validate.success&&("ok"==e.status?(toastSuccess(e.message),refreshData(),1==e.modalClose&&$("#modalForm").modal("hide"),clearInput(e.validate.input),socket.emit?.("affectDataTable", tableId)):toastWarning(e.message));
         },
         error: function(error){
             errorCode(error)
         }
     })
 })
+
+function updateInfo() {
+    $.get(CURRENT_PATH, function(data) {
+		$("#userLoginInfo").html($(data).find('#userLoginInfo').html())
+    }).fail(function(err) {
+		$("#contentId").html(`<div class="container">${err.statusText}</div>`)
+		nanobar.go(100)
+		errorCode(err)
+	}).done(function() {
+		nanobar.go(100)
+	})
+}
 
 $("#formPassword").submit(function (e) {
     e.preventDefault();
