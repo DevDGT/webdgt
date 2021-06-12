@@ -313,7 +313,7 @@ class Article extends BaseController
                 ]
             ]);
 
-            if ($validated == false) throw new Exception($this->validator->listErrors());
+            if ($validated == false) throw new \Exception($this->validator->listErrors());
             $file = $this->request->getFile('upload');
             $fileName = time() . "_" . $file->getName();
             $path = ROOTPATH . 'public/uploads/';
@@ -354,7 +354,7 @@ class Article extends BaseController
                 ]
             ]);
 
-            if ($validated == false) throw new Exception($this->validator->listErrors());
+            if ($validated == false) throw new \Exception($this->validator->listErrors());
             $file = $this->request->getFile('cover');
             $fileName = time() . "_" . $file->getName();
             $path = ROOTPATH . 'public/uploads/cover/';
