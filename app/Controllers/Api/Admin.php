@@ -219,6 +219,33 @@ class Admin extends BaseController
         ]);
     }
 
+    public function dataProfile()
+    {
+        try {
+
+            $user = $this->db->table('users')->select("*")->where('id', session('userId'))->get()->getRowArray();
+
+            if (!$user) throw new \Exception("User Not Found !");
+
+            $result = [
+                'status' => 'ok',
+                'data' => Guard($user, ['id:hash', 'password'])
+            ];
+        } catch (\Throwable $th) {
+            $result = [
+                'status' => 'fail',
+                'message' => $th->getMessage()
+            ];
+        } catch (\Exception $ex) {
+            $result = [
+                'status' => 'ok',
+                'message' => $ex->getMessage()
+            ];
+        } finally {
+            echo json_encode($result);
+        }
+    }
+
     public function getRowUsers($id)
     {
         return $this->getRowTable([
@@ -226,7 +253,6 @@ class Admin extends BaseController
             'where' => [EncKey('id') => $id]
         ]);
     }
-
 
     public function getRowCategory($id)
     {
