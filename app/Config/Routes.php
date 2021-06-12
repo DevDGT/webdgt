@@ -69,6 +69,7 @@ $routes->group('ruangadmin', ['namespace' => 'App\Controllers\Admin'], function 
 
     $routes->group('profile', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
         $routes->get('/', 'Profile::index');
+        $routes->post('update', 'Profile::update');
     });
 
     // User Management routes
@@ -133,8 +134,8 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('category', 'Admin::dataCategory');
         $routes->post('jobs', 'Admin::dataJobs');
         $routes->post('teams', 'Admin::dataTeams');
-        // $routes->get('teams', 'Admin::dataTeams');
         $routes->post('article', 'Admin::dataArticle');
+        $routes->get('profile', 'Admin::dataProfile');
     });
 
     $routes->group('row', ['namespace' => 'App\Controllers\Api'], function ($routes) {
