@@ -51,6 +51,7 @@ class Login extends BaseController
                 'userIdHash' => Enc($userData->id),
                 'username' => $userData->username,
                 'name' => $userData->name,
+                'photo' => $userData->photo ?? "",
                 'email' => $userData->email,
                 'level' => $userData->level,
                 'token' => Enc(SALT . time() . $userData->username . $userData->password)

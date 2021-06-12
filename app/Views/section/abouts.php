@@ -41,21 +41,7 @@
         <!-- Ceo Line -->
         <div class="row dgtCeo">
 
-            <div class="col-lg-12">
-                <div class="member aos-init aos-animate" data-aos="fade-up">
-                    <div class="member-img my-4">
-                        <img src="assets/img/testimonials/testimonials-1.jpg" class="img-fluid imgceo" alt="">
-                        <div class="container">
-                            <h3 class="text-uppercase my-4">Dian Endianingsih - CEO</h3>
-                            <p class="mx-auto">
-                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div id="teamCEO"></div>
 
         </div>
         <!-- End Ceo Line -->
@@ -67,7 +53,7 @@
         </div>
 
         <!-- Video Line -->
-        <div class="row dgtVideo">
+        <div class="row dgtVideo mt-2">
 
             <div class="col-lg-12 aos-init">
                 <div class="member aos-init aos-animate d-flex" data-aos="fade-up">
@@ -81,8 +67,15 @@
                                     </video>
                                 </div>
                                 <div class="col-lg-8">
-                                    <p class="text-start text-wrap">
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                                    <p class="text-start text-wrap font-monospace">
+                                        Dian Global Tech is an INFORMATION AND TECHNOLOGY (IT)
+                                        consulting services company established in October 2009
+                                        by experienced practitioners in their respective fields.
+                                    </p>
+                                    <p class="text-start text-wrap font-monospace">
+                                        We start our journey in SISTEM INFORMASI MANAJEMEN SEKOLAH (SIMS) and now,
+                                        we create custom made apps based on our partners and clients demands.
+                                        With a wide network, professionalism and commitment, we are able to consistently provide high quality services, and CUSTOMER SATISFACTION IS EVERYTHING to us
                                     </p>
                                 </div>
                             </div>

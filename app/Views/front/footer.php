@@ -19,7 +19,7 @@
                             <div class="col-auto">
                                 <div class="social-links d-flex flex-col pt-3 pt-md-0">
                                     <div class="container justify-content-evenly">
-                                        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                                        <a href="https://www.instagram.com/dianglobaltech/?hl=id" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
                                         <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
                                         <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
                                         <a href="#" class="google-plus"><i class="bx bxl-google"></i></a>
@@ -36,17 +36,17 @@
                     <div class="container">
                         <div class="row align-items-start">
                             <div class="col-sm-12">
-                                <p class="text-start fs-6"><i class="bi bi-house-door mx-2"></i>Adress : Jl.Neptunus Timur A23/A</p>
+                                <p class="text-start fs-6"><i class="bi bi-house-door mx-2"></i>Adress : Jl.Saturnus Timur IV 10/A27</p>
                             </div>
                         </div>
                         <div class="row align-items-start">
                             <div class="col-sm-12">
-                                <p class="text-start fs-6"><i class="bi bi-telephone mx-2"></i>Phone : +6282217211271 </p>
+                                <p class="text-start fs-6"><i class="bi bi-telephone mx-2"></i>Phone : +628-1721-5496</p>
                             </div>
                         </div>
                         <div class="row align-items-start">
                             <div class="col-sm-12">
-                                <p class="text-start fs-6"><i class="bi bi-envelope mx-2"></i>Mail : bentol@gmail.com</p>
+                                <p class="text-start fs-6"><i class="bi bi-envelope mx-2"></i>Mail : dian.globaltech@yahoo.com</p>
                             </div>
                         </div>
                     </div>
