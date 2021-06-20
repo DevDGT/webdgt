@@ -1,6 +1,13 @@
 <style>
-    imgceo {
+    .imgceo {
         border-radius: 50%;
+    }
+
+    .card-img-top {
+        width: 100%;
+        height: 18vw;
+        /* height: max-content; */
+        object-fit: scale-down;
     }
 </style>
 <section id="breadcrumbs" class="breadcrumbs">
@@ -57,9 +64,9 @@
 
             <div class="col-lg-12 aos-init">
                 <div class="member aos-init aos-animate d-flex" data-aos="fade-up">
-                    <div class="member-img my-4 align-self-center">
-                        <h2 class="text-center text-capitalize">Dian Global Tech Is</h2>
-                        <div class="container">
+                    <div class="member-img align-self-center">
+                        <h2 class="text-center text-capitalize mt-4">Dian Global Tech Is</h2>
+                        <div class="container mt-4">
                             <div class="row">
                                 <div class="col-lg-4">
                                     <video width="100%" height="auto" controls="">

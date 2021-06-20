@@ -13,6 +13,23 @@ body {
   color: #4d4643;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F4F6F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #343A40;
+}
+
 a {
   color: #1bbd36;
   text-decoration: none;

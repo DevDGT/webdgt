@@ -1,101 +1,163 @@
 $(document).ready(function(){
 
+  getTeams()
+    
+});
+
+function initSlick() {
+  $('#teamApi').not('.slick-initialized').slick({
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    dots: false,
+    autoplay:true,
+    adaptiveHeight: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: 'unslick'
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+      // {
+        //  breakpoint: 480,
+        //  settings: "unslick",
+        // settings: {
+        //   slidesToShow: 5,
+        //   slidesToScroll: 3
+        // }
+
+      // }
+    ],
+    pauseOnFocus:true,
+    autoplaySpeed:3000,
+    speed: 1000,
+    centerMode: false,
+        
+  })
+}
+
+function reloadSlick() {
+  $("#teamApi").addClass('d-none')
+  $('#teamApi').slick('unslick')
+  $('.benefits').slick('unslick')
+  getTeams()
+}
+
+function addTeam() {
+  return new Promise(resolve => {
     var teamsAPI = `${API_PATH}/public/get/teams`;
-          
     $.getJSON(teamsAPI, {
         format: 'json'
     }).done(function(response){
-        let teams = '';
-        let ceo = '';
-        $.each(response.data, function(i, items){
-          if(i == 0) {
-            ceo = `
-            <div class="col-lg-12">
-                <div class="member aos-init aos-animate" data-aos="fade-up">
-                    <div class="member-img my-4">
-                        <img src="${BASE_URL}/uploads/users/${items.photo == '' ? 'default.png' : items.photo}" class="img-fluid imgceo" alt="" style="max-width:20rem;">
-                        <div class="container">
-                            <h3 class="text-uppercase my-4">${items.name} - CEO</h3>
-                            <p class="mx-auto">
-                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                ${items.quotes}
-                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                            </p>
-                        </div>
+      let teams = '';
+      let ceo = '';
+      $.each(response.data, function(i, items){
+        if(i == 0) {
+          ceo = `
+          <div class="col-lg-12">
+              <div class="member aos-init aos-animate" data-aos="fade-up">
+                  <div class="member-img my-4">
+                      <img src="${BASE_URL}/uploads/users/${items.photo == '' ? 'default.png' : items.photo}" class="img-fluid imgceo" alt="" style="max-width:15rem;min-width:15rem;">
+                      <div class="container">
+                          <h3 class="text-uppercase my-4">${items.name} - CEO</h3>
+                          <p class="mx-auto">
+                              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                              ${items.quotes}
+                              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                          </p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          `;
+        }else if (i > 0){
+          teams += `
+            <div class="col-12 mx-3 p-6 teamImg">
+              <div class="member w-100 bg-black aos-init aos-animate d-flex justify-content-center" data-aos="fade-up">
+                <div class="card" style="width: 20rem; border:none;">
+                    <img src="${BASE_URL}/uploads/users/${items.photo == '' ? 'default.png' : items.photo}" class="card-img-top" alt="...">
+                    <div class="social">
+                          <a href="#" target="_blank"><i class="bi bi-twitter"></i></a>
+                          <a href="#" target="_blank"><i class="bi bi-facebook"></i></a>
+                          <a href="#" target="_blank"><i class="bi bi-instagram"></i></a>
+                          <a href="#" target="_blank"><i class="bi bi-linkedin"></i></a>
+                          <a href="#" target="_blank"><i class="bi bi-github"></i></a>
+                          <a href="#" target="_blank"><i class="bi bi-youtube"></i></a>
+                          <a href="#" target="_blank"><i class="bi bi-discord"></i></a>
+                          <a href="#" target="_blank"><i class="bi bi-eye-fill"></i></a>
+                      </div>
+                    <div class="card-body">
+                      <h4 class="card-title">${items.name}</h4>
+                      <p class="card-text">${items.jobs}</p>
+                      <p class="card-text d-inline-block text-truncate" style="max-width: -webkit-fill-available;">
+                      <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                      ${items.quotes}
+                      <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                      </p>
                     </div>
-                </div>
-            </div>
-            `;
-          }else if (i > 0){
-            teams += `
-              <div class="col-lg-3 col-md-4 mx-2 p-6 d-flex align-items-stretch">
-                <div class="member aos-init aos-animate" data-aos="fade-up">
-                    <div class="member-img">
-                        <img src="${BASE_URL}/uploads/users/${items.photo == '' ? 'default.png' : items.photo}" class="img-fluid" alt="">
-                        <div class="social">
-                            <a href="#" target="_blank"><i class="bi bi-twitter"></i></a>
-                            <a href="#" target="_blank"><i class="bi bi-facebook"></i></a>
-                            <a href="#" target="_blank"><i class="bi bi-instagram"></i></a>
-                            <a href="#" target="_blank"><i class="bi bi-linkedin"></i></a>
-                            <a href="#" target="_blank"><i class="bi bi-github"></i></a>
-                            <a href="#" target="_blank"><i class="bi bi-youtube"></i></a>
-                            <a href="#" target="_blank"><i class="bi bi-discord"></i></a>
-                            <a href="#" target="_blank"><i class="bi bi-eye-fill"></i></a>
-                        </div>
+                    <div class="card-body">
                     </div>
-                    <div class="member-info">
-                        <h4>${items.name}</h4>
-                        <span>${items.jobs}</span>
-                        <span>
-                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                        ${items.quotes}
-                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            `;
-          }
-            $('#teamCEO').html(ceo);
-            $('#teamApi').html(teams);
-            
-        });
-        console.log(response);
-        $('.dgtTeam').slick({
-          infinite: true,
-          slidesToShow: 3,
-          slidesToScroll: 2,
-          dots: true,
-          mobileFirst: true,
-          adaptiveHeight: true
-      });
+                  </div>
+              </div>
+          </div>
+          `;
+        }
+        $('#teamCEO').html(ceo);
+        $('#teamApi').html(teams);
+        $("#teamApi").removeClass('d-none')
+        resolve(true)
+      })
+    });
+  })
+}
+
+async function getTeams() {
         
-    });
+  await addTeam()
+  initSlick()
+  //  console.log(response)
 
-
-    $('.benefits').slick({
-        centerMode: true,
-        centerPadding: '60px',
-        slidesToShow: 3,
-        responsive: [
-          {
-            breakpoint: 768,
-            settings: {
-              arrows: false,
-              centerMode: true,
-              centerPadding: '40px',
-              slidesToShow: 3
-            }
-          },
-          {
-            breakpoint: 480,
-            settings: {
-              arrows: false,
-              centerMode: true,
-              centerPadding: '40px',
-              slidesToShow: 1
-            }
+  $('.benefits').not('.slick-initialized').slick({
+      centerMode: true,
+      centerPadding: '60px',
+      slidesToShow: 3,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            arrows: false,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 3
           }
-        ]
-    });
-});
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            arrows: false,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 1
+          }
+        }
+      ]
+  });
+}
+
+socket.on?.('reloadTeams', () => {
+  // alert("hello")
+  reloadSlick()
+})

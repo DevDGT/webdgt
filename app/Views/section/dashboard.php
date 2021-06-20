@@ -1,6 +1,6 @@
 <style>
     .services .icon-box {
-        padding: 10px 0px 10px 0px;
+        padding: 10px 60px 10px 60px;
     }
 </style>
 <!-- About Section -->

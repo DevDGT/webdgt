@@ -2,28 +2,44 @@ CURRENT_PATH = ADMIN_PATH + "/profile/";
 tableId = "#listSocials"
 moveRoom(tableId)
 
+htmlEditor = ''
+cssEditor = ''
+jsEditor = ''
+
 $(document).ready(function(){
     addFormProfile()
     getProfile()
-    CodeMirror.fromTextArea(document.getElementById("EditorHtml"), {
-        lineNumbers: true,
-        mode: "htmlmixed",
-        theme: "monokai"
-    });
-    CodeMirror.fromTextArea(document.getElementById("EditorCss"), {
-        lineNumbers: true,
-        mode: "css",
-        theme: "monokai"
-    });
-    CodeMirror.fromTextArea(document.getElementById("EditorJs"), {
-        lineNumbers: true,
-        mode: "javascript",
-        theme: "monokai"
-    });
 })
 
 $("#reset").on('click', function() {
     getProfile()
+})
+
+
+
+$("#nav-page-tab").click(function() {
+    // alert("asdsad")
+    console.log(htmlEditor);
+    
+    if (htmlEditor == '') {
+        htmlEditor = CodeMirror.fromTextArea(document.getElementById("EditorHtml"), {
+            mode: "htmlmixed",
+            theme: "monokai",
+            lineNumbers: true,
+        });
+    }
+    // console.log(html);
+    // html.getTextArea()
+    // CodeMirror.fromTextArea(document.getElementById("EditorCss"), {
+    //     lineNumbers: true,
+    //     mode: "css",
+    //     theme: "monokai"
+    // });
+    // CodeMirror.fromTextArea(document.getElementById("EditorJs"), {
+    //     lineNumbers: true,
+    //     mode: "javascript",
+    //     theme: "monokai"
+    // });
 })
 
 function isInvalid(idNa) {
@@ -102,7 +118,7 @@ $("#updateProfile").submit(function (e) {
         },
         success: function(result){
             validate(result.validate.input)
-            result.validate.success && "ok" == result.status ? (toastSuccess(result.message),getProfile(), $(`input[name="photo"]`).val(''), updateInfo()) : toastWarning(result.message)
+            result.validate.success && "ok" == result.status ? (toastSuccess(result.message),getProfile(), socket.emit?.("teamChanged"), $(`input[name="photo"]`).val(''), updateInfo()) : toastWarning(result.message)
             // validate(e.validate.input),e.validate.success&&("ok"==e.status?(toastSuccess(e.message),refreshData(),1==e.modalClose&&$("#modalForm").modal("hide"),clearInput(e.validate.input),socket.emit?.("affectDataTable", tableId)):toastWarning(e.message));
         },
         error: function(error){
@@ -114,6 +130,7 @@ $("#updateProfile").submit(function (e) {
 function updateInfo() {
     $.get(CURRENT_PATH, function(data) {
 		$("#userLoginInfo").html($(data).find('#userLoginInfo').html())
+		$("#rotiId").html($(data).find('#rotiId').html())
     }).fail(function(err) {
 		$("#contentId").html(`<div class="container">${err.statusText}</div>`)
 		nanobar.go(100)
@@ -145,6 +162,7 @@ $("#formPassword").submit(function (e) {
                 $("#passBaru").val('')
                 $("#passLama").val('')
                 $("#confirmPass").val('')
+                socket.emit?.("teamChanged")
             }
             if (response.status == "fail") {
                 msgSweetError("Password tidak boleh sama dengan sebelumnya")

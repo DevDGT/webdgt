@@ -39,6 +39,8 @@
     <!-- Add the slick-theme.css if you want default styling -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
 
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/modules/floatingjs/css/socialfloating.css'); ?>">
+
     <!-- Vendor JS Files -->
     <?php include 'vendor.php'; ?>
 
