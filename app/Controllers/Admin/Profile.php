@@ -33,7 +33,7 @@ class Profile extends BaseController
 
             $validate = Validate([
                 'username' => 'required|min:5|max:20|username',
-                'name' => 'required|min:2|name',
+                'name' => 'required|min:2|max:50|name',
                 'email' => 'required|email',
                 'quotes' => 'required'
             ]);
