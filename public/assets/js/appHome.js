@@ -6,7 +6,7 @@ var socket = []
 
 if (typeof io !== 'undefined') {
 	socket = io.connect(`https://socket.xyrus10.com`)
-	// socket = io.connect(`http://localhost:6996`)
+	// socket = io.connect(`http://192.168.1.69:6996`)
 	// socket = io.connect(`https://ipdn-socket.herokuapp.com`)
 	socket.on("connect", () => {
 		console.log("socket connected")
@@ -72,6 +72,11 @@ function loadPage(url, change = false) {
 // 		const url = $(this).attr('href')
 // 		loadPage(url)
 // 	}
+// })
+
+// socket.on('reloadTeams', () => {
+//   alert("hello")
+//   reloadSlick()
 // })
 
 setInterval(function(){if (currentPage.replace(/#/g, '') != location.href.replace(/#/g, '')) (currentPage = location.href, loadPage(currentPage, true))}, 200);
