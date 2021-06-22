@@ -45,6 +45,12 @@ $routes->group('/abouts', ['namespace' => 'App\Controllers'], function ($routes)
 
 $routes->group('/news', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->get('/', 'News::index');
+    $routes->get('page', 'News::index');
+    $routes->get('page/(:num)', 'News::index/$1');
+    $routes->get('category/(:any)/page/(:num)', 'News::byCategory/$1/$2');
+    $routes->get('category/(:any)', 'News::byCategory/$1');
+    $routes->get('tags/(:any)/page/(:num)', 'News::byTags/$1/$2');
+    $routes->get('tags/(:any)', 'News::byTags/$1');
     $routes->get('read', 'News::index');
     $routes->get('(:any)', 'News::article');
 });
