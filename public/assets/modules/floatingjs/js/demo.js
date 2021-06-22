@@ -11,7 +11,7 @@ $.socialfloating({
 			enabled: true,
 			icon: 'fab fa-instagram',
 			name: 'instagram',
-			link: 'https://www.instagram.com',
+			link: 'https://bit.ly/35Fqhft',
 			title: 'Visit us on Instagram',
 			color: '#DD2A7B'
 		},
@@ -19,7 +19,7 @@ $.socialfloating({
 			enabled: true,
 			icon: 'fab fa-youtube',
 			name: 'youtube',
-			link: 'https://www.youtube.com',
+			link: 'https://bit.ly/35FkiHm',
 			title: 'Visit us on Youtube',
 			color: '#E62117'
 		},

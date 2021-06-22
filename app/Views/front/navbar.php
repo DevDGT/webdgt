@@ -27,8 +27,8 @@
         </nav><!-- .navbar -->
 
         <div class="header-social-links d-flex">
-            <a href="https://www.instagram.com/dianglobaltech/?hl=id" target="_blank" class="instagram"><i class="bu bi-instagram"></i></a>
-            <a href="https://www.youtube.com/" target="_blank" class="facebook"><i class="bu bi-youtube"></i></a>
+            <a href="https://bit.ly/35Fqhft" target="_blank" class="instagram"><i class="bu bi-instagram"></i></a>
+            <a href="https://bit.ly/35FkiHm" target="_blank" class="facebook"><i class="bu bi-youtube"></i></a>
             <!-- <a href="#" class="youtube" target="_blank"><i class="bx bxl-youtube"></i></a> -->
         </div>
 

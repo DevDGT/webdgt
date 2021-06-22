@@ -4,7 +4,7 @@
 <?php include 'header.php'; ?>
 
 <body data-aos-easing="ease-in-out" data-bs-duration="1000" data-aos-delay="0">
-
+    <!-- <div id="loader"></div> -->
     <!-- ======= Header ======= -->
     <?php include 'navbar.php'; ?>
     <!-- End Header -->
