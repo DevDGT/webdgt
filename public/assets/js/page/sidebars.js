@@ -13,7 +13,7 @@ $(document).ready(function(){
             let tags = '';
             $.each(response.data, function(i, items){
                 tags += `
-                    <li><a href="${API_PATH}/public/get/article?limit=5&page=1&tags=${items}">${items}</a></li>
+                    <li><a href="${BASE_URL}/news/tags/${items}">${items}</a></li>
                 `;
                 $('#newsTags').html(tags);
             });
@@ -28,7 +28,7 @@ $(document).ready(function(){
             let category = '';
             $.each(response.data, function(i, items){
                 category += `
-                <li><a href="${API_PATH}/public/get/article?limit=5&page=1&category=${items.slug}">${items.name}<span>(${items.count})</span></a></li>
+                <li><a href="${BASE_URL}/news/category/${items.slug}">${items.name}<span>(${items.count})</span></a></li>
                 `;
                 $('#newsCategory').html(category);
             });

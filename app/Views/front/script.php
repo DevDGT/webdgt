@@ -6,11 +6,11 @@
 <script text="text/javascript" src="<?php echo base_url('assets/modules/floatingjs/js/jquery.socialfloating.js'); ?>" defer></script>
 <script text="text/javascript" src="<?php echo base_url('assets/modules/floatingjs/js/demo.js'); ?>" defer></script>
 
-<script src="<?php echo base_url('assets/js/main.js'); ?>" defer></script>
 <script src="<?php echo base_url('assets/js/module/moment.min.js') ?>" defer></script>
 <script src="<?= base_url('assets/js/module/nanobar.min.js') ?>" defer></script>
 <script src="<?= base_url('assets/js/module/socket.io.js') ?>" defer></script>
 <script src="<?php echo base_url('assets/js/appHome.js'); ?>" defer></script>
+<script src="<?php echo base_url('assets/js/main.js'); ?>" defer></script>
 <!-- End Main Script JS -->
 <div id="customJsNa">
     <!-- User Page Js  -->

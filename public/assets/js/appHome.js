@@ -63,16 +63,37 @@ function loadPage(url, change = false) {
 	}).done(function() {
 		nanobar.go(100)
 	})
+	change == false && (document.body.scrollTop = 0, document.documentElement.scrollTop = 0)
 }
 
-// $(document).delegate('a', 'click', function(e) {
-//     if ($(this).attr('target') != '_blank') {
-//         if ($(this).attr('href').includes('#')) return
-// 		e.preventDefault()
-// 		const url = $(this).attr('href')
-// 		loadPage(url)
-// 	}
-// })
+$(document).delegate('a', 'click', function(e) {
+    if ($(this).attr('target') != '_blank') {
+        if ($(this).attr('href').includes('#')) return
+		e.preventDefault()
+		const url = $(this).attr('href')
+		loadPage(url)
+	}
+})
+
+const select = (el, all = false) => {
+    el = el.trim()
+    if (all) {
+      	return [...document.querySelectorAll(el)]
+    } else {
+      	return document.querySelector(el)
+    }
+}
+
+const on = (type, el, listener, all = false) => {
+    let selectEl = select(el, all)
+    if (selectEl) {
+      if (all) {
+        selectEl.forEach(e => e.addEventListener(type, listener))
+      } else {
+        selectEl.addEventListener(type, listener)
+      }
+    }
+  }
 
 // socket.on('reloadTeams', () => {
 //   alert("hello")

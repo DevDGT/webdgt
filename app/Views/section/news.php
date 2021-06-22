@@ -61,9 +61,9 @@
 
                 <div class="blog-pagination w-100">
                     <div class="pagination d-flex justify-content-center">
-                        <li class="btn"><a class="#" href="#">Back</a></li>
-                        <li class="btn"><a href="#">1</a></li>
-                        <li class="btn"><a href="#">Next <i class="fas fa-next"></i> </a></li>
+                        <li class="btn <?= $page['current'] == 1 ? 'disabled' : '' ?>"><a href="<?= str_replace("#page", (intval($page['current']) - 1), $page['url']) ?>">Back</a></li>
+                        <li class="btn disabled"><a href="#"><?= $page['current'] ?></a></li>
+                        <li class="btn <?= $page['next'] == 0 ? 'disabled' : '' ?>"><a class="disabled" href="<?= str_replace("#page", (intval($page['current']) + 1), $page['url']) ?>">Next <i class="fas fa-next"></i> </a></li>
                     </div>
                 </div>
 

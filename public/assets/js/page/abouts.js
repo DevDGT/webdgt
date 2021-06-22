@@ -132,8 +132,9 @@ async function getTeams() {
 
   $('.benefits').not('.slick-initialized').slick({
       centerMode: true,
-      centerPadding: '60px',
-      slidesToShow: 3,
+      // centerPadding: '60px',
+      slidesToShow: 5,
+      autoplay:true,
       responsive: [
         {
           breakpoint: 768,
