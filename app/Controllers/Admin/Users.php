@@ -21,6 +21,7 @@ class Users extends BaseController
             'menu' => 'users',
             'roti' => [
                 'Home:blank' => base_url(),
+                'Dashboard' => base_url(ADMIN_PATH . '/dashboard'),
                 'Pengguna (<b class="merah">Menghapus user dapat menghapus semua data yang berhubungan dengan user tersebut !</b>):active' => '',
             ]
         ];
