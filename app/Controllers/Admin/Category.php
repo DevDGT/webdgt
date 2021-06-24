@@ -18,12 +18,12 @@ class Category extends BaseController
     {
         $data = [
             'title' => 'Kategori',
-            'menu' => 'post',
+            'menu' => 'master',
             'subMenu' => 'category',
             'roti' => [
                 'Home:blank' => base_url(),
                 'Dashboard' => base_url(ADMIN_PATH . '/dashboard'),
-                'Konten' => '',
+                'Master' => '',
                 'Kategori:active' => '',
             ]
         ];

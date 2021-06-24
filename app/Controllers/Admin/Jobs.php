@@ -18,12 +18,12 @@ class Jobs extends BaseController
     {
         $data = [
             'title' => 'Pekerjaan',
-            'menu' => 'post',
+            'menu' => 'master',
             'subMenu' => 'jobs',
             'roti' => [
                 'Home:blank' => base_url(),
                 'Dashboard' => base_url(ADMIN_PATH . '/dashboard'),
-                'Konten' => '',
+                'Master' => '',
                 'Pekerjaan:active' => '',
             ]
         ];
