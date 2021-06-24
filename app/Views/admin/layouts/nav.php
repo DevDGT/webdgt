@@ -19,7 +19,44 @@
 				</a>
 			</li>
 		<?php endif ?>
-		<li class="nav-item <?= ($menu ?? "" == 'post') ? 'menu-open' : '' ?>">
+		<?php if (session('level') == '1') :  ?>
+			<li class="nav-item <?= (($menu ?? "") == 'master') ? 'menu-open' : '' ?>">
+				<a href="#" class="nav-link">
+					<i class="nav-icon fas fa-database"></i>
+					<p>
+						Master Data
+						<i class="right fas fa-angle-left"></i>
+					</p>
+				</a>
+				<ul class="nav nav-treeview">
+					<li class="nav-item">
+						<a href="<?= base_url(ADMIN_PATH . '/category') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'category' ? 'active' : '' ?>">
+							<i class="fas fa-tag nav-icon"></i>
+							<p>Kategori</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="<?= base_url(ADMIN_PATH . '/category-product') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'category-product' ? 'active' : '' ?>">
+							<i class="fas fa-tag nav-icon"></i>
+							<p>Kategori Produk</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="<?= base_url(ADMIN_PATH . '/jobs') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'jobs' ? 'active' : '' ?>">
+							<i class="fas fa-briefcase nav-icon"></i>
+							<p>Pekerjaan</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="<?= base_url(ADMIN_PATH . '/clients') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'clients' ? 'active' : '' ?>">
+							<i class="fas fa-user-tie nav-icon"></i>
+							<p>Klien</p>
+						</a>
+					</li>
+				</ul>
+			</li>
+		<?php endif ?>
+		<li class="nav-item <?= (($menu ?? "") == 'post') ? 'menu-open' : '' ?>">
 			<a href="#" class="nav-link">
 				<i class="nav-icon fas fa-paper-plane"></i>
 				<p>
@@ -29,18 +66,6 @@
 			</a>
 			<ul class="nav nav-treeview">
 				<?php if (session('level') == '1') :  ?>
-					<li class="nav-item">
-						<a href="<?= base_url(ADMIN_PATH . '/category') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'category' ? 'active' : '' ?>">
-							<i class="fas fa-tag nav-icon"></i>
-							<p>Kategori</p>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="<?= base_url(ADMIN_PATH . '/jobs') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'jobs' ? 'active' : '' ?>">
-							<i class="fas fa-briefcase nav-icon"></i>
-							<p>Pekerjaan</p>
-						</a>
-					</li>
 					<li class="nav-item">
 						<a href="<?= base_url(ADMIN_PATH . '/teams') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'teams' ? 'active' : '' ?>">
 							<i class="fas fa-user-friends nav-icon"></i>
