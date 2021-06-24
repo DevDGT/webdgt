@@ -12,7 +12,7 @@ class Admin extends BaseController
         $this->db = \Config\Database::connect();
     }
 
-    public function dataTables($option)
+    private function dataTables($option)
     {
         try {
             $this->masterModel->table = $option['table'] ?? "";
@@ -57,7 +57,7 @@ class Admin extends BaseController
         }
     }
 
-    public function getRowTable($option = ['table' => '', 'where' => [], 'guard' => []])
+    private function getRowTable($option = ['table' => '', 'where' => [], 'guard' => []])
     {
         try {
 
@@ -160,6 +160,30 @@ class Admin extends BaseController
         ]);
     }
 
+    public function dataCategoryProduct()
+    {
+        return $this->dataTables([
+            'table' => 'category_product cat',
+            'selectData' => "cat.id, cat.name, cat.slug",
+            'field' => ['name', 'slug'],
+            'columnOrder' => [null, 'name', 'slug'],
+            'columnSearch' => ['cat.name', 'cat.slug'],
+            'order' => ['id' => 'desc']
+        ]);
+    }
+
+    public function dataClients()
+    {
+        return $this->dataTables([
+            'table' => 'clients c',
+            'selectData' => "c.id, c.name, c.icon, c.description, c.active",
+            'field' => ['name', 'icon', 'description', 'active'],
+            'columnOrder' => [null, 'name', 'description', 'active'],
+            'columnSearch' => ['c.name', 'c.description'],
+            'order' => ['id' => 'desc']
+        ]);
+    }
+
     public function dataJobs()
     {
         return $this->dataTables([
@@ -258,6 +282,14 @@ class Admin extends BaseController
     {
         return $this->getRowTable([
             'table' => 'category',
+            'where' => [EncKey('id') => $id]
+        ]);
+    }
+
+    public function getRowCategoryProduct($id)
+    {
+        return $this->getRowTable([
+            'table' => 'category_product',
             'where' => [EncKey('id') => $id]
         ]);
     }
