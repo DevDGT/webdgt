@@ -45,12 +45,10 @@ $(document).ready(function() {
 var currentPage = location.href
 
 function loadPage(url, change = false) {
-	// if (url == currentPage) return typeof refreshData === 'function' && refreshData()
 	nanobar.go(80)
 	currentPage = url
 	const e = $(`a[href='${url.trim()}']`)
 	change == false && window.history.pushState("", "", url)
-	// $('a.menu-item').removeClass('active'), e.addClass('active')
     $.get(url, function(data) {
 		$("#main").html($(data).filter('#main').html())
 		$("#heroGan").html($(data).filter('#heroGan').html())
@@ -94,10 +92,5 @@ const on = (type, el, listener, all = false) => {
       }
     }
   }
-
-// socket.on('reloadTeams', () => {
-//   alert("hello")
-//   reloadSlick()
-// })
 
 setInterval(function(){if (currentPage.replace(/#/g, '') != location.href.replace(/#/g, '')) (currentPage = location.href, loadPage(currentPage, true))}, 200);
