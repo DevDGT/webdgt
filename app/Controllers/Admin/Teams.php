@@ -19,7 +19,7 @@ class Teams extends BaseController
         $data = [
             'title' => 'Tim',
             'menu' => 'post',
-            'subMenu' => 'team',
+            'subMenu' => 'teams',
             'roti' => [
                 'Home:blank' => base_url(),
                 'Dashboard' => base_url(ADMIN_PATH . '/dashboard'),
