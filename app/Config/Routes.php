@@ -97,8 +97,15 @@ $routes->group('ruangadmin', ['namespace' => 'App\Controllers\Admin'], function 
         $routes->post('store', 'Category::store');
         $routes->post('delete', 'Category::delete');
         $routes->post('update', 'Category::update');
-        $routes->post('set/(:any)', 'Category::set_/$1');
         $routes->post('delete-multiple', 'Category::deleteMultiple');
+    });
+
+    $routes->group('category-product', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
+        $routes->get('/', 'CategoryProduct::index');
+        $routes->post('store', 'CategoryProduct::store');
+        $routes->post('delete', 'CategoryProduct::delete');
+        $routes->post('update', 'CategoryProduct::update');
+        $routes->post('delete-multiple', 'CategoryProduct::deleteMultiple');
     });
 
     // Jobs Management routes
@@ -117,6 +124,16 @@ $routes->group('ruangadmin', ['namespace' => 'App\Controllers\Admin'], function 
         $routes->post('delete', 'Teams::delete');
         $routes->post('update', 'Teams::update');
         $routes->post('delete-multiple', 'Teams::deleteMultiple');
+    });
+
+    $routes->group('clients', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
+        $routes->get('/', 'Clients::index');
+        $routes->post('store', 'Clients::store');
+        $routes->post('delete', 'Clients::delete');
+        $routes->post('update', 'Clients::update');
+        $routes->post('delete-multiple', 'Clients::deleteMultiple');
+        $routes->post('set/(:any)', 'Clients::set_/$1');
+        $routes->post('set-multiple', 'Clients::setMultiple');
     });
 
     $routes->group('article', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
@@ -138,15 +155,18 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('options/(:any)', 'Admin::getDataOption/$1');
         $routes->post('users', 'Admin::dataUsers');
         $routes->post('category', 'Admin::dataCategory');
+        $routes->post('category-product', 'Admin::dataCategoryProduct');
         $routes->post('jobs', 'Admin::dataJobs');
         $routes->post('teams', 'Admin::dataTeams');
         $routes->post('article', 'Admin::dataArticle');
+        $routes->post('clients', 'Admin::dataClients');
         $routes->get('profile', 'Admin::dataProfile');
     });
 
     $routes->group('row', ['namespace' => 'App\Controllers\Api'], function ($routes) {
         $routes->post('users/(:any)', 'Admin::getRowUsers/$1');
         $routes->post('category/(:any)', 'Admin::getRowCategory/$1');
+        $routes->post('category-product/(:any)', 'Admin::getRowCategoryProduct/$1');
         $routes->post('jobs/(:any)', 'Admin::getRowJobs/$1');
         $routes->post('teams/(:any)', 'Admin::getRowTeams/$1');
         $routes->post('article/(:any)', 'Admin::getRowArticle/$1');
