@@ -19,7 +19,7 @@ class Home extends BaseController
                                 <div class="carousel-inner" role="listbox">
 
                                     <!-- Slide 1 -->
-                                    <div class="carousel-item active" style="background-image: url($base_url/uploads/beranda/Artboard_1_copy_3@4x-100.jpg);">
+                                    <div class="carousel-item active" style="background-image: url($base_url/uploads/beranda/DSCF1517.JPG);">
                                         <!-- <div class="carousel-container">
                                             <div class="carousel-content animate__animated animate__fadeInUp">
                                                 <h2>Welcome to <span>Company</span></h2>
@@ -30,7 +30,7 @@ class Home extends BaseController
                                     </div>
 
                                     <!-- Slide 2 -->
-                                    <div class="carousel-item" style="background-image: url($base_url/uploads/beranda/Artboard_1_copy@4x-100.jpg);">
+                                    <div class="carousel-item" style="background-image: url($base_url/uploads/beranda/DSCF1509.JPG);">
                                         <!-- <div class="carousel-container">
                                             <div class="carousel-content animate__animated animate__fadeInUp">
                                                 <h2>Lorem Ipsum Dolor</h2>
@@ -41,7 +41,7 @@ class Home extends BaseController
                                     </div>
 
                                     <!-- Slide 3 -->
-                                    <div class="carousel-item" style="background-image: url($base_url/uploads/beranda/Artboard_1@4x-100.jpg);">
+                                    <div class="carousel-item" style="background-image: url($base_url/uploads/beranda/DSCF1502.JPG);">
                                         <!-- <div class="carousel-container">
                                             <div class="carousel-content animate__animated animate__fadeInUp">
                                                 <h2>Sequi ea ut et est quaerat</h2>
