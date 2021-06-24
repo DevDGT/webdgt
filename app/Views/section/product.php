@@ -21,7 +21,7 @@
         <div class="row">
 
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch aos-init aos-animate p-2" data-aos="zoom-in" data-aos-delay="100">
-                <div class="card shadow" style="width: 23rem; border: none;">
+                <div class="card shadow" style="width: 30rem; border: none;">
                     <img src="<?php echo base_url('/uploads/produk/Productivity.png'); ?>" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p class="card-text">
@@ -31,8 +31,8 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch aos-init aos-animate p-2" data-aos="zoom-in" data-aos-delay="100">
-                <div class="card shadow" style="width: 23rem; border: none;">
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch aos-init aos-animate p-2" data-aos="zoom-in" data-aos-delay="200">
+                <div class="card shadow" style="width: 30rem; border: none;">
                     <img src="<?php echo base_url('/uploads/produk/User_Frustation.png'); ?>" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p class="card-text">
@@ -41,8 +41,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch aos-init aos-animate p-2" data-aos="zoom-in" data-aos-delay="100">
-                <div class="card shadow" style="width: 23rem; border: none;">
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch aos-init aos-animate p-2" data-aos="zoom-in" data-aos-delay="300">
+                <div class="card shadow" style="width: 30rem; border: none;">
                     <img src="<?php echo base_url('/uploads/produk/Price.png'); ?>" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p class="card-text">

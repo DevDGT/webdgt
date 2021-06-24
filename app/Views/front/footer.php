@@ -19,12 +19,12 @@
                             <div class="col-auto">
                                 <div class="social-links d-flex flex-col pt-3 pt-md-0">
                                     <div class="container justify-content-evenly">
-                                        <a href="https://www.instagram.com/dianglobaltech/?hl=id" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
-                                        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                                        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                                        <a href="#" class="google-plus"><i class="bx bxl-google"></i></a>
-                                        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-                                        <a href="#" class="youtube"><i class="bx bxl-youtube"></i></a>
+                                        <a href="https://bit.ly/35Fqhft" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
+                                        <!-- <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a> -->
+                                        <!-- <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a> -->
+                                        <!-- <a href="#" class="google-plus"><i class="bx bxl-google"></i></a> -->
+                                        <!-- <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a> -->
+                                        <a href="https://bit.ly/35FkiHm" class="youtube"><i class="bx bxl-youtube"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -41,7 +41,12 @@
                         </div>
                         <div class="row align-items-start">
                             <div class="col-sm-12">
-                                <p class="text-start fs-6"><i class="bi bi-telephone mx-2"></i>Phone : +628-1721-5496</p>
+                                <p class="text-start fs-6"><i class="bi bi-phone mx-2"></i>Mobile Phone : +628-1721-5496</p>
+                            </div>
+                        </div>
+                        <div class="row align-items-start">
+                            <div class="col-sm-12">
+                                <p class="text-start fs-6"><i class="bi bi-telephone mx-2"></i>Telephone : +62 22-875-13118</p>
                             </div>
                         </div>
                         <div class="row align-items-start">

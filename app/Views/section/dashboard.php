@@ -1,6 +1,11 @@
 <style>
     .services .icon-box {
         padding: 10px 60px 10px 60px;
+        border-radius: 5%;
+    }
+
+    #testimonials .testimonial-item {
+        border-radius: 5%;
     }
 </style>
 <!-- About Section -->
@@ -87,7 +92,7 @@
         <div class="row testimonial-item">
             <div class="col-lg-6">
                 <div class="card" style="width: auto; border: none;">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/NOAtMfUAe5U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="auto" height="315" src="https://www.youtube.com/embed/NOAtMfUAe5U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     <div class="card-body">
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     </div>
@@ -97,12 +102,12 @@
 
                 <div class="card mb-3" style="max-width: auto; border: none;">
                     <div class="row g-0">
-                        <div class="col-md-2">
-                            <iframe width="100%" height="auto" src="https://www.youtube.com/embed/NOAtMfUAe5U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="col-md-6">
+                            <iframe width="100%" height="auto" src="https://www.youtube.com/embed/AilqrFv1zj4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div class="col-md-4">
                             <div class="card-body">
-                                <h5 class="card-title">Aplikasi SIADES</h5>
+                                <h5 class="card-title">Aplikasi BUMDES</h5>
                                 <p>Deskripsi</p>
                             </div>
                         </div>
@@ -110,28 +115,26 @@
                 </div>
                 <div class="card mb-3" style="max-width: auto; border: none;">
                     <div class="row g-0">
-                        <div class="col-md-4">
-                            <video width="100%" height="auto" controls>
-                                <source src="http://techslides.com/demos/sample-videos/small.ogv" type=video/ogg>
-                            </video>
+                        <div class="col-md-6">
+                            <iframe width="100%" height="auto" src="https://www.youtube.com/embed/jCzdhawRsHA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-4">
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
+                                <h5 class="card-title">Aplikasi KOPERASI</h5>
+                                <p>Deskripsi</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="card mb-3" style="max-width: auto; border: none;">
                     <div class="row g-0">
-                        <div class="col-md-4">
-                            <video width="100%" height="auto" controls>
-                                <source src="http://techslides.com/demos/sample-videos/small.ogv" type=video/ogg>
-                            </video>
+                        <div class="col-md-6">
+                            <iframe width="100%" height="auto" src="https://www.youtube.com/embed/jCzdhawRsHA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-4">
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
+                                <h5 class="card-title">Aplikasi CBT</h5>
+                                <p>Deskripsi</p>
                             </div>
                         </div>
                     </div>

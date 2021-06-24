@@ -68,12 +68,12 @@
                         <h2 class="text-center text-capitalize mt-4">Dian Global Tech Is</h2>
                         <div class="container mt-4">
                             <div class="row">
-                                <div class="col-lg-4">
+                                <div class="col-lg-4 pb-4">
                                     <video width="100%" height="auto" controls="">
                                         <source src="http://techslides.com/demos/sample-videos/small.ogv" type="video/ogg">
                                     </video>
                                 </div>
-                                <div class="col-lg-8">
+                                <div class="col-lg-8 pb-4">
                                     <p class="text-start text-wrap font-monospace">
                                         Dian Global Tech is an INFORMATION AND TECHNOLOGY (IT)
                                         consulting services company established in October 2009
