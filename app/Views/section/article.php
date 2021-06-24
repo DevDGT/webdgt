@@ -33,9 +33,8 @@
                         <img src="<?= base_url('/uploads/cover/' . $newsData[0]->cover) ?>" alt="" class="img-fluid newsCover">
                     </div>
 
-                    <h2 class="entry-title newsTitle">
-                        <!-- <a href="blog-single.html"></a> -->
-                        <a href=""><?= $newsData[0]->title ?></a>
+                    <h2 class="entry-title newsTitle text-dark">
+                        <?= $newsData[0]->title ?>
                     </h2>
 
                     <div class="entry-meta">
