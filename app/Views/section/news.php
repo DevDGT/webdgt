@@ -30,32 +30,34 @@
 
                 <div id="articleSection">
                     <?php foreach ($newsData as $news) : ?>
-                        <article class="entry">
-                            <div class="entry-img images">
-                                <img src="<?= base_url('/uploads/cover/' . $news->cover); ?>" alt="${items.cover}" class="img-fluid p-2">
-                            </div>
+                        <a href="<?= base_url('/news/' . $news->slug) ?>">
 
-                            <h2 class="entry-title">
-                                <a href="<?= base_url('/news/' . $news->slug) ?>"><?= $news->title ?></a>
-                            </h2>
-
-                            <div class="entry-meta">
-                                <ul>
-                                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="#"><?= $news->author ?></a></li>
-                                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><?= $news->created_at ?></a></li>
-                                    <!-- <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="#">12 Comments</a></li> -->
-                                </ul>
-                            </div>
-
-                            <div class="entry-content">
-                                <p>
-                                    <?= $news->description ?>
-                                </p>
-                                <div class="read-more">
-                                    <a href="<?= base_url('/news/' . $news->slug) ?>">Read More</a>
+                            <article class="entry">
+                                <div class="entry-img images">
+                                    <img src="<?= base_url('/uploads/cover/' . $news->cover); ?>" alt="${items.cover}" class="img-fluid">
                                 </div>
-                            </div>
-                        </article>
+
+                                <h2 class="entry-title">
+                                    <a href="<?= base_url('/news/' . $news->slug) ?>"><?= $news->title ?></a>
+                                </h2>
+
+                                <div class="entry-meta">
+                                    <ul>
+                                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="#"><?= $news->author ?></a></li>
+                                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><?= $news->created_at ?></a></li>
+                                        <!-- <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="#">12 Comments</a></li> -->
+                                    </ul>
+                                </div>
+
+                                <div class="entry-content">
+                                    <p class="m-0 p-0">
+                                        <a href="<?= base_url('/news/' . $news->slug) ?>" style="color: #111">
+                                            <?= $news->description ?>
+                                        </a>
+                                    </p>
+                                </div>
+                            </article>
+                        </a>
                     <?php endforeach; ?>
                 </div>
 
@@ -69,7 +71,7 @@
 
             </div><!-- End blog entries list -->
 
-            <div class="col-lg-4 col-md-6 col-sm-8">
+            <div class="col-lg-4 col-md-6 col-sm-12">
 
                 <div class="sidebar">
 
