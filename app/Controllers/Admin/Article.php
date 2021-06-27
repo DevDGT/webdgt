@@ -316,13 +316,13 @@ class Article extends BaseController
             if ($validated == false) throw new \Exception($this->validator->listErrors());
             $file = $this->request->getFile('upload');
             $fileName = time() . "_" . $file->getName();
-            $path = ROOTPATH . 'public/uploads/';
+            $path = ROOTPATH . 'public/uploads/post/';
             $file->move($path, $fileName);
 
             $result = [
                 "uploaded" => 1,
                 "file_name" => $fileName,
-                "url" => base_url("/uploads/$fileName")
+                "url" => base_url("/uploads/post/$fileName")
             ];
         } catch (\Throwable $th) {
             $result = [

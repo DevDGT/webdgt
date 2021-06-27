@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-6 col-md-8 footer-contact">
+                <div class="col-lg-4 col-md-8 footer-contact">
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-2">
@@ -32,7 +32,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-md-8 footer-newsletter">
+                <div class="col-lg-4 col-md-8 footer-newsletter">
                     <div class="container">
                         <div class="row align-items-start">
                             <div class="col-sm-12">
@@ -55,9 +55,11 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-lg-4 col-md-8 footer-contact">
                     <div class="container">
                         <form action="" method="post" style='background: inherit;'>
-                            <div class="row my-3">
+                            <div class="row">
                                 <div class="col">
                                     <input type="text" class="form-control form-control-sm" placeholder="Full Name" aria-label="Full Name">
                                 </div>
@@ -84,10 +86,6 @@
                             </div>
                         </form>
                     </div>
-                    <!-- <form action="#" method="post">
-                        <input type="email" name="email">
-                        <input type="submit" value="Subscribe">
-                    </form> -->
                 </div>
 
             </div>

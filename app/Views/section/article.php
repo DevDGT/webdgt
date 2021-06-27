@@ -3,6 +3,13 @@
         width: 100% !important;
         height: 100% !important;
     }
+
+    .newsCover {
+        align-items: center;
+        object-fit: cover;
+        margin: auto;
+        display: block;
+    }
 </style>
 <section id="breadcrumbs" class="breadcrumbs">
     <div class="container">
@@ -27,9 +34,9 @@
 
             <div class="col-lg-8 entries">
 
-                <article class="entry entry-single">
+                <article class="entry entry-single" id="articleDetail">
 
-                    <div class="entry-img">
+                    <div class="entry-img coverGan">
                         <img src="<?= base_url('/uploads/cover/' . $newsData[0]->cover) ?>" alt="" class="img-fluid newsCover">
                     </div>
 
@@ -83,7 +90,7 @@
 
             <div class="col-lg-4">
 
-                <div class="sidebar">
+                <div class="sidebar" id="sideBars">
 
                     <?php require 'sidebar.php' ?>
 

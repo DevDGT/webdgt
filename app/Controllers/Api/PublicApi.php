@@ -102,15 +102,7 @@ class PublicApi extends BaseController
     {
         try {
 
-            $this->builder = $this->db->table('category cat');
-            $this->builder->select("
-                cat.name,
-                cat.slug,
-                (SELECT COUNT(*) FROM article WHERE category_id = cat.id) count
-            ");
-            $this->builder->orderBy('count', 'desc');
-
-            $category = $this->builder->get()->getResultArray();
+            $category = $this->db->query("SELECT `cat`.`name`, `cat`.`slug`, (SELECT COUNT(*) FROM article WHERE category_id = cat.id AND status = '1') count FROM `category` `cat` WHERE (SELECT COUNT(*) FROM article WHERE category_id = cat.id AND status = '1') != '0' ORDER BY `count` DESC")->getResult();
 
             $result = [
                 'status' => 'ok',
@@ -119,7 +111,7 @@ class PublicApi extends BaseController
         } catch (\Throwable $th) {
             $result = [
                 'status' => 'fail',
-                'message' => $th->getMessage()
+                'message' => $th->getMessage() . $this->db->getLastQuery()
             ];
         } catch (\Exception $ex) {
             $result = [
@@ -138,6 +130,7 @@ class PublicApi extends BaseController
             $this->builder->select("
                 a.tags,
             ");
+            $this->builder->where("status", '1');
             $tags = $this->builder->get()->getResult();
             $tagsData = [];
             foreach ($tags as $field_) {
@@ -202,6 +195,34 @@ class PublicApi extends BaseController
                 'status' => 'ok',
                 'count' => count($data),
                 'data' => $data
+            ];
+        } catch (\Throwable $th) {
+            $result = [
+                'status' => 'fail',
+                'message' => $th->getMessage()
+            ];
+        } catch (\Exception $ex) {
+            $result = [
+                'status' => 'fail',
+                'message' => $ex->getMessage()
+            ];
+        } finally {
+            echo json_encode($result);
+        }
+    }
+
+    public function getClients()
+    {
+        try {
+
+            $clients = $this->db->table('clients')
+                ->select(EncKey('id') . 'id ,name, icon, description')
+                ->where('active', '1')
+                ->orderby('id', 'desc')->get()->getResult();
+            $result = [
+                'status' => 'ok',
+                'count' => count($clients),
+                'data' => $clients
             ];
         } catch (\Throwable $th) {
             $result = [

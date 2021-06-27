@@ -31,8 +31,10 @@ CKEDITOR.editorConfig = function( config ) {
 	// config.removeButtons = 'Underline,Subscript,Superscript';
 
 	// Set the most common block elements.
-	config.format_tags = 'p;h1;h2;h3;pre';
+	// config.format_tags = 'p;h1;h2;h3;pre';
 
+	config.allowedContent = true;
+	config.extraAllowedContent = 'div(*)';
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
 	config.extraPlugins = 'justify,liststyle,indent,indentlist,indentblock,basicstyles'

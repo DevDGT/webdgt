@@ -14,10 +14,8 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Username</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Level</th>
+                            <th></th>
+                            <th>Client</th>
                             <th id="statusField">Active</th>
                             <th id="actionField">Aksi</th>
                         </tr>

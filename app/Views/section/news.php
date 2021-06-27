@@ -20,6 +20,17 @@
     .blog-pagination .pagination button a:hover {
         color: #fff;
     }
+
+    .coverGan {
+        height: 100%;
+    }
+
+    .imageCover {
+        /* align-items: center; */
+        object-fit: cover;
+        margin: auto;
+        display: block;
+    }
 </style>
 <section id="blog" class="blog">
     <div class="container aos-init aos-animate" data-aos="fade-up">
@@ -32,9 +43,9 @@
                     <?php foreach ($newsData as $news) : ?>
                         <a href="<?= base_url('/news/' . $news->slug) ?>">
 
-                            <article class="entry">
-                                <div class="entry-img images">
-                                    <img src="<?= base_url('/uploads/cover/' . $news->cover); ?>" alt="${items.cover}" class="img-fluid">
+                            <article class="entry" id="<?= $news->id ?>">
+                                <div class="entry-img coverGan">
+                                    <img src="<?= base_url('/uploads/cover/' . $news->cover); ?>" alt="cover" class="img-fluid imageCover">
                                 </div>
 
                                 <h2 class="entry-title">

@@ -57,11 +57,10 @@ class Admin extends BaseController
         }
     }
 
-    private function getRowTable($option = ['table' => '', 'where' => [], 'guard' => []])
+    private function getRowTable($option = ['table' => '', 'select' => "", 'where' => [], 'guard' => []])
     {
         try {
-
-            $data = $this->db->table($option['table'])->where($option['where'])->get()->getRowArray();
+            $data = $this->db->table($option['table'])->select(isset($option['select']) ? $option['select'] : "*")->where($option['where'])->get()->getRowArray();
             if (!$data) throw new \Exception("no data");
             $guard = ["id:hash", "token", "password"];
             if (!empty($option['guard'])) $guard = array_merge($guard, $option['guard']);
@@ -101,7 +100,11 @@ class Admin extends BaseController
                 'category' => [
                     'table'     => 'category',
                     'protected' => ['id:hash']
-                ]
+                ],
+                'category-product' => [
+                    'table'     => 'category_product',
+                    'protected' => ['id:hash']
+                ],
             ];
             if (!array_key_exists($data, $table)) throw new \Exception("nothing there");
             $builder = $this->db->table($table[$data]['table']);
@@ -176,7 +179,7 @@ class Admin extends BaseController
     {
         return $this->dataTables([
             'table' => 'clients c',
-            'selectData' => "c.id, c.name, c.icon, c.description, c.active",
+            'selectData' => "c.id, c.name, c.icon, SUBSTRING(c.description, 0, 200) description, c.active",
             'field' => ['name', 'icon', 'description', 'active'],
             'columnOrder' => [null, 'name', 'description', 'active'],
             'columnSearch' => ['c.name', 'c.description'],
@@ -320,6 +323,15 @@ class Admin extends BaseController
             'table' => 'article',
             'where' => [EncKey('id') => $id],
             'guard' => ['category_id:hash']
+        ]);
+    }
+
+    public function getRowClients($id)
+    {
+        return $this->getRowTable([
+            'table' => 'clients',
+            'select' => "id, name, icon, description",
+            'where' => [EncKey('id') => $id],
         ]);
     }
 }

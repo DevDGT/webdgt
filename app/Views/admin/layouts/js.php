@@ -11,6 +11,7 @@
 <script src="<?= base_url('assets/admin') ?>/plugins/select2/js/select2.full.min.js" defer></script>
 <script src="<?= base_url('assets/modules/iziToast.min.js') ?>" defer></script>
 <script src="<?= base_url('assets/modules/sweetalert2.all.min.js') ?>" defer></script>
+<script src="<?= base_url('assets/modules/autosize.min.js') ?>" defer></script>
 <script src="<?= base_url('assets/js/module/moment.min.js') ?>" defer></script>
 <script src="<?= base_url('assets/js/module/nanobar.min.js') ?>" defer></script>
 <script src="<?= base_url('assets/js/module/jquery.validate.min.js') ?>" defer></script>

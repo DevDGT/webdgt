@@ -170,6 +170,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('jobs/(:any)', 'Admin::getRowJobs/$1');
         $routes->post('teams/(:any)', 'Admin::getRowTeams/$1');
         $routes->post('article/(:any)', 'Admin::getRowArticle/$1');
+        $routes->post('clients/(:any)', 'Admin::getRowClients/$1');
     });
 
     $routes->group('public', ['namespace' => 'App\Controllers\Api'], function ($routes) {
@@ -178,6 +179,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
             $routes->get('category', 'PublicApi::getCategory');
             $routes->get('tags', 'PublicApi::getTags');
             $routes->get('teams', 'PublicApi::getTeams');
+            $routes->get('clients', 'PublicApi::getClients');
         });
     });
 });

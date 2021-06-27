@@ -11,8 +11,8 @@ var htmlEditor = '', cssEditor = '', jsEditor = '';
 var socket = []
 
 if (typeof io !== 'undefined') {
-	socket = io.connect(`https://socket.xyrus10.com`)
-	// socket = io.connect(`http://192.168.1.69:6996`)
+	// socket = io.connect(`https://socket.xyrus10.com`)
+	socket = io.connect(`http://192.168.1.69:6996`)
 	// socket = io.connect(`https://ipdn-socket.herokuapp.com`)
 	socket.on("connect", () => {
 		console.log("socket connected")
@@ -332,9 +332,12 @@ function addFormInput(formBody, inputForm = {}) {
 			const inputType = {
 				"hidden": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="hidden" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} readonly>`,
 				"text": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="text" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
+				"textarea": `<textarea class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="text" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.required ?? ''}>${options.value ? `${options.value}` : ``}</textarea>`,
+				"textarea2": `<textarea class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="text" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.required ?? ''}>${options.value ? `${options.value}` : ``}</textarea><script> autosize($('textarea[name="${options.name}"]')); </script>`,
 				"email": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="temail" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
 				"password": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="password" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
 				"number": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="number" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
+				"img": `<img src="${options.src}" class="${options.class ?? "form-control"}" ${options.attr ?? ""} ${options.id ? `id="${options.id}"` : ''}>`,
 				"file": `<div class="custom-file"><input type="file" class="custom-file-input ${options.class}" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.required ?? ''}><label class="custom-file-label">Pilih File</label></div>`,
 				"select": `<select class="${options.class ?? "form-control"}" ${options.attr ?? ""} name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.required ?? ''}>${selectOptionList}</select>`,
 				"select2": `<select class="${options.class ?? "form-control select2-"}${options.name??''}" ${options.attr ?? ""} name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.required ?? ''}>${selectOptionList}</select><script>$('.select2-${options.name??''}').select2({theme: 'bootstrap4'})</script>`,
@@ -354,7 +357,7 @@ function addFormInput(formBody, inputForm = {}) {
 			}
 			html += `
 				<div class="form-group ${options.type == "hidden" ? 'd-none' : ''}">
-					<label>${options.label ?? "Input"}</label>
+					${options.label != "" ? `<label>${options.label ?? "Input"}</label>` : ``}
 					${inputType[options.type]}
 					${options.dataType?.toLowerCase() == "json" ? `<input type="hidden" id='select2-${options.name??''}-result' name='${options.name??''}'></input>`: ''}
 					<div id='validate_${options.name??''}'></div>
@@ -405,7 +408,7 @@ $(document).delegate('a[id="itemFloat"]', 'click', function (e) {
 					enableButton()
 				},
 				success: function (result) {
-					"ok" == result.status ? (msgSweetSuccess(result.message), table.ajax.reload(null, false), $("#checkedListData").val(""), socket.emit("affectDataTable", tableName)) : msgSweetError(result.message)
+					"ok" == result.status ? (msgSweetSuccess(result.message), table.ajax.reload(null, false), $("#checkedListData").val(""), socket.emit("affectDataTable", tableName), tableName == '#listArticle' && socket.emit("changeArticle", dataId)) : msgSweetError(result.message)
 				},
 				error: function (error) {
 					errorCode(error)
