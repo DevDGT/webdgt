@@ -1,7 +1,6 @@
 $(document).ready(function(){
-
+  moveRoom("aboutus")
   getTeams()
-    
 });
 
 function initSlick() {
@@ -62,6 +61,7 @@ function addTeam() {
     $.getJSON(teamsAPI, {
         format: 'json'
     }).done(function(response){
+      // nanobar.go(90)
       let teams = '';
       let ceo = '';
       $.each(response.data, function(i, items){
@@ -158,7 +158,3 @@ async function getTeams() {
   });
 }
 
-socket.on?.('reloadTeams', () => {
-  // alert("hello")
-  reloadSlick()
-})

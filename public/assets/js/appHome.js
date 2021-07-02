@@ -10,6 +10,12 @@ if (typeof io !== 'undefined') {
   // socket = io.connect(`https://ipdn-socket.herokuapp.com`)
   socket.on("connect", () => {
     console.log("socket connected")
+		socket.emit("connected", {
+			username: "anonim",
+			userId: "anonim",
+			origin: BASE_URL,
+			token: "anonim",
+		});
     // socket.emit("connected", USERNAME);
   });
 }
@@ -65,6 +71,13 @@ function loadPage(url, change = false) {
   change == false && (document.body.scrollTop = 0, document.documentElement.scrollTop = 0)
 }
 
+var currentRoom = ''
+function moveRoom(room) {
+	if (currentRoom != '') socket?.emit('leaveRoom', currentRoom)
+	socket?.emit("joinRoom", room)
+	currentRoom = room
+}
+
 $(document).delegate('a', 'click', function (e) {
   if (!$(this).attr('href').includes(BASE_URL)) return
   if ($(this).attr('target') != '_blank') {
@@ -98,3 +111,30 @@ const on = (type, el, listener, all = false) => {
 setInterval(function () {
   if (currentPage.replace(/#/g, '') != location.href.replace(/#/g, ''))(currentPage = location.href, loadPage(currentPage, true))
 }, 200);
+
+
+// sockect server response
+socket.on?.("articleChanged", (idNews) => {
+  if (currentRoom != 'news') return
+  if (typeof getCategory !== "function") return
+  console.log(`Article changed ${idNews}`);
+  nanobar.go(80)
+  $.get(location.href, function (data) {
+    $("#articleSection").html($(data).find('#articleSection').html())
+    getCategory()
+    getRecentPost()
+    getTags()
+  }).fail(function (err) {
+    $("#main").html(`${err.statusText}`)
+    nanobar.go(100)
+    console.log(err)
+  }).done(function () {
+    nanobar.go(100)
+  })
+})
+
+socket.on?.('reloadTeams', () => {
+  // alert("hello")
+  if (currentRoom != 'aboutus') return
+  reloadSlick()
+})

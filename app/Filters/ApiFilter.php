@@ -10,13 +10,30 @@ class ApiFilter implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
-        // if (session('token') && !session('level') == "1") return redirect()->to(ADMIN_PATH);
-        if (!session('token')) {
-            echo json_encode([
+        try {
+            $this->req = \Config\Services::request();
+            $this->db = \Config\Database::connect();
+            $token = $this->db->table('users')->select('token')->where('token', $this->req->getPost('_token'))->get()->getRow();
+            if (!$token) throw new \Exception("Not Authorized");
+            $response = [
+                'status' => 'ok',
+                'message' => 'ok'
+            ];
+        } catch (\Throwable $th) {
+            $response = [
                 'status' => 'fail',
-                'message' => 'Not Authorized'
-            ]);
-            exit();
+                'message' => $th->getMessage()
+            ];
+        } catch (\Exception $ex) {
+            $response = [
+                'status' => 'fail',
+                'message' => $ex->getMessage()
+            ];
+        } finally {
+            if ($response['status'] == 'fail') {
+                echo json_encode($response);
+                exit;
+            }
         }
     }
 

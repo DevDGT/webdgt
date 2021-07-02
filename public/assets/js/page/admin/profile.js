@@ -83,7 +83,11 @@ function getProfile() {
     return new Promise(resolve => {
         $.ajax({
             dataType: "json",
+            type: "post",
             url: API_PATH + 'data/profile',
+            data: {
+                _token: TOKEN
+            },
             beforeSend: function(){
                 disableButton()
             },
@@ -196,7 +200,7 @@ $("#passBaru").on('change', function(){
 
 setInterval(() => {
     let passBaru = $("#passBaru").val()
-    if (passBaru != '' && passBaru.length >= 6) {
+    if (passBaru != '' && passBaru?.length >= 6) {
         isValid("#passBaru")
         cekPassBaru()
     } else {

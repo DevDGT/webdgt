@@ -24,6 +24,14 @@ $(document).ready((function () {
 					path: CURRENT_PATH
 				})
 			},
+			dataSrc: function ( json ) {
+				json?.status == '401' && msgSweetWarning("Sesi Anda berakhir !").then(msg=> {
+					doLogoutAjax()
+				})
+				json?.status == "fail" && toastError(json?.message, "Gagal")
+                return json.data;
+				return json.data;
+			},
 			error: function (error) {
 				errorCode(error)
 			}
@@ -194,6 +202,4 @@ $(document).ready((function () {
 			errorCode(err)
 		}
 	})
-}), refreshTableInterval = setInterval(() => {
-	refreshData()
-}, REFRESH_TABLE_TIME);
+})

@@ -6,6 +6,7 @@ function refreshData() {
 	table.ajax.reload(null, !1)
 }
 $(document).ready((function () {
+	
 	$(tableId).attr('style', 'width:115px; text-align:center;')
 	table = $(tableId).DataTable({
 		processing: !0,
@@ -17,13 +18,21 @@ $(document).ready((function () {
 			data: {
 				_token: TOKEN
 			},
-			complete: function () {
+			complete: function (response) {
 				checkPilihan({
 					table: tableId,
 					buttons: ['delete'],
 					path: CURRENT_PATH
 				})
 			},
+			dataSrc: function ( json ) {
+				json?.status == '401' && msgSweetWarning("Sesi Anda berakhir !").then(msg=> {
+					doLogoutAjax()
+				})
+				json?.status == "fail" && toastError(json?.message, "Gagal")
+                return json.data;
+                return json.data;
+            },
 			error: function (error) {
 				errorCode(error)
 			}
@@ -140,6 +149,4 @@ $(document).ready((function () {
 			errorCode(err)
 		}
 	})
-}), refreshTableInterval = setInterval(() => {
-	refreshData()
-}, REFRESH_TABLE_TIME);
+})

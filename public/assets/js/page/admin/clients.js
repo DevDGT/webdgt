@@ -55,6 +55,14 @@ $(document).ready((function () {
 					path: CURRENT_PATH
 				})
 			},
+			dataSrc: function ( json ) {
+				json?.status == '401' && msgSweetWarning("Sesi Anda berakhir !").then(msg=> {
+					doLogoutAjax()
+				})
+				json?.status == "fail" && toastError(json?.message, "Gagal")
+                return json.data;
+                return json.data;
+            },
 			error: function (error) {
 				errorCode(error)
 			}
@@ -86,11 +94,11 @@ $(document).ready((function () {
 				return `
 					<div class="row">
 						<div class="col-auto">
-							<img src=${BASE_URL}/uploads/clients/${row.icon} class="border rounded" style='width:100px;height:100px;object-fit:cover'>
+							<img src="${BASE_URL}/uploads/clients/${row.icon}" class="border rounded" style='width:100px;height:100px;object-fit:cover'>
 						</div>
 						<div class="col-10">
 							<p>${row.name}</p>
-							${row.description}
+							${row.description.substr(0, 200)}
 						</div>
 					</div>
 				`
@@ -107,7 +115,7 @@ $(document).ready((function () {
 			targets: [4],
 			orderable: !0,
 			render: function (data, type, row) {
-				return `<button class='btn my-auto btn-danger btn-sm' id='delete' data-id="${row.id}" data-toggle='tooltip' title='Hapus Data'><i class='fas fa-trash-alt'></i></button> \n <button class='btn btn-warning btn-sm' id='edit' data-id="${row.id}" data-toggle='tooltip' title='Edit Data'><i class='fas fa-pencil-alt'></i></button> \n <button class='btn btn-info btn-sm' id='reset' data-id="${row.id}" data-toggle='tooltip' title='Reset Password'><i class='fas fa-sync-alt'></i></button>`
+				return `<button class='btn my-auto btn-danger btn-sm' id='delete' data-id="${row.id}" data-toggle='tooltip' title='Hapus Data'><i class='fas fa-trash-alt'></i></button> \n <button class='btn btn-warning btn-sm' id='edit' data-id="${row.id}" data-toggle='tooltip' title='Edit Data'><i class='fas fa-pencil-alt'></i></button>`
 			}
 		}]
 	})
@@ -224,6 +232,4 @@ $(document).ready((function () {
 			errorCode(err)
 		}
 	})
-}), refreshTableInterval = setInterval(() => {
-	refreshData()
-}, REFRESH_TABLE_TIME);
+})

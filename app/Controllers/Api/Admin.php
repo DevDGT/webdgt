@@ -8,6 +8,7 @@ class Admin extends BaseController
 {
     function __construct()
     {
+        $this->req = \Config\Services::request();
         $this->masterModel = new \App\Models\MasterModel();
         $this->db = \Config\Database::connect();
     }
@@ -136,6 +137,42 @@ class Admin extends BaseController
         }
     }
 
+    public function setUserStatus()
+    {
+        try {
+            $this->db = \Config\Database::connect();
+            $postToken = $this->req->getPost('token');
+            $userId = $this->req->getPost('userId');
+            $status = $this->req->getPost('status');
+            if (!$postToken) throw new \Exception("no access token");
+            $user = $this->db->table('users')->select('username, token')->where('token', $postToken)->get()->getRow();
+            if ($postToken != $user->token) throw new \Exception("token invalid");
+            if (!$userId) throw new \Exception("no user id");
+            if (!$status && !$status == 0) throw new \Exception("no status");
+            if (!intval($status) && !$status == 0) throw new \Exception("invalid status code");
+            if (intval($status) < 0 || intval($status) > 1) throw new \Exception("invalid status code only 1 or 0");
+            if (!Update('users', ['online' => $status], [EncKey('id') => $userId])) throw new \Exception("Gagal merubah status !");
+            // if ($status == 0) Update('users', ['token' => ""], [EncKey('id') => $userId]);
+
+            $result = [
+                'status' => 'ok',
+                'message' => $status == 1 ? "User Online " . $user->username : "User Offline " . $user->username,
+            ];
+        } catch (\Throwable $th) {
+            $result = [
+                'status' => 'fail',
+                'message' => $th->getMessage()
+            ];
+        } catch (\Exception $ex) {
+            $result = [
+                'status' => 'fail',
+                'message' => $ex->getMessage()
+            ];
+        } finally {
+            echo json_encode($result);
+        }
+    }
+
     public function dataUsers()
     {
         return $this->dataTables([
@@ -179,10 +216,37 @@ class Admin extends BaseController
     {
         return $this->dataTables([
             'table' => 'clients c',
-            'selectData' => "c.id, c.name, c.icon, SUBSTRING(c.description, 0, 200) description, c.active",
+            'selectData' => "c.id, c.name, c.icon, c.description, c.active",
             'field' => ['name', 'icon', 'description', 'active'],
             'columnOrder' => [null, 'name', 'description', 'active'],
             'columnSearch' => ['c.name', 'c.description'],
+            'order' => ['id' => 'desc']
+        ]);
+    }
+
+    public function dataProducts()
+    {
+        return $this->dataTables([
+            'table' => 'products p',
+            'selectData' => "p.id, p.name, p.slug, p.icon, p.description, p.active",
+            'field' => ['name', 'slug', 'icon', 'description', 'active'],
+            'columnOrder' => [null, 'name', 'description', 'active'],
+            'columnSearch' => ['p.name', 'p.description'],
+            'order' => ['id' => 'desc']
+        ]);
+    }
+
+    public function dataProductsDemo()
+    {
+        return $this->dataTables([
+            'table' => 'products_demo pd',
+            'selectData' => "pd.id, pd.title, pd.link, pd.active",
+            'field' => ['title', 'link', 'active'],
+            'columnOrder' => [null, 'title', 'active'],
+            'columnSearch' => ['pd.title', 'pd.link'],
+            'whereData' => [
+                EncKey('product_id') => $this->req->getPost('idProduct')
+            ],
             'order' => ['id' => 'desc']
         ]);
     }
@@ -331,6 +395,25 @@ class Admin extends BaseController
         return $this->getRowTable([
             'table' => 'clients',
             'select' => "id, name, icon, description",
+            'where' => [EncKey('id') => $id],
+        ]);
+    }
+
+    public function getRowProducts($id)
+    {
+        return $this->getRowTable([
+            'table' => 'products',
+            'select' => "id, name, icon, description, id_category_product, video",
+            'where' => [EncKey('id') => $id],
+            'guard' => ['id_category_product:hash']
+        ]);
+    }
+
+    public function getRowProductsDemo($id)
+    {
+        return $this->getRowTable([
+            'table' => 'products_demo',
+            'select' => "id, title, link",
             'where' => [EncKey('id') => $id],
         ]);
     }

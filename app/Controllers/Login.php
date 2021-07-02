@@ -44,7 +44,7 @@ class Login extends BaseController
             // cek apakah user aktif atau tidak
             // $userData = $builder->where($validate['data'])->get()->getRow();
             if ($userData->active == 0) throw new \Exception("Akun tidak aktif, tidak dapat melanjutkan");
-
+            $token = base64Enc(Enc(SALT . time() . $userData->username . $userData->password), 3);
             $session = [
                 'userId' => $userData->id,
                 'isAdmin' => $userData->level == '1' ? true : false,
@@ -54,8 +54,10 @@ class Login extends BaseController
                 'photo' => $userData->photo ?? "",
                 'email' => $userData->email,
                 'level' => $userData->level,
-                'token' => Enc(SALT . time() . $userData->username . $userData->password)
+                'token' => $token
             ];
+
+            Update($this->table, ['token' => $token], ['id' => $userData->id]);
 
             session()->set($session);
 
@@ -83,7 +85,7 @@ class Login extends BaseController
     {
         try {
             $token = Input_('_token');
-            if (base64Enc(session('token'), 3) != $token) throw new \Exception("invalid token");
+            if (session('token') != $token) throw new \Exception("invalid token");
 
             session()->destroy();
 

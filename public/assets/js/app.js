@@ -6,7 +6,7 @@ const BASE_URL = $('meta[name="baseUrl"]').attr("content"),
 	USERID = $('meta[name="userId"]').attr("content"),
 	ISADMIN = $('meta[name="admin"]').attr("content"),
 	REFRESH_TABLE_TIME = 30000;
-var table, table1, CURRENT_PATH, refreshTableInterval, tableId;
+var table = '', table1 = '', CURRENT_PATH, refreshTableInterval, tableId;
 var htmlEditor = '', cssEditor = '', jsEditor = '';
 var socket = []
 
@@ -16,7 +16,12 @@ if (typeof io !== 'undefined') {
 	// socket = io.connect(`https://ipdn-socket.herokuapp.com`)
 	socket.on("connect", () => {
 		console.log("socket connected")
-		socket.emit("connected", USERNAME);
+		socket.emit("connected", {
+			username: USERNAME,
+			userId: USERID,
+			origin: BASE_URL,
+			token: TOKEN,
+		});
 	});
 }
 // socket.emit("join")
@@ -180,11 +185,7 @@ function selectInput(params) {
 	Object.values(params).some(item => ($("[name=" + item.input + "].is-invalid").select(), 0 == item.valid))
 }
 
-function clearInput(params) {
-	Object.values(params).forEach(item => {
-		$("input[name=" + item.input + "]").val(""), $("[name=" + item.input + "]").removeClass("is-invalid"), $("[name=" + item.input + "]").removeClass("is-valid"), $("[name='" + item.input + "']").hasClass("summernote") && $("[name='" + item.input + "']").summernote("code", "")
-	})
-}
+function clearInput(params){Object.values(params).forEach(item=>{$("input[name="+item.input+"]").val(""),$("textarea[name="+item.input+"]").val(""),$("[name="+item.input+"]").removeClass("is-invalid"),$("[name="+item.input+"]").removeClass("is-valid"),$("[name='"+item.input+"']").hasClass("summernote")&&$("[name='"+item.input+"']").summernote("code","")})}
 
 function fillForm(data) {
 	Object.keys(data).forEach(item => {
@@ -526,13 +527,20 @@ var currentPage = location.href
 function loadPage(url, change = false) {
 	// if (url == currentPage) return typeof refreshData === 'function' && refreshData()
 	if (url == "#") return
-	clearInterval(refreshTableInterval)
 	nanobar.go(80)
 	currentPage = url
 	const e = $(`a.menu-item[href='${url.trim()}']`)
-	change == false && window.history.pushState("", "", url)
+	change == false && window.history.pushState("", window.title, url)
 	$('a.menu-item').removeClass('active'), e.addClass('active')
     $.get(url, function(data) {
+		try {
+			const dataJson = JSON.parse(data)
+			if (dataJson.status == '401') return msgSweetWarning("Sesi Anda berakhir !").then(msg=> {
+				doLogoutAjax()
+			})
+		} catch (e) {
+			// return false;
+		}
 		$("#contentId").html($(data).find('#contentId').html())
 		$(".webTitle").html($(data).filter('title').text())
 		$("#rotiId").html($(data).find('#rotiId')).html()
@@ -565,6 +573,10 @@ $(document).delegate('.roti', 'click', function(e) {
  
 setInterval(function(){if (currentPage.replace(/#/g, '') != location.href.replace(/#/g, '')) (currentPage = location.href, loadPage(currentPage, true))}, 200);
 
+refreshTableInterval = setInterval(() => {
+	if (typeof refreshData === "function") refreshData()
+}, REFRESH_TABLE_TIME);
+
 function escapeHtml(text) {
   var map = {
     '&': '&amp;',
@@ -594,15 +606,17 @@ function moveRoom(room) {
 }
 
 socket.on?.("refreshDataTable", param => {
-	refreshData()
-})
-
-socket.on?.('logoutCall', message => {
-	alert(message)
+	if (typeof refreshData === "function") refreshData()
 })
 
 socket.on?.('doLogoutUser', param => {
 	if (param.reason == "off" && USERID == param.userId) return msgSweetWarning("Sesi Anda berakhir !").then(msg=> {
+		doLogoutAjax()
+	})
+})
+
+socket.on?.('tryLogoutUser', userId => {
+	if (USERID == userId) return msgSweetWarning("Sesi Anda berakhir !").then(msg=> {
 		doLogoutAjax()
 	})
 })

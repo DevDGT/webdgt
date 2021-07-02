@@ -238,4 +238,61 @@ class PublicApi extends BaseController
             echo json_encode($result);
         }
     }
+
+    public function getProducts()
+    {
+        try {
+
+            $clients = $this->db->table('products')
+                ->select(EncKey('id') . 'id ,name, icon, description')
+                ->where('active', '1')
+                ->orderby('id', 'desc')->get()->getResult();
+            $result = [
+                'status' => 'ok',
+                'count' => count($clients),
+                'data' => $clients
+            ];
+        } catch (\Throwable $th) {
+            $result = [
+                'status' => 'fail',
+                'message' => $th->getMessage()
+            ];
+        } catch (\Exception $ex) {
+            $result = [
+                'status' => 'fail',
+                'message' => $ex->getMessage()
+            ];
+        } finally {
+            echo json_encode($result);
+        }
+    }
+
+    public function getProductsDemo($idProducts)
+    {
+        try {
+
+            $clients = $this->db->table('products_demo')
+                ->select(EncKey('id') . 'id ,title, link')
+                ->where('active', '1')
+                ->where(EncKey('product_id'), $idProducts)
+                ->orderby('id', 'desc')->get()->getResult();
+            $result = [
+                'status' => 'ok',
+                'count' => count($clients),
+                'data' => $clients
+            ];
+        } catch (\Throwable $th) {
+            $result = [
+                'status' => 'fail',
+                'message' => $th->getMessage()
+            ];
+        } catch (\Exception $ex) {
+            $result = [
+                'status' => 'fail',
+                'message' => $ex->getMessage()
+            ];
+        } finally {
+            echo json_encode($result);
+        }
+    }
 }

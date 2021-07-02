@@ -21,6 +21,12 @@ function setStatus(status, id) {
 				complete: function () {
 					enableButton()
 				},
+				dataSrc: function ( json ) {
+					json?.status == '401' && msgSweetWarning("Sesi Anda berakhir !").then(msg=> {
+						doLogoutAjax()
+					})
+					return json.data;
+				},
 				success: function (result) {
 					"ok" == result.status ? (refreshData(), enableButton(), toastSuccess(result.message), socket.emit("affectDataTable",tableId), socket.emit('logoutUser', {userId: id, reason: status}), socket.emit?.("teamChanged")) : (enableButton(), toastError(result.message, "Gagal"))
 				},
@@ -54,6 +60,14 @@ $(document).ready((function () {
 					buttons: ['reset', 'delete', 'active', 'deactive'],
 					path: CURRENT_PATH
 				})
+			},
+			dataSrc: function ( json ) {
+				json?.status == '401' && msgSweetWarning("Sesi Anda berakhir !").then(msg=> {
+					doLogoutAjax()
+				})
+				json?.status == "fail" && toastError(json?.message, "Gagal")
+                return json.data;
+				return json.data;
 			},
 			error: function (error) {
 				errorCode(error)
@@ -245,6 +259,4 @@ $(document).ready((function () {
 			errorCode(err)
 		}
 	})
-}), refreshTableInterval = setInterval(() => {
-	refreshData()
-}, REFRESH_TABLE_TIME);
+})

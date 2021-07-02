@@ -4,30 +4,31 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
 
-class Clients extends BaseController
+class Products extends BaseController
 {
 
     function __construct()
     {
         $this->req = \Config\Services::request();
-        $this->table = "clients";
+        $this->table = "products";
+        $this->tableDemo = "products_demo";
         $this->db = \Config\Database::connect();
     }
 
     public function index()
     {
         $data = [
-            'title' => 'Klien',
-            'menu' => 'post',
-            'subMenu' => 'clients',
+            'title' => 'Produk',
+            'menu' => 'master',
+            'subMenu' => 'product',
             'roti' => [
                 'Home:blank' => base_url(),
                 'Dashboard' => base_url(ADMIN_PATH . '/dashboard'),
                 'Master' => '',
-                'Klien:active' => '',
+                'Produk:active' => '',
             ]
         ];
-        return View('admin/clients/vClients', $data);
+        return View('admin/products/vProducts', $data);
     }
 
     public function store()
@@ -35,14 +36,16 @@ class Clients extends BaseController
         try {
             $validate = Validate([
                 'name' => 'required|min:2|max:255|name',
+                'id_category_product' => 'required',
+                'icon' => 'required',
                 'description' => 'required|min:15',
             ]);
 
             $user = $this->db->table($this->table)->where('name', Input_('name'))->get()->getRow();
             if ($user) $validate = ValidateAdd($validate, 'name', 'name ada yang sama');
             if (!$validate['success']) throw new \Exception("Error Processing Request");
-
-
+            $categoryId = $this->db->table('category_product')->select('id')->where([EncKey('id') => Input_('id_category_product')])->get()->getRow()->id;
+            $validate['data']['id_category_product'] = $categoryId ?? 0;
             $insertClients = Create($this->table, $validate['data']);
             $idClents = $this->db->insertID();
             $uploadIcon = $this->uploadIcon(["id" => $idClents]);
@@ -73,10 +76,12 @@ class Clients extends BaseController
             $validate = Validate([
                 'id' => 'required',
                 'name' => 'required|min:2|max:255|name',
+                'id_category_product' => 'required',
                 'description' => 'required|min:15',
             ]);
             if (!$validate['success']) throw new \Exception("Error Processing Request");
-
+            $categoryId = $this->db->table('category_product')->select('id')->where([EncKey('id') => Input_('id_category_product')])->get()->getRow()->id;
+            $validate['data']['id_category_product'] = $categoryId ?? 0;
             $updateIcon = false;
             if ($_FILES['icon']['size'] > 0) {
                 // mengambil nama file cover 
@@ -84,7 +89,7 @@ class Clients extends BaseController
 
                 // jika cover ada maka hapus filenya
                 if ($iconOld != "")
-                    unlink(ROOTPATH . 'public/uploads/clients/' . $iconOld);
+                    unlink(ROOTPATH . 'public/uploads/products/' . $iconOld);
 
                 // upload cover baru
                 $updateIcon = $this->uploadIcon([EncKey('id') => Input_('id')]);
@@ -108,33 +113,6 @@ class Clients extends BaseController
             ];
         } finally {
             $message = array_merge($message, ['validate' => $validate, 'modalClose' => true]);
-            echo json_encode($message);
-        }
-    }
-
-    public function reset_($id)
-    {
-        try {
-
-            if ($id == '') throw new \Exception("no param");
-
-            if (Update($this->table, ['password' => Enc("123456")], [EncKey('id') => $id]) == false) throw new \Exception("Gagal mereset password");
-
-            $message = [
-                'status' => 'ok',
-                'message' => 'Berhasil mereset password'
-            ];
-        } catch (\Throwable $th) {
-            $message = [
-                'status' => 'fail',
-                'message' => $th->getMessage()
-            ];
-        } catch (\Exception $ex) {
-            $message = [
-                'status' => 'fail',
-                'message' => $ex->getMessage()
-            ];
-        } finally {
             echo json_encode($message);
         }
     }
@@ -179,7 +157,7 @@ class Clients extends BaseController
             $iconOld = $this->db->table($this->table)->select('icon')->where([EncKey('id') => $id])->get()->getRow()->icon;
             // jika icon ada maka hapus filenya
             if ($iconOld != "")
-                unlink(ROOTPATH . 'public/uploads/clients/' . $iconOld);
+                unlink(ROOTPATH . 'public/uploads/products/' . $iconOld);
 
             if (Delete($this->table, [EncKey('id') => $id]) == false) throw new \Exception("Gagal menghapus data");
 
@@ -289,7 +267,7 @@ class Clients extends BaseController
             if ($validated == false) throw new \Exception($this->validator->listErrors());
             $file = $this->request->getFile('icon');
             $fileName = time() . "_" . $file->getName();
-            $path = ROOTPATH . 'public/uploads/clients/';
+            $path = ROOTPATH . 'public/uploads/products/';
             $file->move($path, $fileName);
             $result = Update($this->table, ['icon' => $fileName], $idArticle);
         } catch (\Throwable $th) {
@@ -304,6 +282,131 @@ class Clients extends BaseController
             ];
         } finally {
             return $result;
+        }
+    }
+
+
+    // demo 
+    public function storeDemo()
+    {
+        try {
+            $validate = Validate([
+                'title' => 'required|min:3',
+                'link' => 'required',
+            ]);
+            $jobs = $this->db->table($this->tableDemo)->select('title')->where(['title' => Input_('title'), 'product_id' => Input_('product_id')])->get()->getRow();
+            if ($jobs) $validate = ValidateAdd($validate, 'title', 'Sudah ada !');
+            if (!$validate['success']) throw new \Exception("Error Processing Request");
+            $productId = $this->db->table($this->table)->select('id')->where([EncKey('id') => Input_('product_id')])->get()->getRow()->id;
+            $validate['data']['product_id'] = $productId ?? 0;
+            // Print_($validate);
+            if (!Create($this->tableDemo, $validate['data'])) throw new \Exception("Gagal memasukan data !");
+
+            $message = [
+                'status' => 'ok',
+                'message' => "Berhasil memasukan data"
+            ];
+        } catch (\Throwable $th) {
+            $message = [
+                'status' => 'fail',
+                'message' => $th->getMessage() . $this->db->getLastQuery()
+            ];
+        } catch (\Exception $ex) {
+            $message = [
+                'status' => 'fail',
+                'message' => $ex->getMessage()
+            ];
+        } finally {
+            $message = array_merge($message, ['validate' => $validate, 'validate' => $validate]);
+            echo json_encode($message);
+        }
+    }
+
+    public function setDemo($id = '')
+    {
+        try {
+
+            if ($id == '') throw new \Exception("no param");
+
+            $status = $this->req->getPost('status') == "on" ? '1' : '0';
+
+            if (Update($this->tableDemo, ['active' => $status], [EncKey('id') => $id]) == false) throw new \Exception("Gagal merubah status");
+
+            $message = [
+                'status' => 'ok',
+                'message' => 'Berhasil merubah status'
+            ];
+        } catch (\Throwable $th) {
+            $message = [
+                'status' => 'fail',
+                'message' => $th->getMessage()
+            ];
+        } catch (\Exception $ex) {
+            $message = [
+                'status' => 'fail',
+                'message' => $ex->getMessage()
+            ];
+        } finally {
+            echo json_encode($message);
+        }
+    }
+
+    public function updateDemo()
+    {
+        try {
+            $validate = Validate([
+                'title' => 'required|min:3',
+                'link' => 'required',
+            ]);
+            if (!$validate['success']) throw new \Exception("Error Processing Request");
+            if (!Update($this->tableDemo, $validate['data'], [EncKey('id') => Input_('id')])) throw new \Exception("Tidak ada perubahan");
+
+            $message = [
+                'status' => 'ok',
+                'message' => "Berhasil merubah data"
+            ];
+        } catch (\Throwable $th) {
+            $message = [
+                'status' => 'fail',
+                'message' => $th->getMessage()
+            ];
+        } catch (\Exception $ex) {
+            $message = [
+                'status' => 'fail',
+                'message' => $ex->getMessage()
+            ];
+        } finally {
+            $message = array_merge($message, ['validate' => $validate, 'modalClose' => true]);
+            echo json_encode($message);
+        }
+    }
+
+    public function deleteDemo()
+    {
+        try {
+
+            if (!isset($_POST['id'])) throw new \Exception("no param");
+
+            $id = Input_('id');
+
+            if (Delete($this->tableDemo, [EncKey('id') => $id]) == false) throw new \Exception("Gagal menghapus data");
+
+            $message = [
+                'status' => 'ok',
+                'message' => 'Berhasil menghapus data'
+            ];
+        } catch (\Throwable $th) {
+            $message = [
+                'status' => 'fail',
+                'message' => $th->getMessage()
+            ];
+        } catch (\Exception $ex) {
+            $message = [
+                'status' => 'fail',
+                'message' => $ex->getMessage()
+            ];
+        } finally {
+            echo json_encode($message);
         }
     }
 }

@@ -61,18 +61,19 @@ $routes->group('/product', ['namespace' => 'App\Controllers'], function ($routes
     $routes->get('(:any)', 'ProductCatalog::detailProduct');
 });
 
+// Login routes
 $routes->group('/ruangadmin/login', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->get('/', 'Login::index');
     $routes->post('action', 'Login::action');
     $routes->post('destroy', 'Login::destroy');
 });
 
+// Admin routes
 $routes->group('ruangadmin', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
     $routes->get('/', 'Dashboard::index');
     $routes->get('dashboard', 'Dashboard::index');
 
     // user profile routes
-
     $routes->group('profile', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
         $routes->get('/', 'Profile::index');
         $routes->post('update', 'Profile::update');
@@ -100,6 +101,7 @@ $routes->group('ruangadmin', ['namespace' => 'App\Controllers\Admin'], function 
         $routes->post('delete-multiple', 'Category::deleteMultiple');
     });
 
+    /// Category Products Management routes
     $routes->group('category-product', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
         $routes->get('/', 'CategoryProduct::index');
         $routes->post('store', 'CategoryProduct::store');
@@ -117,6 +119,21 @@ $routes->group('ruangadmin', ['namespace' => 'App\Controllers\Admin'], function 
         $routes->post('delete-multiple', 'Jobs::deleteMultiple');
     });
 
+    // Products Management routes
+    $routes->group('products', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
+        $routes->get('/', 'Products::index');
+        $routes->post('store', 'Products::store');
+        $routes->post('delete', 'Products::delete');
+        $routes->post('update', 'Products::update');
+        $routes->post('delete-multiple', 'Products::deleteMultiple');
+        $routes->post('set/(:any)', 'Products::set_/$1');
+        $routes->post('set-multiple', 'Products::setMultiple');
+        $routes->post('storeDemo', 'Products::storeDemo');
+        $routes->post('deleteDemo', 'Products::deleteDemo');
+        $routes->post('updateDemo', 'Products::updateDemo');
+        $routes->post('setDemo/(:any)', 'Products::setDemo/$1');
+    });
+
     // Teams Management routes
     $routes->group('teams', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
         $routes->get('/', 'Teams::index');
@@ -126,6 +143,7 @@ $routes->group('ruangadmin', ['namespace' => 'App\Controllers\Admin'], function 
         $routes->post('delete-multiple', 'Teams::deleteMultiple');
     });
 
+    // Client Management routes
     $routes->group('clients', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
         $routes->get('/', 'Clients::index');
         $routes->post('store', 'Clients::store');
@@ -136,6 +154,7 @@ $routes->group('ruangadmin', ['namespace' => 'App\Controllers\Admin'], function 
         $routes->post('set-multiple', 'Clients::setMultiple');
     });
 
+    // Article Management routes
     $routes->group('article', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
         $routes->get('/', 'Article::index');
         $routes->post('check-title', 'Article::checkTitle');
@@ -150,7 +169,11 @@ $routes->group('ruangadmin', ['namespace' => 'App\Controllers\Admin'], function 
     });
 });
 
+// Api routes
 $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes) {
+
+    $routes->post('setuser/status', 'Admin::setUserStatus');
+
     $routes->group('data', ['namespace' => 'App\Controllers\Api'], function ($routes) {
         $routes->post('options/(:any)', 'Admin::getDataOption/$1');
         $routes->post('users', 'Admin::dataUsers');
@@ -160,7 +183,9 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('teams', 'Admin::dataTeams');
         $routes->post('article', 'Admin::dataArticle');
         $routes->post('clients', 'Admin::dataClients');
-        $routes->get('profile', 'Admin::dataProfile');
+        $routes->post('products', 'Admin::dataProducts');
+        $routes->post('products-demo', 'Admin::dataProductsDemo');
+        $routes->post('profile', 'Admin::dataProfile');
     });
 
     $routes->group('row', ['namespace' => 'App\Controllers\Api'], function ($routes) {
@@ -171,6 +196,8 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('teams/(:any)', 'Admin::getRowTeams/$1');
         $routes->post('article/(:any)', 'Admin::getRowArticle/$1');
         $routes->post('clients/(:any)', 'Admin::getRowClients/$1');
+        $routes->post('products/(:any)', 'Admin::getRowProducts/$1');
+        $routes->post('productsDemo/(:any)', 'Admin::getRowProductsDemo/$1');
     });
 
     $routes->group('public', ['namespace' => 'App\Controllers\Api'], function ($routes) {
@@ -180,13 +207,10 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
             $routes->get('tags', 'PublicApi::getTags');
             $routes->get('teams', 'PublicApi::getTeams');
             $routes->get('clients', 'PublicApi::getClients');
+            $routes->get('products', 'PublicApi::getProducts');
+            $routes->get('products/demo/(:any)', 'PublicApi::getProductsDemo/$1');
         });
     });
-});
-
-// Test Route
-$routes->group('test', ['namespace' => 'App\Controllers'], function ($routes) {
-    $routes->get('/', 'Test::test');
 });
 
 
