@@ -106,6 +106,14 @@ class Admin extends BaseController
                     'table'     => 'category_product',
                     'protected' => ['id:hash']
                 ],
+                'clients' => [
+                    'table'     => 'clients',
+                    'protected' => ['id:hash']
+                ],
+                'products' => [
+                    'table'     => 'products',
+                    'protected' => ['id:hash']
+                ],
             ];
             if (!array_key_exists($data, $table)) throw new \Exception("nothing there");
             $builder = $this->db->table($table[$data]['table']);
@@ -221,6 +229,22 @@ class Admin extends BaseController
             'columnOrder' => [null, 'name', 'description', 'active'],
             'columnSearch' => ['c.name', 'c.description'],
             'order' => ['id' => 'desc']
+        ]);
+    }
+
+    public function dataClientsOrders()
+    {
+        return $this->dataTables([
+            'table' => 'clients_orders co',
+            'selectData' => "co.id,c.name clientName,p.icon,p.name productName,co.active",
+            'field' => ['clientName', 'icon', 'productName', 'active'],
+            'columnOrder' => [null, 'c.name', 'p.name', 'active'],
+            'columnSearch' => ['c.name', 'p.name', 'p.description'],
+            'join' => [
+                'clients c' => 'c.id = co.id_clients',
+                'products p' => 'p.id = co.id_products'
+            ],
+            'order' => ['co.id' => 'desc']
         ]);
     }
 
@@ -415,6 +439,16 @@ class Admin extends BaseController
             'table' => 'products_demo',
             'select' => "id, title, link",
             'where' => [EncKey('id') => $id],
+        ]);
+    }
+
+    public function getRowClientsOrders($id)
+    {
+        return $this->getRowTable([
+            'table' => 'clients_orders',
+            'select' => "id, id_products, id_clients",
+            'where' => [EncKey('id') => $id],
+            'guard' => ['id_clients:hash', 'id_products:hash']
         ]);
     }
 }

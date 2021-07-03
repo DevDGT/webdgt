@@ -154,6 +154,16 @@ $routes->group('ruangadmin', ['namespace' => 'App\Controllers\Admin'], function 
         $routes->post('set-multiple', 'Clients::setMultiple');
     });
 
+    $routes->group('clients-orders', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
+        $routes->get('/', 'ClientsOrders::index');
+        $routes->post('store', 'ClientsOrders::store');
+        $routes->post('delete', 'ClientsOrders::delete');
+        $routes->post('update', 'ClientsOrders::update');
+        $routes->post('delete-multiple', 'ClientsOrders::deleteMultiple');
+        $routes->post('set/(:any)', 'ClientsOrders::set_/$1');
+        $routes->post('set-multiple', 'ClientsOrders::setMultiple');
+    });
+
     // Article Management routes
     $routes->group('article', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
         $routes->get('/', 'Article::index');
@@ -186,6 +196,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('products', 'Admin::dataProducts');
         $routes->post('products-demo', 'Admin::dataProductsDemo');
         $routes->post('profile', 'Admin::dataProfile');
+        $routes->post('clients-orders', 'Admin::dataClientsOrders');
     });
 
     $routes->group('row', ['namespace' => 'App\Controllers\Api'], function ($routes) {
@@ -198,6 +209,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('clients/(:any)', 'Admin::getRowClients/$1');
         $routes->post('products/(:any)', 'Admin::getRowProducts/$1');
         $routes->post('productsDemo/(:any)', 'Admin::getRowProductsDemo/$1');
+        $routes->post('clients-orders/(:any)', 'Admin::getRowClientsOrders/$1');
     });
 
     $routes->group('public', ['namespace' => 'App\Controllers\Api'], function ($routes) {
@@ -207,8 +219,10 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
             $routes->get('tags', 'PublicApi::getTags');
             $routes->get('teams', 'PublicApi::getTeams');
             $routes->get('clients', 'PublicApi::getClients');
+            $routes->get('clients/order/(:any)', 'PublicApi::getClientsOrders/$1');
             $routes->get('products', 'PublicApi::getProducts');
             $routes->get('products/demo/(:any)', 'PublicApi::getProductsDemo/$1');
+            $routes->get('products/(:any)', 'PublicApi::getProducts/$1');
         });
     });
 });
