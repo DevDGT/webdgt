@@ -35,7 +35,7 @@ function setStatus(status, id) {
 
 function refreshData() {
 	table.ajax.reload(null, !1)
-	table2?.ajax.reload(null, !1)
+	table1?.ajax?.reload(null, !1)
 }
 
 $(document).ready((function () {
@@ -183,6 +183,10 @@ $(document).ready((function () {
 				name: "icon",
 				label: "Pilih Icon (jika ingin merubah)"
 			}, {
+				type: "text",
+				name: "video",
+				label: "Video Product"
+			}, {
 				type: "textarea2",
 				name: "description",
 				label: "Deskripsi", 
@@ -223,6 +227,10 @@ $(document).ready((function () {
 		type: "file",
 		name: "icon",
 		label: "Pilih Icon"
+	}, {
+		type: "text",
+		name: "video",
+		label: "Video Product"
 	}, {
 		type: "textarea2",
 		name: "description",
@@ -304,7 +312,7 @@ function setStatusDemo(status, id) {
 
 function loadDemoProducts(idProducts) {
 	productsId = idProducts
-	table2 = $("#listDemoProducts").DataTable({
+	table1 = $("#listDemoProducts").DataTable({
 		processing: !0,
 		serverSide: !0,
 		order: [],

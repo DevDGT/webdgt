@@ -79,7 +79,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?= base_url(ADMIN_PATH . '/clients-orders') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'clients' ? 'active' : '' ?>">
+						<a href="<?= base_url(ADMIN_PATH . '/clients-orders') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'clients-orders' ? 'active' : '' ?>">
 							<i class="fas fa-shopping-cart nav-icon ml-3"></i>
 							<p>Pesanan Klien </p>
 						</a>

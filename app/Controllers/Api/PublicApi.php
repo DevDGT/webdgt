@@ -164,6 +164,15 @@ class PublicApi extends BaseController
         return $this->db->table('social')->select('social, link')->where('user_id', $userId)->get()->getResultArray();
     }
 
+    private function getClientProducts($productId)
+    {
+        return $this->db->table('clients_orders co')
+            ->select(EncKey('c.id') . ' id, c.name')
+            ->join('clients c', 'c.id = co.id_clients')
+            ->where('co.id_products', $productId)
+            ->get()->getResultArray();
+    }
+
     public function getTeams()
     {
         try {
@@ -239,13 +248,15 @@ class PublicApi extends BaseController
         }
     }
 
-    public function getProducts()
+    public function getClientsOrders($idClient)
     {
         try {
 
-            $clients = $this->db->table('products')
-                ->select(EncKey('id') . 'id ,name, icon, description')
-                ->where('active', '1')
+            $clients = $this->db->table('clients_orders co')
+                ->select(EncKey('co.id') . 'id, p.name, p.icon, p.description')
+                ->where('co.active', '1')
+                ->where(EncKey('co.id_clients'), $idClient)
+                ->join('products p', 'p.id = co.id_products')
                 ->orderby('id', 'desc')->get()->getResult();
             $result = [
                 'status' => 'ok',
@@ -267,10 +278,52 @@ class PublicApi extends BaseController
         }
     }
 
-    public function getProductsDemo($idProducts)
+    public function getProducts($idProducts = '')
     {
         try {
 
+            $this->builder = $this->db->table('products');
+            $this->builder->select('id ,name, icon, video, description');
+            $this->builder->where('active', '1');
+            if ($idProducts != '') $this->builder->where(EncKey('id'), $idProducts);
+            $clients = $this->builder->orderby('id', 'desc')->get()->getResultArray();
+
+
+
+            $field = ['name', 'icon', 'video', 'description'];
+            $data = [];
+            foreach ($clients as $field_) {
+                $row = array();
+                $row['id'] = Enc($field_['id']);
+                foreach ($field as $key) {
+                    $row[$key] = $field_[$key];
+                }
+                $row['client'] = $this->getClientProducts($field_['id']);
+                $data[] = $row;
+            }
+            $result = [
+                'status' => 'ok',
+                'count' => count($clients),
+                'data' => $data
+            ];
+        } catch (\Throwable $th) {
+            $result = [
+                'status' => 'fail',
+                'message' => $th->getMessage()
+            ];
+        } catch (\Exception $ex) {
+            $result = [
+                'status' => 'fail',
+                'message' => $ex->getMessage()
+            ];
+        } finally {
+            echo json_encode($result);
+        }
+    }
+
+    public function getProductsDemo($idProducts)
+    {
+        try {
             $clients = $this->db->table('products_demo')
                 ->select(EncKey('id') . 'id ,title, link')
                 ->where('active', '1')

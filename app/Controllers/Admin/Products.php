@@ -37,7 +37,7 @@ class Products extends BaseController
             $validate = Validate([
                 'name' => 'required|min:2|max:255|name',
                 'id_category_product' => 'required',
-                'icon' => 'required',
+                'video' => 'required',
                 'description' => 'required|min:15',
             ]);
 
@@ -77,6 +77,7 @@ class Products extends BaseController
                 'id' => 'required',
                 'name' => 'required|min:2|max:255|name',
                 'id_category_product' => 'required',
+                'video' => 'required',
                 'description' => 'required|min:15',
             ]);
             if (!$validate['success']) throw new \Exception("Error Processing Request");
