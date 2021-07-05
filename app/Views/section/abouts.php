@@ -1,14 +1,14 @@
 <style>
-    .imgceo {
-        border-radius: 50%;
-    }
+.imgceo {
+    border-radius: 50%;
+}
 
-    .card-img-top {
-        width: 100%;
-        height: 18vw;
-        /* height: max-content; */
-        object-fit: scale-down;
-    }
+.card-img-top {
+    width: 100%;
+    height: 18vw;
+    /* height: max-content; */
+    object-fit: scale-down;
+}
 </style>
 <section id="breadcrumbs" class="breadcrumbs">
     <div class="container">
@@ -70,7 +70,8 @@
                             <div class="row">
                                 <div class="col-lg-4 pb-4">
                                     <video width="100%" height="auto" controls="">
-                                        <source src="http://techslides.com/demos/sample-videos/small.ogv" type="video/ogg">
+                                        <source src="http://techslides.com/demos/sample-videos/small.ogv"
+                                            type="video/ogg">
                                     </video>
                                 </div>
                                 <div class="col-lg-8 pb-4">
@@ -82,7 +83,8 @@
                                     <p class="text-start text-wrap font-monospace">
                                         We start our journey in SISTEM INFORMASI MANAJEMEN SEKOLAH (SIMS) and now,
                                         we create custom made apps based on our partners and clients demands.
-                                        With a wide network, professionalism and commitment, we are able to consistently provide high quality services, and CUSTOMER SATISFACTION IS EVERYTHING to us
+                                        With a wide network, professionalism and commitment, we are able to consistently
+                                        provide high quality services, and CUSTOMER SATISFACTION IS EVERYTHING to us
                                     </p>
                                 </div>
                             </div>
@@ -110,7 +112,8 @@
             <!-- <div class="section benefits"> -->
             <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                 <div class="card shadow-sm" style="width: 15rem; border: none;">
-                    <img src="<?php echo base_url('/uploads/aboutus/Partner_Oriented@4x-8.png'); ?>" class="img-fluid" alt="...">
+                    <img src="<?php echo base_url('/uploads/aboutus/Partner_Oriented@4x-8.png'); ?>" class="img-fluid"
+                        alt="...">
                     <div class="card-body">
                         <p class="card-text">
                         <h6 class="text-center">Partner & Client Oriented</h6>
@@ -120,7 +123,8 @@
             </div>
             <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
                 <div class="card shadow-sm" style="width: 15rem; border: none;">
-                    <img src="<?php echo base_url('/uploads/aboutus/Eficient@4x-8.png'); ?>" class="img-fluid" alt="...">
+                    <img src="<?php echo base_url('/uploads/aboutus/Eficient@4x-8.png'); ?>" class="img-fluid"
+                        alt="...">
                     <div class="card-body">
                         <p class="card-text">
                         <h6 class="text-center">Effective & Efficient Solution</h6>
@@ -130,7 +134,8 @@
             </div>
             <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
                 <div class="card shadow-sm" style="width: 15rem; border: none;">
-                    <img src="<?php echo base_url('/uploads/aboutus/Innovation@4x-8.png'); ?>" class="img-fluid" alt="...">
+                    <img src="<?php echo base_url('/uploads/aboutus/Innovation@4x-8.png'); ?>" class="img-fluid"
+                        alt="...">
                     <div class="card-body">
                         <p class="card-text">
                         <h6 class="text-center">Innovative</h6>
@@ -140,7 +145,8 @@
             </div>
             <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
                 <div class="card shadow-sm" style="width: 15rem; border: none;">
-                    <img src="<?php echo base_url('/uploads/aboutus/Service_Commitment@4x-8.png'); ?>" class="img-fluid" alt="...">
+                    <img src="<?php echo base_url('/uploads/aboutus/Service_Commitment@4x-8.png'); ?>" class="img-fluid"
+                        alt="...">
                     <div class="card-body">
                         <p class="card-text">
                         <h6 class="text-center">Service Commitment</h6>
@@ -150,10 +156,11 @@
             </div>
             <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
                 <div class="card shadow-sm" style="width: 15rem; border: none;">
-                    <img src="<?php echo base_url('/uploads/aboutus/Professional_Quality@4x-8.png'); ?>" class="img-fluid" alt="...">
+                    <img src="<?php echo base_url('/uploads/aboutus/Professional_Quality@4x-8.png'); ?>"
+                        class="img-fluid" alt="...">
                     <div class="card-body">
                         <p class="card-text">
-                        <h6 class="text-center">Professional_Quality@4</h6>
+                        <h6 class="text-center">Professional_Quality</h6>
                         </p>
                     </div>
                 </div>
