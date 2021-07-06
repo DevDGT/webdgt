@@ -216,6 +216,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->group('get', ['namespace' => 'App\Controllers\Api'], function ($routes) {
             $routes->get('article', 'PublicApi::getArticle');
             $routes->get('category', 'PublicApi::getCategory');
+            $routes->get('category-products', 'PublicApi::getCategoryProducts');
             $routes->get('tags', 'PublicApi::getTags');
             $routes->get('teams', 'PublicApi::getTeams');
             $routes->get('clients', 'PublicApi::getClients');

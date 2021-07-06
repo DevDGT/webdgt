@@ -131,6 +131,31 @@ class PublicApi extends BaseController
         }
     }
 
+    public function getCategoryProducts()
+    {
+        try {
+
+            $category = $this->db->query("SELECT `cat`.`name`, `cat`.`slug`, (SELECT COUNT(*) FROM products WHERE id_category_product = cat.id AND active = '1') count FROM `category_product` `cat` WHERE (SELECT COUNT(*) FROM products WHERE id_category_product = cat.id AND active = '1') != '0' ORDER BY `count` DESC")->getResult();
+
+            $result = [
+                'status' => 'ok',
+                'data' => $category
+            ];
+        } catch (\Throwable $th) {
+            $result = [
+                'status' => 'fail',
+                'message' => $th->getMessage() . $this->db->getLastQuery()
+            ];
+        } catch (\Exception $ex) {
+            $result = [
+                'status' => 'fail',
+                'message' => $ex->getMessage()
+            ];
+        } finally {
+            echo json_encode($result);
+        }
+    }
+
     public function getTags()
     {
         try {
