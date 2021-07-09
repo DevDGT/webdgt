@@ -5,18 +5,18 @@ const BASE_URL = $('meta[name="baseUrl"]').attr("content"),
 var socket = []
 
 if (typeof io !== 'undefined') {
-  // socket = io.connect(`https://socket.xyrus10.com`)
+  socket = io.connect(`https://socket.xyrus10.com`)
   // socket = io.connect(`http://192.168.1.69:6996`)
-  socket = io.connect(`http://localhost:6996`)
+  // socket = io.connect(`http://localhost:6996`)
   // socket = io.connect(`https://ipdn-socket.herokuapp.com`)
   socket.on("connect", () => {
     console.log("socket connected")
-		socket.emit("connected", {
-			username: "anonim",
-			userId: "anonim",
-			origin: BASE_URL,
-			token: "anonim",
-		});
+    socket.emit("connected", {
+      username: "anonim",
+      userId: "anonim",
+      origin: BASE_URL,
+      token: "anonim",
+    });
     // socket.emit("connected", USERNAME);
   });
 }
@@ -52,7 +52,7 @@ $(document).ready(function () {
 var currentPage = location.href
 
 function loadPage(url, change = false) {
-  
+
   nanobar.go(80)
   currentPage = url
   const e = $(`a[href='${url.trim()}']`)
@@ -74,9 +74,9 @@ function loadPage(url, change = false) {
 
 var currentRoom = ''
 function moveRoom(room) {
-	if (currentRoom != '') socket?.emit('leaveRoom', currentRoom)
-	socket?.emit("joinRoom", room)
-	currentRoom = room
+  if (currentRoom != '') socket?.emit('leaveRoom', currentRoom)
+  socket?.emit("joinRoom", room)
+  currentRoom = room
 }
 
 $(document).delegate('a', 'click', function (e) {
@@ -110,7 +110,7 @@ const on = (type, el, listener, all = false) => {
 }
 
 setInterval(function () {
-  if (currentPage.replace(/#/g, '') != location.href.replace(/#/g, ''))(currentPage = location.href, loadPage(currentPage, true))
+  if (currentPage.replace(/#/g, '') != location.href.replace(/#/g, '')) (currentPage = location.href, loadPage(currentPage, true))
 }, 200);
 
 
