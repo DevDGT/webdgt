@@ -1,3 +1,15 @@
+<style>
+.item-card {
+    bottom: 10px;
+    opacity: 0;
+    transition: 0.5s all;
+}
+
+.item-card:hover {
+    opacity: 0.8;
+}
+</style>
+
 <section id="breadcrumbs" class="breadcrumbs">
     <div class="container">
 
@@ -73,19 +85,14 @@
         <div class="row aos-init aos-animate" data-aos="fade-up">
             <div class="col-lg-12 d-flex justify-content-center">
                 <ul id="portfolio-flters">
-                    <li data-filter="*" class="filter-active">All</li>
-                    <li data-filter=".filter-school">School</li>
-                    <li data-filter=".filter-goverment">Goverment</li>
-                    <li data-filter=".filter-bussiness">Bussiness</li>
-                    <li data-filter=".filter-health">Health</li>
-                    <li data-filter=".filter-others">Other</li>
+
                 </ul>
             </div>
         </div>
 
-        <div class="row portfolio-container aos-init aos-animate" data-aos="fade-up"
-            style="position: relative; height: 1097.33px;">
-            <div id="productData"></div>
+        <div class="row d-flex justify-content-center portfolio-container aos-init aos-animate" data-aos="fade-up"
+            id="productData">
+
         </div>
 
     </div>

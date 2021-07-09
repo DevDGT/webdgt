@@ -134,22 +134,21 @@ class PublicApi extends BaseController
     public function getCategoryProducts()
     {
         try {
-
-            $category = $this->db->query("SELECT `cat`.`name`, `cat`.`slug`, (SELECT COUNT(*) FROM products WHERE id_category_product = cat.id AND active = '1') count FROM `category_product` `cat` WHERE (SELECT COUNT(*) FROM products WHERE id_category_product = cat.id AND active = '1') != '0' ORDER BY `count` DESC")->getResult();
+            $category = $this->db->query("SELECT `cat`.`id`,`cat`.`name`, `cat`.`slug`, (SELECT COUNT(*) FROM products WHERE id_category_product = cat.id AND active = '1') count FROM `category_product` `cat` WHERE (SELECT COUNT(*) FROM products WHERE id_category_product = cat.id AND active = '1') != '0' ORDER BY `count` DESC")->getResult();
 
             $result = [
                 'status' => 'ok',
-                'data' => $category
+                'data' => $category,
             ];
         } catch (\Throwable $th) {
             $result = [
                 'status' => 'fail',
-                'message' => $th->getMessage() . $this->db->getLastQuery()
+                'message' => $th->getMessage().$this->db->getLastQuery(),
             ];
         } catch (\Exception $ex) {
             $result = [
                 'status' => 'fail',
-                'message' => $ex->getMessage()
+                'message' => $ex->getMessage(),
             ];
         } finally {
             echo json_encode($result);
@@ -315,14 +314,14 @@ class PublicApi extends BaseController
     {
         try {
             $this->builder = $this->db->table('products');
-            $this->builder->select('id ,name, icon, video, description');
+            $this->builder->select('id, id_category_product, name, icon, video, description');
             $this->builder->where('active', '1');
             if ($idProducts != '') {
                 $this->builder->where(EncKey('id'), $idProducts);
             }
             $clients = $this->builder->orderby('id', 'desc')->get()->getResultArray();
 
-            $field = ['name', 'icon', 'video', 'description'];
+            $field = ['name', 'id_category_product', 'icon', 'video', 'description'];
             $data = [];
             foreach ($clients as $field_) {
                 $row = [];
