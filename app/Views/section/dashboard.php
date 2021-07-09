@@ -1,12 +1,12 @@
 <style>
-    .services .icon-box {
-        padding: 10px 60px 10px 60px;
-        border-radius: 5%;
-    }
+.services .icon-box {
+    padding: 10px 60px 10px 60px;
+    border-radius: 5%;
+}
 
-    #testimonials .testimonial-item {
-        border-radius: 5%;
-    }
+#testimonials .testimonial-item {
+    border-radius: 5%;
+}
 </style>
 <!-- About Section -->
 <section id="aboutSection" class="services section-bg">
@@ -28,11 +28,13 @@
     <div class="container aos-init aos-animate" data-aos="fade-up">
 
         <div class="row">
-            <div class="col-lg-6 col-md-4 d-flex justify-content-center aos-init aos-animate mt-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="col-lg-6 col-md-4 d-flex justify-content-center aos-init aos-animate mt-4" data-aos="zoom-in"
+                data-aos-delay="100">
                 <div class="icon-box iconbox-blue">
                     <div class="container">
                         <div class="icon">
-                            <img src="<?php echo base_url('/uploads/aboutus/Tech_Support@4x-8.png'); ?>" width="100" height="100">
+                            <img src="<?php echo base_url('/uploads/aboutus/Tech_Support@4x-8.png'); ?>" width="100"
+                                height="100">
                         </div>
                         <h4><a href="#">Tech Support</a></h4>
                         <div class="text-wrap p-4" style="width: 25rem;">
@@ -41,11 +43,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-4 d-flex justify-content-center aos-init aos-animate mt-4" data-aos="zoom-in" data-aos-delay="200">
+            <div class="col-lg-6 col-md-4 d-flex justify-content-center aos-init aos-animate mt-4" data-aos="zoom-in"
+                data-aos-delay="200">
                 <div class="icon-box iconbox-blue">
                     <div class="container">
                         <div class="icon">
-                            <img src="<?php echo base_url('/uploads/aboutus/Consulting@4x-8.png'); ?>" width="100" height="100">
+                            <img src="<?php echo base_url('/uploads/aboutus/Consulting@4x-8.png'); ?>" width="100"
+                                height="100">
                         </div>
                         <h4><a href="#">It Consulting</a></h4>
                         <div class="text-wrap p-4" style="width: 25rem;">
@@ -54,24 +58,29 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-4 d-flex justify-content-center aos-init aos-animate mt-4" data-aos="zoom-in" data-aos-delay="300">
+            <div class="col-lg-6 col-md-4 d-flex justify-content-center aos-init aos-animate mt-4" data-aos="zoom-in"
+                data-aos-delay="300">
                 <div class="icon-box iconbox-blue">
                     <div class="container">
                         <div class="icon">
-                            <img src="<?php echo base_url('/uploads/aboutus/App_Dev@4x-8.png'); ?>" width="100" height="100">
+                            <img src="<?php echo base_url('/uploads/aboutus/App_Dev@4x-8.png'); ?>" width="100"
+                                height="100">
                         </div>
                         <h4><a href="#">App Dev</a></h4>
                         <div class="text-wrap p-4" style="width: 25rem;">
-                            <p>Creating, testing and programming apps for computers, mobile phones, and other types of electronic devices.</p>
+                            <p>Creating, testing and programming apps for computers, mobile phones, and other types of
+                                electronic devices.</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-4 d-flex justify-content-center aos-init aos-animate mt-4" data-aos="zoom-in" data-aos-delay="400">
+            <div class="col-lg-6 col-md-4 d-flex justify-content-center aos-init aos-animate mt-4" data-aos="zoom-in"
+                data-aos-delay="400">
                 <div class="icon-box iconbox-blue">
                     <div class="container">
                         <div class="icon">
-                            <img src="<?php echo base_url('/uploads/aboutus/Training@4x-8.png'); ?>" width="100" height="100">
+                            <img src="<?php echo base_url('/uploads/aboutus/Training@4x-8.png'); ?>" width="100"
+                                height="100">
                         </div>
                         <h4><a href="">Training</a></h4>
                         <div class="text-wrap p-4" style="width: 25rem;">
@@ -92,9 +101,12 @@
         <div class="row testimonial-item">
             <div class="col-lg-6">
                 <div class="card" style="width: auto; border: none;">
-                    <iframe width="auto" height="315" src="https://www.youtube.com/embed/NOAtMfUAe5U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="auto" height="315" src="https://www.youtube.com/embed/NOAtMfUAe5U"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                     <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text">Aplikasi SIADES</p>
                     </div>
                 </div>
             </div>
@@ -103,12 +115,15 @@
                 <div class="card mb-3" style="max-width: auto; border: none;">
                     <div class="row g-0">
                         <div class="col-md-6">
-                            <iframe width="100%" height="auto" src="https://www.youtube.com/embed/AilqrFv1zj4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe width="100%" height="auto" src="https://www.youtube.com/embed/AilqrFv1zj4"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
                         </div>
                         <div class="col-md-4">
                             <div class="card-body">
                                 <h5 class="card-title">Aplikasi BUMDES</h5>
-                                <p>Deskripsi</p>
+                                <p>Berbasis Akuntansi</p>
                             </div>
                         </div>
                     </div>
@@ -116,12 +131,15 @@
                 <div class="card mb-3" style="max-width: auto; border: none;">
                     <div class="row g-0">
                         <div class="col-md-6">
-                            <iframe width="100%" height="auto" src="https://www.youtube.com/embed/jCzdhawRsHA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe width="100%" height="auto" src="https://www.youtube.com/embed/jCzdhawRsHA"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
                         </div>
                         <div class="col-md-4">
                             <div class="card-body">
                                 <h5 class="card-title">Aplikasi KOPERASI</h5>
-                                <p>Deskripsi</p>
+                                <p>Manajemen Koperasi</p>
                             </div>
                         </div>
                     </div>
@@ -129,12 +147,15 @@
                 <div class="card mb-3" style="max-width: auto; border: none;">
                     <div class="row g-0">
                         <div class="col-md-6">
-                            <iframe width="100%" height="auto" src="https://www.youtube.com/embed/jCzdhawRsHA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe width="100%" height="auto" src="https://www.youtube.com/embed/jCzdhawRsHA"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
                         </div>
                         <div class="col-md-4">
                             <div class="card-body">
                                 <h5 class="card-title">Aplikasi CBT</h5>
-                                <p>Deskripsi</p>
+                                <p>Ujian Secara Daring</p>
                             </div>
                         </div>
                     </div>
@@ -152,46 +173,10 @@
             <h2>Clients</h2>
         </div>
 
-        <div class="row no-gutters clients-wrap clearfix aos-init aos-animate client" data-aos="fade-up">
-
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="client-logo">
-                    <img src="<?php echo base_url(); ?>/assets/img/clients/client-1.png" class="img-fluid" alt="">
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="client-logo">
-                    <img src="<?php echo base_url(); ?>/assets/img/clients/client-1.png" class="img-fluid" alt="">
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="client-logo">
-                    <img src="<?php echo base_url(); ?>/assets/img/clients/client-1.png" class="img-fluid" alt="">
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="client-logo">
-                    <img src="<?php echo base_url(); ?>/assets/img/clients/client-1.png" class="img-fluid" alt="">
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="client-logo">
-                    <img src="<?php echo base_url(); ?>/assets/img/clients/client-1.png" class="img-fluid" alt="">
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="client-logo">
-                    <img src="<?php echo base_url(); ?>/assets/img/clients/client-1.png" class="img-fluid" alt="">
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="client-logo">
-                    <img src="<?php echo base_url(); ?>/assets/img/clients/client-1.png" class="img-fluid" alt="">
-                </div>
-            </div>
+        <div class="row no-gutters clients-wrap clearfix aos-init aos-animate clientSlick" id="clientsData"
+            data-aos="fade-up">
 
         </div>
-
     </div>
 </section>
 <!-- End Client Section -->

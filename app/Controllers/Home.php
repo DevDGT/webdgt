@@ -15,9 +15,7 @@ class Home extends BaseController
             'hero' => <<<EOD
                         <section id="hero">
                             <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
-
                                 <div class="carousel-inner" role="listbox">
-
                                     <!-- Slide 1 -->
                                     <div class="carousel-item active" style="background-image: url($base_url/uploads/beranda/DSCF1517.JPG);">
                                         <!-- <div class="carousel-container">
@@ -28,7 +26,6 @@ class Home extends BaseController
                                             </div>
                                         </div> -->
                                     </div>
-
                                     <!-- Slide 2 -->
                                     <div class="carousel-item" style="background-image: url($base_url/uploads/beranda/DSCF1509.JPG);">
                                         <!-- <div class="carousel-container">
@@ -39,7 +36,6 @@ class Home extends BaseController
                                             </div>
                                         </div> -->
                                     </div>
-
                                     <!-- Slide 3 -->
                                     <div class="carousel-item" style="background-image: url($base_url/uploads/beranda/DSCF1502.JPG);">
                                         <!-- <div class="carousel-container">
@@ -50,26 +46,21 @@ class Home extends BaseController
                                             </div>
                                         </div> -->
                                     </div>
-
                                 </div>
-
                                 <-- <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
                                     <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
                                 </a>
-
                                 <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
                                     <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
                                 </a>
-
                                 <ol class="carousel-indicators" id="hero-carousel-indicators"></ol> -->
-
                             </div>
                         </section>
                     EOD,
             'section' => 'dashboard',
             'js' => [
-                "<script src=" . base_url('assets/js/page/dashboard.js') . " defer></script>",
-            ]
+                '<script src='.base_url('assets/js/page/dashboard.js').' defer></script>',
+            ],
         ];
 
         echo view('front/canvas', $data);
@@ -83,10 +74,9 @@ class Home extends BaseController
             'logoImg' => '',
             'logoName' => 'DGT',
             'section' => 'aboutus',
-            'js' => 'aboutus.js'
+            'js' => 'aboutus.js',
         ];
 
         echo view('front/canvas', $data);
     }
 }
-//
