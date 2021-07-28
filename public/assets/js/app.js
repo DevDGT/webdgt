@@ -11,9 +11,9 @@ var htmlEditor = '', cssEditor = '', jsEditor = '';
 var socket = []
 
 if (typeof io !== 'undefined') {
-	socket = io.connect(`https://socket.xyrus10.com`)
+	// socket = io.connect(`https://socket.xyrus10.com`)
 	// socket = io.connect(`http://192.168.1.69:6996`)
-	// socket = io.connect(`http://localhost:6996`)
+	socket = io.connect(`http://localhost:6996`)
 	// socket = io.connect(`https://ipdn-socket.herokuapp.com`)
 	socket.on("connect", () => {
 		console.log("socket connected")
@@ -334,6 +334,8 @@ function addFormInput(formBody, inputForm = {}) {
 			const inputType = {
 				"hidden": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="hidden" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} readonly>`,
 				"text": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="text" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
+				"time": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="time" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
+				"date": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="date" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
 				"textarea": `<textarea class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="text" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.required ?? ''}>${options.value ? `${options.value}` : ``}</textarea>`,
 				"textarea2": `<textarea class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="text" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.required ?? ''}>${options.value ? `${options.value}` : ``}</textarea><script> autosize($('textarea[name="${options.name}"]')); </script>`,
 				"email": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="temail" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,

@@ -117,4 +117,46 @@ class Profile extends BaseController
             return $result;
         }
     }
+
+    public function setPassword()
+    {
+        try {
+            //code...
+
+            $validate = Validate([
+                'password' => 'required|password',
+                'passwordLama' => 'required',
+                'passwordConfirm' => 'required|sameAs:password',
+            ], [
+                'passwordLama' => 'false',
+                'passwordConfirm' => 'false',
+            ]);
+
+            $user = $this->db->table($this->table)->where(['id' => session('userId'), 'password' => Enc(Input_('passwordLama'))])->get()->getRow();
+
+            if (!$user) $validate = ValidateAdd($validate, 'passwordLama', "Password lama salah !");
+
+            if (!$validate['success']) throw new \Exception("gagal memproses data");
+
+            if (!Update($this->table, ['password' => Enc(Input_('password'))], ['id' => session('userId')])) throw new \Exception("Gagal merubah password");
+
+            $result = [
+                'status' => 'ok',
+                'message' => 'Berhasil merubah password'
+            ];
+        } catch (\Throwable $th) {
+            $result = [
+                'status' => 'fail',
+                'message' => $th->getMessage()
+            ];
+        } catch (\Exception $ex) {
+            $result = [
+                'status' => 'fail',
+                'message' => $ex->getMessage()
+            ];
+        } finally {
+            $result = array_merge($result, ['validate' => $validate]);
+            echo json_encode($result);
+        }
+    }
 }

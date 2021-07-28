@@ -40,13 +40,13 @@
                                         <i class="fas fa-plus mr-1"> </i>Baru
                                     </button>
                                 </div>
-                                <table id="listArticle" class="table table-bordered" style="width:100%">
+                                <table id="listSocials" class="table table-bordered" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th></th>
                                             <th>Social</th>
                                             <th>Link</th>
-                                            <th id="aksiField">Aksi</th>
+                                            <th class="actionField">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -69,26 +69,17 @@
                                 <div class="form-group">
                                     <label>Masukan Password Lama</label>
                                     <input type="password" name="passwordLama" id="passLama" class="form-control" placeholder="Password" required>
-                                    <div class="invalid-feedback">
-                                        Password Salah !
-                                    </div>
+                                    <div id="validate_passwordLama"></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Masukan Password Baru</label>
                                     <input type="password" name="password" id="passBaru" class="form-control" placeholder="Password" required>
-                                    <div class="invalid-feedback">
-                                        Password minimal 6 karakter
-                                    </div>
+                                    <div id="validate_password"></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Masukan Lagi Password</label>
                                     <input type="password" name="passwordConfirm" id="confirmPass" class="form-control" placeholder="Password" required>
-                                    <div class="invalid-feedback">
-                                        Password tidak sama !
-                                    </div>
-                                    <div class="valid-feedback">
-                                        Password sama !
-                                    </div>
+                                    <div id="validate_passwordConfirm"></div>
                                 </div>
                                 <div class="text-right">
                                     <button type="submit" id="btnUbahPass" class="btn btn-primary" disabled="true"> <i class="icon-copy dw dw-paper-plane"></i> Simpan</button>

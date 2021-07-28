@@ -226,6 +226,10 @@ $(document).ready((function () {
 				name: "asc"
 			}
 		}
+	}, {
+		type: "date",
+		name: "time",
+		label: "Tahun"
 	}])
 	$("#modalForm").modal('show')
 	$("#modalTitle").html('Tambah Pesanan Klien')

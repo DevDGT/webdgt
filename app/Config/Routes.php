@@ -77,6 +77,8 @@ $routes->group('ruangadmin', ['namespace' => 'App\Controllers\Admin'], function 
     $routes->group('profile', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
         $routes->get('/', 'Profile::index');
         $routes->post('update', 'Profile::update');
+        $routes->post('delete', 'Profile::delete');
+        $routes->post('set-password', 'Profile::setPassword');
     });
 
     // User Management routes
@@ -185,6 +187,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
     $routes->post('setuser/status', 'Admin::setUserStatus');
 
     $routes->group('data', ['namespace' => 'App\Controllers\Api'], function ($routes) {
+        $routes->post('options/years', 'Admin::getYears/$1');
         $routes->post('options/(:any)', 'Admin::getDataOption/$1');
         $routes->post('users', 'Admin::dataUsers');
         $routes->post('category', 'Admin::dataCategory');
@@ -197,6 +200,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('products-demo', 'Admin::dataProductsDemo');
         $routes->post('profile', 'Admin::dataProfile');
         $routes->post('clients-orders', 'Admin::dataClientsOrders');
+        $routes->post('user-socials', 'Admin::userSocials');
     });
 
     $routes->group('row', ['namespace' => 'App\Controllers\Api'], function ($routes) {
