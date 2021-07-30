@@ -29,6 +29,7 @@ class PublicApi extends BaseController
                     a.title,
                     a.slug,
                     a.cover,
+                    u.id userId,
                     u.name author,
                     u.photo author_photo,
                     u.quotes,
@@ -84,6 +85,7 @@ class PublicApi extends BaseController
                 if ($detail == 'true') {
                     $row['content'] = $field_['content'];
                 }
+                $row['socials'] = $this->getSocialTeam($field_['userId']);
                 $data[] = $row;
             }
 
