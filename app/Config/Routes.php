@@ -79,6 +79,9 @@ $routes->group('ruangadmin', ['namespace' => 'App\Controllers\Admin'], function 
         $routes->post('update', 'Profile::update');
         $routes->post('delete', 'Profile::delete');
         $routes->post('set-password', 'Profile::setPassword');
+        $routes->post('socials-delete', 'Profile::socialsDelete');
+        $routes->post('socials-store', 'Profile::socialsStore');
+        $routes->post('socials-update', 'Profile::socialsUpdate');
     });
 
     // User Management routes
@@ -214,6 +217,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('products/(:any)', 'Admin::getRowProducts/$1');
         $routes->post('productsDemo/(:any)', 'Admin::getRowProductsDemo/$1');
         $routes->post('clients-orders/(:any)', 'Admin::getRowClientsOrders/$1');
+        $routes->post('profile-social/(:any)', 'Admin::getRowProfileSocial/$1');
     });
 
     $routes->group('public', ['namespace' => 'App\Controllers\Api'], function ($routes) {

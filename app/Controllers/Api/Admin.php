@@ -21,7 +21,7 @@ class Admin extends BaseController
             $this->masterModel->columnSearch = $option['columnSearch'] ?? [];
             $this->masterModel->selectData = $option['selectData'] ?? "";
             $this->masterModel->tableJoin = $option['join'] ?? [];
-            $this->masterModel->order = $option['order'] ?? ['id' => 'desc'];
+            $this->masterModel->order = $option['order'] ?? ["id" => "desc"];
             $this->masterModel->whereData = $option['whereData'] ?? [];
             $field = $option['field'] ?? [];
             $listData = $this->masterModel->get_datatables();
@@ -192,7 +192,7 @@ class Admin extends BaseController
             'whereData' => [
                 'user_id' => session('userId')
             ],
-            'order' => ['id', 'desc']
+            'order' => ['social' => 'asc']
         ]);
     }
 
@@ -464,6 +464,16 @@ class Admin extends BaseController
             'select' => "id, id_products, id_clients",
             'where' => [EncKey('id') => $id],
             'guard' => ['id_clients:hash', 'id_products:hash']
+        ]);
+    }
+
+    public function getRowProfileSocial($id)
+    {
+        return $this->getRowTable([
+            'table' => 'social',
+            'select' => "id, user_id, social, link",
+            'where' => [EncKey('id') => $id],
+            'guard' => ['user_id:hash']
         ]);
     }
 

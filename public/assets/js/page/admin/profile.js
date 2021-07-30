@@ -16,11 +16,18 @@ $("#reset").on('click', function() {
     getProfile()
 })
 
+function refreshData() {
+	table.ajax.reload(null, !1)
+}
+
 function getSocials() {
     $(document).ready((function () {
         $(".statusField").attr('style', 'width:50')
         $(".actionField").attr('style', 'width:115px; text-align:center')
         table = $(tableId).DataTable({
+            paging: !1,
+            ordering: !1,
+            info: !1,
             processing: !0,
             serverSide: !0,
             order: [],
@@ -31,11 +38,7 @@ function getSocials() {
                     _token: TOKEN
                 },
                 complete: function () {
-                    // checkPilihan({
-                    //     table: tableId,
-                    //     buttons: ['delete', 'active', 'deactive'],
-                    //     path: CURRENT_PATH
-                    // })
+
                 },
                 dataSrc: function ( json ) {
                     json?.status == '401' && msgSweetWarning("Sesi Anda berakhir !").then(msg=> {
@@ -89,32 +92,6 @@ function getSocials() {
     }))
 }
 
-$(tableId).delegate("#delete", "click", function () {
-    confirmSweet("Anda yakin ingin menghapus data ?").then((result) => {
-		if (isConfirmed(result)) {
-			let id = $(this).data("id")
-			result && $.ajax({
-				url: CURRENT_PATH + "delete",
-				data: {
-					_token: TOKEN,
-					id: id
-				},
-				type: "POST",
-				dataType: "JSON",
-				beforeSend: function () {
-					disableButton()
-				},
-				success: function (result) {
-					"ok" == result.status ? (enableButton(), toastSuccess(result.message), refreshData(), socket.emit("affectDataTable", tableId), socket.emit?.("teamChanged")) : toastError(result.message, "Gagal")
-				},
-				error: function (error) {
-					errorCode(error)
-				}
-			})
-		}
-	})
-})
-
 $("#nav-page-tab").click(function() {
     // alert("asdsad")
     console.log(htmlEditor);
@@ -140,19 +117,6 @@ $("#nav-page-tab").click(function() {
     // });
 })
 
-function isInvalid(idNa) {
-  $(idNa).removeClass("is-valid")
-  $(idNa).addClass("is-invalid")
-}
-
-function isValid(idNa) {
-  $(idNa).removeClass("is-invalid")
-  $(idNa).addClass("is-valid")
-}
-
-function noValid(idNa) {
-  $(idNa).removeClass("is-invalid is-valid")
-}
 function addFormProfile() {
     addFormInput("#formBody", [{
         type: "text",
@@ -268,16 +232,8 @@ $("#formPassword").submit(function (e) {
                 $("#passBaru").val('')
                 $("#passLama").val('')
                 $("#confirmPass").val('')
-                // socket.emit?.("teamChanged")
             }
-            if (result.status == "fail") {
-                // msgSweetError(response.message)
-            }
-            // if (response.status == "salah") {
-            //     isInvalid("#passLama")
-            // } else {
-            //     noValid("#passLama")
-            // }
+            if (result.status == "fail") msgSweetError(response.message)
         },
         error: function(error){
             errorCode(error)
@@ -285,47 +241,126 @@ $("#formPassword").submit(function (e) {
     })
 })
 
-// function passCheck(pass) {
-//     var strength = 1;
-//     var arr = [/.{5,}/, /[a-z]+/, /[0-9]+/, /[A-Z]+/];
-//     jQuery.map(arr, function (regexp) {
-//         if (pass.match(regexp))
-//             strength++;
-//     });
-//     console.log(strength);
-// }
+$("#btnAdd").on('click', function(){
+    clearFormInput("#formBodySocials")
+	addFormInput("#formBodySocials", [{
+		type: "select2",
+		name: "social",
+		label: "Socials",
+		data: {
+            "discord" : "Discord",
+            "facebook" : "Facebook",
+            "github" : "Github",
+            "instagram" : "Instagram",
+            "linkedin" : "Linkedin",
+            "twitter" : "Twitter",
+            "youtube" : "Youtube",
+        }
+	}, {
+		type: "text",
+		name: "link",
+		label: "Link",
+		
+	}])
+	$("#modalForm").modal('show')
+	$("#modalTitle").html('Tambah Socials')
+	$("#formInput").attr('action', CURRENT_PATH + "socials-store")
+})
 
-// $("#passBaru").on('change', function(){
-//     let pass = $(this).val()
-//     passCheck(pass)
-// })
+$(tableId).delegate("#delete", "click", function () {
+    confirmSweet("Anda yakin ingin menghapus data ?").then((result) => {
+		if (isConfirmed(result)) {
+			let id = $(this).data("id")
+			result && $.ajax({
+				url: CURRENT_PATH + "socials-delete",
+				data: {
+					_token: TOKEN,
+					id: id
+				},
+				type: "POST",
+				dataType: "JSON",
+				beforeSend: function () {
+					disableButton()
+				},
+				success: function (result) {
+					"ok" == result.status ? (enableButton(), toastSuccess(result.message), refreshData(), socket.emit("affectDataTable", tableId), socket.emit?.("teamChanged")) : toastError(result.message, "Gagal")
+				},
+				error: function (error) {
+					errorCode(error)
+				}
+			})
+		}
+	})
+})
 
-// setInterval(() => {
-//     let passBaru = $("#passBaru").val()
-//     if (passBaru != '' && passBaru?.length >= 6) {
-//         isValid("#passBaru")
-//         cekPassBaru()
-//     } else {
-//         isInvalid("#passBaru")
-//         isInvalid("#confirmPass")
-//         cekPassBaru()
-//     }
-// }, 500);
+$(tableId).delegate("#edit", "click", function () {
+    let id = $(this).data("id");
+	$.ajax({
+		url: API_PATH + "row/profile-social/" + id,
+		type: "post",
+		data: {_token: TOKEN},
+		dataType: "json",
+		beforeSend: function() {
+			disableButton()
+			clearFormInput("#formBodySocials")
+			addFormInput("#formBodySocials", [{
+                type: "hidden",
+                name: "id",
+            },{
+                type: "select2",
+                name: "social",
+                label: "Socials",
+                data: {
+                    "discord" : "Discord",
+                    "facebook" : "Facebook",
+                    "github" : "Github",
+                    "instagram" : "Instagram",
+                    "linkedin" : "Linkedin",
+                    "twitter" : "Twitter",
+                    "youtube" : "Youtube",
+                }
+            }, {
+                type: "text",
+                name: "link",
+                label: "Link",
+                
+            }])
+		}, 
+		complete: function() {
+			enableButton()
+		},
+		success: function(result) {
+			"ok" == result.status ? ($("#modalForm").modal('show'),$("#modalTitle").html('Edit Socials'),$("#formInput").attr('action', CURRENT_PATH + "socials-update"), fillForm(result.data)) : msgSweetError(result.message)
+		},
+		error: function(err) {
+			errorCode(err)
+		}
+	})
+})
 
-// function cekPassBaru() {
-//     $("#btnUbahPass").attr('disabled', true)
-//     if ($("#confirmPass").val() != "") {
-//         let passBaru = $("#passBaru").val()
-//         let passConf = $("#confirmPass").val()
-//         if (passBaru == passConf) {
-//             isValid("#confirmPass")
-//             $("#btnUbahPass").removeAttr("disabled")
-//         } else {
-//             isInvalid("#confirmPass")
-//             $("#btnUbahPass").attr('disabled', true)
-//         }
-//     } else {
-//         noValid("#confirmPass")
-//         $("#btnUbahPass").attr('disabled', true)
-//     }
-// }
+$("#formInput").submit(function(e){
+    e.preventDefault()
+	let formData = new FormData(this)
+	formData.append("_token", TOKEN)
+	$.ajax({
+		url: $(this).attr('action'),
+		type: "post",
+		data: formData, 
+		processData: !1,
+		contentType: !1,
+		cache: !1,
+		dataType: "JSON",
+		beforeSend: function () {
+			disableButton()	
+		},
+		complete: function () {
+			enableButton()
+		},
+		success: function (e) {
+			validate(e.validate.input),e.validate.success&&("ok"==e.status?(toastSuccess(e.message),refreshData(),1==e.modalClose&&$("#modalForm").modal("hide"),clearInput(e.validate.input), socket.emit("affectDataTable", tableId), socket.emit?.("teamChanged")):toastWarning(e.message));
+		},
+		error: function(err) {
+			errorCode(err)
+		}
+	})
+})
