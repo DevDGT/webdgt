@@ -52,7 +52,7 @@ $routes->group('/news', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->get('tags/(:any)/page/(:num)', 'News::byTags/$1/$2');
     $routes->get('tags/(:any)', 'News::byTags/$1');
     $routes->get('read', 'News::index');
-    $routes->get('(:any)', 'News::article');
+    $routes->get('(:any)', 'News::detailNews');
 });
 
 $routes->group('/product', ['namespace' => 'App\Controllers'], function ($routes) {
