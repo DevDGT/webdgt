@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function () {
   moveRoom("aboutus")
   getTeams()
 });
@@ -9,7 +9,7 @@ function initSlick() {
     slidesToShow: 3,
     slidesToScroll: 1,
     dots: false,
-    autoplay:true,
+    autoplay: true,
     adaptiveHeight: true,
     responsive: [
       {
@@ -31,20 +31,20 @@ function initSlick() {
         }
       }
       // {
-        //  breakpoint: 480,
-        //  settings: "unslick",
-        // settings: {
-        //   slidesToShow: 5,
-        //   slidesToScroll: 3
-        // }
+      //  breakpoint: 480,
+      //  settings: "unslick",
+      // settings: {
+      //   slidesToShow: 5,
+      //   slidesToScroll: 3
+      // }
 
       // }
     ],
-    pauseOnFocus:true,
-    autoplaySpeed:3000,
+    pauseOnFocus: true,
+    autoplaySpeed: 3000,
     speed: 1000,
     centerMode: false,
-        
+
   })
 }
 
@@ -59,13 +59,13 @@ function addTeam() {
   return new Promise(resolve => {
     var teamsAPI = `${API_PATH}/public/get/teams`;
     $.getJSON(teamsAPI, {
-        format: 'json'
-    }).done(function(response){
+      format: 'json'
+    }).done(function (response) {
       // nanobar.go(90)
       let teams = '';
       let ceo = '';
-      $.each(response.data, function(i, items){
-        if(i == 0) {
+      $.each(response.data, function (i, items) {
+        if (i == 0) {
           ceo = `
           <div class="col-lg-12">
               <div class="member aos-init aos-animate" data-aos="fade-up">
@@ -83,22 +83,18 @@ function addTeam() {
               </div>
           </div>
           `;
-        }else if (i > 0){
+        } else if (i > 0) {
           teams += `
             <div class="col-12 mx-3 p-6 teamImg">
               <div class="member w-100 bg-black aos-init aos-animate d-flex justify-content-center" data-aos="fade-up">
                 <div class="card" style="width: 20rem; border:none;">
                     <img src="${BASE_URL}/uploads/users/${items.photo == '' ? 'default.png' : items.photo}" class="card-img-top" alt="...">
-                    <div class="social">
-                          <a href="#" target="_blank"><i class="bi bi-twitter"></i></a>
-                          <a href="#" target="_blank"><i class="bi bi-facebook"></i></a>
-                          <a href="#" target="_blank"><i class="bi bi-instagram"></i></a>
-                          <a href="#" target="_blank"><i class="bi bi-linkedin"></i></a>
-                          <a href="#" target="_blank"><i class="bi bi-github"></i></a>
-                          <a href="#" target="_blank"><i class="bi bi-youtube"></i></a>
-                          <a href="#" target="_blank"><i class="bi bi-discord"></i></a>
-                          <a href="#" target="_blank"><i class="bi bi-eye-fill"></i></a>
-                      </div>
+                    <div class="social">`;
+          $.each(items.socials, function (i, social) {
+            // console.log(social);
+            teams += `<a href="${social.link}" target="_blank"><i class="bi bi-${social.social}"></i></a>`;
+          });
+          teams += `</div>
                     <div class="card-body">
                       <h4 class="card-title">${items.name}</h4>
                       <p class="card-text">${items.jobs}</p>
@@ -125,36 +121,36 @@ function addTeam() {
 }
 
 async function getTeams() {
-        
+
   await addTeam()
   initSlick()
   //  console.log(response)
 
   $('.benefits').not('.slick-initialized').slick({
-      centerMode: true,
-      // centerPadding: '60px',
-      slidesToShow: 5,
-      autoplay:true,
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: {
-            arrows: false,
-            centerMode: true,
-            centerPadding: '40px',
-            slidesToShow: 3
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            arrows: false,
-            centerMode: true,
-            centerPadding: '40px',
-            slidesToShow: 1
-          }
+    centerMode: true,
+    // centerPadding: '60px',
+    slidesToShow: 5,
+    autoplay: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 3
         }
-      ]
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 1
+        }
+      }
+    ]
   });
 }
 
