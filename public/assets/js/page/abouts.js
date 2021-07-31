@@ -1,15 +1,15 @@
 $(document).ready(function () {
-  moveRoom("aboutus")
-  getTeams()
+  moveRoom("aboutus");
+  getTeams();
 });
 
 function initSlick() {
   $('#teamApi').not('.slick-initialized').slick({
     infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToShow: 5,
+    slidesToScroll: 3,
     dots: false,
-    autoplay: true,
+    autoplay: false,
     adaptiveHeight: true,
     responsive: [
       {
@@ -52,6 +52,8 @@ function reloadSlick() {
   $("#teamApi").addClass('d-none')
   $('#teamApi').slick('unslick')
   $('.benefits').slick('unslick')
+
+
   getTeams()
 }
 
@@ -87,8 +89,8 @@ function addTeam() {
           teams += `
             <div class="col-12 mx-3 p-6 teamImg">
               <div class="member w-100 bg-black aos-init aos-animate d-flex justify-content-center" data-aos="fade-up">
-                <div class="card" style="width: 20rem; border:none;">
-                    <img src="${BASE_URL}/uploads/users/${items.photo == '' ? 'default.png' : items.photo}" class="card-img-top" alt="...">
+                <div class="card" style="width: 20rem; max-height:40vh; border:none;">
+                    <img src="${BASE_URL}/uploads/users/${items.photo == '' ? 'default.png' : items.photo}" class="card-img-top" alt="${items.name}">
                     <div class="social">`;
           $.each(items.socials, function (i, social) {
             // console.log(social);
@@ -96,7 +98,7 @@ function addTeam() {
           });
           teams += `</div>
                     <div class="card-body">
-                      <h4 class="card-title">${items.name}</h4>
+                      <h45class="card-title">${items.name}</h5>
                       <p class="card-text">${items.jobs}</p>
                       <p class="card-text d-inline-block text-truncate" style="max-width: -webkit-fill-available;">
                       <i class="bx bxs-quote-alt-left quote-icon-left"></i>
@@ -153,4 +155,3 @@ async function getTeams() {
     ]
   });
 }
-

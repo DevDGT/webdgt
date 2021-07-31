@@ -9,6 +9,11 @@
     /* height: max-content; */
     object-fit: scale-down;
 }
+
+.slick-track{
+    display: flex;
+    justify-content:center;
+}
 </style>
 <section id="breadcrumbs" class="breadcrumbs">
     <div class="container">
@@ -110,7 +115,7 @@
         <!-- Cooperation Line -->
         <div class="row services benefits">
             <!-- <div class="section benefits"> -->
-            <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100" style="max-width:12rem;">
                 <div class="card shadow-sm" style="width: 15rem; border: none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Partner_Oriented@4x-8.png'); ?>" class="img-fluid"
                         alt="...">
@@ -121,7 +126,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+            <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200" style="max-width:12rem;">
                 <div class="card shadow-sm" style="width: 15rem; border: none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Eficient@4x-8.png'); ?>" class="img-fluid"
                         alt="...">
@@ -132,7 +137,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+            <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200" style="max-width:12rem;">
                 <div class="card shadow-sm" style="width: 15rem; border: none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Innovation@4x-8.png'); ?>" class="img-fluid"
                         alt="...">
@@ -143,7 +148,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+            <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200" style="max-width:12rem;">
                 <div class="card shadow-sm" style="width: 15rem; border: none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Service_Commitment@4x-8.png'); ?>" class="img-fluid"
                         alt="...">
@@ -154,7 +159,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+            <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200" style="max-width:12rem;">
                 <div class="card shadow-sm" style="width: 15rem; border: none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Professional_Quality@4x-8.png'); ?>"
                         class="img-fluid" alt="...">
