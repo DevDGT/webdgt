@@ -6,7 +6,9 @@ $(document).ready(function () {
   initFetch();
   $("#portfolio-flters").on("click", ".options", function (e) {
     e.preventDefault();
+    // alert('ok portfolio');
     var id = $(this).data("id");
+    console.log('ID : ' + id);
     $("#coreCategory").removeClass("filter-active");
     $(".options").removeClass("filter-active");
     // $(".tab").addClass("active"); // instead of this do the below
@@ -149,6 +151,7 @@ async function getSelected(id) {
     }).done(function (response) {
       let products = "";
       $.each(response.data, function (i, items) {
+        console.log(items);
         if (items.id_category_product != id) {
           products += ``;
         } else {
@@ -169,6 +172,7 @@ async function getSelected(id) {
         }
         $("#productData").html(products);
         resolve(true);
+        // console.log('ok getselected');
       });
     });
   });

@@ -117,4 +117,150 @@ class Profile extends BaseController
             return $result;
         }
     }
+
+    public function setPassword()
+    {
+        try {
+            //code...
+
+            $validate = Validate([
+                'password' => 'required|password',
+                'passwordLama' => 'required',
+                'passwordConfirm' => 'required|sameAs:password',
+            ], [
+                'passwordLama' => 'false',
+                'passwordConfirm' => 'false',
+            ]);
+
+            $user = $this->db->table($this->table)->where(['id' => session('userId'), 'password' => Enc(Input_('passwordLama'))])->get()->getRow();
+
+            if (!$user) $validate = ValidateAdd($validate, 'passwordLama', "Password lama salah !");
+
+            if (!$validate['success']) throw new \Exception("gagal memproses data");
+
+            if (!Update($this->table, ['password' => Enc(Input_('password'))], ['id' => session('userId')])) throw new \Exception("Gagal merubah password");
+
+            $result = [
+                'status' => 'ok',
+                'message' => 'Berhasil merubah password'
+            ];
+        } catch (\Throwable $th) {
+            $result = [
+                'status' => 'fail',
+                'message' => $th->getMessage()
+            ];
+        } catch (\Exception $ex) {
+            $result = [
+                'status' => 'fail',
+                'message' => $ex->getMessage()
+            ];
+        } finally {
+            $result = array_merge($result, ['validate' => $validate]);
+            echo json_encode($result);
+        }
+    }
+
+    public function socialsStore()
+    {
+        try {
+
+            $validate = Validate([
+                "social" => "required",
+                "link" => "required"
+            ], [
+                'user_id' => session('userId')
+            ]);
+
+            $socials = $this->db->table('social')->where(['user_id' => session('userId'), 'social' => Input_('social')])->get()->getRow();
+
+            if ($socials) $validate = ValidateAdd($validate, "social", "Media sosial sudah ada");
+
+            if (!$validate['success']) throw new \Exception("gagal memproses data");
+
+            if (!Create("social", $validate['data'])) throw new \Exception("Gagal memasukan data !");
+
+            $result = [
+                'status' => 'ok',
+                'message' => 'Menambahkan data'
+            ];
+        } catch (\Throwable $th) {
+            $result = [
+                'status' => 'fail',
+                'message' => $th->getMessage()
+            ];
+        } catch (\Exception $ex) {
+            $result = [
+                'status' => 'fail',
+                'message' => $ex->getMessage()
+            ];
+        } finally {
+            $result = array_merge($result, ['validate' => $validate]);
+            echo json_encode($result);
+        }
+    }
+
+    public function socialsDelete()
+    {
+        try {
+
+            if (!isset($_POST['id'])) throw new \Exception("no param");
+
+            $id = Input_('id');
+
+            if (Delete("social", [EncKey('id') => $id]) == false) throw new \Exception("Gagal menghapus data");
+
+            $message = [
+                'status' => 'ok',
+                'message' => 'Berhasil menghapus data'
+            ];
+        } catch (\Throwable $th) {
+            $message = [
+                'status' => 'fail',
+                'message' => $th->getMessage()
+            ];
+        } catch (\Exception $ex) {
+            $message = [
+                'status' => 'fail',
+                'message' => $ex->getMessage()
+            ];
+        } finally {
+            echo json_encode($message);
+        }
+    }
+
+    public function socialsUpdate()
+    {
+        try {
+
+            $validate = Validate([
+                'social' => 'required',
+                'link' => 'required'
+            ], [
+                'user_id' => session('userId')
+            ]);
+
+            $social = $this->db->table('social')->where(['user_id' => session('userId'), 'social' => Input_('social')])->get()->getRow();
+            if ($social && Enc($social->id) != Input_('id')) $validate = ValidateAdd($validate, 'social', "Media social sudah ada");
+            if (!$validate['success']) throw new \Exception("Error Processing Request");
+            if (!Update("social", $validate['data'], [EncKey('id') => Input_('id')])) throw new \Exception("Tidak ada perubahan");
+
+            $message = [
+                'status' => 'ok',
+                'message' => 'Berhasih mengubah data'
+            ];
+        } catch (\Throwable $th) {
+            $message = [
+                'status' => 'fail',
+                'message' => $th->getMessage()
+            ];
+        } catch (\Exception $ex) {
+            $message = [
+                'status' => 'fail',
+                'message' => $ex->getMessage()
+            ];
+        } finally {
+            $message = array_merge($message, ['validate' => $validate, 'modalClose' => true]);
+            echo json_encode($message);
+        }
+    }
 }

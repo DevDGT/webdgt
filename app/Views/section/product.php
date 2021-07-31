@@ -30,40 +30,40 @@
         <div class="section-title aos-init aos-animate" data-aos="fade-up">
             <h2>The Problems</h2>
         </div>
-        <div class="row">
+        <div class="row d-flex justify-content-center">
 
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch aos-init aos-animate p-2" data-aos="zoom-in"
+            <div class="col-lg-2 col-md-2 d-flex align-items-stretch aos-init aos-animate p-2" data-aos="zoom-in"
                 data-aos-delay="100">
-                <div class="card shadow" style="width: 30rem; border: none;">
+                <div class="card shadow" style="width: 15rem; border: none;">
                     <img src="<?php echo base_url('/uploads/produk/Productivity.png'); ?>" class="card-img-top"
-                        alt="...">
+                        alt="Productivity">
                     <div class="card-body">
                         <p class="card-text">
-                        <h4 class="text-center">Less Productivity</h4>
+                        <h5 class="text-center">Less Productivity</h5>
                         </p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch aos-init aos-animate p-2" data-aos="zoom-in"
+            <div class="col-lg-2 col-md-2 d-flex align-items-stretch aos-init aos-animate p-2" data-aos="zoom-in"
                 data-aos-delay="200">
-                <div class="card shadow" style="width: 30rem; border: none;">
+                <div class="card shadow" style="width: 15rem; border: none;">
                     <img src="<?php echo base_url('/uploads/produk/User_Frustation.png'); ?>" class="card-img-top"
-                        alt="...">
+                        alt="User_Frustation">
                     <div class="card-body">
                         <p class="card-text">
-                        <h4 class="text-center">User Frustation</h4>
+                        <h5 class="text-center">User Frustation</h5>
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch aos-init aos-animate p-2" data-aos="zoom-in"
+            <div class="col-lg-2 col-md-2 d-flex align-items-stretch aos-init aos-animate p-2" data-aos="zoom-in"
                 data-aos-delay="300">
-                <div class="card shadow" style="width: 30rem; border: none;">
-                    <img src="<?php echo base_url('/uploads/produk/Price.png'); ?>" class="card-img-top" alt="...">
+                <div class="card shadow" style="width: 15rem; border: none;">
+                    <img src="<?php echo base_url('/uploads/produk/Price.png'); ?>" class="card-img-top" alt="Price">
                     <div class="card-body">
                         <p class="card-text">
-                        <h4 class="text-center">Expensive Price</h4>
+                        <h5 class="text-center">Expensive Price</h5>
                         </p>
                     </div>
                 </div>
@@ -90,8 +90,7 @@
             </div>
         </div>
 
-        <div class="row d-flex justify-content-center portfolio-container aos-init aos-animate" data-aos="fade-up"
-            id="productData">
+        <div class="row d-flex justify-content-center portfolio-container aos-init aos-animate" data-aos="fade-up" id="productData">
 
         </div>
 
@@ -106,9 +105,7 @@
             <h2>Users</h2>
         </div>
 
-        <div class="row no-gutters clients-wrap clearfix aos-init aos-animate userProduct" id="clientsData"
-            data-aos="fade-up">
-
+        <div class="row no-gutters clients-wrap clearfix aos-init aos-animate userProduct" id="clientsData" data-aos="fade-up">
         </div>
 
     </div>

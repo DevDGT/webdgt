@@ -29,6 +29,7 @@ class PublicApi extends BaseController
                     a.title,
                     a.slug,
                     a.cover,
+                    u.id userId,
                     u.name author,
                     u.photo author_photo,
                     u.quotes,
@@ -84,6 +85,7 @@ class PublicApi extends BaseController
                 if ($detail == 'true') {
                     $row['content'] = $field_['content'];
                 }
+                $row['socials'] = $this->getSocialTeam($field_['userId']);
                 $data[] = $row;
             }
 
@@ -134,7 +136,7 @@ class PublicApi extends BaseController
     public function getCategoryProducts()
     {
         try {
-            $category = $this->db->query("SELECT `cat`.`id`,`cat`.`name`, `cat`.`slug`, (SELECT COUNT(*) FROM products WHERE id_category_product = cat.id AND active = '1') count FROM `category_product` `cat` WHERE (SELECT COUNT(*) FROM products WHERE id_category_product = cat.id AND active = '1') != '0' ORDER BY `count` DESC")->getResult();
+            $category = $this->db->query('SELECT '.EncKey('cat.id')." id , `cat`.`name`, `cat`.`slug`, (SELECT COUNT(*) FROM products WHERE id_category_product = cat.id AND active = '1') count FROM `category_product` `cat` WHERE (SELECT COUNT(*) FROM products WHERE id_category_product = cat.id AND active = '1') != '0' ORDER BY `count` DESC")->getResult();
 
             $result = [
                 'status' => 'ok',
@@ -314,7 +316,7 @@ class PublicApi extends BaseController
     {
         try {
             $this->builder = $this->db->table('products');
-            $this->builder->select('id, id_category_product, name, icon, video, description');
+            $this->builder->select('id, '.EncKey('id_category_product').' id_category_product, name, icon, video, description');
             $this->builder->where('active', '1');
             if ($idProducts != '') {
                 $this->builder->where(EncKey('id'), $idProducts);

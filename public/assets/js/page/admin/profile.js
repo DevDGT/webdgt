@@ -9,13 +9,88 @@ jsEditor = ''
 $(document).ready(function(){
     addFormProfile()
     getProfile()
+    getSocials()
 })
 
 $("#reset").on('click', function() {
     getProfile()
 })
 
+function refreshData() {
+	table.ajax.reload(null, !1)
+}
 
+function getSocials() {
+    $(document).ready((function () {
+        $(".statusField").attr('style', 'width:50')
+        $(".actionField").attr('style', 'width:115px; text-align:center')
+        table = $(tableId).DataTable({
+            paging: !1,
+            ordering: !1,
+            info: !1,
+            processing: !0,
+            serverSide: !0,
+            order: [],
+            ajax: {
+                url: API_PATH + "data/user-socials",
+                type: "POST",
+                data: {
+                    _token: TOKEN
+                },
+                complete: function () {
+
+                },
+                dataSrc: function ( json ) {
+                    json?.status == '401' && msgSweetWarning("Sesi Anda berakhir !").then(msg=> {
+                        doLogoutAjax()
+                    })
+                    json?.status == "fail" && toastError(json?.message, "Gagal")
+                    return json.data;
+                },
+                error: function (error) {
+                    errorCode(error)
+                }
+            },
+            fnCreatedRow: function (nRow, aData, iDataIndex) {
+                $(nRow).attr('data-id', aData.id)
+                // $(nRow).addClass('')
+            },
+            columns: dataColumnTable([
+                'id', 'social', 'link'
+            ]),
+            columnDefs: [{
+                targets: [0],
+                orderable: !1,
+                sClass: "text-center align-middle",
+                render: function (data, type, row) {
+                    return "<input type='checkbox' id='checkItem-" + row.id + "' value='" + row.id + "'>"
+                },
+                visible: !1
+            },{
+                targets: [1],
+                orderable: !1,
+                sClass: "text-center",
+                render: function (data, type, row) {
+                    return row.social
+                }
+            }, {
+                sClass: "align-middle text-center",
+                targets: [2],
+                orderable: !0,
+                render: function (data, type, row) {
+                    return `<a href='${row.link}' target='_blank'>${row.link}</a>`
+                }
+            }, {
+                sClass: "align-middle text-center",
+                targets: [3],
+                orderable: !0,
+                render: function (data, type, row) {
+                    return `<button class='btn my-auto btn-danger btn-sm' id='delete' data-id="${row.id}" data-toggle='tooltip' title='Hapus Data'><i class='fas fa-trash-alt'></i></button> \n <button class='btn btn-warning btn-sm' id='edit' data-id="${row.id}" data-toggle='tooltip' title='Edit Data'><i class='fas fa-pencil-alt'></i></button> `
+                }
+            }]
+        })
+    }))
+}
 
 $("#nav-page-tab").click(function() {
     // alert("asdsad")
@@ -42,19 +117,6 @@ $("#nav-page-tab").click(function() {
     // });
 })
 
-function isInvalid(idNa) {
-  $(idNa).removeClass("is-valid")
-  $(idNa).addClass("is-invalid")
-}
-
-function isValid(idNa) {
-  $(idNa).removeClass("is-invalid")
-  $(idNa).addClass("is-valid")
-}
-
-function noValid(idNa) {
-  $(idNa).removeClass("is-invalid is-valid")
-}
 function addFormProfile() {
     addFormInput("#formBody", [{
         type: "text",
@@ -146,10 +208,13 @@ function updateInfo() {
 
 $("#formPassword").submit(function (e) {
     e.preventDefault();
+    let data = new FormData(this)
+    data.append('_token', TOKEN)
     $.ajax({
-        url: `${baseUrl}/admin/profile/set/password`,
+        url: `${CURRENT_PATH}set-password`,
 		type: "post",
-		data: new FormData(this),
+		data: data,
+        dataType: "json",
 		processData: false,
 		contentType: false,
 		cache: false,
@@ -160,22 +225,15 @@ $("#formPassword").submit(function (e) {
             enableButton()
         },
         success: function(result){
-            let response = JSON.parse(result)
-            if (response.status == "benar") {
-                msgSweetSuccess("Berhasil Mengganti Password !")
+            validate(result.validate.input)
+            console.log(result)
+            if (result.status == "ok") {
+                msgSweetSuccess(result.message)
                 $("#passBaru").val('')
                 $("#passLama").val('')
                 $("#confirmPass").val('')
-                socket.emit?.("teamChanged")
             }
-            if (response.status == "fail") {
-                msgSweetError("Password tidak boleh sama dengan sebelumnya")
-            }
-            if (response.status == "salah") {
-                isInvalid("#passLama")
-            } else {
-                noValid("#passLama")
-            }
+            if (result.status == "fail") msgSweetError(response.message)
         },
         error: function(error){
             errorCode(error)
@@ -183,47 +241,126 @@ $("#formPassword").submit(function (e) {
     })
 })
 
-function passCheck(pass) {
-    var strength = 1;
-    var arr = [/.{5,}/, /[a-z]+/, /[0-9]+/, /[A-Z]+/];
-    jQuery.map(arr, function (regexp) {
-        if (pass.match(regexp))
-            strength++;
-    });
-    console.log(strength);
-}
-
-$("#passBaru").on('change', function(){
-    let pass = $(this).val()
-    passCheck(pass)
+$("#btnAdd").on('click', function(){
+    clearFormInput("#formBodySocials")
+	addFormInput("#formBodySocials", [{
+		type: "select2",
+		name: "social",
+		label: "Socials",
+		data: {
+            "discord" : "Discord",
+            "facebook" : "Facebook",
+            "github" : "Github",
+            "instagram" : "Instagram",
+            "linkedin" : "Linkedin",
+            "twitter" : "Twitter",
+            "youtube" : "Youtube",
+        }
+	}, {
+		type: "text",
+		name: "link",
+		label: "Link",
+		
+	}])
+	$("#modalForm").modal('show')
+	$("#modalTitle").html('Tambah Socials')
+	$("#formInput").attr('action', CURRENT_PATH + "socials-store")
 })
 
-setInterval(() => {
-    let passBaru = $("#passBaru").val()
-    if (passBaru != '' && passBaru?.length >= 6) {
-        isValid("#passBaru")
-        cekPassBaru()
-    } else {
-        isInvalid("#passBaru")
-        isInvalid("#confirmPass")
-        cekPassBaru()
-    }
-}, 500);
+$(tableId).delegate("#delete", "click", function () {
+    confirmSweet("Anda yakin ingin menghapus data ?").then((result) => {
+		if (isConfirmed(result)) {
+			let id = $(this).data("id")
+			result && $.ajax({
+				url: CURRENT_PATH + "socials-delete",
+				data: {
+					_token: TOKEN,
+					id: id
+				},
+				type: "POST",
+				dataType: "JSON",
+				beforeSend: function () {
+					disableButton()
+				},
+				success: function (result) {
+					"ok" == result.status ? (enableButton(), toastSuccess(result.message), refreshData(), socket.emit("affectDataTable", tableId), socket.emit?.("teamChanged")) : toastError(result.message, "Gagal")
+				},
+				error: function (error) {
+					errorCode(error)
+				}
+			})
+		}
+	})
+})
 
-function cekPassBaru() {
-    $("#btnUbahPass").attr('disabled', true)
-    if ($("#confirmPass").val() != "") {
-        let passBaru = $("#passBaru").val()
-        let passConf = $("#confirmPass").val()
-        if (passBaru == passConf) {
-            isValid("#confirmPass")
-            $("#btnUbahPass").removeAttr("disabled")
-        } else {
-            isInvalid("#confirmPass")
-            $("#btnUbahPass").attr('disabled', true)
-        }
-    } else {
-        noValid("#confirmPass")
-        $("#btnUbahPass").attr('disabled', true)
-    }
-}
+$(tableId).delegate("#edit", "click", function () {
+    let id = $(this).data("id");
+	$.ajax({
+		url: API_PATH + "row/profile-social/" + id,
+		type: "post",
+		data: {_token: TOKEN},
+		dataType: "json",
+		beforeSend: function() {
+			disableButton()
+			clearFormInput("#formBodySocials")
+			addFormInput("#formBodySocials", [{
+                type: "hidden",
+                name: "id",
+            },{
+                type: "select2",
+                name: "social",
+                label: "Socials",
+                data: {
+                    "discord" : "Discord",
+                    "facebook" : "Facebook",
+                    "github" : "Github",
+                    "instagram" : "Instagram",
+                    "linkedin" : "Linkedin",
+                    "twitter" : "Twitter",
+                    "youtube" : "Youtube",
+                }
+            }, {
+                type: "text",
+                name: "link",
+                label: "Link",
+                
+            }])
+		}, 
+		complete: function() {
+			enableButton()
+		},
+		success: function(result) {
+			"ok" == result.status ? ($("#modalForm").modal('show'),$("#modalTitle").html('Edit Socials'),$("#formInput").attr('action', CURRENT_PATH + "socials-update"), fillForm(result.data)) : msgSweetError(result.message)
+		},
+		error: function(err) {
+			errorCode(err)
+		}
+	})
+})
+
+$("#formInput").submit(function(e){
+    e.preventDefault()
+	let formData = new FormData(this)
+	formData.append("_token", TOKEN)
+	$.ajax({
+		url: $(this).attr('action'),
+		type: "post",
+		data: formData, 
+		processData: !1,
+		contentType: !1,
+		cache: !1,
+		dataType: "JSON",
+		beforeSend: function () {
+			disableButton()	
+		},
+		complete: function () {
+			enableButton()
+		},
+		success: function (e) {
+			validate(e.validate.input),e.validate.success&&("ok"==e.status?(toastSuccess(e.message),refreshData(),1==e.modalClose&&$("#modalForm").modal("hide"),clearInput(e.validate.input), socket.emit("affectDataTable", tableId), socket.emit?.("teamChanged")):toastWarning(e.message));
+		},
+		error: function(err) {
+			errorCode(err)
+		}
+	})
+})

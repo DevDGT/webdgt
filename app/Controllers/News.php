@@ -9,12 +9,13 @@ class News extends BaseController
     {
         $this->api = new \App\Models\ApiModel();
         $this->apiPath = base_url(API_PATH);
+        $this->pageLimit = 5;
     }
 
     public function index($page = 1)
     {
         $url = [
-            'api' => "/public/get/article?limit=5&page=#page",
+            'api' => "/public/get/article?limit=$this->pageLimit&page=#page",
             'pagination' => "news/page/#page"
         ];
         $this->getNews($url, $page);
@@ -23,7 +24,7 @@ class News extends BaseController
     public function byCategory($category, $page = 1)
     {
         $url = [
-            'api' => "/public/get/article?limit=5&category=#catOrTag&page=#page",
+            'api' => "/public/get/article?limit=$this->pageLimit&category=#catOrTag&page=#page",
             'pagination' => "news/category/#catOrTag/page/#page"
         ];
         $this->getNews($url, $page, $category);
@@ -32,7 +33,7 @@ class News extends BaseController
     public function byTags($tags, $page = 1)
     {
         $url = [
-            "api" => "/public/get/article?limit=5&tags=#catOrTag&page=#page",
+            "api" => "/public/get/article?limit=$this->pageLimit&tags=#catOrTag&page=#page",
             'pagination' => "news/tags/#catOrTag/page/#page"
         ];
         $this->getNews($url, $page, $tags);
@@ -67,7 +68,7 @@ class News extends BaseController
         echo view('front/canvas', $data);
     }
 
-    public function article()
+    public function detailNews()
     {
         $uri = service('uri');
         $slug = $uri->getSegment(2);

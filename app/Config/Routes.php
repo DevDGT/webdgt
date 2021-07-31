@@ -52,7 +52,7 @@ $routes->group('/news', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->get('tags/(:any)/page/(:num)', 'News::byTags/$1/$2');
     $routes->get('tags/(:any)', 'News::byTags/$1');
     $routes->get('read', 'News::index');
-    $routes->get('(:any)', 'News::article');
+    $routes->get('(:any)', 'News::detailNews');
 });
 
 $routes->group('/product', ['namespace' => 'App\Controllers'], function ($routes) {
@@ -77,6 +77,11 @@ $routes->group('ruangadmin', ['namespace' => 'App\Controllers\Admin'], function 
     $routes->group('profile', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
         $routes->get('/', 'Profile::index');
         $routes->post('update', 'Profile::update');
+        $routes->post('delete', 'Profile::delete');
+        $routes->post('set-password', 'Profile::setPassword');
+        $routes->post('socials-delete', 'Profile::socialsDelete');
+        $routes->post('socials-store', 'Profile::socialsStore');
+        $routes->post('socials-update', 'Profile::socialsUpdate');
     });
 
     // User Management routes
@@ -185,6 +190,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
     $routes->post('setuser/status', 'Admin::setUserStatus');
 
     $routes->group('data', ['namespace' => 'App\Controllers\Api'], function ($routes) {
+        $routes->post('options/years', 'Admin::getYears/$1');
         $routes->post('options/(:any)', 'Admin::getDataOption/$1');
         $routes->post('users', 'Admin::dataUsers');
         $routes->post('category', 'Admin::dataCategory');
@@ -197,6 +203,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('products-demo', 'Admin::dataProductsDemo');
         $routes->post('profile', 'Admin::dataProfile');
         $routes->post('clients-orders', 'Admin::dataClientsOrders');
+        $routes->post('user-socials', 'Admin::userSocials');
     });
 
     $routes->group('row', ['namespace' => 'App\Controllers\Api'], function ($routes) {
@@ -210,6 +217,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('products/(:any)', 'Admin::getRowProducts/$1');
         $routes->post('productsDemo/(:any)', 'Admin::getRowProductsDemo/$1');
         $routes->post('clients-orders/(:any)', 'Admin::getRowClientsOrders/$1');
+        $routes->post('profile-social/(:any)', 'Admin::getRowProfileSocial/$1');
     });
 
     $routes->group('public', ['namespace' => 'App\Controllers\Api'], function ($routes) {

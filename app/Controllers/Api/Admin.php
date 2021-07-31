@@ -21,7 +21,7 @@ class Admin extends BaseController
             $this->masterModel->columnSearch = $option['columnSearch'] ?? [];
             $this->masterModel->selectData = $option['selectData'] ?? "";
             $this->masterModel->tableJoin = $option['join'] ?? [];
-            $this->masterModel->order = $option['order'] ?? ['id' => 'desc'];
+            $this->masterModel->order = $option['order'] ?? ["id" => "desc"];
             $this->masterModel->whereData = $option['whereData'] ?? [];
             $field = $option['field'] ?? [];
             $listData = $this->masterModel->get_datatables();
@@ -179,6 +179,21 @@ class Admin extends BaseController
         } finally {
             echo json_encode($result);
         }
+    }
+
+    public function userSocials()
+    {
+        return $this->dataTables([
+            'table' => 'social s',
+            'selectData' => 'id, social, link',
+            'field' => ['social', 'link'],
+            'columnOrder' => [null, 'social', 'link'],
+            'columnSearch' => ['social', 'link'],
+            'whereData' => [
+                'user_id' => session('userId')
+            ],
+            'order' => ['social' => 'asc']
+        ]);
     }
 
     public function dataUsers()
@@ -450,5 +465,35 @@ class Admin extends BaseController
             'where' => [EncKey('id') => $id],
             'guard' => ['id_clients:hash', 'id_products:hash']
         ]);
+    }
+
+    public function getRowProfileSocial($id)
+    {
+        return $this->getRowTable([
+            'table' => 'social',
+            'select' => "id, user_id, social, link",
+            'where' => [EncKey('id') => $id],
+            'guard' => ['user_id:hash']
+        ]);
+    }
+
+    public function getYears()
+    {
+        try {
+            for ($i = 2007; $i < intval(date("Y")); $i++) {
+            }
+        } catch (\Throwable $th) {
+            $result = [
+                'status' => 'fail',
+                'message' => $th->getMessage
+            ];
+        } catch (\Exception $ex) {
+            $result = [
+                'status' => 'fail',
+                'message' => $ex->getMessage
+            ];
+        } finally {
+            echo json_encode($result);
+        }
     }
 }

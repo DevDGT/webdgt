@@ -76,9 +76,9 @@
                     <div>
                         <h4 class="newsAuthor"><?= $newsData[0]->author ?></h4>
                         <div class="social-links">
-                            <a href="https://twitters.com/#"><i class="bi bi-twitter"></i></a>
-                            <a href="https://facebook.com/#"><i class="bi bi-facebook"></i></a>
-                            <a href="https://instagram.com/#"><i class="biu bi-instagram"></i></a>
+                            <?php foreach ($newsData[0]->socials as $social) : ?>
+                                <a href="<?= $social->link ?>"><i class="bi bi-<?= $social->social ?>"></i></a>
+                            <?php endforeach; ?>
                         </div>
                         <p>
                             <?= $newsData[0]->quotes ?>
