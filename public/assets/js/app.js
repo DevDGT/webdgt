@@ -332,15 +332,6 @@ function addFormInput(formBody, inputForm = {}) {
 				})
 			}
 			const inputType = {
-<<<<<<< HEAD
-				"hidden": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="hidden" name="${options.name ?? ''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} readonly>`,
-				"text": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="text" name="${options.name ?? ''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
-				"textarea": `<textarea class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="text" name="${options.name ?? ''}" ${options.id ? `id="${options.id}"` : ''} ${options.required ?? ''}>${options.value ? `${options.value}` : ``}</textarea>`,
-				"textarea2": `<textarea class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="text" name="${options.name ?? ''}" ${options.id ? `id="${options.id}"` : ''} ${options.required ?? ''}>${options.value ? `${options.value}` : ``}</textarea><script> autosize($('textarea[name="${options.name}"]')); </script>`,
-				"email": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="temail" name="${options.name ?? ''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
-				"password": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="password" name="${options.name ?? ''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
-				"number": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="number" name="${options.name ?? ''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
-=======
 				"hidden": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="hidden" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} readonly>`,
 				"text": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="text" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
 				"time": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="time" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
@@ -350,7 +341,6 @@ function addFormInput(formBody, inputForm = {}) {
 				"email": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="temail" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
 				"password": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="password" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
 				"number": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="number" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
->>>>>>> frontend
 				"img": `<img src="${options.src}" class="${options.class ?? "form-control"}" ${options.attr ?? ""} ${options.id ? `id="${options.id}"` : ''}>`,
 				"file": `<div class="custom-file"><input type="file" class="custom-file-input ${options.class}" name="${options.name ?? ''}" ${options.id ? `id="${options.id}"` : ''} ${options.required ?? ''}><label class="custom-file-label">Pilih File</label></div>`,
 				"select": `<select class="${options.class ?? "form-control"}" ${options.attr ?? ""} name="${options.name ?? ''}" ${options.id ? `id="${options.id}"` : ''} ${options.required ?? ''}>${selectOptionList}</select>`,
