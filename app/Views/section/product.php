@@ -30,11 +30,11 @@
         <div class="section-title aos-init aos-animate" data-aos="fade-up">
             <h2>The Problems</h2>
         </div>
-        <div class="row d-flex justify-content-center">
+        <div class="row d-flex justify-content-evenly">
 
-            <div class="col-lg-2 col-md-2 d-flex align-items-stretch aos-init aos-animate p-2" data-aos="zoom-in"
+            <div class="col-lg-3 col-md-2 aos-init aos-animate p-2" data-aos="zoom-in"
                 data-aos-delay="100">
-                <div class="card shadow" style="width: 15rem; border: none;">
+                <div class="card shadow" style="width: auto; border: none;">
                     <img src="<?php echo base_url('/uploads/produk/Productivity.png'); ?>" class="card-img-top"
                         alt="Productivity">
                     <div class="card-body">
@@ -45,9 +45,9 @@
                 </div>
             </div>
 
-            <div class="col-lg-2 col-md-2 d-flex align-items-stretch aos-init aos-animate p-2" data-aos="zoom-in"
+            <div class="col-lg-3 col-md-2 aos-init aos-animate p-2" data-aos="zoom-in"
                 data-aos-delay="200">
-                <div class="card shadow" style="width: 15rem; border: none;">
+                <div class="card shadow" style="width: auto; border: none;">
                     <img src="<?php echo base_url('/uploads/produk/User_Frustation.png'); ?>" class="card-img-top"
                         alt="User_Frustation">
                     <div class="card-body">
@@ -57,9 +57,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-2 d-flex align-items-stretch aos-init aos-animate p-2" data-aos="zoom-in"
+            <div class="col-lg-3 col-md-2 aos-init aos-animate p-2" data-aos="zoom-in"
                 data-aos-delay="300">
-                <div class="card shadow" style="width: 15rem; border: none;">
+                <div class="card shadow" style="width: auto; border: none;">
                     <img src="<?php echo base_url('/uploads/produk/Price.png'); ?>" class="card-img-top" alt="Price">
                     <div class="card-body">
                         <p class="card-text">

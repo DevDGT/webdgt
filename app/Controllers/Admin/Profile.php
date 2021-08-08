@@ -100,7 +100,7 @@ class Profile extends BaseController
             $file = $this->request->getFile('photo');
             $fileName = time() . "_" . $file->getName();
             session()->set('photo', $fileName);
-            $path = ROOTPATH . 'public/uploads/users/';
+            $path = ROOTPATH . 'public_html/uploads/users/';
             $file->move($path, $fileName);
             $result = Update($this->table, ['photo' => $fileName], ['id' => session('userId')]);;
         } catch (\Throwable $th) {

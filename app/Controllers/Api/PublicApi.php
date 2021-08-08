@@ -316,14 +316,14 @@ class PublicApi extends BaseController
     {
         try {
             $this->builder = $this->db->table('products');
-            $this->builder->select('id, '.EncKey('id_category_product').' id_category_product, name, icon, video, description');
+            $this->builder->select('id, '.EncKey('id_category_product').' id_category_product, slug, name, icon, video, description');
             $this->builder->where('active', '1');
             if ($idProducts != '') {
                 $this->builder->where(EncKey('id'), $idProducts);
             }
             $clients = $this->builder->orderby('id', 'desc')->get()->getResultArray();
 
-            $field = ['name', 'id_category_product', 'icon', 'video', 'description'];
+            $field = ['name', 'slug', 'id_category_product', 'icon', 'video', 'description'];
             $data = [];
             foreach ($clients as $field_) {
                 $row = [];

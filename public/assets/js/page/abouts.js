@@ -6,10 +6,10 @@ $(document).ready(function () {
 function initSlick() {
   $('#teamApi').not('.slick-initialized').slick({
     infinite: true,
-    slidesToShow: 5,
-    slidesToScroll: 3,
+    slidesToShow: 4,
+    slidesToScroll: 2,
     dots: false,
-    autoplay: false,
+    autoplay: true,
     adaptiveHeight: true,
     responsive: [
       {
@@ -87,26 +87,23 @@ function addTeam() {
           `;
         } else if (i > 0) {
           teams += `
-            <div class="col-12 mx-3 p-6 teamImg">
+            <div class="col-12 p-3 teamImg">
               <div class="member w-100 bg-black aos-init aos-animate d-flex justify-content-center" data-aos="fade-up">
-                <div class="card" style="width: 20rem; max-height:40vh; border:none;">
-                    <img src="${BASE_URL}/uploads/users/${items.photo == '' ? 'default.png' : items.photo}" class="card-img-top" alt="${items.name}">
-                    <div class="social">`;
+                <div class="card" style="width: 20rem; max-height:60vh; border:none;">
+                  <img src="${BASE_URL}/uploads/users/${items.photo == '' ? 'default.png' : items.photo}" alt="${items.name}" style="width:100%; height:15vw; object-fit: cover;">
+                  <div class="social">`;
           $.each(items.socials, function (i, social) {
-            // console.log(social);
-            teams += `<a href="${social.link}" target="_blank"><i class="bi bi-${social.social}"></i></a>`;
+              teams += `<a href="${social.link}" target="_blank"><i class="bi bi-${social.social}"></i></a>`;
           });
           teams += `</div>
                     <div class="card-body">
-                      <h45class="card-title">${items.name}</h5>
+                      <h5 class="card-title">${items.name}</h5>
                       <p class="card-text">${items.jobs}</p>
                       <p class="card-text d-inline-block text-truncate" style="max-width: -webkit-fill-available;">
                       <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                      ${items.quotes}
+                      ${items.quotes ?? 'Default Quotes'}
                       <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                       </p>
-                    </div>
-                    <div class="card-body">
                     </div>
                   </div>
               </div>

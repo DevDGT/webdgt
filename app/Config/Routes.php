@@ -2,15 +2,13 @@
 
 namespace Config;
 
-use PHPUnit\TextUI\XmlConfiguration\Group;
-
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
 // Load the system's routing file first, so that the app and ENVIRONMENT
 // can override as needed.
-if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
-    require SYSTEMPATH . 'Config/Routes.php';
+if (file_exists(SYSTEMPATH.'Config/Routes.php')) {
+    require SYSTEMPATH.'Config/Routes.php';
 }
 
 /*
@@ -186,7 +184,6 @@ $routes->group('ruangadmin', ['namespace' => 'App\Controllers\Admin'], function 
 
 // Api routes
 $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes) {
-
     $routes->post('setuser/status', 'Admin::setUserStatus');
 
     $routes->group('data', ['namespace' => 'App\Controllers\Api'], function ($routes) {
@@ -236,7 +233,6 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
     });
 });
 
-
 /*
  * --------------------------------------------------------------------
  * Additional Routing
@@ -250,6 +246,6 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
  * You will have access to the $routes object within that file without
  * needing to reload it.
  */
-if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
-    require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
+if (file_exists(APPPATH.'Config/'.ENVIRONMENT.'/Routes.php')) {
+    require APPPATH.'Config/'.ENVIRONMENT.'/Routes.php';
 }

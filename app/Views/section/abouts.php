@@ -115,10 +115,10 @@
         <!-- Cooperation Line -->
         <div class="row services benefits">
             <!-- <div class="section benefits"> -->
-            <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100" style="max-width:12rem;">
-                <div class="card shadow-sm" style="width: 15rem; border: none;">
+            <div class="col-lg-3 col-md-4 d-flex justify-content-evenly" data-aos="zoom-in" data-aos-delay="100">
+                <div class="card" style="width: 10rem; border: none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Partner_Oriented@4x-8.png'); ?>" class="img-fluid"
-                        alt="...">
+                        alt="Oriented">
                     <div class="card-body">
                         <p class="card-text">
                         <h6 class="text-center">Partner & Client Oriented</h6>
@@ -126,10 +126,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200" style="max-width:12rem;">
-                <div class="card shadow-sm" style="width: 15rem; border: none;">
+            <div class="col-lg-3 col-md-4 d-flex justify-content-evenly" data-aos="zoom-in" data-aos-delay="200">
+                <div class="card" style="width: 10rem; border: none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Eficient@4x-8.png'); ?>" class="img-fluid"
-                        alt="...">
+                        alt="Solution">
                     <div class="card-body">
                         <p class="card-text">
                         <h6 class="text-center">Effective & Efficient Solution</h6>
@@ -137,10 +137,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200" style="max-width:12rem;">
-                <div class="card shadow-sm" style="width: 15rem; border: none;">
+            <div class="col-lg-3 col-md-4 d-flex justify-content-evenly" data-aos="zoom-in" data-aos-delay="300">
+                <div class="card" style="width: 10rem; border: none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Innovation@4x-8.png'); ?>" class="img-fluid"
-                        alt="...">
+                        alt="Innovative">
                     <div class="card-body">
                         <p class="card-text">
                         <h6 class="text-center">Innovative</h6>
@@ -148,10 +148,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200" style="max-width:12rem;">
-                <div class="card shadow-sm" style="width: 15rem; border: none;">
+            <div class="col-lg-3 col-md-4 d-flex justify-content-evenly" data-aos="zoom-in" data-aos-delay="400">
+                <div class="card" style="width: 10rem; border: none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Service_Commitment@4x-8.png'); ?>" class="img-fluid"
-                        alt="...">
+                        alt="Commitment">
                     <div class="card-body">
                         <p class="card-text">
                         <h6 class="text-center">Service Commitment</h6>
@@ -159,13 +159,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200" style="max-width:12rem;">
-                <div class="card shadow-sm" style="width: 15rem; border: none;">
-                    <img src="<?php echo base_url('/uploads/aboutus/Professional_Quality@4x-8.png'); ?>"
-                        class="img-fluid" alt="...">
+            <div class="col-lg-3 col-md-4 d-flex justify-content-evenly" data-aos="zoom-in" data-aos-delay="500">
+                <div class="card" style="width: 10rem; border: none;">
+                    <img src="<?php echo base_url('/uploads/aboutus/Professional_Quality@4x-8.png'); ?>" class="img-fluid" 
+                        alt="Quality">
                     <div class="card-body">
                         <p class="card-text">
-                        <h6 class="text-center">Professional_Quality</h6>
+                        <h6 class="text-center">Professional Quality</h6>
                         </p>
                     </div>
                 </div>

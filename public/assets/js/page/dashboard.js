@@ -70,5 +70,4 @@ async function initFetch() {
     console.log('initFetch');
     await getClients();
     initSlick();
-
 }

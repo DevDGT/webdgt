@@ -36,22 +36,27 @@
                     <div class="container">
                         <div class="row align-items-start">
                             <div class="col-sm-12">
-                                <p class="text-start fs-6"><i class="bi bi-house-door mx-2"></i>Adress : Jl.Saturnus Timur IV 10/A27</p>
+                                <p class="text-start fs-6"><i class="bi bi-house-door mx-2"></i>Adress 1: Jl.Saturnus Timur III BLOK 9 R No 7, Margayu Raya, Bandung</p>
                             </div>
                         </div>
                         <div class="row align-items-start">
                             <div class="col-sm-12">
-                                <p class="text-start fs-6"><i class="bi bi-phone mx-2"></i>Mobile Phone : +628-1721-5496</p>
+                                <p class="text-start fs-6"><i class="bi bi-house-door mx-2"></i>Adress 2: Jl.Neptunus Timur III A 27 No 10, Margayu Raya, Bandung</p>
                             </div>
                         </div>
                         <div class="row align-items-start">
                             <div class="col-sm-12">
-                                <p class="text-start fs-6"><i class="bi bi-telephone mx-2"></i>Telephone : +62 22-875-13118</p>
+                                <p class="text-start fs-6"><i class="bi bi-phone mx-2"></i>Mobile Phone : +628-1721-5496 / +628-1220-8717-67</p>
                             </div>
                         </div>
                         <div class="row align-items-start">
                             <div class="col-sm-12">
-                                <p class="text-start fs-6"><i class="bi bi-envelope mx-2"></i>Mail : dian.globaltech@yahoo.com</p>
+                                <p class="text-start fs-6"><i class="bi bi-telephone mx-2"></i>Telephone : +62 22-875-13118 / +62 22-751-3012</p>
+                            </div>
+                        </div>
+                        <div class="row align-items-start">
+                            <div class="col-sm-12">
+                                <p class="text-start fs-6"><i class="bi bi-envelope mx-2"></i>Mail : info@dianglobaltech.co.id</p>
                             </div>
                         </div>
                     </div>

@@ -4,8 +4,7 @@ namespace App\Controllers;
 
 class ProductCatalog extends BaseController
 {
-
-    function __construct()
+    public function __construct()
     {
         $this->api = new \App\Models\ApiModel();
         $this->apiPath = base_url(API_PATH);
@@ -24,9 +23,8 @@ class ProductCatalog extends BaseController
             'section' => 'product',
             // 'newsData' => $newsData->data ?? [],
             'js' => [
-                "<script src=" . base_url('assets/js/page/product.js') . " defer></script>",
-            ]
-
+                '<script src='.base_url('assets/js/page/product.js').' defer></script>',
+            ],
         ];
         // echo 'ok';
         echo view('front/canvas', $data);
@@ -34,13 +32,34 @@ class ProductCatalog extends BaseController
 
     public function detailProduct()
     {
+        $uri = service('uri');
+        $slug = $uri->getSegment(2);
+        $jsonData = $this->api->get($this->apiPath.'/public/get/products/'.$slug);
+        $productsData = json_decode($jsonData);
+        $jsonSubData = $this->api->get($this->apiPath.'/public/get/products/demo/'.$productsData->data[0]->id);
+        $productsSubData = json_decode($jsonSubData);
+        if ($productsData->count <= 0) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+
+        // echo '<pre>';
+        // print_r($productsData->data[0]->id);
+        // print_r($productsData);
+        // print_r($jsonSubData);
+        // echo'</pre>';
+        // var_dump($jsonSubData);
+
         $data = [
             'title' => 'Detail Product',
             'pageTitle' => 'Detail Product',
             'logoImg' => '',
             'logoName' => 'DGT',
             'section' => 'detailProduct',
-            'js' => []
+            'productsData' => $productsData->data ?? [],
+            'detailProduct' => $productsSubData->data ?? [],
+            'js' => [
+                '<script src='.base_url('assets/js/page/detailProduct.js').' defer></script>',
+            ],
         ];
 
         echo view('front/canvas', $data);

@@ -5,19 +5,19 @@
     <title class="webTitle"><?php echo $title ?? 'DGT'; ?></title>
     <meta content="" name="description">
     <meta content="" name="keywords">
-    <meta property="og:title" content="<?= $newsData[0]->title ?? "WEB DGT" ?>">
-    <meta property="og:description" content="<?= $newsData[0]->description ?? "WEB Profile and Product Dianglobaltech" ?>">
+    <meta property="og:title" content="<?= $newsData[0]->title ?? 'WEB DGT'; ?>">
+    <meta property="og:description" content="<?= $newsData[0]->description ?? 'WEB Profile and Product Dianglobaltech'; ?>">
     <meta property="og:image" content="<?php echo base_url('/assets/img/logo.png'); ?>">
-    <meta property="og:url" content="<?php echo base_url('/assets/img/logo.png') ?>">
+    <meta property="og:url" content="<?php echo base_url('/assets/img/logo.png'); ?>">
     <!-- Favicons -->
     <link href="<?php echo base_url('/assets/img/logo.png'); ?>" rel="icon">
-    <link href="<?php echo base_url('/assets/img/apple-touch-icon.png') ?>" rel="apple-touch-icon" sizes="180x180">
-    <link href="<?php echo base_url('/assets/img/favicon-32x32.png') ?>" rel="icon" type="image/png" sizes="32x32">
-    <link href="<?php echo base_url('/assets/img/favicon-16x16.png') ?>" rel="icon" type="image/png" sizes="16x16">
-    <meta name="baseUrl" content="<?= base_url() ?>">
-    <meta name="apiPath" content="<?= API_PATH ?>">
-    <meta name="slug" content="<?= $slug ?? "" ?>">
-    <link rel="manifest" href="/site.webmanifest">
+    <link href="<?php echo base_url('/assets/img/apple-touch-icon.png'); ?>" rel="apple-touch-icon" sizes="180x180">
+    <link href="<?php echo base_url('/assets/img/favicon-32x32.png'); ?>" rel="icon" type="image/png" sizes="32x32">
+    <link href="<?php echo base_url('/assets/img/favicon-16x16.png'); ?>" rel="icon" type="image/png" sizes="16x16">
+    <meta name="baseUrl" content="<?= base_url(); ?>">
+    <meta name="apiPath" content="<?= API_PATH; ?>">
+    <meta name="slug" content="<?= $slug ?? ''; ?>">
+    <link rel="manifest" href="<?php echo base_url(); ?>/site.webmanifest">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
