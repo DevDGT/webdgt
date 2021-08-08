@@ -28,9 +28,6 @@
 <section id="blog" class="blog section-bg" data-aos="fade-up">
 
     <div class="container">
-        <pre>
-            <?php print_r($productsData); ?>
-        </pre>
 
         <div class="section-title aos-init aos-animate" data-aos="fade-up" id="productDetail" data-id="<?php echo $productsData['0']->id; ?>">
             <h2><?php echo $productsData['0']->name; ?> Detail</h2>
