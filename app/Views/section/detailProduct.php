@@ -44,12 +44,10 @@
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $productsData['0']->name; ?></h5>
                     <p class="card-text"><?php echo $productsData['0']->description; ?></p>
-
                     <h5 class="card-title">Other Videos <?php echo $productsData['0']->name; ?></h5>
-
-                    <div class="container-fluid" id="carouselProduct">
-
-                    </div>
+                    <div class="container-fluid" id="carouselProduct"></div>
+                    <h5 class="card-title">Download Catalog</h5>
+                    <div class="container-fluid mt-2" id="catalogProduct"></div>
 
                 </div>
             </div>

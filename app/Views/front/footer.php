@@ -25,6 +25,7 @@
                                         <!-- <a href="#" class="google-plus"><i class="bx bxl-google"></i></a> -->
                                         <!-- <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a> -->
                                         <a href="https://bit.ly/35FkiHm" class="youtube"><i class="bx bxl-youtube"></i></a>
+                                        <a href="https://bit.ly/3vg1A3u" target="_blank" class="whatsapp"><i class="bu bi-whatsapp"></i></a>
                                     </div>
                                 </div>
                             </div>
