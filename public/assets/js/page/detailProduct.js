@@ -190,10 +190,10 @@ async function getProductData() {
 // async function getOtherVideo() { }
 
 async function initFetch() {
-    console.log("initFetch");
+    // console.log("initFetch");
     await getProductData();
     await getCategory();
     await getProduct();
     await getClients();
-    usersProduct();
+    await usersProduct();
 };

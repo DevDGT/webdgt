@@ -99,7 +99,7 @@
     </div>
 </section>
 
-<section id="about-us" class="about-us shadow-sm">
+<section id="about-us" class="about-us">
     <div class="container aos-init aos-animate" data-aos="fade-up">
         
         <div class="section-title aos-init aos-animate" data-aos="fade-up">
@@ -107,27 +107,25 @@
         </div>
 
         <div class="row content">
-            <div class="col-lg-6 aos-init aos-animate" data-aos="fade-right">
-            <h3>Our Goals</h3>
-            <p>We provide most valuable information</p>
+            <div class="col-lg-6 pt-4 pt-lg-0 aos-init aos-animate" data-aos="fade-left">
+                <h4 class="text-center"><i class="bi bi-briefcase p-2"></i><strong>Mission</strong></h4>
+                <ul>
+                    <li>
+                        <p class="fst-italic">
+                        Provide the best Information and Technology services to each of our partners and clients who cooperate with us.
+                        </p>
+                    </li>
+                </ul>
             </div>
             <div class="col-lg-6 pt-4 pt-lg-0 aos-init aos-animate" data-aos="fade-left">
-            <h4><i class="bi bi-briefcase p-2"></i><strong>Mission</strong></h4>
-            <ul>
-                <li>
-                    <p class="fst-italic">
-                    Provide the best Information and Technology services to each of our partners and clients who cooperate with us.
-                    </p>
-                </li>
-            </ul>
-            <h4><i class="bi bi-bullseye p-2"></i><strong>Vision</strong></h4>
-            <ul>
-                <li>
-                    <p class="fst-italic">
-                    Become the leading consultant in Information and Technology field by always providing Innovative solutions to each of our partners and clients, and to compete on a national and international scale.
-                    </p>
-                </li>
-            </ul>
+                <h4 class="text-center"><i class="bi bi-bullseye p-2"></i><strong>Vision</strong></h4>
+                <ul>
+                    <li>
+                        <p class="fst-italic">
+                        Become the leading consultant in Information and Technology field by always providing Innovative solutions to each of our partners and clients, and to compete on a national and international scale.
+                        </p>
+                    </li>
+                </ul>
             </div>
         </div>
 
@@ -139,9 +137,8 @@
     <div class="container" data-aos="fade-up">
 
         <div class="section-title aos-init aos-animate" data-aos="fade-up">
-            <h2>Cooperation Benefits</h2>
+            <h2 class="text-uppercase">Cooperation Benefits</h2>
         </div>
-        <!-- <h2 class="text-center text-capitalize my-2 text-uppercas">Cooperation Benefits</h2> -->
         <!-- Cooperation Line -->
         <div class="row services benefits">
             <!-- <div class="section benefits"> -->
