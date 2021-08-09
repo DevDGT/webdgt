@@ -10,7 +10,51 @@ $(document).ready(function(){
     addFormProfile()
     getProfile()
     getSocials()
+    initEditor()
 })
+
+function initEditor() {
+    $.ajax({
+        dataType: "json",
+        type: "post",
+        url: CURRENT_PATH + 'get-web',
+        data: {
+            _token: TOKEN
+        },
+        success: function (result) {
+            const html = document.getElementById('htmlEditor')
+            html.style.fontSize='16px'
+            html.classList.add("rounded")
+
+            const css = document.getElementById('cssEditor')
+            css.style.fontSize='16px'
+            css.classList.add("rounded")
+
+            const js = document.getElementById('jsEditor')
+            js.style.fontSize='16px'
+            js.classList.add("rounded")
+
+            // html editor
+            htmlEditor = ace.edit("htmlEditor");
+            htmlEditor.setTheme("ace/theme/twilight");
+            htmlEditor.session.setMode("ace/mode/html");
+            htmlEditor.setValue(result.data.html, 1)
+
+            //css editor
+            cssEditor = ace.edit("cssEditor");
+            cssEditor.setTheme("ace/theme/twilight");
+            cssEditor.session.setMode("ace/mode/css");
+            cssEditor.setValue(result.data.css, 1)
+
+            //javacript editor
+            jsEditor = ace.edit("jsEditor");
+            jsEditor.setTheme("ace/theme/twilight");
+            jsEditor.session.setMode("ace/mode/javascript");
+            jsEditor.setValue(result.data.js, 1)
+        }
+    })
+    
+}
 
 $("#reset").on('click', function() {
     getProfile()
@@ -94,15 +138,6 @@ function getSocials() {
 
 $("#nav-page-tab").click(function() {
     // alert("asdsad")
-    console.log(htmlEditor);
-    
-    if (htmlEditor == '') {
-        htmlEditor = CodeMirror.fromTextArea(document.getElementById("EditorHtml"), {
-            mode: "htmlmixed",
-            theme: "monokai",
-            lineNumbers: true,
-        });
-    }
     // console.log(html);
     // html.getTextArea()
     // CodeMirror.fromTextArea(document.getElementById("EditorCss"), {
@@ -361,6 +396,64 @@ $("#formInput").submit(function(e){
 		},
 		error: function(err) {
 			errorCode(err)
+		}
+	})
+})
+
+function openPostPage(url, data) {
+    var form = document.createElement('form');
+    document.body.appendChild(form);
+    form.target = '_blank';
+    form.method = 'post';
+    form.action = url;
+    for (var name in data) {
+        var input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = name;
+        input.value = data[name];
+        form.appendChild(input);
+    }
+    form.submit();
+    document.body.removeChild(form);
+}
+
+$("#previewWeb").on('click', function (e) {
+    e.preventDefault()
+    const data = {
+        html: htmlEditor.getValue(), 
+        css: cssEditor.getValue(),
+        js: jsEditor.getValue()
+    }
+    console.log(data)
+    openPostPage(CURRENT_PATH + "preview-web", data)
+})
+
+$("#simpanWebPribadi").on('click', function () {
+    confirmSweet("Anda yakin ingin menyimpan perubahan ?").then((result) => {
+		if (isConfirmed(result)) {
+			$.ajax({
+				url: CURRENT_PATH + "save-web",
+				data: {
+					_token: TOKEN,
+                    html: htmlEditor.getValue(), 
+                    css: cssEditor.getValue(),
+                    js: jsEditor.getValue()
+				},
+				type: "POST",
+				dataType: "JSON",
+				beforeSend: function () {
+					disableButton()
+				},
+				complete: function () {
+					enableButton()
+				},
+				success: function (result) {
+					"ok" == result.status ? (toastSuccess(result.message), socket.emit("affectDataTable",tableId)) : toastError(result.message, "Gagal")
+				},
+				error: function (error) {
+					errorCode(error)
+				}
+			})
 		}
 	})
 })

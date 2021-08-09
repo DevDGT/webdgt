@@ -31,25 +31,25 @@
 				<ul class="nav nav-treeview">
 					<li class="nav-item">
 						<a href="<?= base_url(ADMIN_PATH . '/category') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'category' ? 'active' : '' ?>">
-							<i class="fas fa-tag nav-icon ml-3"></i>
+							<i class="fas fa-tag nav-icon"></i>
 							<p>Kategori</p>
 						</a>
 					</li>
 					<li class="nav-item">
 						<a href="<?= base_url(ADMIN_PATH . '/category-product') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'category-product' ? 'active' : '' ?>">
-							<i class="fas fa-tag nav-icon ml-3"></i>
+							<i class="fas fa-tag nav-icon"></i>
 							<p>Kategori Produk</p>
 						</a>
 					</li>
 					<li class="nav-item">
 						<a href="<?= base_url(ADMIN_PATH . '/jobs') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'jobs' ? 'active' : '' ?>">
-							<i class="fas fa-briefcase nav-icon ml-3"></i>
+							<i class="fas fa-briefcase nav-icon"></i>
 							<p>Pekerjaan</p>
 						</a>
 					</li>
 					<li class="nav-item">
 						<a href="<?= base_url(ADMIN_PATH . '/products') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'product' ? 'active' : '' ?>">
-							<i class="fas fa-box-open nav-icon ml-3"></i>
+							<i class="fas fa-box-open nav-icon"></i>
 							<p>Produk</p>
 						</a>
 					</li>
@@ -68,26 +68,26 @@
 				<?php if (session('level') == '1') :  ?>
 					<li class="nav-item">
 						<a href="<?= base_url(ADMIN_PATH . '/teams') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'teams' ? 'active' : '' ?>">
-							<i class="fas fa-user-friends nav-icon ml-3"></i>
+							<i class="fas fa-user-friends nav-icon"></i>
 							<p>Tim</p>
 						</a>
 					</li>
 					<li class="nav-item">
 						<a href="<?= base_url(ADMIN_PATH . '/clients') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'clients' ? 'active' : '' ?>">
-							<i class="fas fa-user-tie nav-icon ml-3"></i>
+							<i class="fas fa-user-tie nav-icon"></i>
 							<p>Klien</p>
 						</a>
 					</li>
 					<li class="nav-item">
 						<a href="<?= base_url(ADMIN_PATH . '/clients-orders') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'clients-orders' ? 'active' : '' ?>">
-							<i class="fas fa-shopping-cart nav-icon ml-3"></i>
+							<i class="fas fa-shopping-cart nav-icon"></i>
 							<p>Pesanan Klien </p>
 						</a>
 					</li>
 				<?php endif ?>
 				<li class="nav-item">
 					<a href="<?= base_url(ADMIN_PATH . '/article') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'artikel' ? 'active' : '' ?>">
-						<i class="fas fa-newspaper nav-icon ml-3"></i>
+						<i class="fas fa-newspaper nav-icon"></i>
 						<p>Artikel & Berita</p>
 					</a>
 				</li>

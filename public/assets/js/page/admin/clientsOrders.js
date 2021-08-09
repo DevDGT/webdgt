@@ -177,6 +177,14 @@ $(document).ready((function () {
 						name: "asc"
 					}
 				}
+			}, {
+				type: "number",
+				name: "date",
+				label: "Tahun"
+			}, {
+				type: "textarea",
+				name: "jobs",
+				label: "Pekerjaan"
 			}])
 		}, 
 		complete: function() {
@@ -227,9 +235,13 @@ $(document).ready((function () {
 			}
 		}
 	}, {
-		type: "date",
-		name: "time",
+		type: "number",
+		name: "date",
 		label: "Tahun"
+	}, {
+		type: "textarea",
+		name: "jobs",
+		label: "Pekerjaan"
 	}])
 	$("#modalForm").modal('show')
 	$("#modalTitle").html('Tambah Pesanan Klien')

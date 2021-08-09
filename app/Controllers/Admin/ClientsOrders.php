@@ -36,6 +36,8 @@ class ClientsOrders extends BaseController
             $validate = Validate([
                 'id_clients' => 'required',
                 'id_products' => 'required',
+                'date' => 'required|number',
+                'jobs' => 'required'
             ]);
 
             $user = $this->db->table($this->table)->where([EncKey('id_clients') => Input_('id_clients'), EncKey('id_products') => Input_('id_products')])->get()->getRow();
@@ -72,6 +74,8 @@ class ClientsOrders extends BaseController
             $validate = Validate([
                 'id_clients' => 'required',
                 'id_products' => 'required',
+                'date' => 'required|number',
+                'jobs' => 'required'
             ]);
 
             $clients = $this->db->table($this->table)->where([EncKey('id_clients') => Input_('id_clients'), EncKey('id_products') => Input_('id_products')])->get()->getRow();

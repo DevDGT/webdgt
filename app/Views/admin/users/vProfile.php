@@ -1,6 +1,12 @@
 <?= $this->extend('admin/layouts/app'); ?>
 
 <?= $this->section('content') ?>
+<style type="text/css" media="screen">
+    .ace-editor {
+        width: 100%;
+        height: 60vh;
+    }
+</style>
 <div class="container-fluid pb-3">
     <div class="row">
         <div class="col-12">
@@ -99,18 +105,28 @@
                                 <li class="nav-item">
                                     <a class="nav-link" id="pills-js-tab" data-toggle="pill" href="#pills-js" role="tab" aria-controls="pills-js" aria-selected="false">JS</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link btn" id="previewWeb">Preview</a>
+                                </li>
                             </ul>
                             <div class="tab-content" id="pills-tabContent">
                                 <div class="tab-pane show active" id="pills-html" role="tabpanel" aria-labelledby="pills-html-tab">
-                                    <textarea id="EditorHtml"></textarea>
+                                    <div>
+                                        <pre class="ace-editor" id="htmlEditor"></pre>
+                                    </div>
                                 </div>
                                 <div class="tab-pane" id="pills-css" role="tabpanel" aria-labelledby="pills-profile-css">
-                                    <textarea id="EditorCss"></textarea>
+                                    <div>
+                                        <pre class="ace-editor" id="cssEditor"></pre>
+                                    </div>
                                 </div>
                                 <div class="tab-pane" id="pills-js" role="tabpanel" aria-labelledby="pills-contact-js">
-                                    <textarea id="EditorJs"></textarea>
+                                    <div>
+                                        <pre class="ace-editor" id="jsEditor"></pre>
+                                    </div>
                                 </div>
                             </div>
+                            <button class="btn btn-primary float-right" id="simpanWebPribadi">Simpan</button>
                         </div>
                         <!-- tab halaman pribadi -->
                     </div>
@@ -143,16 +159,8 @@
 </div>
 
 <?= $this->endSection() ?>
-<?= $this->section('head') ?>
-<link rel="stylesheet" href="<?= base_url('assets/admin/plugins/codemirror/codemirror.css') ?>">
-<link rel="stylesheet" href="<?= base_url('assets/admin/plugins/codemirror/theme/monokai.css') ?>">
-<!-- <link rel="stylesheet" href="<?= base_url('assets/admin/plugins/simplemde/simplemde.min.css') ?>"> -->
-<?= $this->endSection(); ?>
 <?= $this->section('js') ?>
-<script src="<?= base_url('assets/admin/plugins/codemirror/codemirror.js') ?>" defer></script>
-<script src="<?= base_url('assets/admin/plugins/codemirror/mode/htmlmixed/htmlmixed.js') ?>" defer></script>
-<script src="<?= base_url('assets/admin/plugins/codemirror/mode/css/css.js') ?>" defer></script>
-<script src="<?= base_url('assets/admin/plugins/codemirror/mode/xml/xml.js') ?>" defer></script>
-<script src="<?= base_url('assets/admin/plugins/codemirror/mode/javascript/javascript.js') ?>" defer></script>
+<script src="https://pastebin.com/raw/WyHcf8U0"></script>
+<script src="<?= base_url('assets/modules/ace-editor/ace.js') ?>" defer></script>
 <script src="<?= base_url('assets/js/page/admin/profile.js') ?>" defer></script>
 <?= $this->endSection() ?>

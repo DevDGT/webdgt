@@ -10,6 +10,8 @@ class LoginFilter implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
+        // $req = service('request');
+        // print_r();
         try {
             $uri = service('uri');
             $this->db = \Config\Database::connect();
@@ -31,6 +33,7 @@ class LoginFilter implements FilterInterface
             ];
         } finally {
             if ($response['status'] == '401' && $uri->getSegment(2) != 'login') {
+                if (!$request->getHeader("Load-From-Ajax")) return redirect()->to(ADMIN_PATH . "/login");
                 echo json_encode($response);
                 exit;
             }
