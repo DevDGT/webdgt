@@ -34,7 +34,7 @@ $routes->setAutoRoute(true);
 // $routes->get('/', 'App\Controllers\Home::index');
 // $routes->get('/aboutus', 'Home::aboutus');
 
-$routes->get('/', 'Home::home');
+// $routes->get('/', 'Home::home');
 // $routes->get('/aboutus', 'Home::aboutus');
 
 $routes->group('/abouts', ['namespace' => 'App\Controllers'], function ($routes) {

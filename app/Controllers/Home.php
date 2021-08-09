@@ -4,9 +4,8 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
-    public function home()
+    public function index()
     {
-        $base_url = BASE_URL;
         $data = [
             'title' => 'Beranda',
             'pageTitle' => 'Beranda',

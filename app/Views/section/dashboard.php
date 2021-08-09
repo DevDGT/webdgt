@@ -184,7 +184,7 @@
     </section>
 
     <!-- Client Section -->
-    <section id="clients" class="clients">
+    <!-- <section id="clients" class="clients">
         <div class="container aos-init aos-animate" data-aos="fade-up">
 
             <div class="section-title">
@@ -196,7 +196,21 @@
 
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- End Client Section -->
+
+    <!-- Client Section -->
+    <section id="clients" class="clients">
+        <div class="container aos-init aos-animate" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Clients</h2>
+            </div>
+
+            <div class="row no-gutters clients-wrap clearfix aos-init aos-animate clientSlick" id="clientsData" data-aos="fade-up">
+            </div>
+
+        </div>
+    </section>
 
 </div>
