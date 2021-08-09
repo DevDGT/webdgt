@@ -72,7 +72,7 @@ async function getProduct() {
                               <div class='bg-white p-2 pb-3 portfolio-info shadow-sm' style='position:sticky; top:60%; opacity:0.8'>
                                 <h4>${items.name}</h4>
                                 <p class="text-truncate">${items.description}</p>
-                                <a href="${BASE_URL + '/product/' + items.slug}" class="details-link" title="More Details" target="_blank"><i class="bx bx-link"></i></a>
+                                <a href="${BASE_URL + '/product/' + items.slug}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                               </div>
                           </div>
                       </div>

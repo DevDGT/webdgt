@@ -45,7 +45,6 @@
                     <div class="container-fluid" id="carouselProduct"></div>
                     <h5 class="card-title">Download Catalog</h5>
                     <div class="container-fluid mt-2" id="catalogProduct"></div>
-
                 </div>
             </div>
             
