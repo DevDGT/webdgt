@@ -1,41 +1,35 @@
 var portfolioIsotope;
 
 $(document).ready(function () {
-  // alert("asddsa")
-  // initPortpolio();
   initFetch();
   $("#portfolio-flters").on("click", ".options", function (e) {
     e.preventDefault();
-    // alert('ok portfolio');
     var id = $(this).data("id");
-    console.log('ID : ' + id);
     $("#coreCategory").removeClass("filter-active");
     $(".options").removeClass("filter-active");
     // $(".tab").addClass("active"); // instead of this do the below
     $(this).addClass("filter-active");
-    console.log(id);
     getSelected(id);
   });
 });
 
 function usersProduct() {
   $(".userProduct").slick({
-    infinite: true,
+    infinite: false,
     slidesToShow: 4,
     slidesToScroll: 3,
-    dots: true,
+    dots: false,
     autoplay: true,
     mobileFirst: true,
     pauseOnFocus: true,
-    autoplaySpeed: 3000,
-    speed: 1000,
+    autoplaySpeed: 6000,
+    speed: 2000,
     centerMode: false,
   });
-}
+};
 
 async function getClients() {
   console.log("clientGet");
-  // alert('clientGet')
   return new Promise((resolve) => {
     var clientsAPI = `${API_PATH}/public/get/clients`;
     $.getJSON(clientsAPI, {
@@ -56,7 +50,7 @@ async function getClients() {
       });
     });
   });
-}
+};
 
 function initPortpolio() {
   let portfolioContainer = select(".portfolio-container");
@@ -66,7 +60,6 @@ function initPortpolio() {
     });
 
     let portfolioFilters = select("#portfolio-flters li", true);
-
     on(
       "click",
       "#portfolio-flters li",
@@ -76,7 +69,6 @@ function initPortpolio() {
           el.classList.remove("filter-active");
         });
         this.classList.add("filter-active");
-
         portfolioIsotope.arrange({
           filter: this.getAttribute("data-filter"),
         });
@@ -86,16 +78,14 @@ function initPortpolio() {
       },
       true
     );
-  }
-}
+  };
+};
 
 async function getProduct() {
   $("#coreCategory").addClass("filter-active");
   $(".options").removeClass("filter-active");
-  // console.log('getProduct');
   return new Promise((resolve) => {
     var productsAPI = `${API_PATH}/public/get/products`;
-
     $.getJSON(productsAPI, {
       format: "json",
     }).done(function (response) {
@@ -120,7 +110,7 @@ async function getProduct() {
       });
     });
   });
-}
+};
 
 async function getCategory() {
   return new Promise((resolve) => {
@@ -140,7 +130,7 @@ async function getCategory() {
       });
     }
   });
-}
+};
 
 async function getSelected(id) {
   return new Promise((resolve) => {

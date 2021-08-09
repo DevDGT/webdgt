@@ -49,12 +49,10 @@ function initSlick() {
 }
 
 function reloadSlick() {
-  $("#teamApi").addClass('d-none')
-  $('#teamApi').slick('unslick')
-  $('.benefits').slick('unslick')
-
-
-  getTeams()
+  $("#teamApi").addClass('d-none');
+  $('#teamApi').slick('unslick');
+  $('.benefits').slick('unslick');
+  getTeams();
 }
 
 function addTeam() {
@@ -93,7 +91,7 @@ function addTeam() {
                   <img src="${BASE_URL}/uploads/users/${items.photo == '' ? 'default.png' : items.photo}" alt="${items.name}" style="width:100%; height:15vw; object-fit: cover;">
                   <div class="social">`;
           $.each(items.socials, function (i, social) {
-              teams += `<a href="${social.link}" target="_blank"><i class="bi bi-${social.social}"></i></a>`;
+            teams += `<a href="${social.link}" target="_blank"><i class="bi bi-${social.social}"></i></a>`;
           });
           teams += `</div>
                     <div class="card-body">
@@ -112,18 +110,17 @@ function addTeam() {
         }
         $('#teamCEO').html(ceo);
         $('#teamApi').html(teams);
-        $("#teamApi").removeClass('d-none')
-        resolve(true)
-      })
+        $("#teamApi").removeClass('d-none');
+        resolve(true);
+      });
     });
-  })
-}
+  });
+};
 
 async function getTeams() {
 
-  await addTeam()
-  initSlick()
-  //  console.log(response)
+  await addTeam();
+  initSlick();
 
   $('.benefits').not('.slick-initialized').slick({
     centerMode: true,
@@ -151,4 +148,4 @@ async function getTeams() {
       }
     ]
   });
-}
+};

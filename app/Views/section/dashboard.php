@@ -116,7 +116,7 @@
     <!-- End About Section -->
 
     <section id="testimonials" class="testimonials section-bg pb-0">
-        <div class="container aos-init aos-animate" data-aos="fade-up">
+        <div class="container-fluid aos-init aos-animate" data-aos="fade-up">
             <div class="row testimonial-item">
                 <div class="col-lg-6">
                     <div class="card" style="width: auto; border: none;">
@@ -130,7 +130,6 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-
                     <div class="card mb-3" style="max-width: auto; border: none;">
                         <div class="row g-0">
                             <div class="col-md-6">

@@ -1,37 +1,31 @@
-var portfolioIsotope;
-
 $(document).ready(function () {
-    // alert("asddsa")
-    // initPortpolio();
     initFetch();
     $("#portfolio-flters").on("click", ".options", function (e) {
         e.preventDefault();
-        // alert('ok portfolio');
         var id = $(this).data("id");
         console.log('ID : ' + id);
         $("#coreCategory").removeClass("filter-active");
         $(".options").removeClass("filter-active");
         // $(".tab").addClass("active"); // instead of this do the below
         $(this).addClass("filter-active");
-        console.log(id);
         getSelected(id);
     });
 });
 
 function usersProduct() {
-  $(".userProduct").slick({
-    infinite: true,
-    slidesToShow: 4,
-    slidesToScroll: 3,
-    dots: true,
-    autoplay: true,
-    mobileFirst: true,
-    pauseOnFocus: true,
-    autoplaySpeed: 3000,
-    speed: 1000,
-    centerMode: false,
-  });
-}
+    $(".userProduct").slick({
+        infinite: false,
+        slidesToShow: 4,
+        slidesToScroll: 3,
+        dots: false,
+        autoplay: true,
+        mobileFirst: true,
+        pauseOnFocus: true,
+        autoplaySpeed: 6000,
+        speed: 2000,
+        centerMode: false,
+    });
+};
 
 async function getClients() {
     console.log("clientGet");
@@ -56,37 +50,6 @@ async function getClients() {
             });
         });
     });
-}
-
-function initPortpolio() {
-    let portfolioContainer = select(".portfolio-container");
-    if (portfolioContainer) {
-        portfolioIsotope = new Isotope(portfolioContainer, {
-            itemSelector: ".portfolio-item",
-        });
-
-        let portfolioFilters = select("#portfolio-flters li", true);
-
-        on(
-            "click",
-            "#portfolio-flters li",
-            function (e) {
-                e.preventDefault();
-                portfolioFilters.forEach(function (el) {
-                    el.classList.remove("filter-active");
-                });
-                this.classList.add("filter-active");
-
-                portfolioIsotope.arrange({
-                    filter: this.getAttribute("data-filter"),
-                });
-                portfolioIsotope.on("arrangeComplete", function () {
-                    AOS.refresh();
-                });
-            },
-            true
-        );
-    }
 }
 
 async function getProduct() {
@@ -120,7 +83,7 @@ async function getProduct() {
             });
         });
     });
-}
+};
 
 async function getCategory() {
     return new Promise((resolve) => {
@@ -140,7 +103,7 @@ async function getCategory() {
             });
         }
     });
-}
+};
 
 async function getSelected(id) {
     return new Promise((resolve) => {
@@ -176,20 +139,17 @@ async function getSelected(id) {
             });
         });
     });
-}
+};
 
 async function getProductData() {
     return new Promise((resolve) => {
         {
             var idProduct = $('#productDetail').attr('data-id');
-            // console.log('Id Cat Product : '+ idCatProduct);
             var dataCataProductsAPI = `${API_PATH}/public/get/products/demo/` + idProduct;
             $.getJSON(dataCataProductsAPI, {
                 format: "json",
             }).done(function (response) {
                 var lCategory = response.count;
-                // console.log(lengthCategory);
-                console.log(JSON.stringify(response));
                 let catDetail = `<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-touch="false" data-bs-interval="false">`;
                 catDetail += `<div class="carousel-indicators">`;
                 for (let i = 0; i < lCategory; i++) {
@@ -224,7 +184,7 @@ async function getProductData() {
             });
         }
     });
-}
+};
 
 // async function getOtherVideo() { }
 
@@ -235,4 +195,4 @@ async function initFetch() {
     await getProduct();
     await getClients();
     usersProduct();
-}
+};

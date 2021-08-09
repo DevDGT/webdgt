@@ -27,7 +27,7 @@ if (typeof io !== 'undefined') {
 }
 // socket.emit("join")
 
-moment.locale('en');
+moment.locale('id');
 
 function sleep(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms));
