@@ -209,22 +209,22 @@ class Profile extends BaseController
 
             if (Delete("social", [EncKey('id') => $id]) == false) throw new \Exception("Gagal menghapus data");
 
-            $message = [
+            $result = [
                 'status' => 'ok',
                 'message' => 'Berhasil menghapus data'
             ];
         } catch (\Throwable $th) {
-            $message = [
+            $result = [
                 'status' => 'fail',
                 'message' => $th->getMessage()
             ];
         } catch (\Exception $ex) {
-            $message = [
+            $result = [
                 'status' => 'fail',
                 'message' => $ex->getMessage()
             ];
         } finally {
-            echo json_encode($message);
+            echo json_encode($result);
         }
     }
 
@@ -244,23 +244,90 @@ class Profile extends BaseController
             if (!$validate['success']) throw new \Exception("Error Processing Request");
             if (!Update("social", $validate['data'], [EncKey('id') => Input_('id')])) throw new \Exception("Tidak ada perubahan");
 
-            $message = [
+            $result = [
                 'status' => 'ok',
                 'message' => 'Berhasih mengubah data'
             ];
         } catch (\Throwable $th) {
-            $message = [
+            $result = [
                 'status' => 'fail',
                 'message' => $th->getMessage()
             ];
         } catch (\Exception $ex) {
-            $message = [
+            $result = [
                 'status' => 'fail',
                 'message' => $ex->getMessage()
             ];
         } finally {
-            $message = array_merge($message, ['validate' => $validate, 'modalClose' => true]);
-            echo json_encode($message);
+            $result = array_merge($result, ['validate' => $validate, 'modalClose' => true]);
+            echo json_encode($result);
         }
+    }
+
+    public function getWeb()
+    {
+        try {
+
+            $web = $this->db->table('web')->where(['user_id' => session('userId')])->get()->getRowArray();
+            if (!$web) throw new \Exception("data tidak ditemukan");
+
+            $result = [
+                'status' => 'ok',
+                'data' => Guard($web, ['user_id:hash'])
+            ];
+        } catch (\Throwable $th) {
+            $result = [
+                'status' => 'fail',
+                'message' => $th->getMessage()
+            ];
+        } catch (\Exception $ex) {
+            $result = [
+                'status' => 'fail',
+                'message' => $ex->getMessage()
+            ];
+        } finally {
+            echo json_encode($result);
+        }
+    }
+
+    public function saveWeb()
+    {
+        try {
+
+            $data = [
+                'html' => Input_('html', false),
+                'css' => Input_('css', false),
+                'js' => Input_('js', false),
+            ];
+
+            // Print_($data);
+
+            if (!Update('web', $data, ['user_id' => session('userId')])) throw new \Exception("Tidak ada perubahan");
+            // echo $this->db->getLastQuery();
+
+            $result = [
+                'status' => 'ok',
+                'message' => 'Berhasil menyimpan perubahan'
+            ];
+        } catch (\Throwable $th) {
+            $result = [
+                'status' => 'fail',
+                'message' => $th->getMessage()
+            ];
+        } catch (\Exception $ex) {
+            $result = [
+                'status' => 'fail',
+                'message' => $ex->getMessage()
+            ];
+        } finally {
+            echo json_encode($result);
+        }
+    }
+
+    public function previewWeb()
+    {
+        echo "<style>" . $_REQUEST['css'] . "</style>";
+        echo $_REQUEST['html'];
+        echo "<script>" . $_REQUEST['js'] . "</script>";
     }
 }
