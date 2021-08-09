@@ -461,7 +461,7 @@ class Admin extends BaseController
     {
         return $this->getRowTable([
             'table' => 'clients_orders',
-            'select' => "id, id_products, id_clients",
+            'select' => "id, id_products, id_clients, date, jobs",
             'where' => [EncKey('id') => $id],
             'guard' => ['id_clients:hash', 'id_products:hash']
         ]);
