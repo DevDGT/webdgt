@@ -72,7 +72,7 @@ async function getProduct() {
                               <div class='bg-white p-2 pb-3 portfolio-info shadow-sm' style='position:sticky; top:60%; opacity:0.8'>
                                 <h4>${items.name}</h4>
                                 <p class="text-truncate">${items.description}</p>
-                                <a href="${BASE_URL + '/product/' + items.id}" class="details-link" title="More Details" target="_blank"><i class="bx bx-link"></i></a>
+                                <a href="${BASE_URL + '/product/' + items.slug}" class="details-link" title="More Details" target="_blank"><i class="bx bx-link"></i></a>
                               </div>
                           </div>
                       </div>
@@ -126,7 +126,7 @@ async function getSelected(id) {
                                   <div class='bg-white p-2 pb-3 portfolio-info shadow-sm' style='position:sticky; top:60%; opacity:0.8'>
                                     <h4>${items.name}</h4>
                                     <p class="text-truncate">${items.description}</p>
-                                    <a href="${BASE_URL + '/product/' + items.id}" class="details-link" title="More Details" target="_blank"><i class="bx bx-link"></i></a>
+                                    <a href="${BASE_URL + '/product/' + items.slug}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                                   </div>
                               </div>
                           </div>
@@ -145,10 +145,11 @@ async function getProductData() {
     return new Promise((resolve) => {
         {
             var idProduct = $('#productDetail').attr('data-id');
-            var dataCataProductsAPI = `${API_PATH}/public/get/products/demo/` + idProduct;
+            var dataCataProductsAPI = `${API_PATH}public/get/products-demo?id=` + idProduct;
             $.getJSON(dataCataProductsAPI, {
                 format: "json",
             }).done(function (response) {
+                console.log(response);
                 var lCategory = response.count;
                 let catDetail = `<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-touch="false" data-bs-interval="false">`;
                 catDetail += `<div class="carousel-indicators">`;

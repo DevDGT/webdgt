@@ -22,7 +22,7 @@
             <h2>News</h2>
             <ol>
                 <li><a href="<?php echo base_url(); ?>">Home</a></li>
-                <li>News</li>
+                <li><a href="<?php echo base_url('/public/news/'); ?>">News</a></li>
             </ol>
         </div>
 

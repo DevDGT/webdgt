@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    moveRoom('home');
+    // moveRoom('home');
     initHero();
     initFetch();
 });

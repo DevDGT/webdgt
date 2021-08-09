@@ -16,8 +16,8 @@
         <div class="d-flex justify-content-between align-items-center">
             <h2>Detail Product</h2>
             <ol>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Product</a></li>
+                <li><a href="<?php echo base_url(); ?>">Home</a></li>
+                <li><a href="<?php echo base_url('/product/'); ?>">Product</a></li>
                 <li><a href="#"><?php echo $productsData['0']->name; ?></a></li>
             </ol>
         </div>
