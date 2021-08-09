@@ -59,7 +59,7 @@
             <div class="col-lg-12 aos-init">
                 <div class="member aos-init aos-animate d-flex" data-aos="fade-up">
                     <div class="member-img align-self-center">
-                        <h2 class="text-center text-capitalize pt-2 font-monospace">Dian Global Tech Is</h2>
+                        <h2 class="text-center text-uppercase pt-2 font-monospace">Dian Global Tech Is</h2>
                         <div class="container-fluid mt-4">
                             
                             <div class="row">
@@ -74,12 +74,12 @@
                             
                             <div class="row">
                                 <div class="col-lg-12 mt-2">
-                                    <p class="text-start text-wrap font-monospace">
+                                    <p class="text-center text-wrap font-monospace fs-5">
                                         Dian Global Tech is an INFORMATION AND TECHNOLOGY (IT)
                                         consulting services company established in October 2009
                                         by experienced practitioners in their respective fields.
                                     </p>
-                                    <p class="text-start text-wrap font-monospace">
+                                    <p class="text-center text-wrap font-monospace fs-5">
                                         We start our journey in SISTEM INFORMASI MANAJEMEN SEKOLAH (SIMS) and now,
                                         we create custom made apps based on our partners and clients demands.
                                         With a wide network, professionalism and commitment, we are able to consistently

@@ -24,7 +24,7 @@
     </div>
 </section>
 
-<section id="services" class="services section-bg">
+<section id="services" class="services">
 
     <div class="container aos-init aos-animate" data-aos="fade-up">
         <div class="section-title aos-init aos-animate" data-aos="fade-up">
@@ -98,7 +98,7 @@
 </section>
 
 <!-- Client Section -->
-<section id="clients" class="clients section-bg">
+<section id="clients" class="clients">
     <div class="container aos-init aos-animate" data-aos="fade-up">
 
         <div class="section-title">
