@@ -15,13 +15,13 @@ class PublicApi extends BaseController
     public function getArticle()
     {
         try {
-            $limit = getNewsParam('limit', 0);
-            $page = getNewsParam('page', 0);
-            $idArticle = getNewsParam('id');
-            $slugArticle = getNewsParam('slug');
-            $slugCategory = getNewsParam('category');
-            $tag = getNewsParam('tags');
-            $detail = getNewsParam('detail');
+            $limit = getUrlParam('limit', 0);
+            $page = getUrlParam('page', 0);
+            $idArticle = getUrlParam('id');
+            $slugArticle = getUrlParam('slug');
+            $slugCategory = getUrlParam('category');
+            $tag = getUrlParam('tags');
+            $detail = getUrlParam('detail');
 
             $this->builder = $this->db->table('article a');
             $this->builder->select('
@@ -315,15 +315,21 @@ class PublicApi extends BaseController
     public function getProducts($idProducts = '')
     {
         try {
+            $idProducts = getUrlParam('id');
+            $slugProducts = getUrlParam('slug');
+
             $this->builder = $this->db->table('products');
             $this->builder->select('id, '.EncKey('id_category_product').' id_category_product, slug, name, icon, video, description');
             $this->builder->where('active', '1');
             if ($idProducts != '') {
                 $this->builder->where(EncKey('id'), $idProducts);
             }
+            if ($slugProducts != '') {
+                $this->builder->where('slug', $slugProducts);
+            }
             $clients = $this->builder->orderby('id', 'desc')->get()->getResultArray();
 
-            $field = ['name', 'slug', 'id_category_product', 'icon', 'video', 'description'];
+            $field = ['name', 'id_category_product', 'slug', 'icon', 'video', 'description'];
             $data = [];
             foreach ($clients as $field_) {
                 $row = [];
@@ -354,18 +360,19 @@ class PublicApi extends BaseController
         }
     }
 
-    public function getProductsDemo($idProducts)
+    public function getProductsDemo($idProducts = '')
     {
         try {
-            $clients = $this->db->table('products_demo')
-                ->select(EncKey('id').'id ,title, link')
-                ->where('active', '1')
-                ->where(EncKey('product_id'), $idProducts)
-                ->orderby('id', 'desc')->get()->getResult();
+            $idProducts = getUrlParam('id');
+            $this->builder = $this->db->table('products_demo');
+            $this->builder->select(EncKey('id').'id ,title, link');
+            $this->builder->where('active', '1');
+            $this->builder->where(EncKey('product_id'), $idProducts);
+            $demo = $this->builder->orderby('id', 'desc')->get()->getResult();
             $result = [
                 'status' => 'ok',
-                'count' => count($clients),
-                'data' => $clients,
+                'count' => count($demo),
+                'data' => $demo,
             ];
         } catch (\Throwable $th) {
             $result = [

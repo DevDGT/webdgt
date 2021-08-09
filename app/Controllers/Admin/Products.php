@@ -40,7 +40,7 @@ class Products extends BaseController
                 'video' => 'required',
                 'description' => 'required|min:15',
             ], [
-                'slug' => slug(Input_('name')),
+                'slug' => slug(Input_('name'))
             ]);
 
             $user = $this->db->table($this->table)->where('name', Input_('name'))->get()->getRow();
