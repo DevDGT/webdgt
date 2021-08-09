@@ -1,7 +1,7 @@
 $(document).ready(function(){
-    getCategory()
-    getRecentPost()
-    getTags()
+    getCategory();
+    getRecentPost();
+    getTags();
 });
 
 function getTags() {
@@ -41,11 +41,13 @@ function getRecentPost() {
     }).done(function(response){
         let recent = '';
         $.each(response.data, function(i, items){
+            var localeDate = new Date(items.created_at);
+            var newDate = localeDate.toISOString().substring(0, 10);
             recent += `
             <div class="post-item clearfix">
                 <img src="${BASE_URL}/uploads/cover/${items.cover}" alt="${items.cover}">
                 <h4><a href="${BASE_URL}/news/${items.slug}">${items.title}</a></h4>
-                <time>${items.created_at}</time>
+                <time>${newDate}</time>
             </div>
             `;
             $('#recentPost').html(recent);
