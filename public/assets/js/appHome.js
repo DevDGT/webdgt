@@ -35,6 +35,7 @@ nanobar.go(80);
 
 $(document).ready(function () {
   nanobar.go(100);
+
   $('.ourTeam').slick({
     infinite: true,
     slidesToShow: 2,

@@ -11,20 +11,21 @@
 
         <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
-                <li><a href="<?php echo base_url('/news'); ?>">News</a></li>
-                <li><a href="<?php echo base_url('/abouts'); ?>">About Us</a></li>
-                <li><a href="<?php echo base_url('/product'); ?>">Product</a></li>
+                <li class="nav-item"><a href="<?php echo base_url('/news'); ?>">News</a></li>
+                <li class="nav-item"><a href="<?php echo base_url('/abouts'); ?>">About Us</a></li>
+                <li class="nav-item"><a href="<?php echo base_url('/product'); ?>">Product</a></li>
 
-                <li class="dropdown"><a href="#"><span>Company Profile</span> <i class="bi bi-chevron-down"></i></a>
+                <li class="nav-item dropdown"><a href="#"><span>Company Profile</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
-                        <li><a href="<?php echo base_url('/assets/compro/id.pdf'); ?>" target="_blank">ID <i class="bi bi-download"></i></a></li>
-                        <li><a href="<?php echo base_url('/assets/compro/en.pdf'); ?>" target="_blank">EN <i class="bi bi-download"></i></a></li>
+                        <li class="nav-item"><a href="<?php echo base_url('/assets/compro/id.pdf'); ?>" target="_blank">ID <i class="bi bi-download"></i></a></li>
+                        <li class="nav-item"><a href="<?php echo base_url('/assets/compro/en.pdf'); ?>" target="_blank">EN <i class="bi bi-download"></i></a></li>
                     </ul>
                 </li>
 
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav><!-- .navbar -->
+        </nav>
+        <!-- .navbar -->
 
         <div class="header-social-links d-flex">
             <a href="https://bit.ly/35Fqhft" target="_blank" class="instagram"><i class="bu bi-instagram"></i></a>

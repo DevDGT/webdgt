@@ -57,7 +57,7 @@ nanobar.go(80);
 
 $(document).ready(function () {
 	nanobar.go(100);
-})
+});
 
 function errorCode(event) {
 	iziToast.error({
