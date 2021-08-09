@@ -29,25 +29,12 @@
     </div>
 </section>
 
-<!-- ======= About Us Section ======= -->
-<section id="about-us" class="about-us">
-    <div class="container" data-aos="fade-up">
 
-        <div class="row content">
-            <div class="col-lg-12" data-aos="fade">
-                <h2 class="text-uppercas text-center">Get To Know About Us</h2>
-            </div>
-        </div>
-
-    </div>
-</section>
-<!-- End About Us Section -->
-
-<section id="team" class="team section-bg" data-aos="fade-up">
+<section id="team" class="team" data-aos="fade-up">
     <div class="container">
 
-        <div class="section-title aos-init aos-animate" data-aos="fade-up">
-            <h2>Meet Our <strong>Team</strong></h2>
+        <div class="section-title aos-init aos-animate" data-aos="fade">
+            <h2 class="text-uppercase">Get To Know About Us</h2>
         </div>
 
         <!-- Ceo Line -->
@@ -59,18 +46,20 @@
         <!-- End Ceo Line -->
 
         <div id="teamApi" class="row dgtTeam">
-
             <!-- <div id="teamApi"></div> -->
-
         </div>
 
         <!-- Video Line -->
         <div class="row dgtVideo mt-2">
 
+        <div class="section-title aos-init aos-animate" data-aos="fade-up">
+            <h2>Our <strong>History</strong></h2>
+        </div>
+
             <div class="col-lg-12 aos-init">
                 <div class="member aos-init aos-animate d-flex" data-aos="fade-up">
                     <div class="member-img align-self-center">
-                        <h2 class="text-center text-capitalize mt-4">Dian Global Tech Is</h2>
+                        <h2 class="text-center text-capitalize pt-2 font-monospace">Dian Global Tech Is</h2>
                         <div class="container-fluid mt-4">
                             
                             <div class="row">
@@ -106,6 +95,41 @@
 
         </div>
         <!-- End Video Line -->
+
+    </div>
+</section>
+
+<section id="about-us" class="about-us shadow-sm">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+        
+        <div class="section-title aos-init aos-animate" data-aos="fade-up">
+            <h2>Our <strong>Mission</strong></h2>
+        </div>
+
+        <div class="row content">
+            <div class="col-lg-6 aos-init aos-animate" data-aos="fade-right">
+            <h3>Our Goals</h3>
+            <p>We provide most valuable information</p>
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0 aos-init aos-animate" data-aos="fade-left">
+            <h4><i class="bi bi-briefcase p-2"></i><strong>Mission</strong></h4>
+            <ul>
+                <li>
+                    <p class="fst-italic">
+                    Provide the best Information and Technology services to each of our partners and clients who cooperate with us.
+                    </p>
+                </li>
+            </ul>
+            <h4><i class="bi bi-bullseye p-2"></i><strong>Vision</strong></h4>
+            <ul>
+                <li>
+                    <p class="fst-italic">
+                    Become the leading consultant in Information and Technology field by always providing Innovative solutions to each of our partners and clients, and to compete on a national and international scale.
+                    </p>
+                </li>
+            </ul>
+            </div>
+        </div>
 
     </div>
 </section>
@@ -179,7 +203,7 @@
             <!-- </div> -->
         </div>
         <!-- End Cooperation Line -->
-
+        
     </div>
 </section>
 <!-- End About Us Section -->
