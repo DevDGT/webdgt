@@ -535,20 +535,24 @@ function loadPage(url, change = false) {
 	const e = $(`a.menu-item[href='${url.trim()}']`)
 	change == false && window.history.pushState("", window.title, url)
 	$('a.menu-item').removeClass('active'), e.addClass('active')
-    $.get(url, function(data) {
-		try {
-			const dataJson = JSON.parse(data)
-			if (dataJson.status == '401') return msgSweetWarning("Sesi Anda berakhir !").then(msg=> {
-				doLogoutAjax()
-			})
-		} catch (e) {
-			// return false;
+    $.ajax({
+		url: url,
+		headers: {"Load-From-Ajax": true},
+		success: function (data) {
+			try {
+				const dataJson = JSON.parse(data)
+				if (dataJson.status == '401') return msgSweetWarning("Sesi Anda berakhir !").then(msg=> {
+					doLogoutAjax()
+				})
+			} catch (e) {
+				// return false;
+			}
+			$("#contentId").html($(data).find('#contentId').html())
+			$(".webTitle").html($(data).filter('title').text())
+			$("#rotiId").html($(data).find('#rotiId')).html()
+			$("#customJsNa").html($(data).filter('#customJsNa').html())
 		}
-		$("#contentId").html($(data).find('#contentId').html())
-		$(".webTitle").html($(data).filter('title').text())
-		$("#rotiId").html($(data).find('#rotiId')).html()
-        $("#customJsNa").html($(data).filter('#customJsNa').html())
-    }).fail(function(err) {
+	}).fail(function(err) {
 		$("#contentId").html(`<div class="container">${err.statusText}</div>`)
 		nanobar.go(100)
 		errorCode(err)
