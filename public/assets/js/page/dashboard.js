@@ -1,6 +1,6 @@
 $(document).ready(function () {
     // moveRoom('home');
-    // await initHero();
+    initHero();
     initFetch();
 });
 
