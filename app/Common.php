@@ -11,7 +11,7 @@ define('ADMIN_PATH', '/ruangadmin');
 define('API_PATH', '/api');
 define('SALT', 'hehehehe');
 
-function getUrlParam($param, $default = '')
+function getNewsParam($param, $default = '')
 {
     return isset($_REQUEST[$param]) ? ($_REQUEST[$param] == '' ? $default : $_REQUEST[$param]) : $default;
 }
