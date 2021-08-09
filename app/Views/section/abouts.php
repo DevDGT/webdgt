@@ -71,15 +71,20 @@
                 <div class="member aos-init aos-animate d-flex" data-aos="fade-up">
                     <div class="member-img align-self-center">
                         <h2 class="text-center text-capitalize mt-4">Dian Global Tech Is</h2>
-                        <div class="container mt-4">
+                        <div class="container-fluid mt-4">
+                            
                             <div class="row">
-                                <div class="col-lg-4 pb-4">
-                                    <video width="100%" height="auto" controls="">
-                                        <source src="http://techslides.com/demos/sample-videos/small.ogv"
-                                            type="video/ogg">
-                                    </video>
+                                <div class="col-lg-12">
+                                    <iframe class="w-100 vh-100" src="https://www.youtube.com/embed/m2dCMOed7ww"
+                                            title="YouTube video player" frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen>
+                                    </iframe>
                                 </div>
-                                <div class="col-lg-8 pb-4">
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-lg-12 mt-2">
                                     <p class="text-start text-wrap font-monospace">
                                         Dian Global Tech is an INFORMATION AND TECHNOLOGY (IT)
                                         consulting services company established in October 2009
@@ -94,6 +99,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>

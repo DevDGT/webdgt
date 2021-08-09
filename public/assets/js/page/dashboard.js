@@ -62,5 +62,5 @@ function getClients() {
 
 async function initFetch() {
     await getClients();
-    initSlick();
+    await initSlick();
 };
