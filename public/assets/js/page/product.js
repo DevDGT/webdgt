@@ -91,6 +91,7 @@ async function getProduct() {
     }).done(function (response) {
       let products = "";
       $.each(response.data, function (i, items) {
+        console.log('slug :' + items.slug);
         products += `
                     <div class="col-lg-2 p-2 portfolio-item filter-${items.id_category_product} ">
                       <div class='card h-100 shadow-sm'>
