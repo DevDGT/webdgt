@@ -52,7 +52,7 @@ $(document).ready(function () {
 var currentPage = location.href
 
 function loadPage(url, change = false) {
-  
+  if (url == currentPage) return
   nanobar.go(80)
   currentPage = url
   const e = $(`a[href='${url.trim()}']`)
