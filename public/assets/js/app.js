@@ -528,7 +528,7 @@ $(document).delegate("#btnLogout", "click", (function () {
 var currentPage = location.href
 
 function loadPage(url, change = false) {
-	// if (url == currentPage) return typeof refreshData === 'function' && refreshData()
+	if (url == currentPage) return typeof refreshData === 'function' && refreshData()
 	if (url == "#") return
 	nanobar.go(80)
 	currentPage = url
