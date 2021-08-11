@@ -47,7 +47,7 @@
                     <div class="entry-meta">
                         <ul>
                             <li class="d-flex align-items-center"><i class="bi bi-person newsAuthor"></i> <a href="#"><?= $newsData[0]->author; ?></a></li>
-                            <li class="d-flex align-items-center"><i class="bi bi-clock newsTime"></i> <a href="#"><time datetime="2020-01-01"><?= $newsData[0]->created_at; ?></time></a></li>
+                            <li class="d-flex align-items-center"><i class="bi bi-clock newsTime"></i> <a href="#"><time datetime="<?php echo date('Y-m-d', strtotime($newsData[0]->created_at)); ?>"><?php echo date('Y-m-d', strtotime($newsData[0]->created_at)); ?></time></a></li>
                             <!-- <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li> -->
                         </ul>
                     </div>

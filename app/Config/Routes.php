@@ -55,8 +55,8 @@ $routes->group('/news', ['namespace' => 'App\Controllers'], function ($routes) {
 
 $routes->group('/product', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->get('/', 'ProductCatalog::index');
-    $routes->get('demo', 'ProductCatalog::index');
-    $routes->get('(:any)', 'ProductCatalog::detailProduct');
+    $routes->get('(:any)', 'ProductCatalog::detail');
+    // $routes->get('(:any)', 'ProductCatalog::detailProduct');
 });
 
 // Login routes

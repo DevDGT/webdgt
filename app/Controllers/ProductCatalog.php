@@ -30,22 +30,22 @@ class ProductCatalog extends BaseController
         echo view('front/canvas', $data);
     }
 
-    public function detailProduct()
+    public function detail()
     {
         $uri = service('uri');
-        $slug = $uri->getSegment(2);
-        $jsonData = $this->api->get($this->apiPath.'/public/get/products/'.$slug);
+        $slug = $uri->getSegment(3);
+        $jsonData = $this->api->get($this->apiPath.'/public/get/products?slug='.$slug);
         $productsData = json_decode($jsonData);
-        $jsonSubData = $this->api->get($this->apiPath.'/public/get/products/demo/'.$productsData->data[0]->id);
-        $productsSubData = json_decode($jsonSubData);
-        if ($productsData->count <= 0) {
-            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
-        }
+        // $jsonSubData = $this->api->get($this->apiPath.'/public/get/products-demo/'.$productsData->data[0]->id);
+        // $productsSubData = json_decode($jsonSubData);
+        // if ($productsData->count <= 0) {
+        //     throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        // }
 
         // echo '<pre>';
         // print_r($productsData->data[0]->id);
-        // print_r($productsData);
-        // print_r($jsonSubData);
+        // print_r($slug);
+        // print_r($jsonData);
         // echo'</pre>';
         // var_dump($jsonSubData);
 
