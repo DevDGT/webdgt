@@ -1,44 +1,57 @@
 <style>
 .services .icon-box {
     padding: 10px 60px 10px 60px;
-    /* border-radius: 5%; */
 }
 
-/* #testimonials .testimonial-item {
-    border-radius: 5%;
-} */
+.clients .client-logo img{
+    height: -webkit-fill-available;
+}
+
+.carousel-item .img-fluid{
+    object-fit: scale-down;
+}
+
+.clients .client-logo{
+    height: 7rem;
+}
+
 </style>
 
 <div class="container">
 
+    <!-- Hero Section -->
     <section id="hero">
         <div id="heroCarousel" data-bs-interval="10000" class="carousel slide carousel-fade" data-bs-ride="carousel">
-            <div class="carousel-inner" role="listbox">
-                <!-- Slide 1 -->
-                <div class="carousel-item img-fluid active"
-                    style="background-image: url(<?php echo base_url(); ?>/uploads/beranda/DSCF1517.JPG);">
+            <div class="container-fluid">
+                <div class="carousel-inner" role="listbox">
+                    <!-- Slide 1 -->
+                    <div class="carousel-item img-fluid active"
+                        style="background-image: url(<?php echo base_url('/uploads/beranda/DSCF1517.JPG'); ?>);">
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="carousel-item img-fluid"
+                        style="background-image: url(<?php echo base_url('/uploads/beranda/DSCF1509.JPG'); ?>);">
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="carousel-item img-fluid"
+                        style="background-image: url(<?php echo base_url('/uploads/beranda/DSCF1502.JPG'); ?>);">
+                    </div>
                 </div>
-                <!-- Slide 2 -->
-                <div class="carousel-item img-fluid"
-                    style="background-image: url(<?php echo base_url(); ?>/uploads/beranda/DSCF1509.JPG);">
-                </div>
-                <!-- Slide 3 -->
-                <div class="carousel-item img-fluid"
-                    style="background-image: url(<?php echo base_url(); ?>/uploads/beranda/DSCF1502.JPG);">
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+
+                <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
                 </a>
                 <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
                     <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
                 </a>
                 <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+            </div>
         </div>
     </section>
+    <!-- End Hero Section -->
 
     <!-- About Section -->
-    <section id="aboutSection" class="services section-bg pb-0">
+    <section id="aboutSection" class="services p-0">
 
         <div class="section-title">
             <div class="container">
@@ -115,7 +128,7 @@
     </section>
     <!-- End About Section -->
 
-    <section id="testimonials" class="testimonials section-bg pb-0">
+    <section id="testimonials" class="testimonials p-0">
         <div class="container-fluid aos-init aos-animate" data-aos="fade-up">
             <div class="row testimonial-item">
                 <div class="col-lg-6">
@@ -184,33 +197,18 @@
     </section>
 
     <!-- Client Section -->
-    <!-- <section id="clients" class="clients">
+    <section id="clients" class="clients p-2">
         <div class="container aos-init aos-animate" data-aos="fade-up">
 
             <div class="section-title">
-                <h2>Clients</h2>
+                <h2>Users</h2>
             </div>
-
-            <div class="row no-gutters clients-wrap clearfix aos-init aos-animate clientSlick" id="clientsData"
-                data-aos="fade-up">
-
-            </div>
-        </div>
-    </section> -->
-    <!-- End Client Section -->
-
-    <!-- Client Section -->
-    <section id="clients" class="clients">
-        <div class="container aos-init aos-animate" data-aos="fade-up">
-
-            <div class="section-title">
-                <h2>Clients</h2>
-            </div>
-
-            <div class="row no-gutters clients-wrap clearfix aos-init aos-animate clientSlick" id="clientsData" data-aos="fade-up">
+            
+            <div class="row no-gutters clients-wrap clearfix aos-init aos-animate clientSlick" style="border:none;"  id="clientsData" data-aos="fade-up">
             </div>
 
         </div>
     </section>
+    <!-- End Client Section -->
 
 </div>

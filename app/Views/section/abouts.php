@@ -58,18 +58,24 @@
 
             <div class="col-lg-12 aos-init">
                 <div class="member aos-init aos-animate d-flex" data-aos="fade-up">
-                    <div class="member-img align-self-center">
+                    <div class="align-self-center">
                         <h2 class="text-center text-uppercase pt-2 font-monospace">Dian Global Tech Is</h2>
                         <div class="container-fluid mt-4">
                             
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <iframe class="w-100 vh-100" src="https://www.youtube.com/embed/m2dCMOed7ww"
-                                            title="YouTube video player" frameborder="0"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowfullscreen>
+                            <div class="row justify-content-center">
+                                <!-- <div class="col-lg-2">
+                                    
+                                </div> -->
+                                <div class="col-lg-10" style="height: 30rem;">
+                                    <iframe class="w-100 h-100" src="https://www.youtube.com/embed/m2dCMOed7ww"
+                                        title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen>
                                     </iframe>
                                 </div>
+                                <!-- <div class="col-lg-2">
+
+                                </div> -->
                             </div>
                             
                             <div class="row">

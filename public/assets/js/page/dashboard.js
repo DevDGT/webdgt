@@ -15,8 +15,8 @@ function initHero() {
     });
 };
 
-function initSlick() {
-    $('.clientSlick').not('.slick-initialized').slick({
+async function initSlick() {
+    $('#clientsData').not('.slick-initialized').slick({
         infinite: false,
         slidesToShow: 4,
         slidesToScroll: 3,
@@ -32,7 +32,7 @@ function initSlick() {
                 breakpoint: 1024,
                 settings: {
                     slidesToShow: 3,
-                    slidesToScroll: 3,
+                    slidesToScroll: 2,
                 }
             },
             {
@@ -53,14 +53,13 @@ function initSlick() {
     });
 };
 
-function reloadSlick() {
-    $("#clientsData").addClass('d-none');
-    $('#clientsData').slick('unslick');
-    $('.clientSlick').slick('unslick');
+async function reloadSlick() {
+    $("#clientsData").addClass('d-none').slick('unslick');
+    // $('.clientSlick').slick('unslick');
     getClients();
 };
 
-function getClients() {
+async function getClients() {
     return new Promise(resolve => {
         var clientsAPI = `${API_PATH}/public/get/clients`;
         $.getJSON(clientsAPI, {
@@ -69,9 +68,12 @@ function getClients() {
             let clients = '';
             $.each(response.data, function (i, items) {
                 clients += `
-                            <div class="col-lg-3 col-md-4 col-6">
+                            <div class="col-12">
                                 <div class="client-logo">
                                     <img src="${BASE_URL}/uploads/clients/${items.icon}" class="img-fluid" alt="${items.name}" title="${items.description}">
+                                </div>
+                                <div class="container-fluid">
+                                    <p class="fw-light">${items.name}</p>
                                 </div>
                             </div>
                             `;

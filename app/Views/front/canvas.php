@@ -4,13 +4,10 @@
 <?php include 'header.php'; ?>
 
 <body data-aos-easing="ease-in-out" data-bs-duration="1000" data-aos-delay="0">
-    <!-- <div id="loader"></div> -->
+
     <!-- ======= Header ======= -->
     <?php include 'navbar.php'; ?>
     <!-- End Header -->
-    <!-- <div id="heroGan">
-        <?php //echo $hero ?? '';?>
-    </div> -->
 
     <!-- Main Section -->
     <main id="main">
@@ -24,8 +21,9 @@
     <?php include 'footer.php'; ?>
     <!-- End Footer -->
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>
 
 </body>
 

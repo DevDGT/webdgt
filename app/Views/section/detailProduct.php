@@ -17,7 +17,7 @@
             <h2>Detail Product</h2>
             <ol>
                 <li><a href="<?php echo base_url(); ?>">Home</a></li>
-                <li><a href="<?php echo base_url('/product/'); ?>">Product</a></li>
+                <li><a href="<?php echo base_url('/product'); ?>">Product</a></li>
                 <li><a href="<?php echo base_url($productsData['0']->slug); ?>"><?php echo $productsData['0']->name; ?></a></li>
             </ol>
         </div>
@@ -25,13 +25,9 @@
     </div>
 </section>
 
-<section id="blog" class="blog section-bg" data-aos="fade-up">
+<section id="blog" class="blog" data-aos="fade-up">
 
     <div class="container">
-
-    <pre>
-        <?php print_r($productsData); ?>
-    </pre>
 
         <div class="section-title aos-init aos-animate" data-aos="fade-up" id="productDetail" data-id="<?php echo $productsData['0']->id; ?>">
             <h2><?php echo $productsData['0']->name; ?> Detail</h2>
@@ -39,16 +35,22 @@
 
         <div class="member aos-init aos-animate" data-aos="fade-up">
             
-            <div class="card p-3" style="width: 100%; height:85%;">   
-                <iframe class="vh-100" src="<?php echo $productsData['0']->video; ?>?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                </iframe>
-                <div class="card-body">
-                    <h5 class="card-title"><?php echo $productsData['0']->name; ?></h5>
-                    <p class="card-text"><?php echo $productsData['0']->description; ?></p>
-                    <h5 class="card-title">Other Videos <?php echo $productsData['0']->name; ?></h5>
-                    <div class="container-fluid" id="carouselProduct"></div>
-                    <h5 class="card-title">Download Catalog</h5>
-                    <div class="container-fluid mt-2" id="catalogProduct"></div>
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10" style="height: 30rem;">
+                        <iframe class="w-100 h-100" src="<?php echo $productsData['0']->video; ?>?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <h5 class="card-title"><?php echo $productsData['0']->name; ?></h5>
+                        <p class="card-text"><?php echo $productsData['0']->description; ?></p>
+                        <h5 class="card-title">Other Videos <?php echo $productsData['0']->name; ?></h5>
+                        <div id="carouselProduct"></div>
+                        <h5 class="card-title">Download Catalog</h5>
+                        <div id="catalogProduct"></div>
+                    </div>
                 </div>
             </div>
             

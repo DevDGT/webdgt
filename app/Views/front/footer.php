@@ -2,6 +2,7 @@
 
     <div class="footer-top">
         <div class="container">
+
             <div class="row">
 
                 <div class="col-lg-4 col-md-8 footer-contact">
@@ -20,10 +21,6 @@
                                 <div class="social-links d-flex flex-col pt-3 pt-md-0">
                                     <div class="container justify-content-evenly">
                                         <a href="https://bit.ly/35Fqhft" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
-                                        <!-- <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a> -->
-                                        <!-- <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a> -->
-                                        <!-- <a href="#" class="google-plus"><i class="bx bxl-google"></i></a> -->
-                                        <!-- <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a> -->
                                         <a href="https://bit.ly/35FkiHm" class="youtube"><i class="bx bxl-youtube"></i></a>
                                         <a href="https://bit.ly/3vg1A3u" target="_blank" class="whatsapp"><i class="bu bi-whatsapp"></i></a>
                                     </div>
@@ -62,6 +59,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-4 col-md-8 footer-contact">
                     <div class="container">
                         <form action="" method="post" style='background: inherit;'>
@@ -95,6 +93,7 @@
                 </div>
 
             </div>
+
         </div>
     </div>
 
@@ -105,5 +104,7 @@
                 Copyright &copy;<strong><span>2021 Dian Global Tech</span></strong>. All Rights Reserved
             </div>
         </div>
+
     </div>
+
 </footer>

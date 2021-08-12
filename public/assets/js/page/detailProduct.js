@@ -119,19 +119,19 @@ async function getSelected(id) {
                     products += ``;
                 } else {
                     products += `
-                      <div class="col-lg-2 p-2 portfolio-item filter-${items.id_category_product} ">
-                          <div class='card h-100 shadow-sm'>
-                              <img src="${BASE_URL}/uploads/products/${items.icon}"class="card-img-top" alt="${items.name}">
-                              <div class="item-card position-absolute w-100" style="overflow:hidden">
-                                  <div class='bg-white p-2 pb-3 portfolio-info shadow-sm' style='position:sticky; top:60%; opacity:0.8'>
-                                    <h4>${items.name}</h4>
-                                    <p class="text-truncate">${items.description}</p>
-                                    <a href="${BASE_URL + '/product/detail/' + items.slug}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                                  </div>
-                              </div>
-                          </div>
-                        </div>
-                      `;
+                        <div class="col-lg-2 p-2 portfolio-item filter-${items.id_category_product} ">
+                            <div class='card h-100 shadow-sm'>
+                                <img src="${BASE_URL}/uploads/products/${items.icon}"class="card-img-top" alt="${items.name}">
+                                <div class="item-card position-absolute w-100" style="overflow:hidden">
+                                    <div class='bg-white p-2 pb-3 portfolio-info shadow-sm' style='position:sticky; top:60%; opacity:0.8'>
+                                        <h4>${items.name}</h4>
+                                        <p class="text-truncate">${items.description}</p>
+                                        <a href="${BASE_URL + '/product/detail/' + items.slug}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        `;
                 }
                 $("#productData").html(products);
                 resolve(true);
@@ -161,24 +161,30 @@ async function getProductData() {
                 $.each(response.data, function (i, items) {
                     // console.log('Items  : ' + items);
                     // console.log('I : ==== ' + i);
-                    catDetail += `<div class="carousel-item ${i === 0 ? 'active' : ''}">
-                    <iframe class="w-100 vh-100" src="${items.link}?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                    </iframe>
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>${items.title}</h5>
-                    </div>
+                    catDetail += `
+                    <div class="carousel-item ${i === 0 ? 'active' : ''}">
+                        <div class="row">
+                            <div class="col-lg-12" style="height: 30rem;">
+                                <iframe class="w-100 h-100" src="${items.link}?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                                </iframe>
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>${items.title}</h5>
+                                </div>
+                            </div>
+                        </div>
                     </div>`;
                 });
-                catDetail += `</div>`;
-                catDetail += `<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>`;
-                catDetail += `</div>`;
+                catDetail += `
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                    </div>`;
 
                 $("#carouselProduct").html(catDetail);
                 resolve(true);
