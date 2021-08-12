@@ -43,7 +43,7 @@
     </div>
 </div><!-- End sidebar tags-->
 
-<h3 class="sidebar-title p-2">Watchs Us On Youtube</h3>
+<h3 class="sidebar-title p-2">Watch Us On Youtube</h3>
 <div class="sidebar-item p-2">
     <div class="container-fluid d-flex justify-content-center">
         <a href="https://bit.ly/35FkiHm" class="text-decoration-none" target="_blank">

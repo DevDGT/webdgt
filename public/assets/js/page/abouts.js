@@ -30,15 +30,6 @@ function initSlick() {
           slidesToScroll: 1
         }
       }
-      // {
-      //  breakpoint: 480,
-      //  settings: "unslick",
-      // settings: {
-      //   slidesToShow: 5,
-      //   slidesToScroll: 3
-      // }
-
-      // }
     ],
     pauseOnFocus: true,
     autoplaySpeed: 3000,
@@ -49,8 +40,7 @@ function initSlick() {
 }
 
 function reloadSlick() {
-  $("#teamApi").addClass('d-none');
-  $('#teamApi').slick('unslick');
+  $("#teamApi").addClass('d-none').slick('unslick');
   $('.benefits').slick('unslick');
   getTeams();
 }
@@ -86,7 +76,7 @@ function addTeam() {
         } else if (i > 0) {
           teams += `
             <div class="col-12 p-3 teamImg">
-              <div class="member w-100 bg-black aos-init aos-animate d-flex justify-content-center" data-aos="fade-up">
+              <div class="member w-100 h-100 bg-black aos-init aos-animate d-flex justify-content-center" data-aos="fade-up">
                 <div class="card" style="width: 20rem; max-height:60vh; border:none;">
                   <img src="${BASE_URL}/uploads/users/${items.photo == '' ? 'default.png' : items.photo}" alt="${items.name}" style="width:100%; height:15vw; object-fit: cover;">
                   <div class="social">`;

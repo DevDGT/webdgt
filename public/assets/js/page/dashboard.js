@@ -72,7 +72,7 @@ async function getClients() {
                                 <div class="client-logo">
                                     <img src="${BASE_URL}/uploads/clients/${items.icon}" class="img-fluid" alt="${items.name}" title="${items.description}">
                                 </div>
-                                <div class="container-fluid">
+                                <div class="container-fluid d-flex justify-content-center">
                                     <p class="fw-light">${items.name}</p>
                                 </div>
                             </div>

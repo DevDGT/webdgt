@@ -61,7 +61,7 @@ async function getClients() {
       let clients = "";
       $.each(response.data, function (i, items) {
         clients += `
-                  <div class="col">
+                  <div class="col-12">
                       <div class="client-logo">
                           <img src="${BASE_URL}/uploads/clients/${items.icon}" class="img-fluid" alt="${items.name}" title="${items.description}">
                       </div>
