@@ -36,19 +36,19 @@ nanobar.go(80);
 $(document).ready(function () {
   nanobar.go(100);
 
-  $('.ourTeam').slick({
-    infinite: true,
-    slidesToShow: 2,
-    slidesToScroll: 2,
-    dots: true,
-    autoplay: true,
-    mobileFirst: true,
-    pauseOnFocus: true,
-    autoplaySpeed: 3000,
-    speed: 1000,
-    centerMode: false,
-  });
-})
+  // $('.ourTeam').slick({
+  //   infinite: true,
+  //   slidesToShow: 2,
+  //   slidesToScroll: 2,
+  //   dots: true,
+  //   autoplay: true,
+  //   mobileFirst: true,
+  //   pauseOnFocus: true,
+  //   autoplaySpeed: 3000,
+  //   speed: 1000,
+  //   centerMode: false,
+  // });
+});
 
 var currentPage = location.href
 

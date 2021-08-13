@@ -3,18 +3,17 @@
     padding: 10px 60px 10px 60px;
 }
 
-.clients .client-logo img{
+.clients .client-logo img {
     height: -webkit-fill-available;
 }
 
-.carousel-item .img-fluid{
+.carousel-item .img-fluid {
     object-fit: scale-down;
 }
 
-.clients .client-logo{
+.clients .client-logo {
     height: 7rem;
 }
-
 </style>
 
 <div class="container">
@@ -175,22 +174,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card mb-3" style="max-width: auto; border: none;">
-                        <div class="row g-0">
-                            <div class="col-md-6">
-                                <iframe width="100%" height="auto" src="https://www.youtube.com/embed/jCzdhawRsHA"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card-body">
-                                    <h5 class="card-title">Aplikasi CBT</h5>
-                                    <p>Ujian Secara Daring</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -203,8 +186,9 @@
             <div class="section-title">
                 <h2>Users</h2>
             </div>
-            
-            <div class="row no-gutters clients-wrap clearfix aos-init aos-animate clientSlick" style="border:none;"  id="clientsData" data-aos="fade-up">
+
+            <div class="row no-gutters clients-wrap clearfix aos-init aos-animate clientSlick" style="border:none;"
+                id="clientsData" data-aos="fade-up">
             </div>
 
         </div>

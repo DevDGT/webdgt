@@ -18,8 +18,6 @@ function initHero() {
 async function initSlick() {
     $('#clientsData').not('.slick-initialized').slick({
         infinite: false,
-        slidesToShow: 4,
-        slidesToScroll: 3,
         dots: false,
         autoplay: true,
         pauseOnFocus: true,

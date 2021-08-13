@@ -67,7 +67,9 @@ async function getProduct() {
                 products += `
                     <div class="col-lg-2 p-2 portfolio-item filter-${items.id_category_product} ">
                       <div class='card h-100 shadow-sm'>
-                          <img src="${BASE_URL}/uploads/products/${items.icon}"class="card-img-top" alt="${items.name}">
+                            <a href="${BASE_URL + '/product/detail/' + items.slug}" class="text-decoration-none">
+                                <img src="${BASE_URL}/uploads/products/${items.icon}"class="card-img-top" alt="${items.name}">
+                            </a>
                           <div class="item-card position-absolute w-100" style="overflow:hidden">
                               <div class='bg-white p-2 pb-3 portfolio-info shadow-sm' style='position:sticky; top:60%; opacity:0.8'>
                                 <h4>${items.name}</h4>
@@ -121,7 +123,9 @@ async function getSelected(id) {
                     products += `
                         <div class="col-lg-2 p-2 portfolio-item filter-${items.id_category_product} ">
                             <div class='card h-100 shadow-sm'>
-                                <img src="${BASE_URL}/uploads/products/${items.icon}"class="card-img-top" alt="${items.name}">
+                                <a href="${BASE_URL + '/product/detail/' + items.slug}" class="text-decoration-none">
+                                    <img src="${BASE_URL}/uploads/products/${items.icon}"class="card-img-top" alt="${items.name}">
+                                </a>
                                 <div class="item-card position-absolute w-100" style="overflow:hidden">
                                     <div class='bg-white p-2 pb-3 portfolio-info shadow-sm' style='position:sticky; top:60%; opacity:0.8'>
                                         <h4>${items.name}</h4>
