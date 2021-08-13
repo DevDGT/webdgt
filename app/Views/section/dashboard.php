@@ -17,23 +17,19 @@
 </style>
 
 <div class="container">
-
     <!-- Hero Section -->
-    <section id="hero">
+    <!-- <section id="hero">
         <div id="heroCarousel" data-bs-interval="10000" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="container-fluid">
                 <div class="carousel-inner" role="listbox">
-                    <!-- Slide 1 -->
                     <div class="carousel-item img-fluid active"
-                        style="background-image: url(<?php echo base_url('uploads/beranda/DSCF1517.JPG'); ?>);">
+                        style="background-image: url(<?php //echo base_url('uploads/beranda/DSCF1517.JPG');?>);">
                     </div>
-                    <!-- Slide 2 -->
                     <div class="carousel-item img-fluid"
-                        style="background-image: url(<?php echo base_url('uploads/beranda/DSCF1509.JPG'); ?>);">
+                        style="background-image: url(<?php //echo base_url('uploads/beranda/DSCF1509.JPG');?>);">
                     </div>
-                    <!-- Slide 3 -->
                     <div class="carousel-item img-fluid"
-                        style="background-image: url(<?php echo base_url('uploads/beranda/DSCF1502.JPG'); ?>);">
+                        style="background-image: url(<?php //echo base_url('uploads/beranda/DSCF1502.JPG');?>);">
                     </div>
                 </div>
 
@@ -46,13 +42,15 @@
                 <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- End Hero Section -->
 
     <!-- About Section -->
     <section id="aboutSection" class="services">
 
         <div class="section-title">
+            <div class="container-fluid" style="height:5rem;">
+            </div>
             <div class="container">
                 <div class="row">
                     <div class="col"></div>
@@ -129,10 +127,10 @@
 
     <section id="testimonials" class="testimonials p-0">
         <div class="container-fluid aos-init aos-animate" data-aos="fade-up">
-            <div class="row testimonial-item">
+            <div class="row testimonial-item border border-success">
                 <div class="col-lg-6">
                     <div class="card" style="width: auto; border: none;">
-                        <iframe width="auto" height="315" src="https://www.youtube.com/embed/NOAtMfUAe5U"
+                        <iframe width="auto" height="320" src="https://www.youtube.com/embed/NOAtMfUAe5U"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen>
@@ -182,7 +180,7 @@
     </section>
 
     <!-- Client Section -->
-    <section id="clients" class="clients p-2">
+    <section id="clients" class="clients pt-4">
         <div class="container aos-init aos-animate" data-aos="fade-up">
 
             <div class="section-title">
