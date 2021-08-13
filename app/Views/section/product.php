@@ -16,20 +16,6 @@
 .clients .client-logo {
     height: 7rem;
 }
-
-.parallax {
-    /* The image used */
-    background-image: url("<?php echo base_url('assets/img/team/team-1.jpg'); ?>");
-
-    /* Full height */
-    height: 100%;
-
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 </style>
 
 <section id="breadcrumbs" class="breadcrumbs">
@@ -46,54 +32,52 @@
     </div>
 </section>
 
+<section id="services" class="services">
 
-<div class="parallax">
-    <section id="services" class="services">
-
-        <div class="container aos-init aos-animate" data-aos="fade-up">
-            <div class="section-title aos-init aos-animate" data-aos="fade-up">
-                <h2>The Problems</h2>
-                <p class="lead">Lorem ipsum</p>
-            </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12 d-inline-flex flex-row justify-content-around">
-                        <div class="card aos-init aos-animate" style="width: 15rem; border: none;" data-aos="zoom-in"
-                            data-aos-delay="100">
-                            <img src="<?php echo base_url('/uploads/produk/Productivity.png'); ?>" class="card-img-top"
-                                alt="Productivity">
-                            <div class="card-body">
-                                <p class="card-text">
-                                <h5 class="text-center">Less Productivity</h5>
-                                </p>
-                            </div>
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+        <div class="section-title aos-init aos-animate" data-aos="fade-up">
+            <h2>The Problems</h2>
+            <p class="lead">Lorem ipsum</p>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 d-inline-flex flex-row justify-content-around">
+                    <div class="card aos-init aos-animate" style="width: 15rem; border: none;" data-aos="zoom-in"
+                        data-aos-delay="100">
+                        <img src="<?php echo base_url('/uploads/produk/Productivity.png'); ?>" class="card-img-top"
+                            alt="Productivity">
+                        <div class="card-body">
+                            <p class="card-text">
+                            <h5 class="text-center">Less Productivity</h5>
+                            </p>
                         </div>
-                        <div class="card aos-init aos-animate" style="width: 15rem; border: none;">
-                            <img src="<?php echo base_url('/uploads/produk/User_Frustation.png'); ?>"
-                                class="card-img-top" alt="User_Frustation">
-                            <div class="card-body">
-                                <p class="card-text text-wrap">
-                                <h5 class="text-center">User Frustation</h5>
-                                </p>
-                            </div>
+                    </div>
+                    <div class="card aos-init aos-animate" style="width: 15rem; border: none;">
+                        <img src="<?php echo base_url('/uploads/produk/User_Frustation.png'); ?>" class="card-img-top"
+                            alt="User_Frustation">
+                        <div class="card-body">
+                            <p class="card-text text-wrap">
+                            <h5 class="text-center">User Frustation</h5>
+                            </p>
                         </div>
-                        <div class="card aos-init aos-animate" style="width: 15rem; border: none;">
-                            <img src="<?php echo base_url('/uploads/produk/Price.png'); ?>" class="card-img-top"
-                                alt="Price">
-                            <div class="card-body">
-                                <p class="card-text text-wrap">
-                                <h5 class="text-center">Expensive Price</h5>
-                                </p>
-                            </div>
+                    </div>
+                    <div class="card aos-init aos-animate" style="width: 15rem; border: none;">
+                        <img src="<?php echo base_url('/uploads/produk/Price.png'); ?>" class="card-img-top"
+                            alt="Price">
+                        <div class="card-body">
+                            <p class="card-text text-wrap">
+                            <h5 class="text-center">Expensive Price</h5>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
 
-    </section>
-</div>
+    </div>
+
+</section>
+
 <!-- End Client Section -->
 <section id="portfolio" class="portfolio">
 

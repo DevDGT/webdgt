@@ -50,7 +50,7 @@
     <!-- End Hero Section -->
 
     <!-- About Section -->
-    <section id="aboutSection" class="services p-0">
+    <section id="aboutSection" class="services">
 
         <div class="section-title">
             <div class="container">
