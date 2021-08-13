@@ -17,7 +17,8 @@
 
 .parallax {
     /* The image used */
-    background-image: url("<?php echo base_url('assets/img/team/team-1.jpg'); ?>");
+    background-image: url("<?php echo base_url('uploads/beranda/DSCF1517_.JPG'); ?>");
+    object-fit: scale-down;
 
     /* Full height */
     height: 100%;
@@ -45,10 +46,16 @@
 
 <div class="parallax">
     <section id="team" class="team" data-aos="fade-up">
+        <div class="container-fluid" style="height:20rem;">
+        </div>
         <div class="container">
 
             <div class="section-title aos-init aos-animate" data-aos="fade">
-                <h2 class="text-uppercase">Get To Know About Us</h2>
+                <h2 class="text-uppercase">
+                    <span class="rounded-pill section-bg">
+                        Get To Know About Us
+                    </span>
+                </h2>
             </div>
 
             <!-- Ceo Line -->
@@ -67,11 +74,15 @@
             <div class="row dgtVideo mt-2">
 
                 <div class="section-title aos-init aos-animate" data-aos="fade-up">
-                    <h2>Our <strong>History</strong></h2>
+                    <h2 class="text-uppercase">
+                        <span class="rounded-pill section-bg">
+                            Our <strong>History</strong>
+                        </span>
+                    </h2>
                 </div>
 
                 <div class="col-lg-12 aos-init">
-                    <div class="member aos-init aos-animate d-flex" data-aos="fade-up">
+                    <div class="member aos-init aos-animate d-flex" data-aos="fade-up" style="border-radius:10rem;">
                         <div class="align-self-center">
                             <h2 class="text-center text-uppercase pt-2 font-monospace">Dian Global Tech Is</h2>
                             <div class="container-fluid mt-4">

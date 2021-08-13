@@ -58,7 +58,7 @@ function addTeam() {
         if (i == 0) {
           ceo = `
           <div class="col-lg-12">
-              <div class="member aos-init aos-animate" data-aos="fade-up">
+              <div class="member aos-init aos-animate rounded-pill" data-aos="fade-up">
                   <div class="member-img my-4">
                       <img src="${BASE_URL}/uploads/users/${items.photo == '' ? 'default.png' : items.photo}" class="img-fluid imgceo" alt="" style="max-width:15rem;min-width:15rem;">
                       <div class="container">
