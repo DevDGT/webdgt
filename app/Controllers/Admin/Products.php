@@ -91,8 +91,10 @@ class Products extends BaseController
                 $iconOld = $this->db->table($this->table)->select('icon')->where([EncKey('id') => Input_('id')])->get()->getRow()->icon;
 
                 // jika cover ada maka hapus filenya
-                if ($iconOld != "")
-                    unlink(ROOTPATH . 'public/uploads/products/' . $iconOld);
+                if ($iconOld != "") {
+                    $path = ROOTPATH . 'public/uploads/products/' . $iconOld;
+                    if (file_exists($path)) unlink($path);
+                }
 
                 // upload cover baru
                 $updateIcon = $this->uploadIcon([EncKey('id') => Input_('id')]);
@@ -159,8 +161,10 @@ class Products extends BaseController
 
             $iconOld = $this->db->table($this->table)->select('icon')->where([EncKey('id') => $id])->get()->getRow()->icon;
             // jika icon ada maka hapus filenya
-            if ($iconOld != "")
-                unlink(ROOTPATH . 'public/uploads/products/' . $iconOld);
+            if ($iconOld != "") {
+                $path = ROOTPATH . 'public/uploads/products/' . $iconOld;
+                if (file_exists($path)) unlink($path);
+            }
 
             if (Delete($this->table, [EncKey('id') => $id]) == false) throw new \Exception("Gagal menghapus data");
 
@@ -194,8 +198,10 @@ class Products extends BaseController
             $jmlSukses = 0;
             foreach ($dataId as $key) {
                 $iconOld = $this->db->table($this->table)->select('icon')->where([EncKey('id') => $key])->get()->getRow()->icon;
-                if ($iconOld != "")
-                    unlink(ROOTPATH . 'public/uploads/clients/' . $iconOld);
+                if ($iconOld != "") {
+                    $path = ROOTPATH . 'public/uploads/clients/' . $iconOld;
+                    if (file_exists($path)) unlink($path);
+                }
                 if (Delete($this->table, [EncKey('id') => $key])) $jmlSukses++;
             }
 

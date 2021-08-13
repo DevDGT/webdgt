@@ -201,8 +201,10 @@ class Article extends BaseController
                 $coverOld = $this->db->table($this->table)->select('cover')->where([EncKey('id') => Input_('id')])->get()->getRow()->cover;
 
                 // jika cover ada maka hapus filenya
-                if ($coverOld != "")
-                    unlink(ROOTPATH . 'public/uploads/cover/' . $coverOld);
+                if ($coverOld != "") {
+                    $path = ROOTPATH . 'public/uploads/cover/' . $coverOld;
+                    if (file_exists($path)) unlink($path);
+                }
 
                 // upload cover baru
                 $updateCover = $this->uploadCover([EncKey('id') => Input_('id')]);
