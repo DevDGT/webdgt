@@ -18,7 +18,7 @@
             <ol>
                 <li><a href="<?php echo base_url(); ?>">Home</a></li>
                 <li><a href="<?php echo base_url('/product'); ?>">Product</a></li>
-                <li><a href="<?php echo base_url($productsData['0']->slug); ?>"><?php echo $productsData['0']->name; ?></a></li>
+                <li><a href="#"><?php echo $productsData['0']->name; ?></a></li>
             </ol>
         </div>
 
@@ -29,16 +29,20 @@
 
     <div class="container">
 
-        <div class="section-title aos-init aos-animate" data-aos="fade-up" id="productDetail" data-id="<?php echo $productsData['0']->id; ?>">
+        <div class="section-title aos-init aos-animate" data-aos="fade-up" id="productDetail"
+            data-id="<?php echo $productsData['0']->id; ?>">
             <h2><?php echo $productsData['0']->name; ?> Detail</h2>
         </div>
 
         <div class="member aos-init aos-animate" data-aos="fade-up">
-            
+
             <div class="container-fluid">
                 <div class="row justify-content-center">
                     <div class="col-lg-10" style="height: 30rem;">
-                        <iframe class="w-100 h-100" src="<?php echo $productsData['0']->video; ?>?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        <iframe class="w-100 h-100" src="<?php echo $productsData['0']->video; ?>?controls=0"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
                         </iframe>
                     </div>
                 </div>
@@ -53,7 +57,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
 
     </div>
@@ -76,7 +80,8 @@
             </div>
         </div>
 
-        <div class="row d-flex justify-content-center portfolio-container aos-init aos-animate" data-aos="fade-up" id="productData">
+        <div class="row d-flex justify-content-center portfolio-container aos-init aos-animate" data-aos="fade-up"
+            id="productData">
 
         </div>
 

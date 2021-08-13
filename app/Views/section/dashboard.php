@@ -25,15 +25,15 @@
                 <div class="carousel-inner" role="listbox">
                     <!-- Slide 1 -->
                     <div class="carousel-item img-fluid active"
-                        style="background-image: url(<?php echo base_url('/uploads/beranda/DSCF1517.JPG'); ?>);">
+                        style="background-image: url(<?php echo base_url('uploads/beranda/DSCF1517.JPG'); ?>);">
                     </div>
                     <!-- Slide 2 -->
                     <div class="carousel-item img-fluid"
-                        style="background-image: url(<?php echo base_url('/uploads/beranda/DSCF1509.JPG'); ?>);">
+                        style="background-image: url(<?php echo base_url('uploads/beranda/DSCF1509.JPG'); ?>);">
                     </div>
                     <!-- Slide 3 -->
                     <div class="carousel-item img-fluid"
-                        style="background-image: url(<?php echo base_url('/uploads/beranda/DSCF1502.JPG'); ?>);">
+                        style="background-image: url(<?php echo base_url('uploads/beranda/DSCF1502.JPG'); ?>);">
                     </div>
                 </div>
 
@@ -72,7 +72,7 @@
                     <div class="col-lg-6 col-md-4 aos-init aos-animate p-2" data-aos="zoom-in" data-aos-delay="100">
                         <div class="icon-box iconbox-blue">
                             <div class="icon">
-                                <img src="<?php echo base_url('/uploads/aboutus/Tech_Support@4x-8.png'); ?>" width="100"
+                                <img src="<?php echo base_url('uploads/aboutus/Tech_Support@4x-8.png'); ?>" width="100"
                                     height="100">
                             </div>
                             <h4><a href="#">Tech Support</a></h4>
@@ -84,7 +84,7 @@
                     <div class="col-lg-6 col-md-4 aos-init aos-animate p-2" data-aos="zoom-in" data-aos-delay="200">
                         <div class="icon-box iconbox-blue">
                             <div class="icon">
-                                <img src="<?php echo base_url('/uploads/aboutus/Consulting@4x-8.png'); ?>" width="100"
+                                <img src="<?php echo base_url('uploads/aboutus/Consulting@4x-8.png'); ?>" width="100"
                                     height="100">
                             </div>
                             <h4><a href="#">It Consulting</a></h4>
@@ -97,7 +97,7 @@
                     <div class="col-lg-6 col-md-4 aos-init aos-animate p-2" data-aos="zoom-in" data-aos-delay="300">
                         <div class="icon-box iconbox-blue">
                             <div class="icon">
-                                <img src="<?php echo base_url('/uploads/aboutus/App_Dev@4x-8.png'); ?>" width="100"
+                                <img src="<?php echo base_url('uploads/aboutus/App_Dev@4x-8.png'); ?>" width="100"
                                     height="100">
                             </div>
                             <h4><a href="#">App Dev</a></h4>
@@ -111,7 +111,7 @@
                     <div class="col-lg-6 col-md-4 aos-init aos-animate p-2" data-aos="zoom-in" data-aos-delay="400">
                         <div class="icon-box iconbox-blue">
                             <div class="icon">
-                                <img src="<?php echo base_url('/uploads/aboutus/Training@4x-8.png'); ?>" width="100"
+                                <img src="<?php echo base_url('uploads/aboutus/Training@4x-8.png'); ?>" width="100"
                                     height="100">
                             </div>
                             <h4><a href="">Training</a></h4>
@@ -135,7 +135,8 @@
                         <iframe width="auto" height="315" src="https://www.youtube.com/embed/NOAtMfUAe5U"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
+                            allowfullscreen>
+                        </iframe>
                         <div class="card-body">
                             <p class="card-text">Aplikasi SIADES</p>
                         </div>
@@ -148,7 +149,8 @@
                                 <iframe width="100%" height="auto" src="https://www.youtube.com/embed/AilqrFv1zj4"
                                     title="YouTube video player" frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
+                                    allowfullscreen>
+                                </iframe>
                             </div>
                             <div class="col-md-4">
                                 <div class="card-body">
