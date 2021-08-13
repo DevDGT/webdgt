@@ -52,9 +52,10 @@ class Profile extends BaseController
                 $oldPhoto = $this->db->table($this->table)->select('photo')->where(['id' => session('userId')])->get()->getRow()->photo;
 
                 // jika phptp ada maka hapus filenya
-                if ($oldPhoto != "")
-                    unlink(ROOTPATH . 'public/uploads/users/' . $oldPhoto);
-
+                if ($oldPhoto != "") {
+                    $path = ROOTPATH . 'public/uploads/users/' . $oldPhoto;
+                    if (file_exists($path)) unlink($path);
+                }
                 // upload photo baru
                 $updatePhoto = $this->uploadPhoto();
             }
