@@ -230,6 +230,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
             $routes->get('category-products', 'PublicApi::getCategoryProducts');
             $routes->get('tags', 'PublicApi::getTags');
             $routes->get('teams', 'PublicApi::getTeams');
+            $routes->get('teams-page', 'PublicApi::teamsPage');
             $routes->get('clients', 'PublicApi::getClients');
             $routes->get('clients/order/(:any)', 'PublicApi::getClientsOrders/$1');
             $routes->get('products', 'PublicApi::getProducts');

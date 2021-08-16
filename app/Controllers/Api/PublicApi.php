@@ -22,6 +22,7 @@ class PublicApi extends BaseController
             $slugCategory = getUrlParam('category');
             $tag = getUrlParam('tags');
             $detail = getUrlParam('detail');
+            //$cari = getUrlParam('q');
 
             $this->builder = $this->db->table('article a');
             $this->builder->select('
@@ -57,6 +58,9 @@ class PublicApi extends BaseController
             if ($tag != '') {
                 $this->builder->like('a.tags', $tag, 'both');
             }
+            // if ($cari != '') {
+            //     $this->builder->where('a.slug', $slugArticle);
+            // }
             $this->builder->where(['status' => '1']);
             $this->builder->limit($limit, ($page != 0 ? $page - 1 : 0) * $limit);
             $article = $this->builder->get()->getResultArray();
@@ -208,6 +212,44 @@ class PublicApi extends BaseController
             ->join('clients c', 'c.id = co.id_clients')
             ->where('co.id_products', $productId)
             ->get()->getResultArray();
+    }
+
+    public function teamsPage()
+    {
+        try {
+
+            $id = getUrlParam('id');
+            $username = getUrlParam('username');
+
+            $this->builder = $this->db->table('web');
+            $this->builder->select('html, css, js');
+            if ($id != '') $this->builder->where(EncKey('user_id'), $id);
+            if ($username != '') {
+                $this->builder->join('users u', 'u.id = web.user_id', 'left');
+                $this->builder->where('username', $username);
+            }
+
+            $data = $this->builder->get()->getRowArray();
+
+            if (!$data) throw new \Exception("data tidak ditemukan");
+
+            $result = [
+                'status' => 'ok',
+                'data' => $data
+            ];
+        } catch (\Throwable $th) {
+            $result = [
+                'status' => 'fail',
+                'message' => $th->getMessage(),
+            ];
+        } catch (\Exception $ex) {
+            $result = [
+                'status' => 'fail',
+                'message' => $ex->getMessage(),
+            ];
+        } finally {
+            echo json_encode($result);
+        }
     }
 
     public function getTeams()
