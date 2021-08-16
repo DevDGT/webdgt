@@ -68,8 +68,7 @@ async function getClients() {
                       </div>
                   </div>
                   `;
-        $("#clientsData").html(clients);
-        // $('#clientsData').removeClass('d-none');
+        $("#clientsData").html(clients).removeClass('d-none');
         resolve(true);
       });
     });

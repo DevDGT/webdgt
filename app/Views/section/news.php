@@ -13,7 +13,6 @@
     margin: auto;
     display: block;
 }
-
 </style>
 
 <section id="breadcrumbs" class="breadcrumbs">

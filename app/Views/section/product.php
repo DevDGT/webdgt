@@ -88,7 +88,7 @@
 
         <div class="row aos-init aos-animate" data-aos="fade-up">
             <div class="col-lg-12 d-flex justify-content-center">
-                <ul id="portfolio-flters" class="section-bg">
+                <ul id="portfolio-flters">
 
                 </ul>
             </div>

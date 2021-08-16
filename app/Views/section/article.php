@@ -1,15 +1,15 @@
 <style>
-    .newsContent img {
-        width: 100% !important;
-        height: 100% !important;
-    }
+.newsContent img {
+    width: 100% !important;
+    height: 100% !important;
+}
 
-    .newsCover {
-        align-items: center;
-        object-fit: cover;
-        margin: auto;
-        display: block;
-    }
+.newsCover {
+    align-items: center;
+    object-fit: cover;
+    margin: auto;
+    display: block;
+}
 </style>
 <section id="breadcrumbs" class="breadcrumbs">
     <div class="container">
@@ -19,7 +19,9 @@
             <ol class="newsRoti">
                 <li><a href="<?php echo base_url(); ?>">Home</a></li>
                 <li><a href="<?php echo base_url('/news'); ?>">News</a></li>
-                <li><a href="<?php echo base_url('/news/category/'.$newsData[0]->category_slug); ?>"><?php echo $newsData[0]->category; ?></a></li>
+                <li><a
+                        href="<?php echo base_url('/news/category/'.$newsData[0]->category_slug); ?>"><?php echo $newsData[0]->category; ?></a>
+                </li>
                 <li><a href="#"><?php echo $newsData[0]->title; ?></a></li>
             </ol>
         </div>
@@ -37,7 +39,8 @@
                 <article class="entry entry-single" id="articleDetail">
 
                     <div class="entry-img coverGan">
-                        <img src="<?php echo base_url('/uploads/cover/'.$newsData[0]->cover); ?>" alt="" class="img-fluid newsCover">
+                        <img src="<?php echo base_url('/uploads/cover/'.$newsData[0]->cover); ?>" alt=""
+                            class="img-fluid newsCover">
                     </div>
 
                     <h2 class="entry-title newsTitle text-dark">
@@ -46,8 +49,11 @@
 
                     <div class="entry-meta">
                         <ul>
-                            <li class="d-flex align-items-center"><i class="bi bi-person newsAuthor"></i> <a href="#"><?php echo $newsData[0]->author; ?></a></li>
-                            <li class="d-flex align-items-center"><i class="bi bi-clock newsTime"></i> <a href="#"><time datetime="<?php echo date('Y-m-d', strtotime($newsData[0]->created_at)); ?>"><?php echo date('Y-m-d', strtotime($newsData[0]->created_at)); ?></time></a></li>
+                            <li class="d-flex align-items-center"><i class="bi bi-person newsAuthor"></i> <a
+                                    href="#"><?php echo $newsData[0]->author; ?></a></li>
+                            <li class="d-flex align-items-center"><i class="bi bi-clock newsTime"></i> <a href="#"><time
+                                        datetime="<?php echo date('Y-m-d', strtotime($newsData[0]->created_at)); ?>"><?php echo date('Y-m-d', strtotime($newsData[0]->created_at)); ?></time></a>
+                            </li>
                             <!-- <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li> -->
                         </ul>
                     </div>
@@ -59,7 +65,9 @@
                     <div class="entry-footer">
                         <i class="bi bi-folder"></i>
                         <ul class="cats">
-                            <li><a href="<?php echo base_url('/news/category/'.$newsData[0]->category_slug); ?>"><?php echo $newsData[0]->category; ?></a></li>
+                            <li><a
+                                    href="<?php echo base_url('/news/category/'.$newsData[0]->category_slug); ?>"><?php echo $newsData[0]->category; ?></a>
+                            </li>
                         </ul>
 
                         <i class="bi bi-tags"></i>
@@ -72,12 +80,14 @@
                 <!-- End blog entry -->
 
                 <div class="blog-author d-flex align-items-center">
-                    <img src="<?php echo $newsData[0]->author_photo == '' ? base_url('assets/img/user.png') : base_url('uploads/users/'.$newsData[0]->author_photo); ?>" class="rounded float-left" alt="">
+                    <img src="<?php echo $newsData[0]->author_photo == '' ? base_url('assets/img/user.png') : base_url('uploads/users/'.$newsData[0]->author_photo); ?>"
+                        class="rounded float-left" alt="">
                     <div>
                         <h4 class="newsAuthor"><?php echo $newsData[0]->author; ?></h4>
                         <div class="social-links">
                             <?php foreach ($newsData[0]->socials as $social) : ?>
-                                <a href="<?php echo $social->link; ?>"><i class="bi bi-<?php echo $social->social; ?>"></i></a>
+                            <a href="<?php echo $social->link; ?>"><i
+                                    class="bi bi-<?php echo $social->social; ?>"></i></a>
                             <?php endforeach; ?>
                         </div>
                         <p>
