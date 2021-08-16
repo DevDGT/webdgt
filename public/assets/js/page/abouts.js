@@ -55,7 +55,7 @@ function addTeam() {
       let teams = '';
       let ceo = '';
       $.each(response.data, function (i, items) {
-        // console.log(response);
+        console.log(response);
         if (i == 0) {
           ceo = `
           <div class="col-lg-12">
@@ -80,13 +80,13 @@ function addTeam() {
               <div class="member w-100 h-100 bg-black aos-init aos-animate d-flex justify-content-center" data-aos="fade-up">
                 <div class="card" style="width: 20rem; max-height:60vh; border:none;">
                   <img src="${BASE_URL}/uploads/users/${items.photo == '' ? 'default.png' : items.photo}" alt="${items.name}" style="width:100%; height:15vw; object-fit: cover;">
-                  <div class="social">`;
+                  <div class="social d-flex flex-row">`;
           $.each(items.socials, function (i, social) {
             teams += `<a href="${social.link}" target="_blank"><i class="bi bi-${social.social}"></i></a>`;
           });
           teams += `</div>
                     <div class="card-body">
-                      <h5 class="card-title">${items.name}</h5>
+                      <h5 class="card-title">${items.name}</h5><a href="${BASE_URL}/teams/?name=${items.username}" target="_blank"><i class="bx bi-eye-fill"></i></a>
                       <p class="card-text">${items.jobs}</p>
                       <p class="card-text d-inline-block text-truncate" style="max-width: -webkit-fill-available;">
                       <i class="bx bxs-quote-alt-left quote-icon-left"></i>

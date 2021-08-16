@@ -216,13 +216,14 @@ class PublicApi extends BaseController
     public function teamsPage()
     {
         try {
-
             $id = getUrlParam('id');
             $username = getUrlParam('username');
 
             $this->builder = $this->db->table('web');
             $this->builder->select('html, css, js');
-            if ($id != '') $this->builder->where(EncKey('user_id'), $id);
+            if ($id != '') {
+                $this->builder->where(EncKey('user_id'), $id);
+            }
             if ($username != '') {
                 $this->builder->join('users u', 'u.id = web.user_id', 'left');
                 $this->builder->where('username', $username);
@@ -230,11 +231,12 @@ class PublicApi extends BaseController
 
             $data = $this->builder->get()->getRowArray();
 
-            if (!$data) throw new \Exception("data tidak ditemukan");
-
+            if (!$data) {
+                throw new \Exception('data tidak ditemukan');
+            }
             $result = [
                 'status' => 'ok',
-                'data' => $data
+                'data' => $data,
             ];
         } catch (\Throwable $th) {
             $result = [
@@ -257,6 +259,7 @@ class PublicApi extends BaseController
             $this->builder = $this->db->table('teams t');
             $this->builder->select('
                 u.id,
+                u.username,
                 u.name,
                 u.quotes,
                 u.photo,
@@ -268,7 +271,7 @@ class PublicApi extends BaseController
             $this->builder->orderby('u.name', 'asc');
             $this->builder->where('u.active', '1');
             $teams = $this->builder->get()->getResultArray();
-            $field = ['name', 'quotes', 'photo', 'jobs'];
+            $field = ['username', 'name', 'quotes', 'photo', 'jobs'];
             $data = [];
             foreach ($teams as $field_) {
                 $row = [];

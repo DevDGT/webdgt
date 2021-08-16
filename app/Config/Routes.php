@@ -41,6 +41,10 @@ $routes->group('/abouts', ['namespace' => 'App\Controllers'], function ($routes)
     $routes->get('/', 'Abouts::index');
 });
 
+$routes->group('/teams', ['namespace' => 'App\Controllers'], function ($routes) {
+    $routes->get('/(:any)', 'Teams::index/$1');
+});
+
 $routes->group('/news', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->get('/', 'News::index');
     $routes->get('page', 'News::index');

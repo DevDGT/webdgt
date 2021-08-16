@@ -38,7 +38,7 @@
             <h2>About</h2>
             <ol>
                 <li><a href="<?php echo base_url(); ?>">Home</a></li>
-                <li>About</li>
+                <li><a href="#">About</a></li>
             </ol>
         </div>
 
