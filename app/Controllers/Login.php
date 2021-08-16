@@ -94,7 +94,7 @@ class Login extends BaseController
                 'message' => 'Session destroyed'
             ];
         } catch (\Exception $ex) {
-            [
+            $message = [
                 'status' => 'fail',
                 'message' => $ex->getMessage()
             ];
