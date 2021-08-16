@@ -24,11 +24,9 @@ iframe {
         <h2 id="pagesName"></h2>
     </div>
 
-    <!-- <iframe id="myPages"> -->
     <style id="myPagesCss"></style>
     <div id="myPagesHtml" class="container"></div>
     <script id="myPagesJs"></script>
-    <!-- </iframe> -->
 
 </section>
 

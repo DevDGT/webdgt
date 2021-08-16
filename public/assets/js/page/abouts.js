@@ -79,14 +79,18 @@ function addTeam() {
             <div class="col-12 p-3 teamImg">
               <div class="member w-100 h-100 bg-black aos-init aos-animate d-flex justify-content-center" data-aos="fade-up">
                 <div class="card" style="width: 20rem; max-height:60vh; border:none;">
-                  <img src="${BASE_URL}/uploads/users/${items.photo == '' ? 'default.png' : items.photo}" alt="${items.name}" style="width:100%; height:15vw; object-fit: cover;">
+                  <img src="${BASE_URL}/uploads/users/${items.photo == '' ? 'default.png' : items.photo}" alt="${items.name}" style="width:100%; height:15vw; object-fit: cover; ">
                   <div class="social d-flex flex-row">`;
           $.each(items.socials, function (i, social) {
             teams += `<a href="${social.link}" target="_blank"><i class="bi bi-${social.social}"></i></a>`;
           });
           teams += `</div>
                     <div class="card-body">
-                      <h5 class="card-title">${items.name}</h5><a href="${BASE_URL}/teams/?name=${items.username}" target="_blank"><i class="bx bi-eye-fill"></i></a>
+                      <h5 class="card-title">${items.name}</h5>
+                      <div class="container d-flex flex-row justify-content-evenly">
+                      <a href="${BASE_URL}/teams/?name=${items.username}&onweb=false" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Outside Web"><i class="bx bi-eye"></i></a>
+                      <a href="${BASE_URL}/teams/?name=${items.username}&onweb=true" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Inside Web"><i class="bx bi-eye-fill"></i></a>
+                      </div>
                       <p class="card-text">${items.jobs}</p>
                       <p class="card-text d-inline-block text-truncate" style="max-width: -webkit-fill-available;">
                       <i class="bx bxs-quote-alt-left quote-icon-left"></i>
