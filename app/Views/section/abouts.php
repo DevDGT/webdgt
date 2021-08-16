@@ -22,6 +22,7 @@
 
     /* Full height */
     height: 100%;
+    width: 100%;
 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
@@ -46,7 +47,7 @@
 
 <div class="parallax">
     <section id="team" class="team" data-aos="fade-up">
-        <div class="container-fluid" style="height:20rem;">
+        <div class="container-fluid" style="height:15rem;">
         </div>
         <div class="container">
 
@@ -82,41 +83,41 @@
                 </div>
 
                 <div class="col-lg-12 aos-init">
-                    <div class="member aos-init aos-animate d-flex" data-aos="fade-up" style="border-radius:10rem;">
+                    <div class="member aos-init aos-animate d-flex rounded-pill" data-aos="fade-up">
                         <div class="align-self-center">
                             <h2 class="text-center text-uppercase pt-2 font-monospace">Dian Global Tech Is</h2>
                             <div class="container-fluid mt-4">
 
                                 <div class="row justify-content-center">
-                                    <!-- <div class="col-lg-2">
-                                    
-                                </div> -->
-                                    <div class="col-lg-10" style="height: 30rem;">
+                                    <div class="col-lg-2"></div>
+                                    <div class="col-lg-8" style="height: 20rem;">
                                         <iframe class="w-100 h-100" src="https://www.youtube.com/embed/m2dCMOed7ww"
                                             title="YouTube video player" frameborder="0"
                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                             allowfullscreen>
                                         </iframe>
                                     </div>
-                                    <!-- <div class="col-lg-2">
-
-                                </div> -->
+                                    <div class="col-lg-2"></div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-lg-12 mt-2">
-                                        <p class="text-center text-wrap font-monospace fs-5">
-                                            Dian Global Tech is an INFORMATION AND TECHNOLOGY (IT)
-                                            consulting services company established in October 2009
-                                            by experienced practitioners in their respective fields.
-                                        </p>
-                                        <p class="text-center text-wrap font-monospace fs-5">
-                                            We start our journey in SISTEM INFORMASI MANAJEMEN SEKOLAH (SIMS) and now,
-                                            we create custom made apps based on our partners and clients demands.
-                                            With a wide network, professionalism and commitment, we are able to
-                                            consistently
-                                            provide high quality services, and CUSTOMER SATISFACTION IS EVERYTHING to us
-                                        </p>
+                                        <div class="container-fluid" style="width:80%">
+                                            <p class="text-center font-monospace fs-5">
+                                                Dian Global Tech is an INFORMATION AND TECHNOLOGY (IT)
+                                                consulting services company established in October 2009
+                                                by experienced practitioners in their respective fields.
+                                            </p>
+                                            <p class="text-center font-monospace fs-5">
+                                                We start our journey in SISTEM INFORMASI MANAJEMEN SEKOLAH (SIMS) and
+                                                now,
+                                                we create custom made apps based on our partners and clients demands.
+                                                With a wide network, professionalism and commitment, we are able to
+                                                consistently
+                                                provide high quality services, and CUSTOMER SATISFACTION IS EVERYTHING
+                                                to us
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -133,7 +134,7 @@
 </div>
 
 <section id="about-us" class="about-us">
-    <div class="container aos-init aos-animate" data-aos="fade-up">
+    <div class="container" data-aos="fade-up">
 
         <div class="section-title aos-init aos-animate" data-aos="fade-up">
             <h2>Our <strong>Mission</strong></h2>

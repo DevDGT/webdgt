@@ -55,6 +55,7 @@ function addTeam() {
       let teams = '';
       let ceo = '';
       $.each(response.data, function (i, items) {
+        // console.log(response);
         if (i == 0) {
           ceo = `
           <div class="col-lg-12">

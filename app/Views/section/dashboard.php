@@ -55,10 +55,10 @@
                 <div class="row">
                     <div class="col"></div>
                     <h2>About Us</h2>
-                    <div class="text-wrap" style="width: auto;">
+                    <div class="text-wrap text-center">
                         Dian Global Tech is an INFORMATION AND TECHNOLOGY (IT)
                         consulting services company established in October 2009
-                        by experienced practitioners in their respective fields.
+                        </br>by experienced practitioners in their respective fields.
                     </div>
                 </div>
             </div>
