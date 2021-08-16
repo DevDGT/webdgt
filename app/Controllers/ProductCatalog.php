@@ -38,9 +38,9 @@ class ProductCatalog extends BaseController
         $productsData = json_decode($jsonData);
         // $jsonSubData = $this->api->get($this->apiPath.'/public/get/products-demo/'.$productsData->data[0]->id);
         // $productsSubData = json_decode($jsonSubData);
-        // if ($productsData->count <= 0) {
-        //     throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
-        // }
+        if ($productsData->count <= 0) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
 
         // echo '<pre>';
         // print_r($productsData->data[0]->id);

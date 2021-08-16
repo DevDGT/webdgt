@@ -148,13 +148,12 @@ async function getSelected(id) {
 async function getProductData() {
     return new Promise((resolve) => {
         {
-            var idProduct = $('#productDetail').attr('data-id');
-            var dataCataProductsAPI = `${API_PATH}public/get/products-demo?id=` + idProduct;
+            let idProduct = $('#productDetail').attr('data-id');
+            let dataCataProductsAPI = `${API_PATH}public/get/products-demo?id=` + idProduct;
             $.getJSON(dataCataProductsAPI, {
                 format: "json",
             }).done(function (response) {
-                console.log(response);
-                var lCategory = response.count;
+                let lCategory = response.count;
                 let catDetail = `<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-touch="false" data-bs-interval="false">`;
                 catDetail += `<div class="carousel-indicators">`;
                 for (let i = 0; i < lCategory; i++) {
@@ -163,8 +162,6 @@ async function getProductData() {
                 catDetail += `</div>`;
                 catDetail += `<div class="carousel-inner">`;
                 $.each(response.data, function (i, items) {
-                    // console.log('Items  : ' + items);
-                    // console.log('I : ==== ' + i);
                     catDetail += `
                     <div class="carousel-item ${i === 0 ? 'active' : ''}">
                         <div class="row">
@@ -197,13 +194,11 @@ async function getProductData() {
     });
 };
 
-// async function getOtherVideo() { }
 
 async function initFetch() {
-    // console.log("initFetch");
     await getProductData();
     await getCategory();
     await getProduct();
     await getClients();
-    await usersProduct();
+    usersProduct();
 };

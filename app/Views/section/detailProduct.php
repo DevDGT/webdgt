@@ -30,8 +30,8 @@
     <div class="container">
 
         <div class="section-title aos-init aos-animate" data-aos="fade-up" id="productDetail"
-            data-id="<?php echo $productsData['0']->id; ?>">
-            <h2><?php echo $productsData['0']->name; ?> Detail</h2>
+            data-id="<?php echo $productsData['0']->id ?? ''; ?>">
+            <h2><?php echo $productsData['0']->name ?? ''; ?> Detail</h2>
         </div>
 
         <div class="member aos-init aos-animate" data-aos="fade-up">
@@ -39,7 +39,7 @@
             <div class="container-fluid">
                 <div class="row justify-content-center">
                     <div class="col-lg-10" style="height: 30rem;">
-                        <iframe class="w-100 h-100" src="<?php echo $productsData['0']->video; ?>?controls=0"
+                        <iframe class="w-100 h-100" src="<?php echo $productsData['0']->video ?? ''; ?>?controls=0"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen>
@@ -48,9 +48,9 @@
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-lg-10">
-                        <h5 class="card-title"><?php echo $productsData['0']->name; ?></h5>
-                        <p class="card-text"><?php echo $productsData['0']->description; ?></p>
-                        <h5 class="card-title">Other Videos <?php echo $productsData['0']->name; ?></h5>
+                        <h5 class="card-title"><?php echo $productsData['0']->name ?? ''; ?></h5>
+                        <p class="card-text"><?php echo $productsData['0']->description ?? ''; ?></p>
+                        <h5 class="card-title">Other Videos <?php echo $productsData['0']->name ?? ''; ?></h5>
                         <div id="carouselProduct"></div>
                         <h5 class="card-title">Download Catalog</h5>
                         <div id="catalogProduct"></div>
