@@ -12,8 +12,8 @@
         <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
                 <li class="nav-item"><a href="<?php echo base_url('/news'); ?>">News</a></li>
-                <li class="nav-item"><a href="<?php echo base_url('/abouts'); ?>">About Us</a></li>
                 <li class="nav-item"><a href="<?php echo base_url('/product'); ?>">Product</a></li>
+                <li class="nav-item"><a href="<?php echo base_url('/abouts'); ?>">About Us</a></li>
                 <li class="nav-item"><a href="<?php echo base_url('/contact'); ?>">Contact</a></li>
                 <li class="nav-item dropdown">
                     <a href="#">Company Profile<i class="bi bi-chevron-down"></i></a>
