@@ -172,8 +172,8 @@ async function getSelected(id) {
           products += ``;
         } else {
           products += `
-                      <div class="col-lg-2 p-2 portfolio-item filter-${items.id_category_product} ">
-                          <div class='card h-100 shadow-sm'>
+                      <div class="col-lg-2 p-2 portfolio-item filter-${items.id_category_product}">
+                          <div class="card h-100 shadow-sm">
                               <a href="${BASE_URL + '/product/detail/' + items.slug}" class="text-decoration-none">
                                 <img src="${BASE_URL}/uploads/products/${items.icon}"class="card-img-top" alt="${items.name}">
                               </a>
