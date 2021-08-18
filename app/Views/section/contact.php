@@ -19,7 +19,11 @@
 </div>
 
 <section id="contact" class="contact">
-    <div class="container">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Our Location</h2>
+        </div>
 
         <div class="row justify-content-center" data-aos="fade-up">
 
@@ -56,7 +60,7 @@
 
         <div class="row mt-5 justify-content-center" data-aos="fade-up">
             <div class="col-lg-10">
-                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <form action="#" method="post" role="form" class="php-email-form">
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
@@ -88,3 +92,40 @@
 
     </div>
 </section>
+
+<section id="faq" class="faq">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Frequently Asked Questions</h2>
+        </div>
+
+        <div class="faq-list">
+            <ul class="border border-success">
+                <li data-aos="fade-up">
+                    <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse"
+                        data-bs-target="#faq-list-1">Lorem Ipsum<i class="bx bx-chevron-down icon-show"></i><i
+                            class="bx bx-chevron-up icon-close"></i></a>
+                    <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
+                        <p>
+                            Lorem Ipsum
+                        </p>
+                    </div>
+                </li>
+
+                <li data-aos="fade-up" data-aos-delay="100">
+                    <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
+                        data-bs-target="#faq-list-2" class="collapsed">Lorem Ipsum<i
+                            class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                    <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
+                        <p>
+                            Lorem Ipsum
+                        </p>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+</section

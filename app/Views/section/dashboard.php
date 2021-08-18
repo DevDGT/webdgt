@@ -1,7 +1,7 @@
 <style>
-.services .icon-box {
+/* .services .icon-box {
     padding: 10px 60px 10px 60px;
-}
+} */
 
 .clients .client-logo img {
     height: -webkit-fill-available;
@@ -45,77 +45,73 @@
     </section> -->
     <!-- End Hero Section -->
 
-    <!-- About Section -->
-    <section id="aboutSection" class="services">
+    <section id="breadcrumbs" class="aos-init aos-animate">
+    </section>
 
-        <div class="section-title">
-            <div class="container-fluid" style="height:5rem;">
+    <!-- About Section -->
+    <section id="aboutSection" class="services p-0">
+
+        <div class="container aos-init aos-animate">
+            <div class="section-title" data-aos="zoom-out" data-aos-delay="100">
+                <h2>About Us</h2>
             </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col"></div>
-                    <h2>About Us</h2>
-                    <div class="text-wrap text-center">
-                        Dian Global Tech is an INFORMATION AND TECHNOLOGY (IT)
-                        consulting services company established in October 2009
-                        </br>by experienced practitioners in their respective fields.
-                    </div>
-                </div>
+            <div class="text-wrap text-center" data-aos="zoom-out" data-aos-delay="200">
+                Dian Global Tech is an INFORMATION AND TECHNOLOGY (IT)
+                consulting services company established in October 2009
+                </br>by experienced practitioners in their respective fields.
             </div>
         </div>
 
-        <div class="container aos-init aos-animate" data-aos="fade-up">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-6 col-md-4 aos-init aos-animate p-2" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="icon-box iconbox-blue">
-                            <div class="icon">
-                                <img src="<?php echo base_url('uploads/aboutus/Tech_Support@4x-8.png'); ?>" width="100"
-                                    height="100">
-                            </div>
-                            <h4><a href="#">Tech Support</a></h4>
-                            <div class="text-wrap p-4" style="width: auto;">
-                                <p>Provide help regarding specific problems with a product or service in IT field</p>
-                            </div>
+        <div class="container p-4">
+            <div class="row aos-init aos-animate">
+                <div class="col-lg-6 col-md-4" data-aos="fade-right" data-aos-delay="400">
+                    <div class="icon-box iconbox-blue p-0">
+                        <div class="icon">
+                            <img src="<?php echo base_url('uploads/aboutus/Tech_Support@4x-8.png'); ?>" width="80"
+                                height="80">
+                        </div>
+                        <h5 class="text-uppercase">Tech Support</h5>
+                        <div class="text-break">
+                            <p>Provide help regarding specific problems with a product or service in IT field</p>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-4 aos-init aos-animate p-2" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="icon-box iconbox-blue">
-                            <div class="icon">
-                                <img src="<?php echo base_url('uploads/aboutus/Consulting@4x-8.png'); ?>" width="100"
-                                    height="100">
-                            </div>
-                            <h4><a href="#">It Consulting</a></h4>
-                            <div class="text-wrap p-4" style="width: auto;">
-                                <p>Provides expert advice on how best to use IT in achieving your business objectives
-                                </p>
-                            </div>
+                </div>
+                <div class="col-lg-6 col-md-4" data-aos="fade-left" data-aos-delay="600">
+                    <div class="icon-box iconbox-blue p-0">
+                        <div class="icon">
+                            <img src="<?php echo base_url('uploads/aboutus/Consulting@4x-8.png'); ?>" width="80"
+                                height="80">
+                        </div>
+                        <h5 class="text-uppercase">It Consulting</h5>
+                        <div class="text-break">
+                            <p>Provides expert advice on how best to use IT in achieving your business objectives
+                            </p>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-4 aos-init aos-animate p-2" data-aos="zoom-in" data-aos-delay="300">
-                        <div class="icon-box iconbox-blue">
-                            <div class="icon">
-                                <img src="<?php echo base_url('uploads/aboutus/App_Dev@4x-8.png'); ?>" width="100"
-                                    height="100">
-                            </div>
-                            <h4><a href="#">App Dev</a></h4>
-                            <div class="text-wrap p-4" style="width: auto;">
-                                <p>Creating, testing and programming apps for computers, mobile phones, and other types
-                                    of
-                                    electronic devices.</p>
-                            </div>
+                </div>
+                <div class="col-lg-6 col-md-4" data-aos="fade-right" data-aos-delay="800">
+                    <div class="icon-box iconbox-blue p-0">
+                        <div class="icon">
+                            <img src="<?php echo base_url('uploads/aboutus/App_Dev@4x-8.png'); ?>" width="80"
+                                height="80">
+                        </div>
+                        <h5 class="text-uppercase">App Dev</h5>
+                        <div class="text-break">
+                            <p>Creating, testing and programming apps for computers, mobile phones, and other types
+                                of
+                                electronic devices.</p>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-4 aos-init aos-animate p-2" data-aos="zoom-in" data-aos-delay="400">
-                        <div class="icon-box iconbox-blue">
-                            <div class="icon">
-                                <img src="<?php echo base_url('uploads/aboutus/Training@4x-8.png'); ?>" width="100"
-                                    height="100">
-                            </div>
-                            <h4><a href="">Training</a></h4>
-                            <div class="text-wrap p-4" style="width: auto;">
-                                <p>Teaching or developing any skills and knowledge that relate to IT field</p>
-                            </div>
+                </div>
+                <div class="col-lg-6 col-md-4" data-aos="fade-left" data-aos-delay="1000">
+                    <div class="icon-box iconbox-blue p-0">
+                        <div class="icon">
+                            <img src="<?php echo base_url('uploads/aboutus/Training@4x-8.png'); ?>" width="80"
+                                height="80">
+                        </div>
+                        <h5 class="text-uppercase">Training</h5>
+                        <div class="text-break">
+                            <p>Teaching or developing any skills and knowledge that relate to IT field</p>
                         </div>
                     </div>
                 </div>
@@ -125,9 +121,13 @@
     </section>
     <!-- End About Section -->
 
+    <!-- Testimonial Section -->
     <section id="testimonials" class="testimonials p-0">
-        <div class="container-fluid aos-init aos-animate" data-aos="fade-up">
-            <div class="row testimonial-item border border-success">
+        <div class="container aos-init aos-animate">
+            <div class="section-title" data-aos="zoom-out" data-aos-delay="1100">
+                <h2>Our Products</h2>
+            </div>
+            <div class="row p-2" data-aos="zoom-out" data-aos-delay="1200">
                 <div class="col-lg-6">
                     <div class="card" style="width: auto; border: none;">
                         <iframe width="auto" height="320" src="https://www.youtube.com/embed/NOAtMfUAe5U"
@@ -176,19 +176,25 @@
                     </div>
                 </div>
             </div>
+            <div class="row" data-aos="zoom-in" data-aos-delay="1400">
+                <div class="col-lg-12">
+                    <a class="btn btn-success" href="<?php echo base_url('/product'); ?>" role="button">More Product</a>
+                </div>
+            </div>
         </div>
     </section>
+    <!-- End Testimonial Section -->
 
     <!-- Client Section -->
-    <section id="clients" class="clients pt-4">
-        <div class="container aos-init aos-animate" data-aos="fade-up">
+    <section id="clients" class="clients pt-0">
+        <div class="container aos-init aos-animate">
 
-            <div class="section-title">
+            <div class="section-title" data-aos="zoom-out" data-aos-delay="1500">
                 <h2>Users</h2>
             </div>
 
-            <div class="row no-gutters clients-wrap clearfix aos-init aos-animate clientSlick" style="border:none;"
-                id="clientsData" data-aos="fade-up">
+            <div class="row no-gutters clients-wrap clearfix clientSlick" style="border:none;" id="clientsData"
+                data-aos="fade-down" data-aos-delay="1600">
             </div>
 
         </div>
