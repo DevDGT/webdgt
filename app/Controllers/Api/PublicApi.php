@@ -434,4 +434,31 @@ class PublicApi extends BaseController
             echo json_encode($result);
         }
     }
+
+    public function getFaq()
+    {
+        try {
+            $faq = $this->db->table('faq')
+                ->select(EncKey('id') . 'id ,question, answers')
+                ->where('active', '1')
+                ->orderby('id', 'desc')->get()->getResult();
+            $result = [
+                'status' => 'ok',
+                'count' => count($faq),
+                'data' => $faq,
+            ];
+        } catch (\Throwable $th) {
+            $result = [
+                'status' => 'fail',
+                'message' => $th->getMessage(),
+            ];
+        } catch (\Exception $ex) {
+            $result = [
+                'status' => 'fail',
+                'message' => $ex->getMessage(),
+            ];
+        } finally {
+            echo json_encode($result);
+        }
+    }
 }

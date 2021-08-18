@@ -172,6 +172,16 @@ $routes->group('ruangadmin', ['namespace' => 'App\Controllers\Admin'], function 
         $routes->post('set-multiple', 'ClientsOrders::setMultiple');
     });
 
+    $routes->group('faq', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
+        $routes->get('/', 'Faq::index');
+        $routes->post('store', 'Faq::store');
+        $routes->post('delete', 'Faq::delete');
+        $routes->post('update', 'Faq::update');
+        $routes->post('delete-multiple', 'Faq::deleteMultiple');
+        $routes->post('set/(:any)', 'Faq::set_/$1');
+        $routes->post('set-multiple', 'Faq::setMultiple');
+    });
+
     // Article Management routes
     $routes->group('article', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
         $routes->get('/', 'Article::index');
@@ -207,6 +217,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('profile', 'Admin::dataProfile');
         $routes->post('clients-orders', 'Admin::dataClientsOrders');
         $routes->post('user-socials', 'Admin::userSocials');
+        $routes->post('faq', 'Admin::dataFaq');
     });
 
     $routes->group('row', ['namespace' => 'App\Controllers\Api'], function ($routes) {
@@ -221,6 +232,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('productsDemo/(:any)', 'Admin::getRowProductsDemo/$1');
         $routes->post('clients-orders/(:any)', 'Admin::getRowClientsOrders/$1');
         $routes->post('profile-social/(:any)', 'Admin::getRowProfileSocial/$1');
+        $routes->post('faq/(:any)', 'Admin::getRowFaq/$1');
     });
 
     $routes->group('public', ['namespace' => 'App\Controllers\Api'], function ($routes) {
@@ -237,6 +249,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
             $routes->get('products-demo', 'PublicApi::getProductsDemo');
             $routes->get('products/demo/(:any)', 'PublicApi::getProductsDemo/$1');
             $routes->get('products/(:any)', 'PublicApi::getProducts/$1');
+            $routes->get('faq', 'PublicApi::getFaq');
         });
     });
 });
