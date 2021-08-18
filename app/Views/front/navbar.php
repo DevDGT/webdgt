@@ -4,7 +4,7 @@
         <h1 class="logo me-auto">
             <!-- <a href="index.html"><span>Com</span>pany</a> -->
             <a href="<?php echo base_url('/home'); ?>" class="logo me-auto me-lg-0">
-                <img src="<?php echo base_url('assets/img/logo.png'); ?>" alt="logo" class="img-fluid">
+                <img src="<?php echo base_url('assets/img/logo.png'); ?>" alt="logo" style="object-fit:scale-down;">
             </a>
         </h1>
         <!-- Uncomment below if you prefer to use an image logo -->
