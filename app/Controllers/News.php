@@ -76,6 +76,8 @@ class News extends BaseController
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
         }
 
+        // print_r($newsData);
+
         $data = [
             'title' => $newsData->data[0]->title ?? '',
             'pageTitle' => $newsData->data[0]->title ?? '',

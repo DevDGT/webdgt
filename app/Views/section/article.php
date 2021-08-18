@@ -65,8 +65,10 @@
                     <div class="entry-footer">
                         <i class="bi bi-folder"></i>
                         <ul class="cats">
-                            <li><a
-                                    href="<?php echo base_url('/news/category/'.$newsData[0]->category_slug); ?>"><?php echo $newsData[0]->category; ?></a>
+                            <li>
+                                <a href="<?php echo base_url('/news/category/'.$newsData[0]->category_slug); ?>">
+                                    <?php echo $newsData[0]->category; ?>
+                                </a>
                             </li>
                         </ul>
 
@@ -89,6 +91,15 @@
                             <a href="<?php echo $social->link; ?>"><i
                                     class="bi bi-<?php echo $social->social; ?>"></i></a>
                             <?php endforeach; ?>
+                            <a href="<?php echo base_url('teams/?name='.$newsData[0]->username.'&onweb=false'); ?>"
+                                target="_blank">
+                                <i class="bi bi-eye"></i>
+                            </a>
+
+                            <a href="<?php echo base_url('teams/?name='.$newsData[0]->username.'&onweb=true'); ?>"
+                                target="_blank">
+                                <i class="bi bi-eye-fill"></i>
+                            </a>
                         </div>
                         <p>
                             <?php echo $newsData[0]->quotes; ?>

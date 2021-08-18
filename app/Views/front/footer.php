@@ -9,7 +9,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-2">
-                                <img src="<?php echo base_url('assets/img/logo.png'); ?>" alt="logo" class="img-fluid mx-2 p-2" width="50pt" height="auto">
+                                <img src="<?php echo base_url('assets/img/logo.png'); ?>" alt="logo"
+                                    class="img-fluid mx-2 p-2" width="50pt" height="auto">
                             </div>
                             <div class="col my-2">
                                 <h3 class="text-start fs-6">DIAN GLOBAL TECH</h3>
@@ -20,9 +21,12 @@
                             <div class="col-auto">
                                 <div class="social-links d-flex flex-col pt-3 pt-md-0">
                                     <div class="container justify-content-evenly">
-                                        <a href="https://bit.ly/35Fqhft" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
-                                        <a href="https://bit.ly/35FkiHm" class="youtube"><i class="bx bxl-youtube"></i></a>
-                                        <a href="https://bit.ly/3vg1A3u" target="_blank" class="whatsapp"><i class="bu bi-whatsapp"></i></a>
+                                        <a href="https://bit.ly/35Fqhft" target="_blank" class="instagram"><i
+                                                class="bx bxl-instagram"></i></a>
+                                        <a href="https://bit.ly/35FkiHm" class="youtube"><i
+                                                class="bx bxl-youtube"></i></a>
+                                        <a href="https://bit.ly/3vg1A3u" target="_blank" class="whatsapp"><i
+                                                class="bu bi-whatsapp"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -34,27 +38,32 @@
                     <div class="container">
                         <div class="row align-items-start">
                             <div class="col-sm-12">
-                                <p class="text-start fs-6"><i class="bi bi-house-door mx-2"></i>Adress 1: Jl.Saturnus Timur III BLOK 9 R No 7, Margayu Raya, Bandung</p>
+                                <p class="text-start fs-6"><i class="bi bi-house-door mx-2"></i>Adress 1: Jl.Saturnus
+                                    Timur III BLOK 9 R No 7, Margayu Raya, Bandung</p>
                             </div>
                         </div>
                         <div class="row align-items-start">
                             <div class="col-sm-12">
-                                <p class="text-start fs-6"><i class="bi bi-house-door mx-2"></i>Adress 2: Jl.Neptunus Timur III A 27 No 10, Margayu Raya, Bandung</p>
+                                <p class="text-start fs-6"><i class="bi bi-house-door mx-2"></i>Adress 2: Jl.Neptunus
+                                    Timur III A 27 No 10, Margayu Raya, Bandung</p>
                             </div>
                         </div>
                         <div class="row align-items-start">
                             <div class="col-sm-12">
-                                <p class="text-start fs-6"><i class="bi bi-phone mx-2"></i>Mobile Phone : +628-1721-5496 / +628-1220-8717-67</p>
+                                <p class="text-start fs-6"><i class="bi bi-phone mx-2"></i>Mobile Phone : +628-1721-5496
+                                    / +628-1220-8717-67</p>
                             </div>
                         </div>
                         <div class="row align-items-start">
                             <div class="col-sm-12">
-                                <p class="text-start fs-6"><i class="bi bi-telephone mx-2"></i>Telephone : +62 22-875-13118 / +62 22-751-3012</p>
+                                <p class="text-start fs-6"><i class="bi bi-telephone mx-2"></i>Telephone : +62
+                                    22-875-13118 / +62 22-751-3012</p>
                             </div>
                         </div>
                         <div class="row align-items-start">
                             <div class="col-sm-12">
-                                <p class="text-start fs-6"><i class="bi bi-envelope mx-2"></i>Mail : info@dianglobaltech.co.id</p>
+                                <p class="text-start fs-6"><i class="bi bi-envelope mx-2"></i>Mail :
+                                    info@dianglobaltech.co.id</p>
                             </div>
                         </div>
                     </div>
@@ -65,15 +74,18 @@
                         <form action="" method="post" style='background: inherit;'>
                             <div class="row">
                                 <div class="col">
-                                    <input type="text" class="form-control form-control-sm" placeholder="Full Name" aria-label="Full Name">
+                                    <input type="text" class="form-control form-control-sm" placeholder="Full Name"
+                                        aria-label="Full Name">
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control form-control-sm" placeholder="Email" aria-label="Email">
+                                    <input type="text" class="form-control form-control-sm" placeholder="Email"
+                                        aria-label="Email">
                                 </div>
                             </div>
                             <div class="row my-3">
                                 <div class="col">
-                                    <input type="text" class="form-control form-control-sm" placeholder="Subject" aria-label="Subject">
+                                    <input type="text" class="form-control form-control-sm" placeholder="Subject"
+                                        aria-label="Subject">
                                 </div>
                             </div>
                             <div class="row my-3">
@@ -84,7 +96,8 @@
                             <div class="row my-3">
                                 <div class="col">
                                     <div class="d-grid">
-                                        <button type="button" class="btn btn-primary btn-sm btn-block"><i class="bi bi-envelope"></i></button>
+                                        <button type="button" class="btn btn-primary btn-sm btn-block"><i
+                                                class="bi bi-envelope"></i></button>
                                     </div>
                                 </div>
                             </div>

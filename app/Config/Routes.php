@@ -41,6 +41,10 @@ $routes->group('/abouts', ['namespace' => 'App\Controllers'], function ($routes)
     $routes->get('/', 'Abouts::index');
 });
 
+$routes->group('/contact', ['namespace' => 'App\Controllers'], function ($routes) {
+    $routes->get('/', 'Contact::index');
+});
+
 $routes->group('/teams', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->get('/(:any)', 'Teams::index/$1');
 });
