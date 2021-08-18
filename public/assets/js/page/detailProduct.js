@@ -10,7 +10,7 @@ $(document).ready(function () {
         $(this).addClass("filter-active");
         getSelected(id);
     });
-});
+})
 
 function usersProduct() {
     $(".userProduct").slick({
@@ -25,7 +25,7 @@ function usersProduct() {
         speed: 2000,
         centerMode: false,
     });
-};
+}
 
 async function getClients() {
     console.log("clientGet");
@@ -38,12 +38,12 @@ async function getClients() {
             let clients = "";
             $.each(response.data, function (i, items) {
                 clients += `
-                  <div class="col-lg-3 col-md-4 col-6">
-                      <div class="client-logo">
-                          <img src="${BASE_URL}/uploads/clients/${items.icon}" class="img-fluid" alt="${items.name}" title="${items.description}">
-                      </div>
-                  </div>
-                  `;
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <div class="client-logo">
+                            <img src="${BASE_URL}/uploads/clients/${items.icon}" class="img-fluid" alt="${items.name}" title="${items.description}">
+                        </div>
+                    </div>
+                    `;
                 $("#clientsData").html(clients);
                 // $('#clientsData').removeClass('d-none');
                 resolve(true);
@@ -55,7 +55,7 @@ async function getClients() {
 async function getProduct() {
     $("#coreCategory").addClass("filter-active");
     $(".options").removeClass("filter-active");
-    // console.log('getProduct');
+
     return new Promise((resolve) => {
         var productsAPI = `${API_PATH}/public/get/products`;
 
@@ -66,18 +66,18 @@ async function getProduct() {
             $.each(response.data, function (i, items) {
                 products += `
                     <div class="col-lg-2 p-2 portfolio-item filter-${items.id_category_product} ">
-                      <div class='card h-100 shadow-sm'>
+                        <div class='card h-100 shadow-sm'>
+                            <span class="text-center text-muted">${items.name}</span>
                             <a href="${BASE_URL + '/product/detail/' + items.slug}" class="text-decoration-none">
                                 <img src="${BASE_URL}/uploads/products/${items.icon}"class="card-img-top" alt="${items.name}">
                             </a>
-                          <div class="item-card position-absolute w-100" style="overflow:hidden">
-                              <div class='bg-white p-2 pb-3 portfolio-info shadow-sm' style='position:sticky; top:60%; opacity:0.8'>
-                                <h4>${items.name}</h4>
-                                <p class="text-truncate">${items.description}</p>
-                                <a href="${BASE_URL + '/product/detail/' + items.slug}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                              </div>
-                          </div>
-                      </div>
+                            <div class="item-card position-absolute w-100" style="overflow:hidden">
+                                <div class='bg-white p-2 pb-3 portfolio-info shadow-sm' style='position:sticky; top:60%; opacity:0.8'>
+                                    <p class="text-truncate">${items.description}</p>
+                                    <a href="${BASE_URL + '/product/detail/' + items.slug}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     `;
                 $("#productData").html(products);
@@ -85,7 +85,7 @@ async function getProduct() {
             });
         });
     });
-};
+}
 
 async function getCategory() {
     return new Promise((resolve) => {
@@ -105,7 +105,7 @@ async function getCategory() {
             });
         }
     });
-};
+}
 
 async function getSelected(id) {
     return new Promise((resolve) => {
@@ -123,18 +123,18 @@ async function getSelected(id) {
                     products += `
                         <div class="col-lg-2 p-2 portfolio-item filter-${items.id_category_product} ">
                             <div class='card h-100 shadow-sm'>
+                                <span class="text-center text-muted">${items.name}</span>
                                 <a href="${BASE_URL + '/product/detail/' + items.slug}" class="text-decoration-none">
                                     <img src="${BASE_URL}/uploads/products/${items.icon}"class="card-img-top" alt="${items.name}">
                                 </a>
                                 <div class="item-card position-absolute w-100" style="overflow:hidden">
                                     <div class='bg-white p-2 pb-3 portfolio-info shadow-sm' style='position:sticky; top:60%; opacity:0.8'>
-                                        <h4>${items.name}</h4>
                                         <p class="text-truncate">${items.description}</p>
                                         <a href="${BASE_URL + '/product/detail/' + items.slug}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                                     </div>
                                 </div>
                             </div>
-                            </div>
+                        </div>
                         `;
                 }
                 $("#productData").html(products);
@@ -143,7 +143,7 @@ async function getSelected(id) {
             });
         });
     });
-};
+}
 
 async function getProductData() {
     return new Promise((resolve) => {
@@ -192,7 +192,7 @@ async function getProductData() {
             });
         }
     });
-};
+}
 
 
 async function initFetch() {
@@ -201,4 +201,4 @@ async function initFetch() {
     await getProduct();
     await getClients();
     usersProduct();
-};
+}
