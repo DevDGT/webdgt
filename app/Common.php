@@ -18,7 +18,7 @@ for ($i = 0; $i < count($didArray) - 2; ++$i) {
     $filesDir .= $didArray[$i].'\\';
 }
 
-define('FILES_DIR', $filesDir.'public_html');
+define('FILESDIR', $filesDir.'public_html');
 
 function getUrlParam($param, $default = '')
 {
