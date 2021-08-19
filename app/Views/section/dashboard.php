@@ -119,7 +119,7 @@
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen>
                             </iframe>
-                            <div class="card-body">
+                            <div class="card-body text-center">
                                 <h5 class="card-title">Aplikasi Sistem Informasi SIADES</h5>
                                 <p class="card-text">Aplikasi Sistem Informasi SIADES</p>
                             </div>
@@ -133,7 +133,7 @@
                                 allowfullscreen>
                             </iframe>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body text-center">
                             <h5 class="card-title">Aplikasi Sistem Informasi Smart School</h5>
                             <p>Aplikasi Sistem Informasi Smart School</p>
                         </div>
@@ -148,7 +148,7 @@
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen></iframe>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body text-center">
                             <h5 class="card-title">Aplikasi Sistem Informasi Manajemen E-Campus</h5>
                             <p>Aplikasi Sistem Informasi Manajemen E-Campus</p>
                         </div>
