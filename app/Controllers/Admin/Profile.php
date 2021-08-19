@@ -54,7 +54,8 @@ class Profile extends BaseController
 
                 // jika phptp ada maka hapus filenya
                 if ($oldPhoto != '') {
-                    $path = ROOTPATH.'public/uploads/users/'.$oldPhoto;
+                    // $path = ROOTPATH.'public/uploads/users/'.$oldPhoto;
+                    $path = FILESDIR.'/uploads/users/'.$oldPhoto;
                     if (file_exists($path)) {
                         unlink($path);
                     }
@@ -106,7 +107,7 @@ class Profile extends BaseController
             $file = $this->request->getFile('photo');
             $fileName = time().'_'.$file->getName();
             session()->set('photo', $fileName);
-            $path = FILESDIR.'public_html/uploads/users/';
+            $path = FILESDIR.'/uploads/users/';
             $file->move($path, $fileName);
             $result = Update($this->table, ['photo' => $fileName], ['id' => session('userId')]);
         } catch (\Throwable $th) {
