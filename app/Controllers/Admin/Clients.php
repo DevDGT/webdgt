@@ -84,7 +84,7 @@ class Clients extends BaseController
 
                 // jika cover ada maka hapus filenya
                 if ($iconOld != "") {
-                    $path = ROOTPATH . 'public/uploads/clients/' . $iconOld;
+                    $path = FILESDIR . '/uploads/clients/' . $iconOld;
                     if (file_exists($path)) unlink($path);
                 }
 
@@ -295,7 +295,7 @@ class Clients extends BaseController
             if ($validated == false) throw new \Exception($this->validator->listErrors());
             $file = $this->request->getFile('icon');
             $fileName = time() . "_" . $file->getName();
-            $path = ROOTPATH . 'public/uploads/clients/';
+            $path = FILESDIR . '/uploads/clients/';
             $file->move($path, $fileName);
             $result = Update($this->table, ['icon' => $fileName], $idArticle);
         } catch (\Throwable $th) {

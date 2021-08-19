@@ -319,6 +319,18 @@ class Admin extends BaseController
         ]);
     }
 
+    public function dataFaq()
+    {
+        return $this->dataTables([
+            'table' => 'faq',
+            'selectData' => "id, question, answers, active",
+            'field' => ['question', 'answers', 'active'],
+            'columnOrder' => [null, 'question', 'answers', 'active'],
+            'columnSearch' => ['question', 'answer'],
+            'order' => ['id' => 'desc']
+        ]);
+    }
+
     public function dataArticle()
     {
         // $userFilter = session('level') != "1" ? ['a.user_id' => session('userId')] : '';
@@ -474,6 +486,15 @@ class Admin extends BaseController
             'select' => "id, user_id, social, link",
             'where' => [EncKey('id') => $id],
             'guard' => ['user_id:hash']
+        ]);
+    }
+
+    public function getRowFaq($id)
+    {
+        return $this->getRowTable([
+            'table' => 'faq',
+            'select' => "id, question, answers",
+            'where' => [EncKey('id') => $id],
         ]);
     }
 

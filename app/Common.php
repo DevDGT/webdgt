@@ -11,14 +11,14 @@ define('ADMIN_PATH', '/ruangadmin');
 define('API_PATH', '/api');
 define('SALT', 'hehehehe');
 
-$didArray = explode(DIRECTORY_SEPARATOR, __DIR__);
+$dirArray = explode(DIRECTORY_SEPARATOR, __DIR__);
 $filesDir = '';
 
-for ($i = 0; $i < count($didArray) - 2; ++$i) {
-    $filesDir .= $didArray[$i].'\\';
+for ($i = 0; $i < count($dirArray) - 2; $i++) {
+    $filesDir .= $dirArray[$i] . DIRECTORY_SEPARATOR;
 }
 
-define('FILESDIR', $filesDir.'public_html');
+define('FILESDIR', $filesDir . "public_html");
 
 function getUrlParam($param, $default = '')
 {

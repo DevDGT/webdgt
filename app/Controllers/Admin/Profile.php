@@ -14,6 +14,10 @@ class Profile extends BaseController
 
     public function index()
     {
+        echo __DIR__ . "<br>";
+        echo FILESDIR;
+        Print_(FILESDIR, false, false);
+        exit();
         $data = [
             'title' => 'Profile',
             'menu' => 'profile',
@@ -53,12 +57,10 @@ class Profile extends BaseController
                 $oldPhoto = $this->db->table($this->table)->select('photo')->where(['id' => session('userId')])->get()->getRow()->photo;
 
                 // jika phptp ada maka hapus filenya
-                if ($oldPhoto != '') {
-                    // $path = ROOTPATH.'public/uploads/users/'.$oldPhoto;
-                    $path = FILESDIR.'/uploads/users/'.$oldPhoto;
-                    if (file_exists($path)) {
-                        unlink($path);
-                    }
+                if ($oldPhoto != "") {
+                    // $path = ROOTPATH . 'public/uploads/users/' . $oldPhoto;
+                    $path = FILESDIR . '/uploads/users/' . $oldPhoto;
+                    if (file_exists($path)) unlink($path);
                 }
                 // upload photo baru
                 $updatePhoto = $this->uploadPhoto();
@@ -107,7 +109,8 @@ class Profile extends BaseController
             $file = $this->request->getFile('photo');
             $fileName = time().'_'.$file->getName();
             session()->set('photo', $fileName);
-            $path = FILESDIR.'/uploads/users/';
+            // $path = ROOTPATH . 'public/uploads/users/';
+            $path = FILESDIR . '/uploads/users/';
             $file->move($path, $fileName);
             $result = Update($this->table, ['photo' => $fileName], ['id' => session('userId')]);
         } catch (\Throwable $th) {

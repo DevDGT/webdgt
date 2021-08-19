@@ -84,6 +84,12 @@
 							<p>Pesanan Klien </p>
 						</a>
 					</li>
+					<li class="nav-item">
+						<a href="<?= base_url(ADMIN_PATH . '/faq') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'faq' ? 'active' : '' ?>">
+							<i class="fas fa-question nav-icon"></i>
+							<p>Faq </p>
+						</a>
+					</li>
 				<?php endif ?>
 				<li class="nav-item">
 					<a href="<?= base_url(ADMIN_PATH . '/article') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'artikel' ? 'active' : '' ?>">
