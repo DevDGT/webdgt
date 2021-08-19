@@ -202,7 +202,7 @@ class Article extends BaseController
 
                 // jika cover ada maka hapus filenya
                 if ($coverOld != "") {
-                    $path = ROOTPATH . 'public/uploads/cover/' . $coverOld;
+                    $path = FILESDIR . '/uploads/cover/' . $coverOld;
                     if (file_exists($path)) unlink($path);
                 }
 
@@ -318,7 +318,7 @@ class Article extends BaseController
             if ($validated == false) throw new \Exception($this->validator->listErrors());
             $file = $this->request->getFile('upload');
             $fileName = time() . "_" . $file->getName();
-            $path = ROOTPATH . 'public/uploads/post/';
+            $path = FILESDIR . '/uploads/post/';
             $file->move($path, $fileName);
 
             $result = [
@@ -359,7 +359,7 @@ class Article extends BaseController
             if ($validated == false) throw new \Exception($this->validator->listErrors());
             $file = $this->request->getFile('cover');
             $fileName = time() . "_" . $file->getName();
-            $path = ROOTPATH . 'public/uploads/cover/';
+            $path = FILESDIR . '/uploads/cover/';
             $file->move($path, $fileName);
             $result = Update($this->table, ['cover' => $fileName], $idArticle);;
         } catch (\Throwable $th) {

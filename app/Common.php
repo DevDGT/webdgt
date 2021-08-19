@@ -11,6 +11,15 @@ define('ADMIN_PATH', '/ruangadmin');
 define('API_PATH', '/api');
 define('SALT', 'hehehehe');
 
+$dirArray = explode(DIRECTORY_SEPARATOR, __DIR__);
+$filesDir = '';
+
+for ($i = 0; $i < count($dirArray) - 2; $i++) {
+    $filesDir .= $dirArray[$i] . DIRECTORY_SEPARATOR;
+}
+
+define('FILESDIR', $filesDir . "public_html");
+
 function getUrlParam($param, $default = '')
 {
     return isset($_REQUEST[$param]) ? ($_REQUEST[$param] == '' ? $default : $_REQUEST[$param]) : $default;
