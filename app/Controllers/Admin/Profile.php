@@ -14,10 +14,10 @@ class Profile extends BaseController
 
     public function index()
     {
-        echo __DIR__ . "<br>";
-        echo FILESDIR;
-        Print_(FILESDIR, false, false);
-        exit();
+        // echo __DIR__ . "<br>";
+        // echo FILESDIR;
+        // Print_(FILESDIR, false, false);
+        // exit();
         $data = [
             'title' => 'Profile',
             'menu' => 'profile',
