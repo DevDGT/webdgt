@@ -7,13 +7,13 @@ class Contact extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Contact Us',
-            'pageTitle' => 'Contact Us',
+            'title' => 'Contact',
+            'pageTitle' => 'Contact',
             'logoImg' => '',
             'logoName' => 'DGT',
             'section' => 'contact',
             'js' => [
-                //'<script src='.base_url('assets/js/page/abouts.js').' defer></script>',
+                //'<script src='.base_url('assets/js/page/contact.js').' defer></script>',
             ],
         ];
 

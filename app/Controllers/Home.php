@@ -7,8 +7,8 @@ class Home extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Beranda',
-            'pageTitle' => 'Beranda',
+            'title' => 'Dashboard',
+            'pageTitle' => 'Dashboard',
             'logoImg' => '',
             'logoName' => 'DGT',
             'section' => 'dashboard',

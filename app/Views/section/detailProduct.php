@@ -16,7 +16,7 @@
         <div class="d-flex justify-content-between align-items-center">
             <h2>Detail Product</h2>
             <ol>
-                <li><a href="<?php echo base_url(); ?>">Home</a></li>
+                <li><a href="<?php echo base_url('/home'); ?>">Home</a></li>
                 <li><a href="<?php echo base_url('/product'); ?>">Product</a></li>
                 <li><a href="#"><?php echo $productsData['0']->name; ?></a></li>
             </ol>
@@ -47,13 +47,18 @@
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-lg-10">
+                    <div class="col-lg-10 col-md-5">
                         <h5 class="card-title"><?php echo $productsData['0']->name ?? ''; ?></h5>
                         <p class="card-text"><?php echo $productsData['0']->description ?? ''; ?></p>
                         <h5 class="card-title">Other Videos <?php echo $productsData['0']->name ?? ''; ?></h5>
                         <div id="carouselProduct"></div>
                         <h5 class="card-title">Download Catalog</h5>
                         <div id="catalogProduct"></div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 col-md-5">
+                        <h5 class="card-title">Who's use this product</h5>
                     </div>
                 </div>
             </div>

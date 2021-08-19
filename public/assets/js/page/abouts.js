@@ -68,10 +68,10 @@ async function addTeam() {
         if (i == 0) {
           ceo = `
           <div class="col">
-            <div class="member aos-init aos-animate" data-aos="fade-up">
+            <div class="member" style="box-shadow:unset;">
               <div class="member-img pt-4">
                 <img src="${BASE_URL}/uploads/users/${items.photo == '' ? 'default.png' : items.photo}" class="img-fluid" alt="${items.name}" style="max-width:15rem; min-width:15rem; border-radius:50%">
-                <div class="container-fluid">
+                <div class="container">
                     <h3 class="text-uppercase p-4">${items.name} - CEO</h3>
                     <p class="mx-auto">
                       <i class="bx bxs-quote-alt-left quote-icon-left"></i>
@@ -86,7 +86,7 @@ async function addTeam() {
         } else if (i > 0) {
           teams += `
             <div class="col p-2" style="height:29rem;">
-              <div class="member w-100 h-100 aos-init aos-animate d-flex justify-content-center" data-aos="fade-up">
+              <div class="member w-100 h-100 d-flex justify-content-center border border-1" style="box-shadow:unset;">
                 <div class="card" style="width: 40rem; max-height:60vh; border:none;">
                   <img src="${BASE_URL}/uploads/users/${items.photo == '' ? 'default.png' : items.photo}" alt="${items.name}" style="width:100%; height:15rem; object-fit: cover;" class="img-fluid">
                   <div class="social d-flex flex-row">`;
@@ -102,7 +102,7 @@ async function addTeam() {
                         <a href="${BASE_URL}/teams/?name=${items.username}&onweb=true" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Inside Web"><i class="bx bi-eye-fill"></i></a>
                       </div>
                       <p class="card-text p-2">${items.jobs}</p>
-                      <p class="card-text d-inline-block text-wrap" style="max-width: -webkit-fill-available;">
+                      <p class="card-text d-inline-block text-break" style="max-width: -webkit-fill-available;">
                         <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                         ${items.quotes == '' ? 'Default Quotes' : items.quotes}
                         <i class="bx bxs-quote-alt-right quote-icon-right"></i>

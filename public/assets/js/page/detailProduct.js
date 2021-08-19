@@ -194,7 +194,6 @@ async function getProductData() {
     });
 }
 
-
 async function initFetch() {
     await getProductData();
     await getCategory();
