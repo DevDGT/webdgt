@@ -25,9 +25,10 @@
     </div>
 </section>
 
-<section id="blog" class="blog">
-    <div class="container aos-init aos-animate">
 
+<section id="blog" class="blog">
+
+    <div class="container aos-init aos-animate">
         <div class="row">
 
             <div class="col-lg-8 entries">
@@ -77,6 +78,11 @@
                     </div>
 
                 </article>
+
+                <a href="<?php echo base_url('/news'); ?>" class="btn btn-success mb-4" data-aos="fade-right"
+                    data-aos-delay="200">
+                    <i class="bi bi-arrow-left-circle me-2"></i>Back
+                </a>
 
                 <div class="blog-author d-flex align-items-center" data-aos="fade-up" data-aos-delay="300">
                     <img src="<?php echo $newsData[0]->author_photo == '' ? base_url('assets/img/user.png') : base_url('uploads/users/'.$newsData[0]->author_photo); ?>"

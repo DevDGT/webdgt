@@ -67,12 +67,12 @@
         <!-- Video Line -->
         <div class="row dgtVideo mt-2" data-aos="fade-up" data-aos-delay="800">
 
-            <div class="col-lg-12">
+            <div class="col-lg-12 col-md-6 col-sm-3">
                 <div class="member" style="box-shadow:unset;">
                     <h3 class="text-center text-uppercase">Dian Global Tech Is</h3>
                     <div class="container">
                         <div class="row justify-content-center py-2">
-                            <div class="col" style="height: 25rem;">
+                            <div class="col-lg-12 col-md-6 col-sm-3" style="height: 25rem;">
                                 <iframe class="w-100 h-100" src="https://www.youtube.com/embed/m2dCMOed7ww"
                                     title="YouTube video player" frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -82,14 +82,14 @@
                         </div>
 
                         <div class="row py-2">
-                            <div class="col">
+                            <div class="col-lg-12 col-md-6 col-sm-3">
                                 <div class="container">
-                                    <p class="text-center font-monospace fs-5">
+                                    <p class="text-start fs-6">
                                         Dian Global Tech is an INFORMATION AND TECHNOLOGY (IT)
                                         consulting services company established in October 2009
                                         by experienced practitioners in their respective fields.
                                     </p>
-                                    <p class="text-center font-monospace fs-5">
+                                    <p class="text-start fs-6">
                                         We start our journey in SISTEM INFORMASI MANAJEMEN SEKOLAH (SIMS) and
                                         now,
                                         we create custom made apps based on our partners and clients demands.
@@ -116,7 +116,7 @@
     <div class="container aos-init aos-animate">
 
         <div class="section-title" data-aos="fade-up" data-aos-delay="900">
-            <h2>Our <strong>Mission</strong></h2>
+            <h2>Our <strong>Goals</strong></h2>
         </div>
 
         <div class="row content">

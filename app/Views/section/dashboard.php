@@ -114,14 +114,14 @@
                 <div class="row g-0">
                     <div class="col-lg-6 px-1">
                         <div class="card" style="width: auto; border: none;">
-                            <iframe width="auto" height="320" src="https://www.youtube.com/embed/NOAtMfUAe5U"
+                            <iframe width="auto" height="320" src="https://www.youtube.com/embed/zkE9iidA9fY"
                                 title="YouTube video player" frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen>
                             </iframe>
                             <div class="card-body text-center">
-                                <h5 class="card-title">Aplikasi Sistem Informasi SIADES</h5>
-                                <p class="card-text">Aplikasi Sistem Informasi SIADES</p>
+                                <h5 class="card-title">Aplikasi Sistem Informasi Manajemen E-Campus</h5>
+                                <p>Aplikasi Sistem Informasi Manajemen E-Campus</p>
                             </div>
                         </div>
                     </div>
@@ -136,21 +136,6 @@
                         <div class="card-body text-center">
                             <h5 class="card-title">Aplikasi Sistem Informasi Smart School</h5>
                             <p>Aplikasi Sistem Informasi Smart School</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row g-0">
-                    <div class="col-lg-6 offset-lg-3">
-                        <div class="card mb-3" style="max-width: auto; border: none;">
-                            <iframe width="100%" height="320" src="https://www.youtube.com/embed/zkE9iidA9fY"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Aplikasi Sistem Informasi Manajemen E-Campus</h5>
-                            <p>Aplikasi Sistem Informasi Manajemen E-Campus</p>
                         </div>
                     </div>
                 </div>
