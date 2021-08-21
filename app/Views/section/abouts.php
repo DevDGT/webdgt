@@ -67,12 +67,12 @@
         <!-- Video Line -->
         <div class="row dgtVideo mt-2" data-aos="fade-up" data-aos-delay="800">
 
-            <div class="col-lg-12 col-md-6 col-sm-3">
+            <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="member" style="box-shadow:unset;">
                     <h3 class="text-center text-uppercase">Dian Global Tech Is</h3>
                     <div class="container">
                         <div class="row justify-content-center py-2">
-                            <div class="col-lg-12 col-md-6 col-sm-3" style="height: 25rem;">
+                            <div class="col-lg-12 col-md-12 col-sm-12" style="height: 25rem;">
                                 <iframe class="w-100 h-100" src="https://www.youtube.com/embed/m2dCMOed7ww"
                                     title="YouTube video player" frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -82,7 +82,7 @@
                         </div>
 
                         <div class="row py-2">
-                            <div class="col-lg-12 col-md-6 col-sm-3">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
                                 <div class="container">
                                     <p class="text-start fs-6">
                                         Dian Global Tech is an INFORMATION AND TECHNOLOGY (IT)
@@ -120,7 +120,7 @@
         </div>
 
         <div class="row content">
-            <div class="col-lg-6 col-md-3 col-sm-1" data-aos="fade-right" data-aos-delay="1000">
+            <div class="col-lg-6 col-md-6 col-sm-6" data-aos="fade-right" data-aos-delay="1000">
                 <h4 class="text-center"><i class="bi bi-briefcase p-2"></i><strong>Mission</strong></h4>
                 <ul>
                     <li>
@@ -132,7 +132,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-lg-6 col-md-3 col-sm-1" data-aos="fade-left" data-aos-delay="1000">
+            <div class="col-lg-6 col-md-6 col-sm-6" data-aos="fade-left" data-aos-delay="1000">
                 <h4 class="text-center"><i class="bi bi-bullseye p-2"></i><strong>Vision</strong></h4>
                 <ul>
                     <li>
@@ -159,10 +159,10 @@
             <h2 class="text-uppercase">Cooperation Benefits</h2>
         </div>
         <!-- Cooperation Line -->
-        <div class="row services benefits d-flex justify-content-evenly">
+        <div class="row services benefits justify-content-center">
             <!-- <div class="section benefits"> -->
-            <div class="col-lg-3 col-md-4" data-aos="zoom-in" data-aos-delay="1200">
-                <div class="card" style="width: 10rem; height:15rem; border: none;">
+            <div class="col" data-aos="zoom-in" data-aos-delay="1200">
+                <div class="card" style="width:15rem; height:15rem; border:none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Partner_Oriented@4x-8.png'); ?>" class="img-fluid"
                         alt="Oriented">
                     <div class="card-body">
@@ -172,8 +172,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4" data-aos="zoom-in" data-aos-delay="1300">
-                <div class="card" style="width: 10rem; height:15rem; border: none;">
+            <div class="col" data-aos="zoom-in" data-aos-delay="1300">
+                <div class="card" style="width:15rem; height:15rem; border:none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Eficient@4x-8.png'); ?>" class="img-fluid"
                         alt="Solution">
                     <div class="card-body">
@@ -183,8 +183,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4" data-aos="zoom-in" data-aos-delay="1400">
-                <div class="card" style="width: 10rem; height:15rem; border: none;">
+            <div class="col" data-aos="zoom-in" data-aos-delay="1400">
+                <div class="card" style="width:15rem; height:15rem; border:none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Innovation@4x-8.png'); ?>" class="img-fluid"
                         alt="Innovative">
                     <div class="card-body">
@@ -194,8 +194,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4" data-aos="zoom-in" data-aos-delay="1500">
-                <div class="card" style="width: 10rem; height:15rem; border: none;">
+            <div class="col" data-aos="zoom-in" data-aos-delay="1500">
+                <div class="card" style="width:15rem; height:15rem; border:none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Service_Commitment@4x-8.png'); ?>" class="img-fluid"
                         alt="Commitment">
                     <div class="card-body">
@@ -205,8 +205,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4" data-aos="zoom-in" data-aos-delay="1600">
-                <div class="card" style="width: 10rem; height:15rem; border: none;">
+            <div class="col" data-aos="zoom-in" data-aos-delay="1600">
+                <div class="card" style="width:15rem; height:15rem; border:none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Professional_Quality@4x-8.png'); ?>"
                         class="img-fluid" alt="Quality">
                     <div class="card-body">

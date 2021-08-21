@@ -44,6 +44,13 @@ function usersProduct() {
           slidesToShow: 1,
           slidesToScroll: 1
         }
+      },
+      {
+        breakpoint: 300,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
       }
     ]
   });

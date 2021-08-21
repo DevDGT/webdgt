@@ -8,7 +8,7 @@ $(document).ready(function () {
 function initSlick() {
 
   $('#teamApi').not('.slick-initialized').slick({
-    infinite: true,
+    infinite: false,
     slidesToShow: 3,
     slidesToScroll: 2,
     dots: false,
