@@ -6,7 +6,7 @@ use App\Controllers\BaseController;
 
 class Category extends BaseController
 {
-    public function __construct()
+    function __construct()
     {
         $this->req = \Config\Services::request();
         $this->table = 'category';
