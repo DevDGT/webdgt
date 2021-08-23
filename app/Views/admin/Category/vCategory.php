@@ -1,11 +1,11 @@
-<?= $this->extend('admin/layouts/app') ?>
+<?= $this->extend('admin/layouts/app'); ?>
 <?= $this->section('content'); ?>
 <style>
-    tbody tr:hover {
-        background: #eee;
-        box-shadow: 0 1px 2px rgb(242, 242, 242);
-        cursor: pointer;
-    }
+tbody tr:hover {
+    background: #eee;
+    box-shadow: 0 1px 2px rgb(242, 242, 242);
+    cursor: pointer;
+}
 </style>
 <div class="container-fluid pb-3">
     <div class="row">
@@ -68,7 +68,7 @@
         </div>
     </div>
 </div>
-<?= $this->endSection() ?>
+<?= $this->endSection(); ?>
 <?= $this->section('js'); ?>
-<script src="<?= base_url('assets/js/page/admin/category.js') ?>" defer></script>
-<?= $this->endSection() ?>
+<script src="<?= base_url('assets/js/page/admin/category.js'); ?>" defer></script>
+<?= $this->endSection(); ?>

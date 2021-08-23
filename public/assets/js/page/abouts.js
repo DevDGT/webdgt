@@ -85,7 +85,7 @@ async function addTeam() {
           `;
         } else if (i > 0) {
           teams += `
-            <div class="col p-2" style="height:29rem;">
+            <div class="col-lg-3 col-md-2 col-sm-1 p-2" style="height:29rem;">
               <div class="member w-100 h-100 d-flex justify-content-center border border-1" style="box-shadow:unset;">
                 <div class="card" style="width: 40rem; max-height:60vh; border:none;">
                   <img src="${BASE_URL}/uploads/users/${items.photo == '' ? 'default.png' : items.photo}" alt="${items.name}" style="width:100%; height:15rem; object-fit: cover;" class="img-fluid">

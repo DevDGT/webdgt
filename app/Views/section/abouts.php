@@ -155,14 +155,14 @@
 
     <div class="container aos-init aos-animate">
 
-        <div class="section-title" data-aos="fade-up" data-aos-delay="1100">
+        <div class="section-title" data-aos="fade" data-aos-delay="1100">
             <h2 class="text-uppercase">Cooperation Benefits</h2>
         </div>
         <!-- Cooperation Line -->
         <div class="row services benefits justify-content-center">
             <!-- <div class="section benefits"> -->
             <div class="col" data-aos="zoom-in" data-aos-delay="1200">
-                <div class="card" style="width:15rem; height:15rem; border:none;">
+                <div class="card" style="height:15rem; border:none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Partner_Oriented@4x-8.png'); ?>" class="img-fluid"
                         alt="Oriented">
                     <div class="card-body">
@@ -173,7 +173,7 @@
                 </div>
             </div>
             <div class="col" data-aos="zoom-in" data-aos-delay="1300">
-                <div class="card" style="width:15rem; height:15rem; border:none;">
+                <div class="card" style="height:15rem; border:none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Eficient@4x-8.png'); ?>" class="img-fluid"
                         alt="Solution">
                     <div class="card-body">
@@ -184,7 +184,7 @@
                 </div>
             </div>
             <div class="col" data-aos="zoom-in" data-aos-delay="1400">
-                <div class="card" style="width:15rem; height:15rem; border:none;">
+                <div class="card" style="height:15rem; border:none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Innovation@4x-8.png'); ?>" class="img-fluid"
                         alt="Innovative">
                     <div class="card-body">
@@ -195,7 +195,7 @@
                 </div>
             </div>
             <div class="col" data-aos="zoom-in" data-aos-delay="1500">
-                <div class="card" style="width:15rem; height:15rem; border:none;">
+                <div class="card" style="height:15rem; border:none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Service_Commitment@4x-8.png'); ?>" class="img-fluid"
                         alt="Commitment">
                     <div class="card-body">
@@ -206,7 +206,7 @@
                 </div>
             </div>
             <div class="col" data-aos="zoom-in" data-aos-delay="1600">
-                <div class="card" style="width:15rem; height:15rem; border:none;">
+                <div class="card" style="height:15rem; border:none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Professional_Quality@4x-8.png'); ?>"
                         class="img-fluid" alt="Quality">
                     <div class="card-body">

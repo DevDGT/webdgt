@@ -27,7 +27,7 @@ class Category extends BaseController
             ],
         ];
 
-        return View('admin/category/vCategory', $data);
+        return View('admin/category/vcategory', $data);
     }
 
     public function store()
