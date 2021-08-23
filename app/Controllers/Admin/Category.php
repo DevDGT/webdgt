@@ -6,7 +6,7 @@ use App\Controllers\BaseController;
 
 class Category extends BaseController
 {
-    function __construct()
+    public function __construct()
     {
         $this->req = \Config\Services::request();
         $this->table = 'category';
@@ -27,7 +27,7 @@ class Category extends BaseController
             ],
         ];
 
-        return View('admin/category/vcategory', $data);
+        return View('admin/category/vCategory', $data);
     }
 
     public function store()
