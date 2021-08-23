@@ -1,8 +1,6 @@
 var portfolioIsotope;
 
 $(document).ready(function () {
-  // alert("asddsa")
-  // initPortpolio();
   initFetch();
   $("#portfolio-flters").on("click", ".options", function (e) {
     e.preventDefault();
@@ -11,29 +9,55 @@ $(document).ready(function () {
     $(".options").removeClass("filter-active");
     // $(".tab").addClass("active"); // instead of this do the below
     $(this).addClass("filter-active");
-    console.log(id);
     getSelected(id);
   });
 });
 
 function usersProduct() {
-  $(".userProduct").slick({
-    infinite: true,
-    slidesToShow: 4,
-    slidesToScroll: 3,
-    dots: true,
+  $('#clientsData').not('.slick-initialized').slick({
+    infinite: false,
+    dots: false,
     autoplay: true,
-    mobileFirst: true,
     pauseOnFocus: true,
-    autoplaySpeed: 3000,
-    speed: 1000,
+    autoplaySpeed: 6000,
+    speed: 2000,
     centerMode: false,
+    mobileFirst: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 300,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      }
+    ]
   });
-}
+};
 
 async function getClients() {
   console.log("clientGet");
-  // alert('clientGet')
   return new Promise((resolve) => {
     var clientsAPI = `${API_PATH}/public/get/clients`;
     $.getJSON(clientsAPI, {
@@ -42,19 +66,21 @@ async function getClients() {
       let clients = "";
       $.each(response.data, function (i, items) {
         clients += `
-                  <div class="col-lg-3 col-md-4 col-6">
-                      <div class="client-logo">
-                          <img src="${BASE_URL}/uploads/clients/${items.icon}" class="img-fluid" alt="${items.name}" title="${items.description}">
+                  <div class="col" style="border:1px solid #ececec;">
+                      <div class="client-logo" style="border: unset;height: 7rem;">
+                          <img src="${BASE_URL}/uploads/clients/${items.icon}" class="img-fluid" style="border:none; height: -webkit-fill-available;" alt="${items.name}" title="${items.description}">
+                      </div>
+                      <div class="container">
+                          <p class="text-center text-truncate fw-light">${items.name}</p>
                       </div>
                   </div>
                   `;
-        $("#clientsData").html(clients);
-        // $('#clientsData').removeClass('d-none');
+        $("#clientsData").html(clients).removeClass('d-none');
         resolve(true);
       });
     });
   });
-}
+};
 
 function initPortpolio() {
   let portfolioContainer = select(".portfolio-container");
@@ -64,7 +90,6 @@ function initPortpolio() {
     });
 
     let portfolioFilters = select("#portfolio-flters li", true);
-
     on(
       "click",
       "#portfolio-flters li",
@@ -74,7 +99,6 @@ function initPortpolio() {
           el.classList.remove("filter-active");
         });
         this.classList.add("filter-active");
-
         portfolioIsotope.arrange({
           filter: this.getAttribute("data-filter"),
         });
@@ -84,32 +108,33 @@ function initPortpolio() {
       },
       true
     );
-  }
-}
+  };
+};
 
 async function getProduct() {
   $("#coreCategory").addClass("filter-active");
   $(".options").removeClass("filter-active");
-  // console.log('getProduct');
   return new Promise((resolve) => {
     var productsAPI = `${API_PATH}/public/get/products`;
-
     $.getJSON(productsAPI, {
       format: "json",
     }).done(function (response) {
       let products = "";
       $.each(response.data, function (i, items) {
+        console.log('slug :' + items.slug);
         products += `
-                    <div class="col-lg-2 p-2 portfolio-item filter-${items.id_category_product} ">
-                      <div class='card h-100 shadow-sm'>
+                    <div class="col-lg-2 p-2 portfolio-item filter-${items.id_category_product}">
+                      <div class="card h-100 shadow-sm">
+                        <span class="text-center text-decoration-underline text-muted">${items.name}</span>
+                        <a href="${BASE_URL + '/product/detail/' + items.slug}" class="text-decoration-none">
                           <img src="${BASE_URL}/uploads/products/${items.icon}"class="card-img-top" alt="${items.name}">
-                          <div class="item-card position-absolute w-100" style="overflow:hidden">
-                              <div class='bg-white p-2 pb-3 portfolio-info shadow-sm' style='position:sticky; top:60%; opacity:0.8'>
-                                <h4>${items.name}</h4>
-                                <p class="text-truncate">${items.description}</p>
-                                <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                              </div>
-                          </div>
+                        </a>
+                        <div class="item-card position-absolute w-100" style="overflow:hidden">
+                            <div class='bg-white p-2 pb-3 portfolio-info shadow-sm' style='position:sticky; top:60%; opacity:0.8'>
+                              <p class="text-truncate">${items.description}</p>
+                              <a href="${BASE_URL + '/product/detail/' + items.slug}" class="details-link" title="More Details" target="_blank"><i class="bx bx-link"></i></a>
+                            </div>
+                        </div>
                       </div>
                     </div>
                     `;
@@ -118,7 +143,7 @@ async function getProduct() {
       });
     });
   });
-}
+};
 
 async function getCategory() {
   return new Promise((resolve) => {
@@ -138,7 +163,7 @@ async function getCategory() {
       });
     }
   });
-}
+};
 
 async function getSelected(id) {
   return new Promise((resolve) => {
@@ -149,26 +174,30 @@ async function getSelected(id) {
     }).done(function (response) {
       let products = "";
       $.each(response.data, function (i, items) {
+        console.log(items);
         if (items.id_category_product != id) {
           products += ``;
         } else {
           products += `
-                      <div class="col-lg-2 p-2 portfolio-item filter-${items.id_category_product} ">
-                          <div class='card h-100 shadow-sm'>
-                              <img src="${BASE_URL}/uploads/products/${items.icon}"class="card-img-top" alt="${items.name}">
-                              <div class="item-card position-absolute w-100" style="overflow:hidden">
-                                  <div class='bg-white p-2 pb-3 portfolio-info shadow-sm' style='position:sticky; top:60%; opacity:0.8'>
-                                    <h4>${items.name}</h4>
-                                    <p class="text-truncate">${items.description}</p>
-                                    <a href="#" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                                  </div>
+                      <div class="col-lg-2 p-2 portfolio-item filter-${items.id_category_product}">
+                        <div class="card h-100 shadow-sm">
+                          <span class="text-center text-muted">${items.name}</span>
+                          <a href="${BASE_URL + '/product/detail/' + items.slug}" class="text-decoration-none">
+                            <img src="${BASE_URL}/uploads/products/${items.icon}"class="card-img-top" alt="${items.name}">
+                          </a>
+                          <div class="item-card position-absolute w-100" style="overflow:hidden">
+                              <div class='bg-white p-2 pb-3 portfolio-info shadow-sm' style='position:sticky; top:60%; opacity:0.8'>
+                                <p class="text-truncate">${items.description}</p>
+                                <a href="${BASE_URL + '/product/detail/' + items.slug}" class="details-link" title="More Details" target="_blank"><i class="bx bx-link"></i></a>
                               </div>
                           </div>
                         </div>
+                      </div>
                       `;
         }
         $("#productData").html(products);
         resolve(true);
+        // console.log('ok getselected');
       });
     });
   });

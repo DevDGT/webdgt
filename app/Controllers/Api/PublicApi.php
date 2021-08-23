@@ -87,7 +87,7 @@ class PublicApi extends BaseController
                 foreach ($field as $key) {
                     $row[$key] = $field_[$key];
                 }
-                $row['description'] = trim(preg_replace('!\s+!', ' ', (substr(strip_tags($field_['content']), 0, 400) . '...')));
+                $row['description'] = trim(preg_replace('!\s+!', ' ', (substr(strip_tags($field_['content']), 0, 400).'...')));
                 if ($detail == 'true') {
                     $row['content'] = $field_['content'];
                 }
@@ -103,7 +103,7 @@ class PublicApi extends BaseController
         } catch (\Throwable $th) {
             $result = [
                 'status' => 'fail',
-                'message' => $th->getMessage() . ' ' . $th->getFile() . ' Line : ' . $th->getLine(),
+                'message' => $th->getMessage().' '.$th->getFile().' Line : '.$th->getLine(),
             ];
         } catch (\Exception $ex) {
             $result = [
@@ -127,7 +127,7 @@ class PublicApi extends BaseController
         } catch (\Throwable $th) {
             $result = [
                 'status' => 'fail',
-                'message' => $th->getMessage() . $this->db->getLastQuery(),
+                'message' => $th->getMessage().$this->db->getLastQuery(),
             ];
         } catch (\Exception $ex) {
             $result = [
@@ -142,22 +142,21 @@ class PublicApi extends BaseController
     public function getCategoryProducts()
     {
         try {
-
-            $category = $this->db->query("SELECT " . EncKey('cat.id') . " id , `cat`.`name`, `cat`.`slug`, (SELECT COUNT(*) FROM products WHERE id_category_product = cat.id AND active = '1') count FROM `category_product` `cat` WHERE (SELECT COUNT(*) FROM products WHERE id_category_product = cat.id AND active = '1') != '0' ORDER BY `count` DESC")->getResult();
+            $category = $this->db->query('SELECT '.EncKey('cat.id')." id , `cat`.`name`, `cat`.`slug`, (SELECT COUNT(*) FROM products WHERE id_category_product = cat.id AND active = '1') count FROM `category_product` `cat` WHERE (SELECT COUNT(*) FROM products WHERE id_category_product = cat.id AND active = '1') != '0' ORDER BY `count` DESC")->getResult();
 
             $result = [
                 'status' => 'ok',
-                'data' => $category
+                'data' => $category,
             ];
         } catch (\Throwable $th) {
             $result = [
                 'status' => 'fail',
-                'message' => $th->getMessage() . $this->db->getLastQuery()
+                'message' => $th->getMessage().$this->db->getLastQuery(),
             ];
         } catch (\Exception $ex) {
             $result = [
                 'status' => 'fail',
-                'message' => $ex->getMessage()
+                'message' => $ex->getMessage(),
             ];
         } finally {
             echo json_encode($result);
@@ -210,7 +209,7 @@ class PublicApi extends BaseController
     private function getClientProducts($productId)
     {
         return $this->db->table('clients_orders co')
-            ->select(EncKey('c.id') . ' id, c.name')
+            ->select(EncKey('c.id').' id, c.name')
             ->join('clients c', 'c.id = co.id_clients')
             ->where('co.id_products', $productId)
             ->get()->getResultArray();
@@ -219,13 +218,14 @@ class PublicApi extends BaseController
     public function teamsPage()
     {
         try {
-
             $id = getUrlParam('id');
             $username = getUrlParam('username');
 
             $this->builder = $this->db->table('web');
             $this->builder->select('html, css, js');
-            if ($id != '') $this->builder->where(EncKey('user_id'), $id);
+            if ($id != '') {
+                $this->builder->where(EncKey('user_id'), $id);
+            }
             if ($username != '') {
                 $this->builder->join('users u', 'u.id = web.user_id', 'left');
                 $this->builder->where('username', $username);
@@ -233,11 +233,12 @@ class PublicApi extends BaseController
 
             $data = $this->builder->get()->getRowArray();
 
-            if (!$data) throw new \Exception("data tidak ditemukan");
-
+            if (!$data) {
+                throw new \Exception('data tidak ditemukan');
+            }
             $result = [
                 'status' => 'ok',
-                'data' => $data
+                'data' => $data,
             ];
         } catch (\Throwable $th) {
             $result = [
@@ -260,6 +261,7 @@ class PublicApi extends BaseController
             $this->builder = $this->db->table('teams t');
             $this->builder->select('
                 u.id,
+                u.username,
                 u.name,
                 u.quotes,
                 u.photo,
@@ -271,7 +273,7 @@ class PublicApi extends BaseController
             $this->builder->orderby('u.name', 'asc');
             $this->builder->where('u.active', '1');
             $teams = $this->builder->get()->getResultArray();
-            $field = ['name', 'quotes', 'photo', 'jobs'];
+            $field = ['username', 'name', 'quotes', 'photo', 'jobs'];
             $data = [];
             foreach ($teams as $field_) {
                 $row = [];
@@ -305,7 +307,7 @@ class PublicApi extends BaseController
     {
         try {
             $clients = $this->db->table('clients')
-                ->select(EncKey('id') . 'id ,name, icon, description')
+                ->select(EncKey('id').'id ,name, icon, description')
                 ->where('active', '1')
                 ->orderby('id', 'desc')->get()->getResult();
             $result = [
@@ -332,7 +334,7 @@ class PublicApi extends BaseController
     {
         try {
             $clients = $this->db->table('clients_orders co')
-                ->select(EncKey('co.id') . 'id, p.name, p.icon, p.description')
+                ->select(EncKey('co.id').'id, p.name, p.icon, p.description')
                 ->where('co.active', '1')
                 ->where(EncKey('co.id_clients'), $idClient)
                 ->join('products p', 'p.id = co.id_products')
@@ -360,12 +362,11 @@ class PublicApi extends BaseController
     public function getProducts($idProducts = '')
     {
         try {
-
             $idProducts = getUrlParam('id');
             $slugProducts = getUrlParam('slug');
 
             $this->builder = $this->db->table('products');
-            $this->builder->select('id, ' . EncKey('id_category_product') . ' id_category_product, slug, name, icon, video, description');
+            $this->builder->select('id, '.EncKey('id_category_product').' id_category_product, slug, name, icon, video, description');
             $this->builder->where('active', '1');
             if ($idProducts != '') {
                 $this->builder->where(EncKey('id'), $idProducts);
@@ -411,7 +412,7 @@ class PublicApi extends BaseController
         try {
             $idProducts = getUrlParam('id');
             $this->builder = $this->db->table('products_demo');
-            $this->builder->select(EncKey('id') . 'id ,title, link');
+            $this->builder->select(EncKey('id').'id ,title, link');
             $this->builder->where('active', '1');
             $this->builder->where(EncKey('product_id'), $idProducts);
             $demo = $this->builder->orderby('id', 'desc')->get()->getResult();
@@ -439,7 +440,7 @@ class PublicApi extends BaseController
     {
         try {
             $faq = $this->db->table('faq')
-                ->select(EncKey('id') . 'id ,question, answers')
+                ->select(EncKey('id').'id ,question, answers')
                 ->where('active', '1')
                 ->orderby('id', 'desc')->get()->getResult();
             $result = [

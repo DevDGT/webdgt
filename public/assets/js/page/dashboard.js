@@ -1,47 +1,70 @@
 $(document).ready(function () {
-    moveRoom('home')
-    initHero()
-    initFetch()
+    // moveRoom('home');
+    initHero();
+    initFetch();
 });
 
 function initHero() {
-    let heroCarouselIndicators = select("#hero-carousel-indicators")
-    let heroCarouselItems = select('#heroCarousel .carousel-item', true)
+    let heroCarouselIndicators = select("#hero-carousel-indicators");
+    let heroCarouselItems = select('#heroCarousel .carousel-item', true);
 
     heroCarouselItems.forEach((item, index) => {
         (index === 0) ?
             heroCarouselIndicators.innerHTML += "<li data-bs-target='#heroCarousel' data-bs-slide-to='" + index + "' class='active'></li>" :
-            heroCarouselIndicators.innerHTML += "<li data-bs-target='#heroCarousel' data-bs-slide-to='" + index + "'></li>"
+            heroCarouselIndicators.innerHTML += "<li data-bs-target='#heroCarousel' data-bs-slide-to='" + index + "'></li>";
     });
-}
+};
 
-function initSlick() {
-    console.log('initOn');
-    // alert('initOn');
-    $('.clientSlick').not('.slick-initialized').slick({
-        infinite: true,
-        slidesToShow: 4,
-        slidesToScroll: 3,
-        dots: true,
+async function initSlick() {
+    $('#clientsData').not('.slick-initialized').slick({
+        infinite: false,
+        dots: false,
         autoplay: true,
-        mobileFirst: true,
         pauseOnFocus: true,
-        autoplaySpeed: 3000,
-        speed: 1000,
+        autoplaySpeed: 6000,
+        speed: 2000,
         centerMode: false,
+        mobileFirst: true,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 2,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 300,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            }
+        ]
     });
-}
+};
 
-function reloadSlick() {
-    $("#clientsData").addClass('d-none')
-    $('#clientsData').slick('unslick')
-    $('.clientSlick').slick('unslick')
-    getClients()
-}
+async function reloadSlick() {
+    $("#clientsData").addClass('d-none').slick('unslick');
+    // $('.clientSlick').slick('unslick');
+    getClients();
+};
 
-function getClients() {
-    console.log('clientGet');
-    // alert('clientGet')
+async function getClients() {
     return new Promise(resolve => {
         var clientsAPI = `${API_PATH}/public/get/clients`;
         $.getJSON(clientsAPI, {
@@ -50,10 +73,13 @@ function getClients() {
             let clients = '';
             $.each(response.data, function (i, items) {
                 clients += `
-                            <div class="col-lg-3 col-md-4 col-6">
-                                <div class="client-logo">
-                                    <img src="${BASE_URL}/uploads/clients/${items.icon}" class="img-fluid" alt="${items.name}" title="${items.description}">
+                            <div class="col" style="border:1px solid #ececec;">
+                                <div class="client-logo" style="border: unset; widht:auto; height: 7rem;">
+                                    <img src="${BASE_URL}/uploads/clients/${items.icon}" class="img-fluid" style="border:none; height: -webkit-fill-available;" alt="${items.name}" title="${items.description}">
                                 </div>
+                                <div class="container">
+                                    <p class="text-center text-truncate fw-light">${items.name}</p>
+                                </div> 
                             </div>
                             `;
                 $('#clientsData').html(clients);
@@ -61,14 +87,10 @@ function getClients() {
                 resolve(true);
             });
         });
-
     });
-
-}
+};
 
 async function initFetch() {
-    console.log('initFetch');
     await getClients();
-    initSlick();
-
-}
+    await initSlick();
+};

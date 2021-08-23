@@ -1,26 +1,36 @@
-$(document).ready(function(){
-  moveRoom("aboutus")
-  getTeams()
-});
+$(document).ready(function () {
+
+  moveRoom("aboutus");
+  getTeams();
+
+})
 
 function initSlick() {
+
   $('#teamApi').not('.slick-initialized').slick({
-    infinite: true,
+    infinite: false,
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     dots: false,
-    autoplay:true,
-    adaptiveHeight: true,
+    autoplay: false,
+    adaptiveHeight: false,
+    pauseOnFocus: true,
+    autoplaySpeed: 3000,
+    speed: 1000,
+    centerMode: false,
     responsive: [
       {
         breakpoint: 1024,
-        settings: 'unslick'
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2
+        }
       },
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2
+          slidesToShow: 1,
+          slidesToScroll: 1
         }
       },
       {
@@ -30,131 +40,117 @@ function initSlick() {
           slidesToScroll: 1
         }
       }
-      // {
-        //  breakpoint: 480,
-        //  settings: "unslick",
-        // settings: {
-        //   slidesToShow: 5,
-        //   slidesToScroll: 3
-        // }
-
-      // }
     ],
-    pauseOnFocus:true,
-    autoplaySpeed:3000,
-    speed: 1000,
-    centerMode: false,
-        
-  })
+
+  });
+
 }
 
 function reloadSlick() {
-  $("#teamApi").addClass('d-none')
-  $('#teamApi').slick('unslick')
-  $('.benefits').slick('unslick')
-  getTeams()
+
+  $("#teamApi").addClass('d-none').slick('unslick');
+  $('.benefits').slick('unslick');
+  getTeams();
+
 }
 
-function addTeam() {
+async function addTeam() {
+
   return new Promise(resolve => {
     var teamsAPI = `${API_PATH}/public/get/teams`;
     $.getJSON(teamsAPI, {
-        format: 'json'
-    }).done(function(response){
-      // nanobar.go(90)
-      let teams = '';
-      let ceo = '';
-      $.each(response.data, function(i, items){
-        if(i == 0) {
+      format: 'json'
+    }).done(function (response) {
+      let teams = ``;
+      let ceo = ``;
+      $.each(response.data, function (i, items) {
+        console.log(response);
+        if (i == 0) {
           ceo = `
-          <div class="col-lg-12">
-              <div class="member aos-init aos-animate" data-aos="fade-up">
-                  <div class="member-img my-4">
-                      <img src="${BASE_URL}/uploads/users/${items.photo == '' ? 'default.png' : items.photo}" class="img-fluid imgceo" alt="" style="max-width:15rem;min-width:15rem;">
-                      <div class="container">
-                          <h3 class="text-uppercase my-4">${items.name} - CEO</h3>
-                          <p class="mx-auto">
-                              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                              ${items.quotes}
-                              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                          </p>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          `;
-        }else if (i > 0){
-          teams += `
-            <div class="col-12 mx-3 p-6 teamImg">
-              <div class="member w-100 bg-black aos-init aos-animate d-flex justify-content-center" data-aos="fade-up">
-                <div class="card" style="width: 20rem; border:none;">
-                    <img src="${BASE_URL}/uploads/users/${items.photo == '' ? 'default.png' : items.photo}" class="card-img-top" alt="...">
-                    <div class="social">
-                          <a href="#" target="_blank"><i class="bi bi-twitter"></i></a>
-                          <a href="#" target="_blank"><i class="bi bi-facebook"></i></a>
-                          <a href="#" target="_blank"><i class="bi bi-instagram"></i></a>
-                          <a href="#" target="_blank"><i class="bi bi-linkedin"></i></a>
-                          <a href="#" target="_blank"><i class="bi bi-github"></i></a>
-                          <a href="#" target="_blank"><i class="bi bi-youtube"></i></a>
-                          <a href="#" target="_blank"><i class="bi bi-discord"></i></a>
-                          <a href="#" target="_blank"><i class="bi bi-eye-fill"></i></a>
-                      </div>
-                    <div class="card-body">
-                      <h4 class="card-title">${items.name}</h4>
-                      <p class="card-text">${items.jobs}</p>
-                      <p class="card-text d-inline-block text-truncate" style="max-width: -webkit-fill-available;">
+          <div class="col">
+            <div class="member" style="box-shadow:unset;">
+              <div class="member-img pt-4">
+                <img src="${BASE_URL}/uploads/users/${items.photo == '' ? 'default.png' : items.photo}" class="img-fluid" alt="${items.name}" style="max-width:15rem; min-width:15rem; border-radius:50%">
+                <div class="container">
+                    <h3 class="text-uppercase p-4">${items.name} - CEO</h3>
+                    <p class="mx-auto">
                       <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                       ${items.quotes}
                       <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                      </p>
-                    </div>
+                    </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          `;
+        } else if (i > 0) {
+          teams += `
+            <div class="col-lg-3 col-md-2 col-sm-1 p-2" style="height:29rem;">
+              <div class="member w-100 h-100 d-flex justify-content-center border border-1" style="box-shadow:unset;">
+                <div class="card" style="width: 40rem; max-height:60vh; border:none;">
+                  <img src="${BASE_URL}/uploads/users/${items.photo == '' ? 'default.png' : items.photo}" alt="${items.name}" style="width:100%; height:15rem; object-fit: cover;" class="img-fluid">
+                  <div class="social d-flex flex-row">`;
+          $.each(items.socials, function (i, social) {
+            teams += `<a href="${social.link}" target="_blank"><i class="bi bi-${social.social}"></i></a>`;
+          });
+          teams += `
+                  </div>
                     <div class="card-body">
+                      <h5 class="card-title">${items.name}</h5>
+                      <div class="container d-flex flex-row justify-content-evenly">
+                        <a href="${BASE_URL}/teams/?name=${items.username}&onweb=false" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Outside Web"><i class="bx bi-eye"></i></a>
+                        <a href="${BASE_URL}/teams/?name=${items.username}&onweb=true" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Inside Web"><i class="bx bi-eye-fill"></i></a>
+                      </div>
+                      <p class="card-text p-2">${items.jobs}</p>
+                      <p class="card-text d-inline-block text-break" style="max-width: -webkit-fill-available;">
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        ${items.quotes == '' ? 'Default Quotes' : items.quotes}
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                      </p>
                     </div>
                   </div>
               </div>
-          </div>
-          `;
+            </div>
+            `;
         }
-        $('#teamCEO').html(ceo);
-        $('#teamApi').html(teams);
-        $("#teamApi").removeClass('d-none')
-        resolve(true)
-      })
+      });
+      $('#teamCEO').html(ceo);
+      $('#teamApi').html(teams);
+      resolve(true);
     });
-  })
+  });
+
 }
 
 async function getTeams() {
-        
-  await addTeam()
-  initSlick()
-  //  console.log(response)
+
+  await addTeam();
+  initSlick();
 
   $('.benefits').not('.slick-initialized').slick({
-      centerMode: true,
-      // centerPadding: '60px',
-      slidesToShow: 5,
-      autoplay:true,
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: {
-            arrows: false,
-            centerMode: true,
-            centerPadding: '40px',
-            slidesToShow: 3
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            arrows: false,
-            centerMode: true,
-            centerPadding: '40px',
-            slidesToShow: 1
-          }
+    centerMode: true,
+    slidesToShow: 5,
+    autoplay: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 3
         }
-      ]
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 1
+        }
+      }
+    ]
   });
-}
 
+}

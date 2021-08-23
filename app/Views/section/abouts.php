@@ -1,90 +1,102 @@
 <style>
-.imgceo {
-    border-radius: 50%;
-}
-
-.card-img-top {
-    width: 100%;
-    height: 18vw;
-    /* height: max-content; */
+.parallax {
+    /* The image used */
+    background-image: url("<?php echo base_url('uploads/beranda/DSCF1517_.JPG'); ?>");
     object-fit: scale-down;
+
+    /* Full height */
+    height: 100%;
+    width: 100%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 </style>
-<section id="breadcrumbs" class="breadcrumbs">
-    <div class="container">
 
+<section id="breadcrumbs" class="breadcrumbs">
+
+    <div class="container">
         <div class="d-flex justify-content-between align-items-center">
-            <h2>About</h2>
+            <h2>About Us</h2>
             <ol>
-                <li><a href="<?php echo base_url(); ?>">Home</a></li>
-                <li>About</li>
+                <li><a href="<?php echo base_url('/home'); ?>">Home</a></li>
+                <li><a href="#">About Us</a></li>
             </ol>
         </div>
-
     </div>
+
 </section>
 
-<!-- ======= About Us Section ======= -->
-<section id="about-us" class="about-us">
-    <div class="container" data-aos="fade-up">
+<div class="container" style="height:20rem;">
+    <div class="parallax aos-init aos-animate" data-aos="fade" data-aos-delay="100"></div>
+</div>
 
-        <div class="row content">
-            <div class="col-lg-12" data-aos="fade">
-                <h2 class="text-uppercas text-center">Get To Know About Us</h2>
-            </div>
+<section id="team" class="team pb-0 pt-4">
+
+    <div class="container aos-init aos-animate">
+
+        <div class="section-title" data-aos="fade" data-aos-delay="200">
+            <h2 class="text-uppercase">
+                Get To Know About Us
+            </h2>
         </div>
+
+        <div id="teamCEO" class="row" data-aos="zoom-in" data-aos-delay="300"></div>
+
+        <div id="teamApi" class="row dgtTeam" data-aos="fade-up" data-aos-delay="500">></div>
 
     </div>
+
 </section>
-<!-- End About Us Section -->
 
-<section id="team" class="team section-bg" data-aos="fade-up">
-    <div class="container">
+<section id="history" class="team pb-0 pt-2">
 
-        <div class="section-title aos-init aos-animate" data-aos="fade-up">
-            <h2>Meet Our <strong>Team</strong></h2>
-        </div>
+    <div class="container aos-init aos-animate">
 
-        <!-- Ceo Line -->
-        <div class="row dgtCeo">
-
-            <div id="teamCEO"></div>
-
-        </div>
-        <!-- End Ceo Line -->
-
-        <div id="teamApi" class="row dgtTeam">
-
-            <!-- <div id="teamApi"></div> -->
-
+        <div class="section-title pt-4" data-aos="fade" data-aos-delay="600">
+            <h2 class="text-uppercase">
+                <span>
+                    Our <strong>History</strong>
+                </span>
+            </h2>
         </div>
 
         <!-- Video Line -->
-        <div class="row dgtVideo mt-2">
+        <div class="row dgtVideo mt-2" data-aos="fade-up" data-aos-delay="800">
 
-            <div class="col-lg-12 aos-init">
-                <div class="member aos-init aos-animate d-flex" data-aos="fade-up">
-                    <div class="member-img align-self-center">
-                        <h2 class="text-center text-capitalize mt-4">Dian Global Tech Is</h2>
-                        <div class="container mt-4">
-                            <div class="row">
-                                <div class="col-lg-4 pb-4">
-                                    <video width="100%" height="auto" controls="">
-                                        <source src="http://techslides.com/demos/sample-videos/small.ogv"
-                                            type="video/ogg">
-                                    </video>
-                                </div>
-                                <div class="col-lg-8 pb-4">
-                                    <p class="text-start text-wrap font-monospace">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="member" style="box-shadow:unset;">
+                    <h3 class="text-center text-uppercase">Dian Global Tech Is</h3>
+                    <div class="container">
+                        <div class="row justify-content-center py-2">
+                            <div class="col-lg-12 col-md-12 col-sm-12" style="height: 25rem;">
+                                <iframe class="w-100 h-100" src="https://www.youtube.com/embed/m2dCMOed7ww"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+
+                        <div class="row py-2">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="container">
+                                    <p class="text-start fs-6">
                                         Dian Global Tech is an INFORMATION AND TECHNOLOGY (IT)
                                         consulting services company established in October 2009
                                         by experienced practitioners in their respective fields.
                                     </p>
-                                    <p class="text-start text-wrap font-monospace">
-                                        We start our journey in SISTEM INFORMASI MANAJEMEN SEKOLAH (SIMS) and now,
+                                    <p class="text-start fs-6">
+                                        We start our journey in SISTEM INFORMASI MANAJEMEN SEKOLAH (SIMS) and
+                                        now,
                                         we create custom made apps based on our partners and clients demands.
-                                        With a wide network, professionalism and commitment, we are able to consistently
-                                        provide high quality services, and CUSTOMER SATISFACTION IS EVERYTHING to us
+                                        With a wide network, professionalism and commitment, we are able to
+                                        consistently
+                                        provide high quality services, and CUSTOMER SATISFACTION IS EVERYTHING
+                                        to us
                                     </p>
                                 </div>
                             </div>
@@ -95,25 +107,64 @@
 
         </div>
         <!-- End Video Line -->
-
     </div>
+
 </section>
 
-<!-- ======= About Us Section ======= -->
-<section id="benefits" class="about-us">
-    <div class="container" data-aos="fade-up">
+<section id="about-us" class="about-us">
 
-        <div class="section-title aos-init aos-animate" data-aos="fade-up">
-            <h2>Cooperation Benefits</h2>
+    <div class="container aos-init aos-animate">
+
+        <div class="section-title" data-aos="fade-up" data-aos-delay="900">
+            <h2>Our <strong>Goals</strong></h2>
         </div>
-        <!-- <h2 class="text-center text-capitalize my-2 text-uppercas">Cooperation Benefits</h2> -->
+
+        <div class="row content">
+            <div class="col-lg-6 col-md-6 col-sm-6" data-aos="fade-right" data-aos-delay="1000">
+                <h4 class="text-center"><i class="bi bi-briefcase p-2"></i><strong>Mission</strong></h4>
+                <ul>
+                    <li>
+                        <p class="fst-italic">
+                            Provide the best Information and Technology services to each of our partners and clients
+                            who
+                            cooperate with us.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6" data-aos="fade-left" data-aos-delay="1000">
+                <h4 class="text-center"><i class="bi bi-bullseye p-2"></i><strong>Vision</strong></h4>
+                <ul>
+                    <li>
+                        <p class="fst-italic">
+                            Become the leading consultant in Information and Technology field by always providing
+                            Innovative solutions to each of our partners and clients, and to compete on a national
+                            and
+                            international scale.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="benefits" class="about-us">
+
+    <div class="container aos-init aos-animate">
+
+        <div class="section-title" data-aos="fade" data-aos-delay="1100">
+            <h2 class="text-uppercase">Cooperation Benefits</h2>
+        </div>
         <!-- Cooperation Line -->
-        <div class="row services benefits">
+        <div class="row services benefits justify-content-center">
             <!-- <div class="section benefits"> -->
-            <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-                <div class="card shadow-sm" style="width: 15rem; border: none;">
+            <div class="col" data-aos="zoom-in" data-aos-delay="1200">
+                <div class="card" style="height:15rem; border:none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Partner_Oriented@4x-8.png'); ?>" class="img-fluid"
-                        alt="...">
+                        alt="Oriented">
                     <div class="card-body">
                         <p class="card-text">
                         <h6 class="text-center">Partner & Client Oriented</h6>
@@ -121,10 +172,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
-                <div class="card shadow-sm" style="width: 15rem; border: none;">
+            <div class="col" data-aos="zoom-in" data-aos-delay="1300">
+                <div class="card" style="height:15rem; border:none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Eficient@4x-8.png'); ?>" class="img-fluid"
-                        alt="...">
+                        alt="Solution">
                     <div class="card-body">
                         <p class="card-text">
                         <h6 class="text-center">Effective & Efficient Solution</h6>
@@ -132,10 +183,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
-                <div class="card shadow-sm" style="width: 15rem; border: none;">
+            <div class="col" data-aos="zoom-in" data-aos-delay="1400">
+                <div class="card" style="height:15rem; border:none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Innovation@4x-8.png'); ?>" class="img-fluid"
-                        alt="...">
+                        alt="Innovative">
                     <div class="card-body">
                         <p class="card-text">
                         <h6 class="text-center">Innovative</h6>
@@ -143,10 +194,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
-                <div class="card shadow-sm" style="width: 15rem; border: none;">
+            <div class="col" data-aos="zoom-in" data-aos-delay="1500">
+                <div class="card" style="height:15rem; border:none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Service_Commitment@4x-8.png'); ?>" class="img-fluid"
-                        alt="...">
+                        alt="Commitment">
                     <div class="card-body">
                         <p class="card-text">
                         <h6 class="text-center">Service Commitment</h6>
@@ -154,13 +205,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
-                <div class="card shadow-sm" style="width: 15rem; border: none;">
+            <div class="col" data-aos="zoom-in" data-aos-delay="1600">
+                <div class="card" style="height:15rem; border:none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Professional_Quality@4x-8.png'); ?>"
-                        class="img-fluid" alt="...">
+                        class="img-fluid" alt="Quality">
                     <div class="card-body">
                         <p class="card-text">
-                        <h6 class="text-center">Professional_Quality</h6>
+                        <h6 class="text-center">Professional Quality</h6>
                         </p>
                     </div>
                 </div>
@@ -170,271 +221,5 @@
         <!-- End Cooperation Line -->
 
     </div>
+
 </section>
-<!-- End About Us Section -->
-
-<!-- ======= Services Section ======= -->
-<!-- <section id="services" class="services section-bg">
-    <div class="container" data-aos="fade-up">
-
-        <div class="row">
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-                <div class="icon-box iconbox-blue">
-                    <div class="icon">
-                        <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174"></path>
-                        </svg>
-                        <i class="bx bxl-dribbble"></i>
-                    </div>
-                    <h4><a href="">Lorem Ipsum</a></h4>
-                    <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-                <div class="icon-box iconbox-orange ">
-                    <div class="icon">
-                        <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,582.0697525312426C382.5290701553225,586.8405444964366,449.9789794690241,525.3245884688669,502.5850820975895,461.55621195738473C556.606425686781,396.0723002908107,615.8543463187945,314.28637112970534,586.6730223649479,234.56875336149918C558.9533121215079,158.8439757836574,454.9685369536778,164.00468322053177,381.49747125262974,130.76875717737553C312.15926192815925,99.40240125094834,248.97055460311594,18.661163978235184,179.8680185752513,50.54337015887873C110.5421016452524,82.52863877960104,119.82277516462835,180.83849132639028,109.12597500060166,256.43424936330496C100.08760227029461,320.3096726198365,92.17705696193138,384.0621239912766,124.79988738764834,439.7174275375508C164.83382741302287,508.01625554203684,220.96474134820875,577.5009287672846,300,582.0697525312426"></path>
-                        </svg>
-                        <i class="bx bx-file"></i>
-                    </div>
-                    <h4><a href="">Sed Perspiciatis</a></h4>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
-                <div class="icon-box iconbox-pink">
-                    <div class="icon">
-                        <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,541.5067337569781C382.14930387511276,545.0595476570109,479.8736841581634,548.3450877840088,526.4010558755058,480.5488172755941C571.5218469581645,414.80211281144784,517.5187510058486,332.0715597781072,496.52539010469104,255.14436215662573C477.37192572678356,184.95920475031193,473.57363656557914,105.61284051026155,413.0603344069578,65.22779650032875C343.27470386102294,18.654635553484475,251.2091493199835,5.337323636656869,175.0934190732945,40.62881213300186C97.87086631185822,76.43348514350839,51.98124368387456,156.15599469081315,36.44837278890362,239.84606092416172C21.716077023791087,319.22268207091537,43.775223500013084,401.1760424656574,96.891909868211,461.97329694683043C147.22146801428983,519.5804099606455,223.5754009179313,538.201503339737,300,541.5067337569781"></path>
-                        </svg>
-                        <i class="bx bx-tachometer"></i>
-                    </div>
-                    <h4><a href="">Magni Dolores</a></h4>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
-                <div class="icon-box iconbox-yellow">
-                    <div class="icon">
-                        <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,503.46388370962813C374.79870501325706,506.71871716319447,464.8034551963731,527.1746412648533,510.4981551193396,467.86667711651364C555.9287308511215,408.9015244558933,512.6030010748507,327.5744911775523,490.211057578863,256.5855673507754C471.097692560561,195.9906835881958,447.69079081568157,138.11976852964426,395.19560036434837,102.3242989838813C329.3053358748298,57.3949838291264,248.02791733380457,8.279543830951368,175.87071277845988,42.242879143198664C103.41431057327972,76.34704239035025,93.79494320519305,170.9812938413882,81.28167332365135,250.07896920659033C70.17666984294237,320.27484674793965,64.84698225790005,396.69656628748305,111.28512138212992,450.4950937839243C156.20124167950087,502.5303643271138,231.32542653798444,500.4755392045468,300,503.46388370962813"></path>
-                        </svg>
-                        <i class="bx bx-layer"></i>
-                    </div>
-                    <h4><a href="">Nemo Enim</a></h4>
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
-                <div class="icon-box iconbox-red">
-                    <div class="icon">
-                        <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,532.3542879108572C369.38199826031484,532.3153073249985,429.10787420159085,491.63046689027357,474.5244479745417,439.17860296908856C522.8885846962883,383.3225815378663,569.1668002868075,314.3205725914397,550.7432151929288,242.7694973846089C532.6665558377875,172.5657663291529,456.2379748765914,142.6223662098291,390.3689995646985,112.34683881706744C326.66090330228417,83.06452184765237,258.84405631176094,53.51806209861945,193.32584062364296,78.48882559362697C121.61183558270385,105.82097193414197,62.805066853699245,167.19869350419734,48.57481801355237,242.6138429142374C34.843463184063346,315.3850353017275,76.69343916112496,383.4422959591041,125.22947124332185,439.3748458443577C170.7312796277747,491.8107796887764,230.57421082200815,532.3932930995766,300,532.3542879108572"></path>
-                        </svg>
-                        <i class="bx bx-slideshow"></i>
-                    </div>
-                    <h4><a href="">Dele Cardo</a></h4>
-                    <p>Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur</p>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
-                <div class="icon-box iconbox-teal">
-                    <div class="icon">
-                        <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,566.797414625762C385.7384707136149,576.1784315230908,478.7894351017131,552.8928747891023,531.9192734346935,484.94944893311C584.6109503024035,417.5663521118492,582.489472248146,322.67544863468447,553.9536738515405,242.03673114598146C529.1557734026468,171.96086150256528,465.24506316201064,127.66468636344209,395.9583748389544,100.7403814666027C334.2173773831606,76.7482773500951,269.4350130405921,84.62216499799875,207.1952322260088,107.2889140133804C132.92018162631612,134.33871894543012,41.79353780512637,160.00259165414826,22.644507872594943,236.69541883565114C3.319112789854554,314.0945973066697,72.72355303640163,379.243833228382,124.04198916343866,440.3218312028393C172.9286146004772,498.5055451809895,224.45579914871206,558.5317968840102,300,566.797414625762"></path>
-                        </svg>
-                        <i class="bx bx-arch"></i>
-                    </div>
-                    <h4><a href="">Divera Don</a></h4>
-                    <p>Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur</p>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</section> -->
-<!-- End Services Section -->
-
-<!-- ======= Portfolio Section ======= -->
-<!-- <section id="portfolio" class="portfolio">
-    <div class="container">
-
-        <div class="row" data-aos="fade-up">
-            <div class="col-lg-12 d-flex justify-content-center">
-                <ul id="portfolio-flters">
-                    <li data-filter="*" class="filter-active">All</li>
-                    <li data-filter=".filter-app">App</li>
-                    <li data-filter=".filter-card">Card</li>
-                    <li data-filter=".filter-web">Web</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="row portfolio-container" data-aos="fade-up">
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <h4>App 1</h4>
-                    <p>App</p>
-                    <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <h4>Web 3</h4>
-                    <p>Web</p>
-                    <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <h4>App 2</h4>
-                    <p>App</p>
-                    <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <h4>Card 2</h4>
-                    <p>Card</p>
-                    <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <h4>Web 2</h4>
-                    <p>Web</p>
-                    <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <h4>App 3</h4>
-                    <p>App</p>
-                    <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <h4>Card 1</h4>
-                    <p>Card</p>
-                    <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <h4>Card 3</h4>
-                    <p>Card</p>
-                    <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <h4>Web 3</h4>
-                    <p>Web</p>
-                    <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</section> -->
-<!-- End Portfolio Section -->
-
-<!-- ======= Our Clients Section ======= -->
-<!-- <section id="clients" class="clients">
-    <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-            <h2>Clients</h2>
-        </div>
-
-        <div class="row no-gutters clients-wrap clearfix" data-aos="fade-up">
-
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="client-logo">
-                    <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="client-logo">
-                    <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="client-logo">
-                    <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="client-logo">
-                    <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="client-logo">
-                    <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="client-logo">
-                    <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="client-logo">
-                    <img src="assets/img/clients/client-7.png" class="img-fluid" alt="">
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-6">
-                <div class="client-logo">
-                    <img src="assets/img/clients/client-8.png" class="img-fluid" alt="">
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</section> -->
-<!-- End Our Clients Section -->

@@ -13,8 +13,8 @@ class Abouts extends BaseController
             'logoName' => 'DGT',
             'section' => 'abouts',
             'js' => [
-                "<script src=" . base_url('assets/js/page/abouts.js') . " defer></script>"
-            ]
+                '<script src='.base_url('assets/js/page/abouts.js').' defer></script>',
+            ],
         ];
 
         echo view('front/canvas', $data);

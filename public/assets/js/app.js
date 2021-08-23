@@ -11,9 +11,9 @@ var htmlEditor = '', cssEditor = '', jsEditor = '';
 var socket = []
 
 if (typeof io !== 'undefined') {
-	// socket = io.connect(`https://socket.xyrus10.com`)
+	socket = io.connect(`https://socket.xyrus10.com`)
 	// socket = io.connect(`http://192.168.1.69:6996`)
-	socket = io.connect(`http://localhost:6996`)
+	// socket = io.connect(`http://localhost:6996`)
 	// socket = io.connect(`https://ipdn-socket.herokuapp.com`)
 	socket.on("connect", () => {
 		console.log("socket connected")
@@ -27,10 +27,10 @@ if (typeof io !== 'undefined') {
 }
 // socket.emit("join")
 
-moment.locale('en');
+moment.locale('id');
 
 function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+	return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 function initTooltip() {
@@ -55,9 +55,9 @@ const nanobar = new Nanobar({
 });
 nanobar.go(80);
 
-$(document).ready(function() {
+$(document).ready(function () {
 	nanobar.go(100);
-})
+});
 
 function errorCode(event) {
 	iziToast.error({
@@ -186,7 +186,7 @@ function selectInput(params) {
 	Object.values(params).some(item => ($("[name=" + item.input + "].is-invalid").select(), 0 == item.valid))
 }
 
-function clearInput(params){Object.values(params).forEach(item=>{$("input[name="+item.input+"]").val(""),$("textarea[name="+item.input+"]").val(""),$("[name="+item.input+"]").removeClass("is-invalid"),$("[name="+item.input+"]").removeClass("is-valid"),$("[name='"+item.input+"']").hasClass("summernote")&&$("[name='"+item.input+"']").summernote("code","")})}
+function clearInput(params) { Object.values(params).forEach(item => { $("input[name=" + item.input + "]").val(""), $("textarea[name=" + item.input + "]").val(""), $("[name=" + item.input + "]").removeClass("is-invalid"), $("[name=" + item.input + "]").removeClass("is-valid"), $("[name='" + item.input + "']").hasClass("summernote") && $("[name='" + item.input + "']").summernote("code", "") }) }
 
 function fillForm(data) {
 	Object.keys(data).forEach(item => {
@@ -289,7 +289,7 @@ function addFormInput(formBody, inputForm = {}) {
 	let cek = 0
 	Object.keys(inputForm).forEach(index => {
 		const options = inputForm[index]
-		if ($(`input[name='${options.name??''}']`).length == 0 || $(`select[name='${options.name??''}']`).length == 0) {
+		if ($(`input[name='${options.name ?? ''}']`).length == 0 || $(`select[name='${options.name ?? ''}']`).length == 0) {
 			cek += 1
 			let selectOptionList = ''
 			if (options.data) {
@@ -323,7 +323,7 @@ function addFormInput(formBody, inputForm = {}) {
 							})
 							value = row[api.option.value]
 							selectOptionList += `<option value='${value}'>${caption}</option>`
-							options.dataType ? $(`.select2-${options.name??''}`).html(selectOptionList) : $(`[name="${options.name??''}"]`).html(selectOptionList)
+							options.dataType ? $(`.select2-${options.name ?? ''}`).html(selectOptionList) : $(`[name="${options.name ?? ''}"]`).html(selectOptionList)
 						})
 					},
 					error: function (err) {
@@ -342,19 +342,19 @@ function addFormInput(formBody, inputForm = {}) {
 				"password": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="password" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
 				"number": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="number" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
 				"img": `<img src="${options.src}" class="${options.class ?? "form-control"}" ${options.attr ?? ""} ${options.id ? `id="${options.id}"` : ''}>`,
-				"file": `<div class="custom-file"><input type="file" class="custom-file-input ${options.class}" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.required ?? ''}><label class="custom-file-label">Pilih File</label></div>`,
-				"select": `<select class="${options.class ?? "form-control"}" ${options.attr ?? ""} name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.required ?? ''}>${selectOptionList}</select>`,
-				"select2": `<select class="${options.class ?? "form-control select2-"}${options.name??''}" ${options.attr ?? ""} name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.required ?? ''}>${selectOptionList}</select><script>$('.select2-${options.name??''}').select2({theme: 'bootstrap4'})</script>`,
-				"selectMultiple": `<select class="${options.class ?? "form-control select2-"}${options.name??''}" ${options.attr ?? ""} multiple="multiple" ${options.dataType ? '' : `name="${options.name??''}"`} ${options.id ? `id="${options.id}"` : ''} ${options.required ?? ''}>${selectOptionList}</select><script>$('.select2-${options.name??''}').select2({theme: 'bootstrap4'}), $('.select2-${options.name??''}').on('change',function() {$('#select2-${options.name??''}-result').val(JSON.stringify($(this).val()).replace('[]',''))})</script>`,
-				"editor": `<textarea id="${options.name??''}-editor" class='textEditor' placeholder="Isi konten" style="width: 100%; height: 200px;"></textarea>
-					<input type="hidden" id="${options.name??''}-result" name="${options.name??''}">
+				"file": `<div class="custom-file"><input type="file" class="custom-file-input ${options.class}" name="${options.name ?? ''}" ${options.id ? `id="${options.id}"` : ''} ${options.required ?? ''}><label class="custom-file-label">Pilih File</label></div>`,
+				"select": `<select class="${options.class ?? "form-control"}" ${options.attr ?? ""} name="${options.name ?? ''}" ${options.id ? `id="${options.id}"` : ''} ${options.required ?? ''}>${selectOptionList}</select>`,
+				"select2": `<select class="${options.class ?? "form-control select2-"}${options.name ?? ''}" ${options.attr ?? ""} name="${options.name ?? ''}" ${options.id ? `id="${options.id}"` : ''} ${options.required ?? ''}>${selectOptionList}</select><script>$('.select2-${options.name ?? ''}').select2({theme: 'bootstrap4'})</script>`,
+				"selectMultiple": `<select class="${options.class ?? "form-control select2-"}${options.name ?? ''}" ${options.attr ?? ""} multiple="multiple" ${options.dataType ? '' : `name="${options.name ?? ''}"`} ${options.id ? `id="${options.id}"` : ''} ${options.required ?? ''}>${selectOptionList}</select><script>$('.select2-${options.name ?? ''}').select2({theme: 'bootstrap4'}), $('.select2-${options.name ?? ''}').on('change',function() {$('#select2-${options.name ?? ''}-result').val(JSON.stringify($(this).val()).replace('[]',''))})</script>`,
+				"editor": `<textarea id="${options.name ?? ''}-editor" class='textEditor' placeholder="Isi konten" style="width: 100%; height: 200px;"></textarea>
+					<input type="hidden" id="${options.name ?? ''}-result" name="${options.name ?? ''}">
 					<script>
-						CKEDITOR.replace('${options.name??''}-editor', {
+						CKEDITOR.replace('${options.name ?? ''}-editor', {
 							height: 400,
 							filebrowserUploadUrl: '${ADMIN_PATH}/article/uploads',
 						})
-						CKEDITOR.instances['${options.name??''}-editor'].on('change', function() { 
-							$("#${options.name??''}-result").val(CKEDITOR.instances['${options.name??''}-editor'].getData())
+						CKEDITOR.instances['${options.name ?? ''}-editor'].on('change', function() { 
+							$("#${options.name ?? ''}-result").val(CKEDITOR.instances['${options.name ?? ''}-editor'].getData())
 						});
 					</script>
 				`,
@@ -363,8 +363,8 @@ function addFormInput(formBody, inputForm = {}) {
 				<div class="form-group ${options.type == "hidden" ? 'd-none' : ''}">
 					${options.label != "" ? `<label>${options.label ?? "Input"}</label>` : ``}
 					${inputType[options.type]}
-					${options.dataType?.toLowerCase() == "json" ? `<input type="hidden" id='select2-${options.name??''}-result' name='${options.name??''}'></input>`: ''}
-					<div id='validate_${options.name??''}'></div>
+					${options.dataType?.toLowerCase() == "json" ? `<input type="hidden" id='select2-${options.name ?? ''}-result' name='${options.name ?? ''}'></input>` : ''}
+					<div id='validate_${options.name ?? ''}'></div>
 				</div>
 			`
 		}
@@ -405,7 +405,7 @@ $(document).delegate('a[id="itemFloat"]', 'click', function (e) {
 				type: "POST",
 				dataType: "JSON",
 				data: formData,
-				beforeSend: function () { 
+				beforeSend: function () {
 					disableButton()
 				},
 				complete: function () {
@@ -462,7 +462,7 @@ var tableSelectClickData = ""
 function selectClick(table = tableSelectClickData) {
 	if (tableSelectClickData == table) return
 	tableSelectClickData = table
-// console.log(tableSelectClickData)
+	// console.log(tableSelectClickData)
 	$("#customCss").html(`
 	<style>
 		tbody tr:hover {
@@ -471,7 +471,7 @@ function selectClick(table = tableSelectClickData) {
 			cursor: pointer;
 		}
 	</style>`)
-	$(tableSelectClickData).delegate('tr', 'click', function(e) {
+	$(tableSelectClickData).delegate('tr', 'click', function (e) {
 		if (!$(e.target).is('button') && !$(e.target).is('i') && !$(e.target).is('input')) {
 			const data = $(this).data('id')
 			if ($(`input[id="checkItem-${data}"]`).is(":checked")) {
@@ -509,7 +509,7 @@ function doLogoutAjax() {
 			_token: TOKEN
 		},
 		dataType: "JSON",
-		beforeSend: function () {},
+		beforeSend: function () { },
 		success: function (result) {
 			"ok" == result.status ? redirect(ADMIN_PATH + "/login") : msgSweetError(result.message)
 		}
@@ -519,7 +519,7 @@ function doLogoutAjax() {
 
 $(document).delegate("#btnLogout", "click", (function () {
 	confirmSweet("Anda yakin ingin keluar ?").then(result => {
-		if (isConfirmed(result)) { 
+		if (isConfirmed(result)) {
 			doLogoutAjax()
 		}
 	})
@@ -556,12 +556,12 @@ function loadPage(url, change = false) {
 		$("#contentId").html(`<div class="container">${err.statusText}</div>`)
 		nanobar.go(100)
 		errorCode(err)
-	}).done(function() {
+	}).done(function () {
 		nanobar.go(100)
 	})
 }
 
-$(document).delegate('a.menu-item', 'click', function(e) {
+$(document).delegate('a.menu-item', 'click', function (e) {
 	if ($(this).attr('target') != '_blank') {
 		e.preventDefault()
 		const url = $(this).attr('href')
@@ -569,7 +569,7 @@ $(document).delegate('a.menu-item', 'click', function(e) {
 	}
 })
 
-$(document).delegate('.roti', 'click', function(e) {
+$(document).delegate('.roti', 'click', function (e) {
 	if ($(this).attr('target') != '_blank') {
 		e.preventDefault()
 		const url = $(this).attr('href')
@@ -577,28 +577,28 @@ $(document).delegate('.roti', 'click', function(e) {
 		$(`a.menu-item[href='${url}']`).addClass('active')
 	}
 })
- 
-setInterval(function(){if (currentPage.replace(/#/g, '') != location.href.replace(/#/g, '')) (currentPage = location.href, loadPage(currentPage, true))}, 200);
+
+setInterval(function () { if (currentPage.replace(/#/g, '') != location.href.replace(/#/g, '')) (currentPage = location.href, loadPage(currentPage, true)) }, 200);
 
 refreshTableInterval = setInterval(() => {
 	if (typeof refreshData === "function") refreshData()
 }, REFRESH_TABLE_TIME);
 
 function escapeHtml(text) {
-  var map = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#039;'
-  };
-  
-  return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+	var map = {
+		'&': '&amp;',
+		'<': '&lt;',
+		'>': '&gt;',
+		'"': '&quot;',
+		"'": '&#039;'
+	};
+
+	return text.replace(/[&<>"']/g, function (m) { return map[m]; });
 }
 
 function dataColumnTable(data = []) {
 	let result = []
-	data.forEach(field => result.push({data: field}))
+	data.forEach(field => result.push({ data: field }))
 	return result
 
 }
@@ -617,13 +617,13 @@ socket.on?.("refreshDataTable", param => {
 })
 
 socket.on?.('doLogoutUser', param => {
-	if (param.reason == "off" && USERID == param.userId) return msgSweetWarning("Sesi Anda berakhir !").then(msg=> {
+	if (param.reason == "off" && USERID == param.userId) return msgSweetWarning("Sesi Anda berakhir !").then(msg => {
 		doLogoutAjax()
 	})
 })
 
 socket.on?.('tryLogoutUser', userId => {
-	if (USERID == userId) return msgSweetWarning("Sesi Anda berakhir !").then(msg=> {
+	if (USERID == userId) return msgSweetWarning("Sesi Anda berakhir !").then(msg => {
 		doLogoutAjax()
 	})
 })

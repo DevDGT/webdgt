@@ -5,18 +5,18 @@ const BASE_URL = $('meta[name="baseUrl"]').attr("content"),
 var socket = []
 
 if (typeof io !== 'undefined') {
-  // socket = io.connect(`https://socket.xyrus10.com`)
+  socket = io.connect(`https://socket.xyrus10.com`)
   // socket = io.connect(`http://192.168.1.69:6996`)
-  socket = io.connect(`http://localhost:6996`)
+  // socket = io.connect(`http://localhost:6996`)
   // socket = io.connect(`https://ipdn-socket.herokuapp.com`)
   socket.on("connect", () => {
     console.log("socket connected")
-		socket.emit("connected", {
-			username: "anonim",
-			userId: "anonim",
-			origin: BASE_URL,
-			token: "anonim",
-		});
+    socket.emit("connected", {
+      username: "anonim",
+      userId: "anonim",
+      origin: BASE_URL,
+      token: "anonim",
+    });
     // socket.emit("connected", USERNAME);
   });
 }
@@ -35,19 +35,20 @@ nanobar.go(80);
 
 $(document).ready(function () {
   nanobar.go(100);
-  $('.ourTeam').slick({
-    infinite: true,
-    slidesToShow: 2,
-    slidesToScroll: 2,
-    dots: true,
-    autoplay: true,
-    mobileFirst: true,
-    pauseOnFocus: true,
-    autoplaySpeed: 3000,
-    speed: 1000,
-    centerMode: false,
-  });
-})
+
+  // $('.ourTeam').slick({
+  //   infinite: true,
+  //   slidesToShow: 2,
+  //   slidesToScroll: 2,
+  //   dots: true,
+  //   autoplay: true,
+  //   mobileFirst: true,
+  //   pauseOnFocus: true,
+  //   autoplaySpeed: 3000,
+  //   speed: 1000,
+  //   centerMode: false,
+  // });
+});
 
 var currentPage = location.href
 
@@ -74,9 +75,9 @@ function loadPage(url, change = false) {
 
 var currentRoom = ''
 function moveRoom(room) {
-	if (currentRoom != '') socket?.emit('leaveRoom', currentRoom)
-	socket?.emit("joinRoom", room)
-	currentRoom = room
+  if (currentRoom != '') socket?.emit('leaveRoom', currentRoom)
+  socket?.emit("joinRoom", room)
+  currentRoom = room
 }
 
 $(document).delegate('a', 'click', function (e) {
@@ -110,7 +111,7 @@ const on = (type, el, listener, all = false) => {
 }
 
 setInterval(function () {
-  if (currentPage.replace(/#/g, '') != location.href.replace(/#/g, ''))(currentPage = location.href, loadPage(currentPage, true))
+  if (currentPage.replace(/#/g, '') != location.href.replace(/#/g, '')) (currentPage = location.href, loadPage(currentPage, true))
 }, 200);
 
 
