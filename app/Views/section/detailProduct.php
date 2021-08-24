@@ -50,7 +50,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <h5 class="card-title"><?php echo $productsData['0']->name ?? ''; ?></h5>
                         <p class="card-text"><?php echo $productsData['0']->description ?? ''; ?></p>
-                        <h5 class="card-title">Other Videos <?php echo $productsData['0']->name ?? ''; ?></h5>
+                        <h5 class="card-title"><?php echo 'Other Videos '.$productsData['0']->name ?? ''; ?></h5>
                         <div id="carouselProduct"></div>
                         <h5 class="card-title">Download Catalog</h5>
                         <div id="catalogProduct"></div>
