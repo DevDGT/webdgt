@@ -21,7 +21,7 @@ class Category extends BaseController
             'subMenu' => 'category',
             'roti' => [
                 'Home:blank' => base_url(),
-                'Dashboard' => base_url(ADMIN_PATH.'/dashboard'),
+                'Dashboard' => base_url(ADMIN_PATH . '/dashboard'),
                 'Master' => '',
                 'Kategori:active' => '',
             ],
@@ -152,7 +152,7 @@ class Category extends BaseController
 
             $message = [
                 'status' => 'ok',
-                'message' => "Berhasil menghapus <b>$jmlSukses</b> data dari <b>".count($dataId).'</b> data',
+                'message' => "Berhasil menghapus <b>$jmlSukses</b> data dari <b>" . count($dataId) . '</b> data',
             ];
         } catch (\Throwable $th) {
             $message = [
