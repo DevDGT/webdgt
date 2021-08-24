@@ -212,8 +212,8 @@
         </div>
 
         <div class="faq-list">
-            <ul class="border border-success">
-                <li data-aos="fade-up">
+            <ul class="border border-success" id="faqData">
+                <!-- <li data-aos="fade-up">
                     <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse"
                         data-bs-target="#faq-list-1">Lorem Ipsum<i class="bx bx-chevron-down icon-show"></i><i
                             class="bx bx-chevron-up icon-close"></i></a>
@@ -233,7 +233,7 @@
                             Lorem Ipsum
                         </p>
                     </div>
-                </li>
+                </li> -->
 
             </ul>
         </div>

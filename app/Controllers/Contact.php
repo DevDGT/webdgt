@@ -13,7 +13,7 @@ class Contact extends BaseController
             'logoName' => 'DGT',
             'section' => 'contact',
             'js' => [
-                //'<script src='.base_url('assets/js/page/contact.js').' defer></script>',
+                '<script src='.base_url('assets/js/page/contact.js').' defer></script>',
             ],
         ];
 
