@@ -47,7 +47,7 @@
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-lg-10 col-md-5">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
                         <h5 class="card-title"><?php echo $productsData['0']->name ?? ''; ?></h5>
                         <p class="card-text"><?php echo $productsData['0']->description ?? ''; ?></p>
                         <h5 class="card-title">Other Videos <?php echo $productsData['0']->name ?? ''; ?></h5>
@@ -57,7 +57,7 @@
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-lg-10 col-md-5">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
                         <h5 class="card-title">Who's use this product</h5>
                     </div>
                 </div>

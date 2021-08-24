@@ -43,7 +43,7 @@
 
         <div class="container p-4">
             <div class="row aos-init aos-animate">
-                <div class="col-lg-6 col-md-4" data-aos="fade-right" data-aos-delay="400">
+                <div class="col-lg-6 col-md-6 col-sm-12" data-aos="fade-right" data-aos-delay="400">
                     <div class="icon-box iconbox-blue p-1">
                         <div class="icon">
                             <img src="<?php echo base_url('uploads/aboutus/Tech_Support@4x-8.png'); ?>" width="80"
@@ -55,7 +55,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-4" data-aos="fade-left" data-aos-delay="550">
+                <div class="col-lg-6 col-md-6 col-sm-12" data-aos="fade-left" data-aos-delay="550">
                     <div class="icon-box iconbox-blue p-1">
                         <div class="icon">
                             <img src="<?php echo base_url('uploads/aboutus/Consulting@4x-8.png'); ?>" width="80"
@@ -68,7 +68,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-4" data-aos="fade-right" data-aos-delay="750">
+                <div class="col-lg-6 col-md-6 col-sm-12" data-aos="fade-right" data-aos-delay="750">
                     <div class="icon-box iconbox-blue p-1">
                         <div class="icon">
                             <img src="<?php echo base_url('uploads/aboutus/App_Dev@4x-8.png'); ?>" width="80"
@@ -82,7 +82,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-4" data-aos="fade-left" data-aos-delay="900">
+                <div class="col-lg-6 col-md-6 col-sm-12" data-aos="fade-left" data-aos-delay="900">
                     <div class="icon-box iconbox-blue p-1">
                         <div class="icon">
                             <img src="<?php echo base_url('uploads/aboutus/Training@4x-8.png'); ?>" width="80"

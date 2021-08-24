@@ -42,7 +42,7 @@
         </div>
         <div class="container">
             <div class="row aos-init aos-animate">
-                <div class="col-lg-12 col-md-6 col-sm-3 d-flex flex-row justify-content-around">
+                <div class="col-lg-12 col-md-12 col-sm-12 d-flex flex-row justify-content-around">
                     <div class="card" style="width: 15rem; border: none;" data-aos="fade-right" data-aos-delay="200">
                         <img src="<?php echo base_url('/uploads/produk/Productivity.png'); ?>" class="card-img-top"
                             alt="Productivity">
