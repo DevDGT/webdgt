@@ -3,6 +3,11 @@ $(document).ready(function(){
     // document.documentElement.scrollTop = 0;
 });
 
+$("#btnBackNews").click(function(e){
+  e.preventDefault();
+  window.history.back();
+})
+
 socket.on?.("articleChanged", (idNews) => {
   console.log(`Article changed ${idNews}`);
   nanobar.go(80)

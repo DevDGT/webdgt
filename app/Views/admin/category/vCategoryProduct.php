@@ -1,11 +1,11 @@
 <?= $this->extend('admin/layouts/app'); ?>
 <?= $this->section('content'); ?>
 <style>
-tbody tr:hover {
-    background: #eee;
-    box-shadow: 0 1px 2px rgb(242, 242, 242);
-    cursor: pointer;
-}
+    tbody tr:hover {
+        background: #eee;
+        box-shadow: 0 1px 2px rgb(242, 242, 242);
+        cursor: pointer;
+    }
 </style>
 <div class="container-fluid pb-3">
     <div class="row">

@@ -15,13 +15,14 @@ class CategoryProduct extends BaseController
 
     public function index()
     {
+        // echo "Asdasd";
         $data = [
             'title' => 'Kategori Produk',
             'menu' => 'master',
             'subMenu' => 'category-product',
             'roti' => [
                 'Home:blank' => base_url(),
-                'Dashboard' => base_url(ADMIN_PATH.'/dashboard'),
+                'Dashboard' => base_url(ADMIN_PATH . '/dashboard'),
                 'Master' => '',
                 'Kategori Produk:active' => '',
             ],
@@ -152,7 +153,7 @@ class CategoryProduct extends BaseController
 
             $message = [
                 'status' => 'ok',
-                'message' => "Berhasil menghapus <b>$jmlSukses</b> data dari <b>".count($dataId).'</b> data',
+                'message' => "Berhasil menghapus <b>$jmlSukses</b> data dari <b>" . count($dataId) . '</b> data',
             ];
         } catch (\Throwable $th) {
             $message = [
