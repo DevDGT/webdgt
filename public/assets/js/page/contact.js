@@ -25,7 +25,7 @@ async function getFaq() {
                     </div>
                 </li>
                   `;
-                $("#faqData").html(faq).removeClass('d-none');
+                $("#faqData").html(faq);
                 resolve(true);
             });
         });
