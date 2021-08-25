@@ -35,11 +35,16 @@ class Faq extends BaseController
         try {
             $validate = Validate([
                 'question' => 'required|min:3',
+                'id_category' => 'required',
                 'answers' => 'required|min:3',
+            ], [
+                'slug' => slug(Input_('question')),
             ]);
             $cat = $this->db->table($this->table)->select('question')->where('question', str_replace(" ", '-', strtolower(Input_('question'))))->get()->getRow();
             if ($cat) $validate = ValidateAdd($validate, 'question', 'Pertanyaan sudah ada');
             if (!$validate['success']) throw new \Exception("Error Processing Request");
+            $idCategory = $this->db->table('category_faq')->where(EncKey('id'), Input_('id_category'))->get()->getRow();
+            $validate['data']['id_category'] = $idCategory->id;
             if (!Create($this->table, Guard($validate['data'], ['id', 'token']))) throw new \Exception("Gagal memasukan data !");
 
             $message = [
@@ -71,6 +76,8 @@ class Faq extends BaseController
             ]);
             $cat = $this->db->table($this->table)->select('id, question')->where('question', str_replace(" ", '-', strtolower(Input_('question'))))->get()->getRow();
             if ($cat && Enc($cat->id) != Input_('id')) $validate = ValidateAdd($validate, 'question', 'Pertanyaan sudah ada');
+            $idCategory = $this->db->table('category_faq')->where(EncKey('id'), Input_('id_category'))->get()->getRow();
+            $validate['data']['id_category'] = $idCategory->id;
             if (!$validate['success']) throw new \Exception("Error Processing Request");
             if (!Update($this->table, $validate['data'], [EncKey('id') => Input_('id')])) throw new \Exception("Tidak ada perubahan");
 

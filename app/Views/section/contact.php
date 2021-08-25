@@ -13,15 +13,13 @@
 </section>
 
 <div class="map-section aos-init aos-animate" data-aos="zoom-in" data-aos-delay="50">
-    <iframe style="border:0; width: 100%; height: 350px;"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1980.259104724501!2d107.65843140705127!3d-6.948032461914047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwNTYnNTQuOCJTIDEwN8KwMzknMjcuNSJF!5e0!3m2!1sid!2sid!4v1629251925201!5m2!1sid!2sid"
-        frameborder="0" allowfullscreen></iframe>
+    <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1980.259104724501!2d107.65843140705127!3d-6.948032461914047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwNTYnNTQuOCJTIDEwN8KwMzknMjcuNSJF!5e0!3m2!1sid!2sid!4v1629251925201!5m2!1sid!2sid" frameborder="0" allowfullscreen></iframe>
 </div>
 
 <section id="contact" class="contact">
     <div class="container aos-init aos-animate">
 
-        <div class="section-title">
+        <div class="section-title" data-aos="fade-up" data-aos-delay="80">
             <h2>Our Location</h2>
         </div>
 
@@ -63,21 +61,17 @@
                 <form action="#" method="post" role="form" class="php-email-form">
                     <div class="row">
                         <div class="col-md-6 form-group">
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
-                                required>
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
                         </div>
                         <div class="col-md-6 form-group mt-3 mt-md-0">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
-                                required>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
                         </div>
                     </div>
                     <div class="form-group mt-3">
-                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
-                            required>
+                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
                     </div>
                     <div class="form-group mt-3">
-                        <textarea class="form-control" name="message" rows="5" placeholder="Message"
-                            required></textarea>
+                        <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
                     </div>
                     <div class="my-3">
                         <div class="loading">Loading</div>
@@ -93,8 +87,7 @@
     </div>
 </section>
 
-
-<section id="testimonials" class="testimonials pt-0">
+<!-- <section id="testimonials" class="testimonials pt-0">
     <div class="container aos-init aos-animate">
 
         <div class="section-title" data-aos="zoom-in" data-aos-delay="300">
@@ -202,40 +195,30 @@
         </div>
 
     </div>
-</section>
+</section> -->
 
 <section id="faq" class="faq pt-0">
-    <div class="container" data-aos="fade-up">
+    <div class="container aos-init aos-animate">
 
-        <div class="section-title">
+        <div class="section-title" data-aos="fade-up" data-aos-delay="400">
             <h2>FAQ</h2>
         </div>
 
-        <div class="faq-list">
-            <ul class="border border-success" id="faqData">
-                <!-- <li data-aos="fade-up">
-                    <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse"
-                        data-bs-target="#faq-list-1">Lorem Ipsum<i class="bx bx-chevron-down icon-show"></i><i
-                            class="bx bx-chevron-up icon-close"></i></a>
-                    <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
-                        <p>
-                            Lorem Ipsum
-                        </p>
-                    </div>
-                </li>
+        <!-- <div class="row portfolio" data-aos="fade-down" data-aos-delay="500">
+            <div class="col-lg-12 d-flex justify-content-center">
+                <ul id="portfolio-flters">
+                    <li data-filter="*" id="coreCategory" class="filter-active">All</li>
+                    <li data-filter="*" class="options">SIAS</li>
+                    <li data-filter="*" class="options">SIMS</li>
+                </ul>
+            </div>
+        </div> -->
 
-                <li data-aos="fade-up" data-aos-delay="100">
-                    <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                        data-bs-target="#faq-list-2" class="collapsed">Lorem Ipsum<i
-                            class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                    <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
-                        <p>
-                            Lorem Ipsum
-                        </p>
-                    </div>
-                </li> -->
-
-            </ul>
+        <div class="row" data-aos="fade-down" data-aos-delay="600">
+            <div class="faq-list">
+                <ul class="border border-success" id="faqData"></ul>
+                </ul>
+            </div>
         </div>
 
     </div>

@@ -5,13 +5,16 @@
             <div class="container-fluid">
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item img-fluid active"
-                        style="background-image: url(<?php //echo base_url('uploads/beranda/DSCF1517.JPG');?>);">
+                        style="background-image: url(<?php //echo base_url('uploads/beranda/DSCF1517.JPG');
+                                                        ?>);">
                     </div>
                     <div class="carousel-item img-fluid"
-                        style="background-image: url(<?php //echo base_url('uploads/beranda/DSCF1509.JPG');?>);">
+                        style="background-image: url(<?php //echo base_url('uploads/beranda/DSCF1509.JPG');
+                                                        ?>);">
                     </div>
                     <div class="carousel-item img-fluid"
-                        style="background-image: url(<?php //echo base_url('uploads/beranda/DSCF1502.JPG');?>);">
+                        style="background-image: url(<?php //echo base_url('uploads/beranda/DSCF1502.JPG');
+                                                        ?>);">
                     </div>
                 </div>
 
@@ -46,8 +49,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-12" data-aos="fade-right" data-aos-delay="400">
                     <div class="icon-box iconbox-blue p-1">
                         <div class="icon">
-                            <img src="<?php echo base_url('uploads/aboutus/Tech_Support@4x-8.png'); ?>" width="80"
-                                height="80">
+                            <img src="<?php echo base_url('uploads/aboutus/Tech_Support@4x-8.png'); ?>" width="80" height="80">
                         </div>
                         <h5 class="text-uppercase">Tech Support</h5>
                         <div class="text-break">
@@ -58,8 +60,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-12" data-aos="fade-left" data-aos-delay="550">
                     <div class="icon-box iconbox-blue p-1">
                         <div class="icon">
-                            <img src="<?php echo base_url('uploads/aboutus/Consulting@4x-8.png'); ?>" width="80"
-                                height="80">
+                            <img src="<?php echo base_url('uploads/aboutus/Consulting@4x-8.png'); ?>" width="80" height="80">
                         </div>
                         <h5 class="text-uppercase">It Consulting</h5>
                         <div class="text-break">
@@ -71,8 +72,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-12" data-aos="fade-right" data-aos-delay="750">
                     <div class="icon-box iconbox-blue p-1">
                         <div class="icon">
-                            <img src="<?php echo base_url('uploads/aboutus/App_Dev@4x-8.png'); ?>" width="80"
-                                height="80">
+                            <img src="<?php echo base_url('uploads/aboutus/App_Dev@4x-8.png'); ?>" width="80" height="80">
                         </div>
                         <h5 class="text-uppercase">App Dev</h5>
                         <div class="text-break">
@@ -85,8 +85,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-12" data-aos="fade-left" data-aos-delay="900">
                     <div class="icon-box iconbox-blue p-1">
                         <div class="icon">
-                            <img src="<?php echo base_url('uploads/aboutus/Training@4x-8.png'); ?>" width="80"
-                                height="80">
+                            <img src="<?php echo base_url('uploads/aboutus/Training@4x-8.png'); ?>" width="80" height="80">
                         </div>
                         <h5 class="text-uppercase">Training</h5>
                         <div class="text-break">
@@ -114,10 +113,7 @@
                 <div class="row g-0">
                     <div class="col-lg-6 px-1">
                         <div class="card" style="width: auto; border: none;">
-                            <iframe width="auto" height="320" src="https://www.youtube.com/embed/zkE9iidA9fY"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen>
+                            <iframe width="auto" height="320" src="https://www.youtube.com/embed/zkE9iidA9fY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                             </iframe>
                             <div class="card-body text-center">
                                 <h5 class="card-title">Aplikasi Sistem Informasi Manajemen E-Campus</h5>
@@ -127,10 +123,7 @@
                     </div>
                     <div class="col-lg-6 px-1">
                         <div class="card mb-3" style="max-width: auto; border: none;">
-                            <iframe width="100%" height="320" src="https://www.youtube.com/embed/ogTRRuo86g4"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen>
+                            <iframe width="100%" height="320" src="https://www.youtube.com/embed/ogTRRuo86g4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                             </iframe>
                         </div>
                         <div class="card-body text-center">
@@ -161,8 +154,7 @@
                 <h2>Users</h2>
             </div>
 
-            <div class="row no-gutters clients-wrap clearfix clientSlick" style="border:none;" id="clientsData"
-                data-aos="fade" data-aos-delay="1250">
+            <div class="row no-gutters clients-wrap clearfix clientSlick" style="border:none;" id="clientsData" data-aos="fade" data-aos-delay="1250">
             </div>
 
         </div>

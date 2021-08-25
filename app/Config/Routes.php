@@ -67,6 +67,10 @@ $routes->group('/product', ['namespace' => 'App\Controllers'], function ($routes
     // $routes->get('(:any)', 'ProductCatalog::detailProduct');
 });
 
+$routes->group('/faqs', ['namespae' => 'App\Controller'], function ($routes) {
+    $routes->get('(:any)/(:any)', 'Faqs::index/$1/$2');
+});
+
 // Login routes
 $routes->group('/ruangadmin/login', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->get('/', 'Login::index');
@@ -122,6 +126,14 @@ $routes->group('ruangadmin', ['namespace' => 'App\Controllers\Admin'], function 
         $routes->post('delete', 'CategoryProduct::delete');
         $routes->post('update', 'CategoryProduct::update');
         $routes->post('delete-multiple', 'CategoryProduct::deleteMultiple');
+    });
+
+    $routes->group('category-faq', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
+        $routes->get('/', 'CategoryFaq::index');
+        $routes->post('store', 'CategoryFaq::store');
+        $routes->post('delete', 'CategoryFaq::delete');
+        $routes->post('update', 'CategoryFaq::update');
+        $routes->post('delete-multiple', 'CategoryFaq::deleteMultiple');
     });
 
     // Jobs Management routes
@@ -213,6 +225,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('users', 'Admin::dataUsers');
         $routes->post('category', 'Admin::dataCategory');
         $routes->post('category-product', 'Admin::dataCategoryProduct');
+        $routes->post('category-faq', 'Admin::dataCategoryFaq');
         $routes->post('jobs', 'Admin::dataJobs');
         $routes->post('teams', 'Admin::dataTeams');
         $routes->post('article', 'Admin::dataArticle');
@@ -229,6 +242,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('users/(:any)', 'Admin::getRowUsers/$1');
         $routes->post('category/(:any)', 'Admin::getRowCategory/$1');
         $routes->post('category-product/(:any)', 'Admin::getRowCategoryProduct/$1');
+        $routes->post('category-faq/(:any)', 'Admin::getRowCategoryFaq/$1');
         $routes->post('jobs/(:any)', 'Admin::getRowJobs/$1');
         $routes->post('teams/(:any)', 'Admin::getRowTeams/$1');
         $routes->post('article/(:any)', 'Admin::getRowArticle/$1');
@@ -245,6 +259,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
             $routes->get('article', 'PublicApi::getArticle');
             $routes->get('category', 'PublicApi::getCategory');
             $routes->get('category-products', 'PublicApi::getCategoryProducts');
+            $routes->get('category-faq', 'PublicApi::getCategoryFaq');
             $routes->get('tags', 'PublicApi::getTags');
             $routes->get('teams', 'PublicApi::getTeams');
             $routes->get('teams-page', 'PublicApi::teamsPage');
@@ -255,6 +270,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
             $routes->get('products/demo/(:any)', 'PublicApi::getProductsDemo/$1');
             $routes->get('products/(:any)', 'PublicApi::getProducts/$1');
             $routes->get('faq', 'PublicApi::getFaq');
+            $routes->get('faq/(:any)', 'PublicApi::getFaq/$1');
         });
     });
 });

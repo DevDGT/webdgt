@@ -1,21 +1,21 @@
 <style>
-.item-card {
-    bottom: 10px;
-    opacity: 0;
-    transition: 0.5s all;
-}
+    .item-card {
+        bottom: 10px;
+        opacity: 0;
+        transition: 0.5s all;
+    }
 
-.item-card:hover {
-    opacity: 0.8;
-}
+    .item-card:hover {
+        opacity: 0.8;
+    }
 
-.clients .client-logo img {
-    height: -webkit-fill-available;
-}
+    .clients .client-logo img {
+        height: -webkit-fill-available;
+    }
 
-.clients .client-logo {
-    height: 7rem;
-}
+    .clients .client-logo {
+        height: 7rem;
+    }
 </style>
 
 <section id="breadcrumbs" class="breadcrumbs">
@@ -38,30 +38,27 @@
     <div class="container aos-init aos-animate">
         <div class="section-title" data-aos="fade-up" data-aos-delay="100">
             <h2>The Problems</h2>
-            <p class="lead">Lorem ipsum</p>
+            <p class="lead">Modern <strong>Problem</strong> Require Modern <strong>Solutions</strong></p>
         </div>
         <div class="container">
             <div class="row aos-init aos-animate">
                 <div class="col-lg-12 col-md-12 col-sm-12 d-flex flex-row justify-content-around">
                     <div class="card" style="width: 15rem; border: none;" data-aos="fade-right" data-aos-delay="200">
-                        <img src="<?php echo base_url('/uploads/produk/Productivity.png'); ?>" class="card-img-top"
-                            alt="Productivity">
+                        <img src="<?php echo base_url('/uploads/produk/Productivity.png'); ?>" class="card-img-top" alt="Productivity">
                         <div class="card-body">
                             <p class="card-text text-wrap text-center fw-bold px-0">Less Productivity
                             </p>
                         </div>
                     </div>
                     <div class="card" style="width: 15rem; border: none;" data-aos="fade-up" data-aos-delay="300">
-                        <img src="<?php echo base_url('/uploads/produk/User_Frustation.png'); ?>" class="card-img-top"
-                            alt="User_Frustation">
+                        <img src="<?php echo base_url('/uploads/produk/User_Frustation.png'); ?>" class="card-img-top" alt="User_Frustation">
                         <div class="card-body">
                             <p class="card-text text-wrap text-center fw-bold px-0">User Frustation
                             </p>
                         </div>
                     </div>
                     <div class="card" style="width: 15rem; border: none;" data-aos="fade-left" data-aos-delay="400">
-                        <img src="<?php echo base_url('/uploads/produk/Price.png'); ?>" class="card-img-top"
-                            alt="Price">
+                        <img src="<?php echo base_url('/uploads/produk/Price.png'); ?>" class="card-img-top" alt="Price">
                         <div class="card-body">
                             <p class="card-text text-wrap text-center fw-bold px-0">Expensive Price
                             </p>
@@ -90,8 +87,7 @@
             </div>
         </div>
 
-        <div id="productData" class="row d-flex justify-content-center portfolio-container" data-aos="zoom-in"
-            data-aos-delay="600">
+        <div id="productData" class="row d-flex justify-content-center portfolio-container" data-aos="zoom-in" data-aos-delay="600">
         </div>
 
     </div>
@@ -106,8 +102,7 @@
             <h2>Users</h2>
         </div>
 
-        <div class="row no-gutters clients-wrap clearfix userProduct" style="border:none;" id="clientsData"
-            data-aos="fade-up" data-aos-delay="900">
+        <div class="row no-gutters clients-wrap clearfix userProduct" style="border:none;" id="clientsData" data-aos="fade-up" data-aos-delay="900">
         </div>
 
     </div>

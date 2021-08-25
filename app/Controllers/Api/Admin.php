@@ -106,6 +106,10 @@ class Admin extends BaseController
                     'table'     => 'category_product',
                     'protected' => ['id:hash']
                 ],
+                'category-faq' => [
+                    'table'     => 'category_faq',
+                    'protected' => ['id:hash']
+                ],
                 'clients' => [
                     'table'     => 'clients',
                     'protected' => ['id:hash']
@@ -227,6 +231,18 @@ class Admin extends BaseController
     {
         return $this->dataTables([
             'table' => 'category_product cat',
+            'selectData' => "cat.id, cat.name, cat.slug",
+            'field' => ['name', 'slug'],
+            'columnOrder' => [null, 'name', 'slug'],
+            'columnSearch' => ['cat.name', 'cat.slug'],
+            'order' => ['id' => 'desc']
+        ]);
+    }
+
+    public function dataCategoryFaq()
+    {
+        return $this->dataTables([
+            'table' => 'category_faq cat',
             'selectData' => "cat.id, cat.name, cat.slug",
             'field' => ['name', 'slug'],
             'columnOrder' => [null, 'name', 'slug'],
@@ -412,6 +428,14 @@ class Admin extends BaseController
         ]);
     }
 
+    public function getRowCategoryFaq($id)
+    {
+        return $this->getRowTable([
+            'table' => 'category_faq',
+            'where' => [EncKey('id') => $id],
+        ]);
+    }
+
     public function getRowJobs($id)
     {
         return $this->getRowTable([
@@ -493,8 +517,9 @@ class Admin extends BaseController
     {
         return $this->getRowTable([
             'table' => 'faq',
-            'select' => "id, question, answers",
+            'select' => "id, question, answers, id_category",
             'where' => [EncKey('id') => $id],
+            'guard' => ['id_category:hash']
         ]);
     }
 

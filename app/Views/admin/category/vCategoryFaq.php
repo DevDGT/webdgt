@@ -1,4 +1,4 @@
-<?= $this->extend('admin/layouts/app') ?>
+<?= $this->extend('admin/layouts/app'); ?>
 <?= $this->section('content'); ?>
 <style>
     tbody tr:hover {
@@ -18,13 +18,12 @@
                                 <i class="fas fa-plus mr-1"> </i>Baru
                             </button>
                         </div>
-                        <table id="listFaq" class="table table-bordered w-100">
+                        <table id="listCatFaq" class="table table-bordered w-100">
                             <thead>
                                 <tr>
                                     <th></th>
-                                    <th>Pertanyaan</th>
-                                    <th>Jawaban</th>
-                                    <th>Aktif</th>
+                                    <th>Kategori</th>
+                                    <th>Slug</th>
                                     <th id="actionField">Aksi</th>
                                 </tr>
                             </thead>
@@ -34,9 +33,8 @@
                             <tfoot>
                                 <tr>
                                     <th></th>
-                                    <th>Pertanyaan</th>
-                                    <th>Jawaban</th>
-                                    <th>Aktif</th>
+                                    <th>Kategori</th>
+                                    <th>Slug</th>
                                     <th>Aksi</th>
                                 </tr>
                             </tfoot>
@@ -50,7 +48,7 @@
 </div>
 
 <div class="modal fade" id="modalForm" data-backdrop="static" data-keyboard="false" tabindex="-1">
-    <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <form id="formInput">
                 <div class="modal-header">
@@ -70,8 +68,7 @@
         </div>
     </div>
 </div>
-<?= $this->endSection() ?>
+<?= $this->endSection(); ?>
 <?= $this->section('js'); ?>
-<script src="<?= base_url('/assets/modules/ckeditor/ckeditor.js') ?>" defer></script>
-<script src="<?= base_url('assets/js/page/admin/faq.js') ?>" defer></script>
-<?= $this->endSection() ?>
+<script src="<?= base_url('assets/js/page/admin/categoryFaq.js'); ?>" defer></script>
+<?= $this->endSection(); ?>
