@@ -23,9 +23,9 @@ class Profile extends BaseController
             'menu' => 'profile',
             'roti' => [
                 'Home:blank' => base_url(),
-                'Dashboard' => base_url(ADMIN_PATH.'/dashboard'),
+                'Dashboard' => base_url(ADMIN_PATH . '/dashboard'),
                 'Profile' => '',
-                session('name').':active' => '',
+                session('name') . ':active' => '',
             ],
         ];
 
@@ -107,7 +107,7 @@ class Profile extends BaseController
                 throw new \Exception($this->validator->listErrors());
             }
             $file = $this->request->getFile('photo');
-            $fileName = time().'_'.$file->getName();
+            $fileName = time() . '_' . $file->getName();
             session()->set('photo', $fileName);
             // $path = ROOTPATH . 'public/uploads/users/';
             $path = FILESDIR . '/uploads/users/';
@@ -131,8 +131,6 @@ class Profile extends BaseController
     public function setPassword()
     {
         try {
-            //code...
-
             $validate = Validate([
                 'password' => 'required|password',
                 'passwordLama' => 'required',
@@ -349,8 +347,8 @@ class Profile extends BaseController
 
     public function previewWeb()
     {
-        echo '<style>'.$_REQUEST['css'].'</style>';
+        echo '<style>' . $_REQUEST['css'] . '</style>';
         echo $_REQUEST['html'];
-        echo '<script>'.$_REQUEST['js'].'</script>';
+        echo '<script>' . $_REQUEST['js'] . '</script>';
     }
 }
