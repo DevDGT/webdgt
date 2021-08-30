@@ -49,7 +49,8 @@
                 <div class="col-lg-6 col-md-6 col-sm-12" data-aos="fade-right" data-aos-delay="400">
                     <div class="icon-box iconbox-blue p-1">
                         <div class="icon">
-                            <img src="<?php echo base_url('uploads/aboutus/Tech_Support@4x-8.png'); ?>" width="80" height="80">
+                            <img src="<?php echo base_url('uploads/aboutus/Tech_Support@4x-8.png'); ?>" width="80"
+                                height="80">
                         </div>
                         <h5 class="text-uppercase">Tech Support</h5>
                         <div class="text-break">
@@ -60,7 +61,8 @@
                 <div class="col-lg-6 col-md-6 col-sm-12" data-aos="fade-left" data-aos-delay="550">
                     <div class="icon-box iconbox-blue p-1">
                         <div class="icon">
-                            <img src="<?php echo base_url('uploads/aboutus/Consulting@4x-8.png'); ?>" width="80" height="80">
+                            <img src="<?php echo base_url('uploads/aboutus/Consulting@4x-8.png'); ?>" width="80"
+                                height="80">
                         </div>
                         <h5 class="text-uppercase">It Consulting</h5>
                         <div class="text-break">
@@ -72,7 +74,8 @@
                 <div class="col-lg-6 col-md-6 col-sm-12" data-aos="fade-right" data-aos-delay="750">
                     <div class="icon-box iconbox-blue p-1">
                         <div class="icon">
-                            <img src="<?php echo base_url('uploads/aboutus/App_Dev@4x-8.png'); ?>" width="80" height="80">
+                            <img src="<?php echo base_url('uploads/aboutus/App_Dev@4x-8.png'); ?>" width="80"
+                                height="80">
                         </div>
                         <h5 class="text-uppercase">App Dev</h5>
                         <div class="text-break">
@@ -85,7 +88,8 @@
                 <div class="col-lg-6 col-md-6 col-sm-12" data-aos="fade-left" data-aos-delay="900">
                     <div class="icon-box iconbox-blue p-1">
                         <div class="icon">
-                            <img src="<?php echo base_url('uploads/aboutus/Training@4x-8.png'); ?>" width="80" height="80">
+                            <img src="<?php echo base_url('uploads/aboutus/Training@4x-8.png'); ?>" width="80"
+                                height="80">
                         </div>
                         <h5 class="text-uppercase">Training</h5>
                         <div class="text-break">
@@ -112,54 +116,71 @@
 
                 <div class="row g-0">
                     <div class="col-lg-6 px-1">
-                        <div class="card" style="width: auto; border: none;">
-                            <iframe width="auto" height="320" src="https://www.youtube.com/embed/zkE9iidA9fY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        <div class="card mb-2" style="max-width: auto; border: none;">
+                            <iframe width="100%" height="320" src="https://www.youtube.com/embed/ogTRRuo86g4"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
                             </iframe>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Aplikasi Sistem Informasi Manajemen E-Campus</h5>
-                                <p>Aplikasi Sistem Informasi Manajemen E-Campus</p>
-                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Smart School System Information</h5>
+                            <p>Apa itu SIAS?</p>
+                            <p>Aplikasi berbasis web yang memudahkan sekolah dalam mengurus segala administrasi sekolah
+                                dibantu dengan teknologi IT, sehingga kegiatan administrasi dilakukan secara
+                                terkomputerisasi tanpa merubah alur pekerjaan yang sudah ada</p>
                         </div>
                     </div>
                     <div class="col-lg-6 px-1">
-                        <div class="card mb-3" style="max-width: auto; border: none;">
-                            <iframe width="100%" height="320" src="https://www.youtube.com/embed/ogTRRuo86g4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        <div class="card mb-2" style="width: auto; border: none;">
+                            <iframe width="100%" height="320" src="https://www.youtube.com/embed/zkE9iidA9fY"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
                             </iframe>
                         </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Aplikasi Sistem Informasi Smart School</h5>
-                            <p>Aplikasi Sistem Informasi Smart School</p>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Learning Management System</h5>
+                            <p>Apa itu LMS?</p>
+                            <p>Aplikasi Learning Management System (LMS) membantu Anda untuk melakukan pembelajaran
+                                secara digital serta materi yang sudah tersedia.</p>
+                            <p>Aplikasi Learning Management System (LMS) dikembangkan oleh Dian Global Tech untuk
+                                membantu proses pembelajaran atau kursus secara professional melalui aplikasi
+                                berbasis
+                                web yang materinya sudah tersedia.</p>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="row g-0">
-                    <div class="col">
-                        <a class="btn btn-outline-success" href="<?php echo base_url('/product'); ?>" role="button">More
-                            Product</a>
-                    </div>
+            <div class="row g-0">
+                <div class="col">
+                    <a class="btn btn-outline-success" href="<?php echo base_url('/product'); ?>" role="button">More
+                        Product</a>
                 </div>
             </div>
         </div>
+</div>
 
-    </section>
-    <!-- End Testimonial Section -->
+</section>
+<!-- End Testimonial Section -->
 
-    <!-- Client Section -->
-    <section id="clients" class="clients pt-3">
+<!-- Client Section -->
+<section id="clients" class="clients pt-3">
 
-        <div class="container aos-init aos-animate">
+    <div class="container aos-init aos-animate">
 
-            <div class="section-title" data-aos="zoom-out" data-aos-delay="1200">
-                <h2>Users</h2>
-            </div>
-
-            <div class="row no-gutters clients-wrap clearfix clientSlick" style="border:none;" id="clientsData" data-aos="fade" data-aos-delay="1250">
-            </div>
-
+        <div class="section-title" data-aos="zoom-out" data-aos-delay="1200">
+            <h2>Users</h2>
         </div>
 
-    </section>
-    <!-- End Client Section -->
+        <div class="row no-gutters clients-wrap clearfix clientSlick" style="border:none;" id="clientsData"
+            data-aos="fade" data-aos-delay="1250">
+        </div>
+
+    </div>
+
+</section>
+<!-- End Client Section -->
 
 </div>
