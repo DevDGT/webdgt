@@ -7,8 +7,8 @@ $routes = Services::routes();
 
 // Load the system's routing file first, so that the app and ENVIRONMENT
 // can override as needed.
-if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
-    require SYSTEMPATH . 'Config/Routes.php';
+if (file_exists(SYSTEMPATH.'Config/Routes.php')) {
+    require SYSTEMPATH.'Config/Routes.php';
 }
 
 /*
@@ -43,6 +43,10 @@ $routes->group('/abouts', ['namespace' => 'App\Controllers'], function ($routes)
 
 $routes->group('/contact', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->get('/', 'Contact::index');
+});
+
+$routes->group('/faqs', ['namespace' => 'App\Controllers'], function ($routes) {
+    $routes->get('(:any)/(:any)', 'Contact::index');
 });
 
 $routes->group('/teams', ['namespace' => 'App\Controllers'], function ($routes) {
@@ -288,6 +292,6 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
  * You will have access to the $routes object within that file without
  * needing to reload it.
  */
-if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
-    require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
+if (file_exists(APPPATH.'Config/'.ENVIRONMENT.'/Routes.php')) {
+    require APPPATH.'Config/'.ENVIRONMENT.'/Routes.php';
 }
