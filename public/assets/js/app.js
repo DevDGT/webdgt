@@ -16,7 +16,7 @@ if (typeof io !== 'undefined') {
 	// socket = io.connect(`http://localhost:6996`)
 	// socket = io.connect(`https://ipdn-socket.herokuapp.com`)
 	socket.on("connect", () => {
-		console.log("socket connected")
+		// console.log("socket connected")
 		socket.emit("connected", {
 			username: USERNAME,
 			userId: USERID,
@@ -332,15 +332,15 @@ function addFormInput(formBody, inputForm = {}) {
 				})
 			}
 			const inputType = {
-				"hidden": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="hidden" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} readonly>`,
-				"text": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="text" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
-				"time": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="time" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
-				"date": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="date" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
-				"textarea": `<textarea class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="text" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.required ?? ''}>${options.value ? `${options.value}` : ``}</textarea>`,
-				"textarea2": `<textarea class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="text" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.required ?? ''}>${options.value ? `${options.value}` : ``}</textarea><script> autosize($('textarea[name="${options.name}"]')); </script>`,
-				"email": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="temail" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
-				"password": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="password" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
-				"number": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="number" name="${options.name??''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
+				"hidden": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="hidden" name="${options.name ?? ''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} readonly>`,
+				"text": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="text" name="${options.name ?? ''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
+				"time": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="time" name="${options.name ?? ''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
+				"date": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="date" name="${options.name ?? ''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
+				"textarea": `<textarea class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="text" name="${options.name ?? ''}" ${options.id ? `id="${options.id}"` : ''} ${options.required ?? ''}>${options.value ? `${options.value}` : ``}</textarea>`,
+				"textarea2": `<textarea class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="text" name="${options.name ?? ''}" ${options.id ? `id="${options.id}"` : ''} ${options.required ?? ''}>${options.value ? `${options.value}` : ``}</textarea><script> autosize($('textarea[name="${options.name}"]')); </script>`,
+				"email": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="temail" name="${options.name ?? ''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
+				"password": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="password" name="${options.name ?? ''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
+				"number": `<input class="${options.class ?? "form-control"}" ${options.attr ?? ""} type="number" name="${options.name ?? ''}" ${options.id ? `id="${options.id}"` : ''} ${options.value ? `value="${options.value}"` : ``} ${options.required ?? ''}>`,
 				"img": `<img src="${options.src}" class="${options.class ?? "form-control"}" ${options.attr ?? ""} ${options.id ? `id="${options.id}"` : ''}>`,
 				"file": `<div class="custom-file"><input type="file" class="custom-file-input ${options.class}" name="${options.name ?? ''}" ${options.id ? `id="${options.id}"` : ''} ${options.required ?? ''}><label class="custom-file-label">Pilih File</label></div>`,
 				"select": `<select class="${options.class ?? "form-control"}" ${options.attr ?? ""} name="${options.name ?? ''}" ${options.id ? `id="${options.id}"` : ''} ${options.required ?? ''}>${selectOptionList}</select>`,
@@ -535,13 +535,13 @@ function loadPage(url, change = false) {
 	const e = $(`a.menu-item[href='${url.trim()}']`)
 	change == false && window.history.pushState("", window.title, url)
 	$('a.menu-item').removeClass('active'), e.addClass('active')
-    $.ajax({
+	$.ajax({
 		url: url,
-		headers: {"Load-From-Ajax": true},
+		headers: { "Load-From-Ajax": true },
 		success: function (data) {
 			try {
 				const dataJson = JSON.parse(data)
-				if (dataJson.status == '401') return msgSweetWarning("Sesi Anda berakhir !").then(msg=> {
+				if (dataJson.status == '401') return msgSweetWarning("Sesi Anda berakhir !").then(msg => {
 					doLogoutAjax()
 				})
 			} catch (e) {
@@ -552,7 +552,7 @@ function loadPage(url, change = false) {
 			$("#rotiId").html($(data).find('#rotiId')).html()
 			$("#customJsNa").html($(data).filter('#customJsNa').html())
 		}
-	}).fail(function(err) {
+	}).fail(function (err) {
 		$("#contentId").html(`<div class="container">${err.statusText}</div>`)
 		nanobar.go(100)
 		errorCode(err)

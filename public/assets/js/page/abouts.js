@@ -64,7 +64,6 @@ async function addTeam() {
       let teams = ``;
       let ceo = ``;
       $.each(response.data, function (i, items) {
-        console.log(response);
         if (i == 0) {
           ceo = `
           <div class="col">
@@ -80,7 +79,7 @@ async function addTeam() {
                     </p>
                 </div>
               </div>
-            </div>1
+            </div>
           </div>
           `;
         } else if (i > 0) {

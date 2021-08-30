@@ -3,7 +3,7 @@ $(document).ready(function () {
     $("#portfolio-flters").on("click", ".options", function (e) {
         e.preventDefault();
         var id = $(this).data("id");
-        console.log('ID : ' + id);
+        // console.log('ID : ' + id);
         $("#coreCategory").removeClass("filter-active");
         $(".options").removeClass("filter-active");
         // $(".tab").addClass("active"); // instead of this do the below
@@ -28,7 +28,7 @@ function usersProduct() {
 }
 
 async function getClients() {
-    console.log("clientGet");
+    // console.log("clientGet");
     // alert('clientGet')
     return new Promise((resolve) => {
         var clientsAPI = `${API_PATH}/public/get/clients`;
@@ -116,7 +116,7 @@ async function getSelected(id) {
         }).done(function (response) {
             let products = "";
             $.each(response.data, function (i, items) {
-                console.log(items);
+                // console.log(items);
                 if (items.id_category_product != id) {
                     products += ``;
                 } else {
