@@ -10,7 +10,7 @@ if (typeof io !== 'undefined') {
   // socket = io.connect(`http://localhost:6996`)
   // socket = io.connect(`https://ipdn-socket.herokuapp.com`)
   socket.on("connect", () => {
-    console.log("socket connected")
+    // console.log("socket connected")
     socket.emit("connected", {
       username: "anonim",
       userId: "anonim",
@@ -66,7 +66,7 @@ function loadPage(url, change = false) {
   }).fail(function (err) {
     $("#main").html(`${err.statusText}`)
     nanobar.go(100)
-    console.log(err)
+    // console.log(err)
   }).done(function () {
     nanobar.go(100)
   })
@@ -119,7 +119,7 @@ setInterval(function () {
 socket.on?.("articleChanged", (idNews) => {
   if (currentRoom != 'news') return
   if (typeof getCategory !== "function") return
-  console.log(`Article changed ${idNews}`);
+  // console.log(`Article changed ${idNews}`);
   nanobar.go(80)
   $.get(location.href, function (data) {
     $("#articleSection").html($(data).find('#articleSection').html())
@@ -129,7 +129,7 @@ socket.on?.("articleChanged", (idNews) => {
   }).fail(function (err) {
     $("#main").html(`${err.statusText}`)
     nanobar.go(100)
-    console.log(err)
+    // console.log(err)
   }).done(function () {
     nanobar.go(100)
   })

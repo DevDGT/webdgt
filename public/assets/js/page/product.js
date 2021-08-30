@@ -57,7 +57,7 @@ function usersProduct() {
 };
 
 async function getClients() {
-  console.log("clientGet");
+  // console.log("clientGet");
   return new Promise((resolve) => {
     var clientsAPI = `${API_PATH}/public/get/clients`;
     $.getJSON(clientsAPI, {
@@ -121,7 +121,7 @@ async function getProduct() {
     }).done(function (response) {
       let products = "";
       $.each(response.data, function (i, items) {
-        console.log('slug :' + items.slug);
+        // console.log('slug :' + items.slug);
         products += `
                     <div class="col-lg-2 col-md-6 col-sm-6 p-2 portfolio-item filter-${items.id_category_product}">
                       <div class="card h-100 shadow-sm">
@@ -152,7 +152,7 @@ async function getCategory() {
       $.getJSON(categoryProductsAPI, {
         format: "json",
       }).done(function (response) {
-        console.log(response);
+        // console.log(response);
         let category = ``;
         category += `<li data-filter="*" id="coreCategory" class="filter-active" onclick="getProduct()">All</li>`;
         $.each(response.data, function (i, items) {
@@ -174,7 +174,7 @@ async function getSelected(id) {
     }).done(function (response) {
       let products = "";
       $.each(response.data, function (i, items) {
-        console.log(items);
+        // console.log(items);
         if (items.id_category_product != id) {
           products += ``;
         } else {
@@ -204,7 +204,7 @@ async function getSelected(id) {
 }
 
 async function initFetch() {
-  console.log("initFetch");
+  // console.log("initFetch");
   await getCategory();
   await getProduct();
   await getClients();
