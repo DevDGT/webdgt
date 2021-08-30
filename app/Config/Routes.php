@@ -45,10 +45,6 @@ $routes->group('/contact', ['namespace' => 'App\Controllers'], function ($routes
     $routes->get('/', 'Contact::index');
 });
 
-$routes->group('/faqs', ['namespace' => 'App\Controllers'], function ($routes) {
-    $routes->get('(:any)/(:any)', 'Contact::index');
-});
-
 $routes->group('/teams', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->get('/(:any)', 'Teams::index/$1');
 });
