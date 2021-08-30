@@ -12,7 +12,7 @@ function initSlick() {
     slidesToShow: 3,
     slidesToScroll: 2,
     dots: false,
-    autoplay: false,
+    autoplay: true,
     adaptiveHeight: false,
     pauseOnFocus: true,
     autoplaySpeed: 3000,
@@ -80,7 +80,7 @@ async function addTeam() {
                     </p>
                 </div>
               </div>
-            </div>
+            </div>1
           </div>
           `;
         } else if (i > 0) {

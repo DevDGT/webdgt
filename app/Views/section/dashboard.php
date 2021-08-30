@@ -112,10 +112,10 @@
                 <h2>Our Products</h2>
             </div>
 
-            <div class="container" data-aos="zoom-out" data-aos-delay="1100">
+            <div class="container aos-init aos-animate">
 
-                <div class="row g-0">
-                    <div class="col-lg-6 px-1">
+                <div class="row g-0" data-aos="zoom-out" data-aos-delay="1100">
+                    <div class="col-lg-6 col-md-12 col-sm-12 px-1">
                         <div class="card mb-2" style="max-width: auto; border: none;">
                             <iframe width="100%" height="320" src="https://www.youtube.com/embed/ogTRRuo86g4"
                                 title="YouTube video player" frameborder="0"
@@ -131,7 +131,7 @@
                                 terkomputerisasi tanpa merubah alur pekerjaan yang sudah ada</p>
                         </div>
                     </div>
-                    <div class="col-lg-6 px-1">
+                    <div class="col-lg-6 col-md-12 col-sm-12 px-1">
                         <div class="card mb-2" style="width: auto; border: none;">
                             <iframe width="100%" height="320" src="https://www.youtube.com/embed/zkE9iidA9fY"
                                 title="YouTube video player" frameborder="0"
@@ -153,8 +153,8 @@
                 </div>
             </div>
 
-            <div class="row g-0">
-                <div class="col">
+            <div class="row g-0 aos-init aos-animate">
+                <div class="col-12" data-aos="zoom-out" data-aos-delay="1150">
                     <a class="btn btn-outline-success" href="<?php echo base_url('/product'); ?>" role="button">More
                         Product</a>
                 </div>
