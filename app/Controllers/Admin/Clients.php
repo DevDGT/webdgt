@@ -21,7 +21,7 @@ class Clients extends BaseController
             'subMenu' => 'clients',
             'roti' => [
                 'Home:blank' => base_url(),
-                'Dashboard' => base_url(ADMIN_PATH.'/dashboard'),
+                'Dashboard' => base_url(ADMIN_PATH . '/dashboard'),
                 'Master' => '',
                 'Klien:active' => '',
             ],
@@ -34,7 +34,7 @@ class Clients extends BaseController
     {
         try {
             $validate = Validate([
-                'name' => 'required|min:2|max:255|name',
+                'name' => 'required|min:2|max:255',
                 'description' => 'required|min:15',
             ]);
 
@@ -76,7 +76,7 @@ class Clients extends BaseController
         try {
             $validate = Validate([
                 'id' => 'required',
-                'name' => 'required|min:2|max:255|name',
+                'name' => 'required|min:2|max:255',
                 'description' => 'required|min:15',
             ]);
             if (!$validate['success']) {
@@ -89,7 +89,7 @@ class Clients extends BaseController
 
                 // jika cover ada maka hapus filenya
                 if ($iconOld != '') {
-                    $path = FILESDIR.'/uploads/clients/'.$iconOld;
+                    $path = FILESDIR . '/uploads/clients/' . $iconOld;
                     if (file_exists($path)) {
                         unlink($path);
                     }
@@ -191,7 +191,7 @@ class Clients extends BaseController
             $iconOld = $this->db->table($this->table)->select('icon')->where([EncKey('id') => $id])->get()->getRow()->icon;
             // jika icon ada maka hapus filenya
             if ($iconOld != '') {
-                $path = ROOTPATH.'public/uploads/clients/'.$iconOld;
+                $path = ROOTPATH . 'public/uploads/clients/' . $iconOld;
                 if (file_exists($path)) {
                     unlink($path);
                 }
@@ -231,7 +231,7 @@ class Clients extends BaseController
             foreach ($dataId as $key) {
                 $iconOld = $this->db->table($this->table)->select('icon')->where([EncKey('id') => $key])->get()->getRow()->icon;
                 if ($iconOld != '') {
-                    $path = ROOTPATH.'public/uploads/clients/'.$iconOld;
+                    $path = ROOTPATH . 'public/uploads/clients/' . $iconOld;
                     if (file_exists($path)) {
                         unlink($path);
                     }
@@ -243,7 +243,7 @@ class Clients extends BaseController
 
             $message = [
                 'status' => 'ok',
-                'message' => "Berhasil menghapus <b>$jmlSukses</b> data dari <b>".count($dataId).'</b> data',
+                'message' => "Berhasil menghapus <b>$jmlSukses</b> data dari <b>" . count($dataId) . '</b> data',
             ];
         } catch (\Throwable $th) {
             $message = [
@@ -281,7 +281,7 @@ class Clients extends BaseController
 
             $message = [
                 'status' => 'ok',
-                'message' => "Berhasil merubah status <b>$jmlSukses</b> data dari <b>".count($dataId).'</b> data',
+                'message' => "Berhasil merubah status <b>$jmlSukses</b> data dari <b>" . count($dataId) . '</b> data',
             ];
         } catch (\Throwable $th) {
             $message = [
@@ -316,8 +316,8 @@ class Clients extends BaseController
                 throw new \Exception($this->validator->listErrors());
             }
             $file = $this->request->getFile('icon');
-            $fileName = time().'_'.$file->getName();
-            $path = FILESDIR.'/uploads/clients/';
+            $fileName = time() . '_' . $file->getName();
+            $path = FILESDIR . '/uploads/clients/';
             $file->move($path, $fileName);
             $result = Update($this->table, ['icon' => $fileName], $idArticle);
         } catch (\Throwable $th) {
