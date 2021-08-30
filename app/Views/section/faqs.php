@@ -12,10 +12,10 @@
     <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-            <h2>News</h2>
+            <h2>Faqs</h2>
             <ol>
                 <li><a href="<?php echo base_url('/home'); ?>">Home</a></li>
-                <li><a href="<?php echo base_url('/news'); ?>">News</a></li>
+                <li><a href="<?php echo base_url('/contact'); ?>">Contact</a></li>
             </ol>
         </div>
 
@@ -29,46 +29,19 @@
         <div class="row">
 
             <!-- Blog entries list -->
-            <div class="col-lg-8 entries articles">
+            <div class="col-lg-12 col-md-12 col-sm-12 entries articles">
 
                 <div id="articleSection" data-aos="fade-down" data-aos-delay="100">
-                    <?php foreach ($newsData as $news) : ?>
-                    <a href="<?php echo base_url('/news/'.$news->slug); ?>">
-                        <article class="entry" id="<?php echo $news->id; ?>">
-                            <div class="entry-img coverGan h-100">
-                                <img src="<?php echo base_url('/uploads/cover/'.$news->cover); ?>" alt="cover"
-                                    class="img-fluid" style="object-fit: cover; margin: auto; display: block;">
-                            </div>
+                    <?php foreach ($faqData as $faq) : ?>
+                    <a href="<?php echo base_url('/news/'.$faq->slug); ?>">
+                        <article class="entry">
                             <h2 class="entry-title">
-                                <a
-                                    href="<?php echo base_url('/news/'.$news->slug); ?>"><?php echo $news->title; ?></a>
+                                <a href="<?php echo base_url('/news/'.$faq->slug); ?>"><?php echo $faq->question; ?></a>
                             </h2>
-                            <div class="entry-meta">
-                                <ul class="d-flex align-items-start">
-                                    <li>
-                                        <i class="bi bi-person"></i>
-                                        <a href="<?php echo base_url('teams/?name='.$newsData[0]->username.'&onweb=true'); ?>"
-                                            target="_blank">
-                                            <?php echo $news->author; ?>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <i class="bi bi-clock"></i>
-                                        <a href="#"><?php echo date('Y-m-d', strtotime($news->created_at)); ?></a>
-                                    </li>
-                                    <li>
-                                        <i class="bi bi-tag"></i>
-                                        <a href="<?php echo base_url('news/category/'.$news->category_slug); ?>">
-                                            <?php echo $news->category; ?>
-                                        </a>
-                                    </li>
-                                    <!-- <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="#">12 Comments</a></li> -->
-                                </ul>
-                            </div>
                             <div class="entry-content">
                                 <p class="p-0">
-                                    <a href="<?php echo base_url('/news/'.$news->slug); ?>" style="color: #111">
-                                        <?php echo $news->description; ?>
+                                    <a href="<?php echo base_url('/news/'.$faq->slug); ?>" style="color: #111">
+                                        <?php echo $faq->answers; ?>
                                     </a>
                                 </p>
                             </div>
@@ -77,37 +50,49 @@
                     <?php endforeach; ?>
                 </div>
 
-                <div class="blog-pagination w-100">
-                    <div class="pagination d-flex justify-content-center">
-                        <li class="btn <?php echo $page['current'] == 1 ? 'disabled' : ''; ?>">
-                            <a
-                                href="<?php echo str_replace('#page', (intval($page['current']) - 1), $page['url']); ?>">Back</a>
-                        </li>
-                        <li class="btn disabled">
-                            <a href="#"><?php echo $page['current']; ?></a>
-                        </li>
-                        <li class="btn <?php echo $page['next'] == 0 ? 'disabled' : ''; ?>">
-                            <a class="disabled"
-                                href="<?php echo str_replace('#page', (intval($page['current']) + 1), $page['url']); ?>">Next
-                                <i class="fas fa-next"></i>
-                            </a>
-                        </li>
-                    </div>
-                </div>
+                <a href="<?php echo base_url('/contact'); ?>" class="btn btn-success mb-4" data-aos="fade-right"
+                    id="btnBackNews" data-aos-delay="200">
+                    <i class="bi bi-arrow-left-circle me-2"></i>Back
+                </a>
 
             </div>
             <!-- End blog entries list -->
 
-            <!-- Blog sidebar -->
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="sidebar" data-aos="fade-left" data-aos-delay="200">
 
-                    <?php require 'sidebar.php'; ?>
+        </div>
 
-                </div>
+    </div>
+</section>
+
+<section id="faq" class="faq pt-0">
+    <div class="container aos-init aos-animate portfolio">
+
+        <div class="section-title" data-aos="fade-up" data-aos-delay="400">
+            <h2>FAQ</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-6 col-sm-6 d-flex justify-content-center" data-aos="zoom-out"
+                data-aos-delay="600">
+                <ul id="portfolio-flters">
+                </ul>
             </div>
-            <!-- End blog sidebar -->
+        </div>
+        <!-- <div class="row portfolio" data-aos="fade-down" data-aos-delay="500">
+            <div class="col-lg-12 d-flex justify-content-center">
+                <ul id="portfolio-flters">
+                    <li data-filter="*" id="coreCategory" class="filter-active">All</li>
+                    <li data-filter="*" class="options">SIAS</li>
+                    <li data-filter="*" class="options">SIMS</li>
+                </ul>
+            </div>
+        </div> -->
 
+        <div class="row" data-aos="fade-down" data-aos-delay="600">
+            <div class="faq-list">
+                <ul class="border border-success" id="faqData"></ul>
+                </ul>
+            </div>
         </div>
 
     </div>

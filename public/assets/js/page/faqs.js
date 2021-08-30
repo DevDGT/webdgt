@@ -60,7 +60,7 @@ async function getFaq(ids = null) {
                                 <p>
                                     ${items.answers}
                                     </p>
-                                    <a href="${BASE_URL}/faqs/${items.category}/${items.slug}" class="p-0" target="_blank">More details<i class="bx bx-chevron-right"></i></a>
+                                    <a href="${BASE_URL}/faqs/${items.category}/${items.slug}" class="p-0">More details<i class="bx bx-chevron-right"></i></a>
                             </div>
                             </li>
                         `;
@@ -77,7 +77,7 @@ async function getFaq(ids = null) {
                             <p>
                                 ${items.answers}
                                 </p>
-                                <a href="${BASE_URL}/faqs/${items.category}/${items.slug}" class="p-0" target="_blank">More details<i class="bx bx-chevron-right"></i></a>
+                                <a href="${BASE_URL}/faqs/${items.category}/${items.slug}" class="p-0">More details<i class="bx bx-chevron-right"></i></a>
                         </div>
                         </li>
                         `;
