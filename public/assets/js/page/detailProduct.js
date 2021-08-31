@@ -196,7 +196,7 @@ async function getProductData() {
 
 async function getProductUser() {
     return new Promise((resolve) => {
-        var clientsAPI = `${API_PATH}/public/get/clients`;
+        var clientsAPI = `${API_PATH}/public/get/clients/orders`;
 
         $.getJSON(clientsAPI, {
             format: "json",
