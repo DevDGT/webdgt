@@ -64,7 +64,6 @@
             </h2>
         </div>
 
-        <!-- Video Line -->
         <div class="row dgtVideo mt-2" data-aos="fade-up" data-aos-delay="800">
 
             <div class="col-lg-12 col-md-12 col-sm-12">
@@ -106,7 +105,7 @@
             </div>
 
         </div>
-        <!-- End Video Line -->
+
     </div>
 
 </section>
@@ -158,9 +157,8 @@
         <div class="section-title" data-aos="fade" data-aos-delay="1100">
             <h2 class="text-uppercase">Cooperation Benefits</h2>
         </div>
-        <!-- Cooperation Line -->
+
         <div class="row services benefits justify-content-center">
-            <!-- <div class="section benefits"> -->
             <div class="col" data-aos="zoom-in" data-aos-delay="1200">
                 <div class="card" style="height:15rem; border:none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Partner_Oriented@4x-8.png'); ?>" class="img-fluid"
@@ -216,9 +214,7 @@
                     </div>
                 </div>
             </div>
-            <!-- </div> -->
         </div>
-        <!-- End Cooperation Line -->
 
     </div>
 

@@ -2,7 +2,7 @@ $(document).ready(function () {
     getCategory();
     getRecentPost();
     getTags();
-});
+})
 
 function getTags() {
     var tagsAPI = `${API_PATH}/public/get/tags`;

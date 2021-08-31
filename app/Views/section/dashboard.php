@@ -1,35 +1,4 @@
 <div class="container pt-5">
-    <!-- Hero Section -->
-    <!-- <section id="hero">
-        <div id="heroCarousel" data-bs-interval="10000" class="carousel slide carousel-fade" data-bs-ride="carousel">
-            <div class="container-fluid">
-                <div class="carousel-inner" role="listbox">
-                    <div class="carousel-item img-fluid active"
-                        style="background-image: url(<?php //echo base_url('uploads/beranda/DSCF1517.JPG');
-                                                        ?>);">
-                    </div>
-                    <div class="carousel-item img-fluid"
-                        style="background-image: url(<?php //echo base_url('uploads/beranda/DSCF1509.JPG');
-                                                        ?>);">
-                    </div>
-                    <div class="carousel-item img-fluid"
-                        style="background-image: url(<?php //echo base_url('uploads/beranda/DSCF1502.JPG');
-                                                        ?>);">
-                    </div>
-                </div>
-
-                <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
-                </a>
-                <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
-                    <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
-                </a>
-                <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
-            </div>
-        </div>
-    </section> -->
-    <!-- End Hero Section -->
-
     <!-- About Section -->
     <section id="aboutSection" class="services pb-0 pt-5">
 
@@ -160,28 +129,28 @@
                         Products</a>
                 </div>
             </div>
-        </div>
-</div>
 
-</section>
-<!-- End Testimonial Section -->
-
-<!-- Client Section -->
-<section id="clients" class="clients pt-3">
-
-    <div class="container aos-init aos-animate">
-
-        <div class="section-title" data-aos="zoom-out" data-aos-delay="1200">
-            <h2>Users</h2>
         </div>
 
-        <div class="row no-gutters clients-wrap clearfix clientSlick" style="border:none;" id="clientsData"
-            data-aos="fade" data-aos-delay="1250">
+    </section>
+    <!-- End Testimonial Section -->
+
+    <!-- Client Section -->
+    <section id="clients" class="clients pt-3">
+
+        <div class="container aos-init aos-animate">
+
+            <div class="section-title" data-aos="zoom-out" data-aos-delay="1200">
+                <h2>Users</h2>
+            </div>
+
+            <div class="row no-gutters clients-wrap clearfix clientSlick" style="border:none;" id="clientsData"
+                data-aos="fade" data-aos-delay="1250">
+            </div>
+
         </div>
 
-    </div>
-
-</section>
-<!-- End Client Section -->
+    </section>
+    <!-- End Client Section -->
 
 </div>

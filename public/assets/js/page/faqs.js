@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
     getCategoryFaq();
     getFaq();
     $("#portfolio-flters").on("click", ".options", function (e) {
@@ -11,7 +10,6 @@ $(document).ready(function () {
         $(this).addClass("filter-active");
         getFaq(id);
     });
-
 })
 
 async function getCategoryFaq() {
@@ -53,16 +51,14 @@ async function getFaq(ids = null) {
                         <li data-aos="zoom-out portfolio-item filter-${items.category}" data-aos-delay="${i + 1}000">
                             <i class="bx bx-help-circle icon-help"></i>
                             <a href="#" data-bs-toggle="collapse" data-bs-target="#faq-list-${i + 1}" class="collapsed">${items.question}
-                            <i class="bx bx-chevron-down icon-show"></i>
-                            <i class="bx bx-chevron-up icon-close"></i>
+                                <i class="bx bx-chevron-down icon-show"></i>
+                                <i class="bx bx-chevron-up icon-close"></i>
                             </a>
                             <div id="faq-list-${i + 1}" class="collapse ${i === 0 ? 'show' : ''}" data-bs-parent=".faq-list">
-                                <p>
-                                    ${items.answers}
-                                    </p>
-                                    <a href="${BASE_URL}/faqs/${items.category}/${items.slug}" class="p-0">More details<i class="bx bx-chevron-right"></i></a>
+                                <p>${items.answers}</p>
+                                <a href="${BASE_URL}/faqs/${items.category}/${items.slug}" class="p-0">More details<i class="bx bx-chevron-right"></i></a>
                             </div>
-                            </li>
+                        </li>
                         `;
                     }
                 } else {
@@ -70,19 +66,16 @@ async function getFaq(ids = null) {
                     <li data-aos="zoom-out portfolio-item filter-${items.category}" data-aos-delay="${i + 1}000">
                         <i class="bx bx-help-circle icon-help"></i>
                         <a href="#" data-bs-toggle="collapse" data-bs-target="#faq-list-${i + 1}" class="collapsed">${items.question}
-                        <i class="bx bx-chevron-down icon-show"></i>
-                        <i class="bx bx-chevron-up icon-close"></i>
+                            <i class="bx bx-chevron-down icon-show"></i>
+                            <i class="bx bx-chevron-up icon-close"></i>
                         </a>
                         <div id="faq-list-${i + 1}" class="collapse ${i === 0 ? 'show' : ''}" data-bs-parent=".faq-list">
-                            <p>
-                                ${items.answers}
-                                </p>
-                                <a href="${BASE_URL}/faqs/${items.category}/${items.slug}" class="p-0">More details<i class="bx bx-chevron-right"></i></a>
+                            <p>${items.answers}</p>
+                            <a href="${BASE_URL}/faqs/${items.category}/${items.slug}" class="p-0">More details<i class="bx bx-chevron-right"></i></a>
                         </div>
-                        </li>
-                        `;
+                    </li>
+                    `;
                 }
-
                 $("#faqData").html(faq);
                 resolve(true);
             });

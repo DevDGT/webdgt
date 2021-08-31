@@ -1,26 +1,26 @@
-$(document).ready(function(){
-    // document.body.scrollTop = 0; // For Safari
-    // document.documentElement.scrollTop = 0;
-});
+$(document).ready(function () {
+  // document.body.scrollTop = 0; // For Safari
+  // document.documentElement.scrollTop = 0;
+})
 
-$("#btnBackNews").click(function(e){
+$("#btnBackNews").click(function (e) {
   e.preventDefault();
   window.history.back();
 })
 
 socket.on?.("articleChanged", (idNews) => {
-  console.log(`Article changed ${idNews}`);
+  // console.log(`Article changed ${idNews}`);
   nanobar.go(80)
   $.get(location.href, function (data) {
-    $("#articleDetail").html($(data).find('#articleDetail').html())
-    getCategory()
-    getRecentPost()
-    getTags()
+    $("#articleDetail").html($(data).find('#articleDetail').html());
+    getCategory();
+    getRecentPost();
+    getTags();
   }).fail(function (err) {
-    $("#main").html(`${err.statusText}`)
-    nanobar.go(100)
-    console.log(err)
+    $("#main").html(`${err.statusText}`);
+    nanobar.go(100);
+    // console.log(err)
   }).done(function () {
-    nanobar.go(100)
+    nanobar.go(100);
   })
 })
