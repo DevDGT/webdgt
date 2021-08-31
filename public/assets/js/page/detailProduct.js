@@ -205,7 +205,7 @@ async function getProductUser(id) {
             let clients = ``;
             clients += `<h5 class="card-title text-center">Who's use this product</h5>`;
             $.each(response.data, function (i, items) {
-                console.log(response);
+                // console.log(response);
                 clients += `
                 <div class="col-lg-5 col-md-5 col-sm-1 p-2">
                     <div class="testimonial-item">
