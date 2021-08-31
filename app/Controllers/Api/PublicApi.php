@@ -383,6 +383,35 @@ class PublicApi extends BaseController
         }
     }
 
+    public function getClientsSelect($idClient)
+    {
+        try {
+            $clients = $this->db->table('clients_orders co')
+                ->select(EncKey('co.id').'id, p.name, p.icon, co.date')
+                ->where('co.active', '1')
+                ->where(EncKey('co.id_clients'), $idClient)
+                ->join('products p', 'p.id = co.id_products')
+                ->orderby('id', 'desc')->get()->getResult();
+            $result = [
+                'status' => 'ok',
+                'count' => count($clients),
+                'data' => $clients,
+            ];
+        } catch (\Throwable $th) {
+            $result = [
+                'status' => 'fail',
+                'message' => $th->getMessage(),
+            ];
+        } catch (\Exception $ex) {
+            $result = [
+                'status' => 'fail',
+                'message' => $ex->getMessage(),
+            ];
+        } finally {
+            echo json_encode($result);
+        }
+    }
+
     public function getProducts($idProducts = '')
     {
         try {

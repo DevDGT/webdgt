@@ -2,7 +2,7 @@
     <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-            <h2>Location</h2>
+            <h2>Contact</h2>
             <ol>
                 <li><a href="<?php echo base_url('/home'); ?>">Home</a></li>
                 <li><a href="#">Location</a></li>
