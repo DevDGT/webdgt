@@ -188,15 +188,16 @@ async function getProductData() {
                     </div>`;
 
                 $("#carouselProduct").html(catDetail);
+                getProductUser(idProduct);
                 resolve(true);
             });
         }
     });
 }
 
-async function getProductUser() {
+async function getProductUser(id) {
     return new Promise((resolve) => {
-        var clientsAPI = `${API_PATH}/public/get/clients/orders`;
+        var clientsAPI = `${API_PATH}/public/get/clients/order/` + id;
 
         $.getJSON(clientsAPI, {
             format: "json",
@@ -206,19 +207,15 @@ async function getProductUser() {
             $.each(response.data, function (i, items) {
                 console.log(response);
                 clients += `
-                // <div class="col-lg-5 col-md-5 col-sm-1 p-2">
-                //     <div class="testimonial-item">
-                //         <img src="${BASE_URL}assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                //         <h3>Saul Goodman</h3>
-                //         <h4>Ceo &amp; Founder</h4>
-                //         <p>
-                //             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                //             Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus.
-                //             Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                //             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                //         </p>
-                //     </div>
-                // </div>
+                <div class="col-lg-5 col-md-5 col-sm-1 p-2">
+                    <div class="testimonial-item">
+                        <img src="${BASE_URL}/uploads/clients/${items.icon}" class="testimonial-img" alt="${items.name}">
+                        <h3>${items.name}</h3>
+                        <h4>${items.jobs}</h4>
+                        <p> Lorem Ipsum
+                        </p>
+                    </div>
+                </div>
                 `;
                 $("#productClient").html(clients);
                 resolve(true);
@@ -232,6 +229,5 @@ async function initFetch() {
     await getCategory();
     await getProduct();
     await getClients();
-    await getProductUser();
     usersProduct();
 }

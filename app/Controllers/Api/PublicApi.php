@@ -358,7 +358,7 @@ class PublicApi extends BaseController
     {
         try {
             $clients = $this->db->table('clients_orders co')
-                ->select(EncKey('co.id').'id, c.name,c.icon, c.description')
+                ->select(EncKey('co.id').'id, c.name,c.icon, c.description, co.jobs')
                 ->where('co.active', '1')
                 ->where(EncKey('co.id_products'), $idProduct)
                 ->join('clients c', 'c.id = co.id_clients')
