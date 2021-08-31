@@ -52,12 +52,12 @@
                         <p class="card-text"><?php echo $productsData['0']->description ?? ''; ?></p>
                         <h5 class="card-title"><?php echo 'Other Videos '.$productsData['0']->name ?? ''; ?></h5>
                         <div id="carouselProduct"></div>
-                        <h5 class="card-title">Download Catalog</h5>
-                        <div id="catalogProduct"></div>
+                        <!-- <h5 class="card-title">Download Catalog</h5>
+                        <div id="catalogProduct"></div> -->
                     </div>
                 </div>
-                <div class="row justify-content-center testimonials" id="productClient">
-                    
+                <div class="row justify-content-center testimonials mt-4" id="productClient">
+
                 </div>
             </div>
 
