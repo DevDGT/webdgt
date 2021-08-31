@@ -56,10 +56,8 @@
                         <div id="catalogProduct"></div>
                     </div>
                 </div>
-                <div class="row justify-content-center">
-                    <div class="col-lg-10 col-md-10 col-sm-10">
-                        <h5 class="card-title">Who's use this product</h5>
-                    </div>
+                <div class="row justify-content-center testimonials" id="productClient">
+                    
                 </div>
             </div>
 

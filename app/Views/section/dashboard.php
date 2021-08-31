@@ -154,9 +154,10 @@
             </div>
 
             <div class="row g-0 aos-init aos-animate">
-                <div class="col-12" data-aos="zoom-out" data-aos-delay="1150">
-                    <a class="btn btn-outline-success" href="<?php echo base_url('/product'); ?>" role="button">More
-                        Product</a>
+                <div class="col-lg-12 col-md-12 col-sm-12" data-aos="zoom-out" data-aos-delay="1150">
+                    <a class="btn btn-outline-success d-block mx-auto" href="<?php echo base_url('/product'); ?>"
+                        role="button">More
+                        Products</a>
                 </div>
             </div>
         </div>

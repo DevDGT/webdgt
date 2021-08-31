@@ -194,10 +194,44 @@ async function getProductData() {
     });
 }
 
+async function getProductUser() {
+    return new Promise((resolve) => {
+        var clientsAPI = `${API_PATH}/public/get/clients`;
+
+        $.getJSON(clientsAPI, {
+            format: "json",
+        }).done(function (response) {
+            let clients = ``;
+            clients += `<h5 class="card-title text-center">Who's use this product</h5>`;
+            $.each(response.data, function (i, items) {
+                console.log(response);
+                clients += `
+                // <div class="col-lg-5 col-md-5 col-sm-1 p-2">
+                //     <div class="testimonial-item">
+                //         <img src="${BASE_URL}assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                //         <h3>Saul Goodman</h3>
+                //         <h4>Ceo &amp; Founder</h4>
+                //         <p>
+                //             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                //             Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus.
+                //             Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                //             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                //         </p>
+                //     </div>
+                // </div>
+                `;
+                $("#productClient").html(clients);
+                resolve(true);
+            });
+        });
+    });
+}
+
 async function initFetch() {
     await getProductData();
     await getCategory();
     await getProduct();
     await getClients();
+    await getProductUser();
     usersProduct();
 }

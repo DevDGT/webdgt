@@ -5,7 +5,7 @@
             <h2>Location</h2>
             <ol>
                 <li><a href="<?php echo base_url('/home'); ?>">Home</a></li>
-                <li><a href="#">Maps</a></li>
+                <li><a href="#">Location</a></li>
             </ol>
         </div>
 
@@ -49,7 +49,7 @@
                         <div class="col-lg-4 info mt-4 mt-lg-0">
                             <i class="bi bi-phone"></i>
                             <h4>Call:</h4>
-                            <p>+62 22-875-13118 </br>+62 22-751-3012</p>
+                            <p>+62 22 - 875 - 13118 </br>+62 22 - 751 - 3012</p>
                         </div>
                     </div>
                 </div>
