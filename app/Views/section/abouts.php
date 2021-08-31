@@ -31,7 +31,7 @@
 </section>
 
 <div class="container" style="height:20rem;">
-    <div class="parallax aos-init aos-animate" data-aos="fade" data-aos-delay="100"></div>
+    <div class="parallax d-block mx-auto aos-init aos-animate" data-aos="fade" data-aos-delay="100"></div>
 </div>
 
 <section id="team" class="team pb-0 pt-4">

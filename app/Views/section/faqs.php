@@ -78,18 +78,9 @@
                 </ul>
             </div>
         </div>
-        <!-- <div class="row portfolio" data-aos="fade-down" data-aos-delay="500">
-            <div class="col-lg-12 d-flex justify-content-center">
-                <ul id="portfolio-flters">
-                    <li data-filter="*" id="coreCategory" class="filter-active">All</li>
-                    <li data-filter="*" class="options">SIAS</li>
-                    <li data-filter="*" class="options">SIMS</li>
-                </ul>
-            </div>
-        </div> -->
 
-        <div class="row" data-aos="fade-down" data-aos-delay="600">
-            <div class="faq-list">
+        <div class="row">
+            <div class="col-lg-12 col-md-6 col-sm-6 faq-list" data-aos="fade-down" data-aos-delay="600">
                 <ul class="border border-success" id="faqData"></ul>
                 </ul>
             </div>

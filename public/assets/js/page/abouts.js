@@ -86,8 +86,10 @@ async function addTeam() {
           teams += `
             <div class="col-lg-3 col-md-2 col-sm-1 p-2" style="height:29rem;">
               <div class="member w-100 h-100 d-flex justify-content-center border border-1" style="box-shadow:unset;">
-                <div class="card" style="width: 40rem; max-height:60vh; border:none;">
-                  <img src="${BASE_URL}/uploads/users/${items.photo == '' ? 'default.png' : items.photo}" alt="${items.name}" style="width:100%; height:15rem; object-fit: cover;" class="img-fluid">
+                <div class="card" style="width: 100%; max-height:60vh; border:none;">
+                  <div class="container p-2">
+                  <img src="${BASE_URL}/uploads/users/${items.photo == '' ? 'default.png' : items.photo}" alt="${items.name}" style="width:15rem; height:15rem; object-fit: cover;" class="d-block mx-auto">
+                  </div>
                   <div class="social d-flex flex-row">`;
           $.each(items.socials, function (i, social) {
             teams += `<a href="${social.link}" target="_blank"><i class="bi bi-${social.social}"></i></a>`;
