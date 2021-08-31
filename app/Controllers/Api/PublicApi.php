@@ -354,14 +354,14 @@ class PublicApi extends BaseController
         }
     }
 
-    public function getClientsOrders($idClient)
+    public function getClientsOrders($idProduct)
     {
         try {
             $clients = $this->db->table('clients_orders co')
-                ->select(EncKey('co.id') . 'id, p.name, p.icon, p.description')
+                ->select(EncKey('co.id') . 'id, c.name,c.icon, c.description')
                 ->where('co.active', '1')
-                ->where(EncKey('co.id_clients'), $idClient)
-                ->join('products p', 'p.id = co.id_products')
+                ->where(EncKey('co.id_products'), $idProduct)
+                ->join('clients c', 'c.id = co.id_clients')
                 ->orderby('id', 'desc')->get()->getResult();
             $result = [
                 'status' => 'ok',
