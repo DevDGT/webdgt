@@ -1,8 +1,8 @@
 <style>
-    .newsContent img {
-        width: 100% !important;
-        height: 100% !important;
-    }
+.newsContent img {
+    width: 100% !important;
+    height: 100% !important;
+}
 </style>
 
 <section id="breadcrumbs" class="breadcrumbs">
@@ -14,7 +14,7 @@
                 <li><a href="<?php echo base_url('/home'); ?>">Home</a></li>
                 <li><a href="<?php echo base_url('/news'); ?>">News</a></li>
                 <li>
-                    <a href="<?php echo base_url('/news/category/' . $newsData[0]->category_slug); ?>">
+                    <a href="<?php echo base_url('/news/category/'.$newsData[0]->category_slug); ?>">
                         <?php echo $newsData[0]->category; ?>
                     </a>
                 </li>
@@ -29,13 +29,15 @@
 <section id="blog" class="blog">
 
     <div class="container aos-init aos-animate">
+
         <div class="row">
 
             <div class="col-lg-8 entries">
-
                 <article class="entry entry-single" id="articleDetail" data-aos="fade-down" data-aos-delay="100">
                     <div class="entry-img coverGan">
-                        <img src="<?php echo base_url('/uploads/cover/' . $newsData[0]->cover); ?>" alt="<?php echo $newsData[0]->cover; ?>" class="img-fluid newsCover" style="align-items: center;object-fit: cover; margin: auto; display: block;">
+                        <img src="<?php echo base_url('/uploads/cover/'.$newsData[0]->cover); ?>"
+                            alt="<?php echo $newsData[0]->cover; ?>" class="img-fluid newsCover"
+                            style="align-items: center;object-fit: cover; margin: auto; display: block;">
                     </div>
                     <h2 class="entry-title newsTitle text-dark">
                         <?php echo $newsData[0]->title; ?>
@@ -63,7 +65,7 @@
                         <i class="bi bi-folder"></i>
                         <ul class="cats">
                             <li>
-                                <a href="<?php echo base_url('/news/category/' . $newsData[0]->category_slug); ?>">
+                                <a href="<?php echo base_url('/news/category/'.$newsData[0]->category_slug); ?>">
                                     <?php echo $newsData[0]->category; ?>
                                 </a>
                             </li>
@@ -82,19 +84,22 @@
                 </a>
 
                 <div class="blog-author d-flex align-items-center" data-aos="fade-up" data-aos-delay="300">
-                    <img src="<?php echo $newsData[0]->author_photo == '' ? base_url('assets/img/user.png') : base_url('uploads/users/' . $newsData[0]->author_photo); ?>" class="rounded float-left" alt="">
+                    <img src="<?php echo $newsData[0]->author_photo == '' ? base_url('assets/img/user.png') : base_url('uploads/users/'.$newsData[0]->author_photo); ?>"
+                        class="rounded float-left" alt="">
                     <div class="container">
                         <h4 class="newsAuthor"><?php echo $newsData[0]->author; ?></h4>
                         <div class="social-links">
                             <?php foreach ($newsData[0]->socials as $social) : ?>
-                                <a href="<?php echo $social->link; ?>">
-                                    <i class="bi bi-<?php echo $social->social; ?>"></i>
-                                </a>
+                            <a href="<?php echo $social->link; ?>">
+                                <i class="bi bi-<?php echo $social->social; ?>"></i>
+                            </a>
                             <?php endforeach; ?>
-                            <a href="<?php echo base_url('teams/?name=' . $newsData[0]->username . '&onweb=false'); ?>" target="_blank">
+                            <a href="<?php echo base_url('teams/?name='.$newsData[0]->username.'&onweb=false'); ?>"
+                                target="_blank">
                                 <i class="bi bi-eye"></i>
                             </a>
-                            <a href="<?php echo base_url('teams/?name=' . $newsData[0]->username . '&onweb=true'); ?>" target="_blank">
+                            <a href="<?php echo base_url('teams/?name='.$newsData[0]->username.'&onweb=true'); ?>"
+                                target="_blank">
                                 <i class="bi bi-eye-fill"></i>
                             </a>
                         </div>
@@ -117,4 +122,5 @@
         </div>
 
     </div>
+
 </section>

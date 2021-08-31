@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function () {
   moveRoom("news")
   AOS.init({
     duration: 1000,
@@ -6,4 +6,4 @@ $(document).ready(function(){
     once: true,
     mirror: false
   });
-});
+})

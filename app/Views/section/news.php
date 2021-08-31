@@ -30,7 +30,6 @@
 
             <!-- Blog entries list -->
             <div class="col-lg-8 entries articles">
-
                 <div id="articleSection" data-aos="fade-down" data-aos-delay="100">
                     <?php foreach ($newsData as $news) : ?>
                     <a href="<?php echo base_url('/news/'.$news->slug); ?>">
@@ -93,7 +92,6 @@
                         </li>
                     </div>
                 </div>
-
             </div>
             <!-- End blog entries list -->
 
@@ -110,4 +108,5 @@
         </div>
 
     </div>
+    
 </section>

@@ -29,6 +29,7 @@ async function getCategoryFaq() {
     });
 }
 
+
 async function getFaq(ids = null) {
     return new Promise((resolve) => {
         var faqAPI = `${API_PATH}/public/get/faq`;
@@ -55,7 +56,7 @@ async function getFaq(ids = null) {
                             </a>
                             <div id="faq-list-${i + 1}" class="collapse ${i === 0 ? 'show' : ''}" data-bs-parent=".faq-list">
                                 <p>${items.answers}</p>
-                                <a href="${BASE_URL}/faqs/${items.category}/${items.slug}" class="p-0" target="_blank">More details<i class="bx bx-chevron-right"></i></a>
+                                <a href="${BASE_URL}/faqs/${items.category}/${items.slug}" class="p-0">More details<i class="bx bx-chevron-right"></i></a>
                             </div>
                         </li>
                         `;
@@ -70,7 +71,7 @@ async function getFaq(ids = null) {
                         </a>
                         <div id="faq-list-${i + 1}" class="collapse ${i === 0 ? 'show' : ''}" data-bs-parent=".faq-list">
                             <p>${items.answers}</p>
-                            <a href="${BASE_URL}/faqs/${items.category}/${items.slug}" class="p-0" target="_blank">More details<i class="bx bx-chevron-right"></i></a>
+                            <a href="${BASE_URL}/faqs/${items.category}/${items.slug}" class="p-0">More details<i class="bx bx-chevron-right"></i></a>
                         </div>
                     </li>
                     `;

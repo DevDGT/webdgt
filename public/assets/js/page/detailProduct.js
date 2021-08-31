@@ -3,7 +3,6 @@ $(document).ready(function () {
     $("#portfolio-flters").on("click", ".options", function (e) {
         e.preventDefault();
         var id = $(this).data("id");
-        console.log('ID : ' + id);
         $("#coreCategory").removeClass("filter-active");
         $(".options").removeClass("filter-active");
         // $(".tab").addClass("active"); // instead of this do the below
@@ -28,8 +27,6 @@ function usersProduct() {
 }
 
 async function getClients() {
-    console.log("clientGet");
-    // alert('clientGet')
     return new Promise((resolve) => {
         var clientsAPI = `${API_PATH}/public/get/clients`;
         $.getJSON(clientsAPI, {
@@ -58,7 +55,6 @@ async function getProduct() {
 
     return new Promise((resolve) => {
         var productsAPI = `${API_PATH}/public/get/products`;
-
         $.getJSON(productsAPI, {
             format: "json",
         }).done(function (response) {
@@ -94,7 +90,6 @@ async function getCategory() {
             $.getJSON(categoryProductsAPI, {
                 format: "json",
             }).done(function (response) {
-                // console.log(response);
                 let category = ``;
                 category += `<li data-filter="*" id="coreCategory" class="filter-active" onclick="getProduct()">All</li>`;
                 $.each(response.data, function (i, items) {
@@ -110,13 +105,11 @@ async function getCategory() {
 async function getSelected(id) {
     return new Promise((resolve) => {
         var productsAPI = `${API_PATH}/public/get/products`;
-
         $.getJSON(productsAPI, {
             format: "json",
         }).done(function (response) {
             let products = "";
             $.each(response.data, function (i, items) {
-                console.log(items);
                 if (items.id_category_product != id) {
                     products += ``;
                 } else {
@@ -139,7 +132,6 @@ async function getSelected(id) {
                 }
                 $("#productData").html(products);
                 resolve(true);
-                // console.log('ok getselected');
             });
         });
     });
@@ -163,17 +155,17 @@ async function getProductData() {
                 catDetail += `<div class="carousel-inner">`;
                 $.each(response.data, function (i, items) {
                     catDetail += `
-                    <div class="carousel-item ${i === 0 ? 'active' : ''}">
-                        <div class="row">
-                            <div class="col-lg-12" style="height: 30rem;">
-                                <iframe class="w-100 h-100" src="${items.link}?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                                </iframe>
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>${items.title}</h5>
+                        <div class="carousel-item ${i === 0 ? 'active' : ''}">
+                            <div class="row">
+                                <div class="col-lg-12" style="height: 30rem;">
+                                    <iframe class="w-100 h-100" src="${items.link}?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                                    </iframe>
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>${items.title}</h5>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>`;
+                        </div>`;
                 });
                 catDetail += `
                     </div>
@@ -188,9 +180,37 @@ async function getProductData() {
                     </div>`;
 
                 $("#carouselProduct").html(catDetail);
+                getProductUser(idProduct);
                 resolve(true);
             });
         }
+    });
+}
+
+async function getProductUser(id) {
+    return new Promise((resolve) => {
+        var clientsAPI = `${API_PATH}/public/get/clients/order/` + id;
+        $.getJSON(clientsAPI, {
+            format: "json",
+        }).done(function (response) {
+            let clients = ``;
+            clients += `<h5 class="card-title text-center">Who's use this product</h5>`;
+            $.each(response.data, function (i, items) {
+                clients += `
+                <div class="col-lg-5 col-md-5 col-sm-1 p-2">
+                    <div class="testimonial-item">
+                        <img src="${BASE_URL}/uploads/clients/${items.icon}" class="testimonial-img" alt="${items.name}">
+                        <h3>${items.name}</h3>
+                        <h4>${items.jobs}</h4>
+                        <p> Lorem Ipsum
+                        </p>
+                    </div>
+                </div>
+                `;
+                $("#productClient").html(clients);
+                resolve(true);
+            });
+        });
     });
 }
 

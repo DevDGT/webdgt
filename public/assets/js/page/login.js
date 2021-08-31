@@ -1,4 +1,4 @@
-$("#formLogin").submit((function (e) {
+$("#formLogin").submit(function (e) {
 	e.preventDefault(), $.ajax({
 		url: $(this).attr("action"),
 		type: "POST",
@@ -21,4 +21,4 @@ $("#formLogin").submit((function (e) {
 			}))
 		},
 	})
-}));
+})
