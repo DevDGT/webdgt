@@ -2,7 +2,7 @@ $(document).ready(function () {
     initFetch();
 })
 
-async function getDetailsProducts(id = '', name = '') {
+async function getDetailsProducts(id = '') {
     return new Promise((resolve) => {
         var clientsAPI = `${API_PATH}/public/get/clients/select/` + id;
 
