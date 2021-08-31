@@ -5,7 +5,6 @@ $(document).ready(function () {
 async function getDetailsProducts(id = '') {
     return new Promise((resolve) => {
         var clientsAPI = `${API_PATH}/public/get/clients/select/` + id;
-
         $.getJSON(clientsAPI, {
             format: "json",
         }).done(function (response) {
@@ -20,6 +19,7 @@ async function getDetailsProducts(id = '') {
                                 <img src="${BASE_URL}/uploads/products/${items.icon}" class="testimonial-img" alt="${items.name}" style="width:5rem;">
                                 <h3>${items.name}</h3>
                                 <p>${items.date}</p>
+                                <a href="${BASE_URL}/product/detail/${items.name.toLowerCase()}" target="_blank">Detail</a>
                             </div>
                         </div>
                         `;
@@ -61,7 +61,7 @@ async function getClients() {
             });
         });
     });
-};
+}
 
 async function initSlick() {
     $('#clientsData').not('.slick-initialized').slick({
@@ -104,9 +104,9 @@ async function initSlick() {
             }
         ]
     });
-};
+}
 
 async function initFetch() {
     await getClients();
     await initSlick();
-};
+}

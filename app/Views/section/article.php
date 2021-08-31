@@ -29,10 +29,10 @@
 <section id="blog" class="blog">
 
     <div class="container aos-init aos-animate">
+
         <div class="row">
 
             <div class="col-lg-8 entries">
-
                 <article class="entry entry-single" id="articleDetail" data-aos="fade-down" data-aos-delay="100">
                     <div class="entry-img coverGan">
                         <img src="<?php echo base_url('/uploads/cover/'.$newsData[0]->cover); ?>"
@@ -122,4 +122,5 @@
         </div>
 
     </div>
+
 </section>
