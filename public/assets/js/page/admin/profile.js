@@ -268,7 +268,7 @@ $("#formPassword").submit(function (e) {
                 $("#passLama").val('')
                 $("#confirmPass").val('')
             }
-            if (result.status == "fail") msgSweetError(response.message)
+            if (result.status == "fail") msgSweetError(result.message)
         },
         error: function(error){
             errorCode(error)

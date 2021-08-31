@@ -106,6 +106,10 @@ class Admin extends BaseController
                     'table'     => 'category_product',
                     'protected' => ['id:hash']
                 ],
+                'category-faq' => [
+                    'table'     => 'category_faq',
+                    'protected' => ['id:hash']
+                ],
                 'clients' => [
                     'table'     => 'clients',
                     'protected' => ['id:hash']
@@ -235,6 +239,18 @@ class Admin extends BaseController
         ]);
     }
 
+    public function dataCategoryFaq()
+    {
+        return $this->dataTables([
+            'table' => 'category_faq cat',
+            'selectData' => "cat.id, cat.name, cat.slug",
+            'field' => ['name', 'slug'],
+            'columnOrder' => [null, 'name', 'slug'],
+            'columnSearch' => ['cat.name', 'cat.slug'],
+            'order' => ['id' => 'desc']
+        ]);
+    }
+
     public function dataClients()
     {
         return $this->dataTables([
@@ -319,6 +335,18 @@ class Admin extends BaseController
         ]);
     }
 
+    public function dataFaq()
+    {
+        return $this->dataTables([
+            'table' => 'faq',
+            'selectData' => "id, question, answers, active",
+            'field' => ['question', 'answers', 'active'],
+            'columnOrder' => [null, 'question', 'answers', 'active'],
+            'columnSearch' => ['question', 'answer'],
+            'order' => ['id' => 'desc']
+        ]);
+    }
+
     public function dataArticle()
     {
         // $userFilter = session('level') != "1" ? ['a.user_id' => session('userId')] : '';
@@ -400,6 +428,14 @@ class Admin extends BaseController
         ]);
     }
 
+    public function getRowCategoryFaq($id)
+    {
+        return $this->getRowTable([
+            'table' => 'category_faq',
+            'where' => [EncKey('id') => $id],
+        ]);
+    }
+
     public function getRowJobs($id)
     {
         return $this->getRowTable([
@@ -474,6 +510,16 @@ class Admin extends BaseController
             'select' => "id, user_id, social, link",
             'where' => [EncKey('id') => $id],
             'guard' => ['user_id:hash']
+        ]);
+    }
+
+    public function getRowFaq($id)
+    {
+        return $this->getRowTable([
+            'table' => 'faq',
+            'select' => "id, question, answers, id_category",
+            'where' => [EncKey('id') => $id],
+            'guard' => ['id_category:hash']
         ]);
     }
 

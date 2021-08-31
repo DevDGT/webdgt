@@ -42,6 +42,12 @@
 						</a>
 					</li>
 					<li class="nav-item">
+						<a href="<?= base_url(ADMIN_PATH . '/category-faq') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'category-faq' ? 'active' : '' ?>">
+							<i class="fas fa-tag nav-icon"></i>
+							<p>Kategori Faq</p>
+						</a>
+					</li>
+					<li class="nav-item">
 						<a href="<?= base_url(ADMIN_PATH . '/jobs') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'jobs' ? 'active' : '' ?>">
 							<i class="fas fa-briefcase nav-icon"></i>
 							<p>Pekerjaan</p>
@@ -82,6 +88,12 @@
 						<a href="<?= base_url(ADMIN_PATH . '/clients-orders') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'clients-orders' ? 'active' : '' ?>">
 							<i class="fas fa-shopping-cart nav-icon"></i>
 							<p>Pesanan Klien </p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="<?= base_url(ADMIN_PATH . '/faq') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'faq' ? 'active' : '' ?>">
+							<i class="fas fa-question nav-icon"></i>
+							<p>Faq </p>
 						</a>
 					</li>
 				<?php endif ?>

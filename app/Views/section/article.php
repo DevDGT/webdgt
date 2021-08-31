@@ -3,24 +3,20 @@
     width: 100% !important;
     height: 100% !important;
 }
-
-.newsCover {
-    align-items: center;
-    object-fit: cover;
-    margin: auto;
-    display: block;
-}
 </style>
+
 <section id="breadcrumbs" class="breadcrumbs">
     <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
             <h2>News</h2>
             <ol class="newsRoti">
-                <li><a href="<?php echo base_url(); ?>">Home</a></li>
+                <li><a href="<?php echo base_url('/home'); ?>">Home</a></li>
                 <li><a href="<?php echo base_url('/news'); ?>">News</a></li>
-                <li><a
-                        href="<?php echo base_url('/news/category/'.$newsData[0]->category_slug); ?>"><?php echo $newsData[0]->category; ?></a>
+                <li>
+                    <a href="<?php echo base_url('/news/category/'.$newsData[0]->category_slug); ?>">
+                        <?php echo $newsData[0]->category; ?>
+                    </a>
                 </li>
                 <li><a href="#"><?php echo $newsData[0]->title; ?></a></li>
             </ol>
@@ -29,44 +25,49 @@
     </div>
 </section>
 
-<section id="blog" class="blog">
-    <div class="container aos-init aos-animate" data-aos="fade-up">
 
+<section id="blog" class="blog">
+
+    <div class="container aos-init aos-animate">
         <div class="row">
 
             <div class="col-lg-8 entries">
 
-                <article class="entry entry-single" id="articleDetail">
-
+                <article class="entry entry-single" id="articleDetail" data-aos="fade-down" data-aos-delay="100">
                     <div class="entry-img coverGan">
-                        <img src="<?php echo base_url('/uploads/cover/'.$newsData[0]->cover); ?>" alt=""
-                            class="img-fluid newsCover">
+                        <img src="<?php echo base_url('/uploads/cover/'.$newsData[0]->cover); ?>"
+                            alt="<?php echo $newsData[0]->cover; ?>" class="img-fluid newsCover"
+                            style="align-items: center;object-fit: cover; margin: auto; display: block;">
                     </div>
-
                     <h2 class="entry-title newsTitle text-dark">
                         <?php echo $newsData[0]->title; ?>
                     </h2>
-
                     <div class="entry-meta">
                         <ul>
-                            <li class="d-flex align-items-center"><i class="bi bi-person newsAuthor"></i> <a
-                                    href="#"><?php echo $newsData[0]->author; ?></a></li>
-                            <li class="d-flex align-items-center"><i class="bi bi-clock newsTime"></i> <a href="#"><time
-                                        datetime="<?php echo date('Y-m-d', strtotime($newsData[0]->created_at)); ?>"><?php echo date('Y-m-d', strtotime($newsData[0]->created_at)); ?></time></a>
+                            <li class="d-flex align-items-center">
+                                <i class="bi bi-person newsAuthor"></i>
+                                <a href="#"><?php echo $newsData[0]->author; ?></a>
+                            </li>
+                            <li class="d-flex align-items-center"><i class="bi bi-clock newsTime"></i>
+                                <a href="#">
+                                    <time datetime="<?php echo date('Y-m-d', strtotime($newsData[0]->created_at)); ?>">
+                                        <?php echo date('Y-m-d', strtotime($newsData[0]->created_at)); ?>
+                                    </time>
+                                </a>
                             </li>
                             <!-- <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li> -->
                         </ul>
                     </div>
-
                     <div class="entry-content newsContent">
                         <?php echo $newsData[0]->content; ?>
                     </div>
-
                     <div class="entry-footer">
                         <i class="bi bi-folder"></i>
                         <ul class="cats">
-                            <li><a
-                                    href="<?php echo base_url('/news/category/'.$newsData[0]->category_slug); ?>"><?php echo $newsData[0]->category; ?></a>
+                            <li>
+                                <a href="<?php echo base_url('/news/category/'.$newsData[0]->category_slug); ?>">
+                                    <?php echo $newsData[0]->category; ?>
+                                </a>
                             </li>
                         </ul>
 
@@ -77,36 +78,46 @@
                     </div>
 
                 </article>
-                <!-- End blog entry -->
 
-                <div class="blog-author d-flex align-items-center">
+                <a href="#" class="btn btn-success mb-4" data-aos="fade-right" id="btnBackNews" data-aos-delay="200">
+                    <i class="bi bi-arrow-left-circle me-2"></i>Back
+                </a>
+
+                <div class="blog-author d-flex align-items-center" data-aos="fade-up" data-aos-delay="300">
                     <img src="<?php echo $newsData[0]->author_photo == '' ? base_url('assets/img/user.png') : base_url('uploads/users/'.$newsData[0]->author_photo); ?>"
                         class="rounded float-left" alt="">
-                    <div>
+                    <div class="container">
                         <h4 class="newsAuthor"><?php echo $newsData[0]->author; ?></h4>
                         <div class="social-links">
                             <?php foreach ($newsData[0]->socials as $social) : ?>
-                            <a href="<?php echo $social->link; ?>"><i
-                                    class="bi bi-<?php echo $social->social; ?>"></i></a>
+                            <a href="<?php echo $social->link; ?>">
+                                <i class="bi bi-<?php echo $social->social; ?>"></i>
+                            </a>
                             <?php endforeach; ?>
+                            <a href="<?php echo base_url('teams/?name='.$newsData[0]->username.'&onweb=false'); ?>"
+                                target="_blank">
+                                <i class="bi bi-eye"></i>
+                            </a>
+                            <a href="<?php echo base_url('teams/?name='.$newsData[0]->username.'&onweb=true'); ?>"
+                                target="_blank">
+                                <i class="bi bi-eye-fill"></i>
+                            </a>
                         </div>
                         <p>
                             <?php echo $newsData[0]->quotes; ?>
                         </p>
                     </div>
-                </div><!-- End blog author bio -->
+                </div>
 
-            </div><!-- End blog entries list -->
+            </div>
 
             <div class="col-lg-4">
-
-                <div class="sidebar" id="sideBars">
+                <div class="sidebar" id="sideBars" data-aos="fade-left" data-aos-delay="200">
 
                     <?php require 'sidebar.php'; ?>
 
-                </div><!-- End sidebar -->
-
-            </div><!-- End blog sidebar -->
+                </div>
+            </div>
 
         </div>
 

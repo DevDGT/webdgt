@@ -18,7 +18,7 @@
 			<!-- Right navbar links -->
 			<ul class="navbar-nav ml-auto">
 				<!-- Notifications Dropdown Menu -->
-				<li class="nav-item dropdown">
+				<!-- <li class="nav-item dropdown">
 					<a class="nav-link" data-toggle="dropdown" href="#">
 						<i class="far fa-bell"></i>
 						<span class="badge badge-warning navbar-badge">15</span>
@@ -43,7 +43,7 @@
 						<div class="dropdown-divider"></div>
 						<a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
 					</div>
-				</li>
+				</li> -->
 				<li class="nav-item dropdown">
 					<a class="nav-link" data-toggle="dropdown" href="#">
 						<i class="fas fa-power-off"></i>
@@ -72,7 +72,7 @@
 						<img src="<?= base_url('uploads/users') . "/" . (session('photo') == "" ? 'default.png' : session('photo')) ?>" class="img-circle elevation-2" alt="User Image">
 					</div>
 					<div class="info">
-						<a href="#" class="d-block"><?= strlen(session('name')) >= 20 ? substr(session('name'), 0, 20) : session('name') ?? "User" ?></a>
+						<a href="<?= base_url(ADMIN_PATH . '/profile') ?>" class="d-block"><?= strlen(session('name')) >= 20 ? substr(session('name'), 0, 20) : session('name') ?? "User" ?></a>
 					</div>
 				</div>
 				<div id="navSection">

@@ -41,7 +41,14 @@ function usersProduct() {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 300,
+        settings: {
+          slidesToShow: 2,
           slidesToScroll: 1
         }
       }
@@ -50,7 +57,7 @@ function usersProduct() {
 };
 
 async function getClients() {
-  console.log("clientGet");
+  // console.log("clientGet");
   return new Promise((resolve) => {
     var clientsAPI = `${API_PATH}/public/get/clients`;
     $.getJSON(clientsAPI, {
@@ -59,12 +66,12 @@ async function getClients() {
       let clients = "";
       $.each(response.data, function (i, items) {
         clients += `
-                  <div class="col-12">
-                      <div class="client-logo">
-                          <img src="${BASE_URL}/uploads/clients/${items.icon}" class="img-thumbnail" style="border:none;" alt="${items.name}" title="${items.description}">
+                  <div class="col" style="border:1px solid #ececec;">
+                      <div class="client-logo" style="border: unset;height: 7rem;">
+                          <img src="${BASE_URL}/uploads/clients/${items.icon}" class="img-fluid" style="border:none; height: -webkit-fill-available;" alt="${items.name}" title="${items.description}">
                       </div>
-                      <div class="container-fluid d-flex justify-content-center">
-                          <p class="fw-light">${items.name}</p>
+                      <div class="container">
+                          <p class="text-center text-truncate fw-light">${items.name}</p>
                       </div>
                   </div>
                   `;
@@ -114,20 +121,20 @@ async function getProduct() {
     }).done(function (response) {
       let products = "";
       $.each(response.data, function (i, items) {
-        console.log('slug :' + items.slug);
+        // console.log('slug :' + items.slug);
         products += `
-                    <div class="col-lg-2 p-2 portfolio-item filter-${items.id_category_product} ">
-                      <div class='card h-100 shadow-sm'>
-                          <a href="${BASE_URL + '/product/detail/' + items.slug}" class="text-decoration-none">
-                            <img src="${BASE_URL}/uploads/products/${items.icon}"class="card-img-top" alt="${items.name}">
-                          </a>
-                          <div class="item-card position-absolute w-100" style="overflow:hidden">
-                              <div class='bg-white p-2 pb-3 portfolio-info shadow-sm' style='position:sticky; top:60%; opacity:0.8'>
-                                <h4>${items.name}</h4>
-                                <p class="text-truncate">${items.description}</p>
-                                <a href="${BASE_URL + '/product/detail/' + items.slug}" class="details-link" title="More Details" target="_blank"><i class="bx bx-link"></i></a>
-                              </div>
-                          </div>
+                    <div class="col-lg-2 col-md-6 col-sm-6 p-2 portfolio-item filter-${items.id_category_product}">
+                      <div class="card h-100 shadow-sm">
+                        <span class="text-center text-decoration-underline text-muted">${items.name}</span>
+                        <a href="${BASE_URL + '/product/detail/' + items.slug}" class="text-decoration-none">
+                          <img src="${BASE_URL}/uploads/products/${items.icon}" class="card-img-top" alt="${items.name}">
+                        </a>
+                        <div class="item-card position-absolute w-100" style="overflow:hidden">
+                            <div class='bg-white p-2 pb-3 portfolio-info shadow-sm' style='position:sticky; top:60%; opacity:0.8'>
+                              <p class="text-truncate">${items.description}</p>
+                              <a href="${BASE_URL + '/product/detail/' + items.slug}" class="details-link" title="More Details" target="_blank"><i class="bx bx-link"></i></a>
+                            </div>
+                        </div>
                       </div>
                     </div>
                     `;
@@ -145,7 +152,7 @@ async function getCategory() {
       $.getJSON(categoryProductsAPI, {
         format: "json",
       }).done(function (response) {
-        console.log(response);
+        // console.log(response);
         let category = ``;
         category += `<li data-filter="*" id="coreCategory" class="filter-active" onclick="getProduct()">All</li>`;
         $.each(response.data, function (i, items) {
@@ -167,25 +174,25 @@ async function getSelected(id) {
     }).done(function (response) {
       let products = "";
       $.each(response.data, function (i, items) {
-        console.log(items);
+        // console.log(items);
         if (items.id_category_product != id) {
           products += ``;
         } else {
           products += `
-                      <div class="col-lg-2 p-2 portfolio-item filter-${items.id_category_product} ">
-                          <div class='card h-100 shadow-sm'>
-                              <a href="${BASE_URL + '/product/detail/' + items.slug}" class="text-decoration-none">
-                                <img src="${BASE_URL}/uploads/products/${items.icon}"class="card-img-top" alt="${items.name}">
-                              </a>
-                              <div class="item-card position-absolute w-100" style="overflow:hidden">
-                                  <div class='bg-white p-2 pb-3 portfolio-info shadow-sm' style='position:sticky; top:60%; opacity:0.8'>
-                                    <h4>${items.name}</h4>
-                                    <p class="text-truncate">${items.description}</p>
-                                    <a href="${BASE_URL + '/product/detail/' + items.slug}" class="details-link" title="More Details" target="_blank"><i class="bx bx-link"></i></a>
-                                  </div>
+                      <div class="col-lg-2 col-md-6 col-sm-6 p-2 portfolio-item filter-${items.id_category_product}">
+                        <div class="card h-100 shadow-sm">
+                          <span class="text-center text-muted">${items.name}</span>
+                          <a href="${BASE_URL + '/product/detail/' + items.slug}" class="text-decoration-none">
+                            <img src="${BASE_URL}/uploads/products/${items.icon}" class="card-img-top" alt="${items.name}">
+                          </a>
+                          <div class="item-card position-absolute w-100" style="overflow:hidden">
+                              <div class='bg-white p-2 pb-3 portfolio-info shadow-sm' style='position:sticky; top:60%; opacity:0.8'>
+                                <p class="text-truncate">${items.description}</p>
+                                <a href="${BASE_URL + '/product/detail/' + items.slug}" class="details-link" title="More Details" target="_blank"><i class="bx bx-link"></i></a>
                               </div>
                           </div>
                         </div>
+                      </div>
                       `;
         }
         $("#productData").html(products);
@@ -197,7 +204,7 @@ async function getSelected(id) {
 }
 
 async function initFetch() {
-  console.log("initFetch");
+  // console.log("initFetch");
   await getCategory();
   await getProduct();
   await getClients();

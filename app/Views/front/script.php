@@ -12,6 +12,7 @@
 <script type="text/javascript" src="<?php echo base_url('assets/js/module/socket.io.js'); ?>" defer></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/appHome.js'); ?>" defer></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/main.js'); ?>" defer></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/navbar.js'); ?>" defer></script>
 <!-- End Main Script JS -->
 
 <div id="customJsNa">

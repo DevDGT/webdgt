@@ -163,6 +163,30 @@ class PublicApi extends BaseController
         }
     }
 
+    public function getCategoryFaq()
+    {
+        try {
+            $category = $this->db->query('SELECT '.EncKey('cat.id')." id , `cat`.`name`, `cat`.`slug`, (SELECT COUNT(*) FROM faq WHERE id_category = cat.id AND active = '1') count FROM `category_faq` `cat` WHERE (SELECT COUNT(*) FROM faq WHERE id_category = cat.id AND active = '1') != '0' ORDER BY `count` DESC")->getResult();
+
+            $result = [
+                'status' => 'ok',
+                'data' => $category,
+            ];
+        } catch (\Throwable $th) {
+            $result = [
+                'status' => 'fail',
+                'message' => $th->getMessage().$this->db->getLastQuery(),
+            ];
+        } catch (\Exception $ex) {
+            $result = [
+                'status' => 'fail',
+                'message' => $ex->getMessage(),
+            ];
+        } finally {
+            echo json_encode($result);
+        }
+    }
+
     public function getTags()
     {
         try {
@@ -425,6 +449,52 @@ class PublicApi extends BaseController
             $result = [
                 'status' => 'fail',
                 'message' => $th->getMessage(),
+            ];
+        } catch (\Exception $ex) {
+            $result = [
+                'status' => 'fail',
+                'message' => $ex->getMessage(),
+            ];
+        } finally {
+            echo json_encode($result);
+        }
+    }
+
+    public function getFaq($category = '')
+    {
+        try {
+            $slug = getUrlParam('slug');
+            $this->builder = $this->db->table('faq');
+            $this->builder->select(EncKey('faq.id').'id ,question, answers, cat.slug category, faq.slug');
+            $this->builder->join('category_faq cat', 'cat.id = faq.id_category');
+            $this->builder->where('active', '1');
+            if ($category !== '') {
+                $this->builder->where('cat.slug', $category);
+            }
+            if ($slug !== '') {
+                $this->builder->where('faq.slug', $slug);
+            }
+            $faq = $this->builder->orderby('faq.id', 'desc')->get()->getResultArray();
+            $field = ['question', 'slug', 'category'];
+
+            $data = [];
+            foreach ($faq as $field_) {
+                $row = [];
+                foreach ($field as $key) {
+                    $row[$key] = $field_[$key];
+                }
+                $row['answers'] = $slug == '' ? substr(strip_tags($field_['answers']), 0, 200) : $field_['answers'];
+                $data[] = $row;
+            }
+            $result = [
+                'status' => 'ok',
+                'count' => count($faq),
+                'data' => $data,
+            ];
+        } catch (\Throwable $th) {
+            $result = [
+                'status' => 'fail',
+                'message' => $th->getMessage().$th->getLine(),
             ];
         } catch (\Exception $ex) {
             $result = [
