@@ -19,7 +19,7 @@
                     <div class="icon-box iconbox-blue p-1">
                         <div class="icon">
                             <img src="<?php echo base_url('uploads/aboutus/Tech_Support@4x-8.png'); ?>" width="80"
-                                height="80">
+                                height="80" alt="Tech Support">
                         </div>
                         <h5 class="text-uppercase">Tech Support</h5>
                         <div class="text-break">
@@ -31,7 +31,7 @@
                     <div class="icon-box iconbox-blue p-1">
                         <div class="icon">
                             <img src="<?php echo base_url('uploads/aboutus/Consulting@4x-8.png'); ?>" width="80"
-                                height="80">
+                                height="80" alt="It Consulting">
                         </div>
                         <h5 class="text-uppercase">It Consulting</h5>
                         <div class="text-break">
@@ -44,7 +44,7 @@
                     <div class="icon-box iconbox-blue p-1">
                         <div class="icon">
                             <img src="<?php echo base_url('uploads/aboutus/App_Dev@4x-8.png'); ?>" width="80"
-                                height="80">
+                                height="80" alt="App Dev">
                         </div>
                         <h5 class="text-uppercase">App Dev</h5>
                         <div class="text-break">
@@ -58,7 +58,7 @@
                     <div class="icon-box iconbox-blue p-1">
                         <div class="icon">
                             <img src="<?php echo base_url('uploads/aboutus/Training@4x-8.png'); ?>" width="80"
-                                height="80">
+                                height="80" alt="Training">
                         </div>
                         <h5 class="text-uppercase">Training</h5>
                         <div class="text-break">
