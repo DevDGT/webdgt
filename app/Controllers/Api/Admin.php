@@ -306,6 +306,18 @@ class Admin extends BaseController
         ]);
     }
 
+    public function dataProductsBrosur()
+    {
+        return $this->dataTables([
+            'table' => 'products_brosur pb',
+            'selectData' => "pb.id, pb.title, pb.file, pb.active",
+            'field' => ['title', 'file', 'active'],
+            'columnOrder' => [null, 'title', 'active'],
+            'columnSearch' => ['pb.title', 'pb.file'],
+            'order' => ['id' => 'desc']
+        ]);
+    }
+
     public function dataJobs()
     {
         return $this->dataTables([
@@ -481,6 +493,16 @@ class Admin extends BaseController
             'select' => "id, name, icon, description, id_category_product, video",
             'where' => [EncKey('id') => $id],
             'guard' => ['id_category_product:hash']
+        ]);
+    }
+
+    public function getRowProductsBrosur($id)
+    {
+        return $this->getRowTable([
+            'table' => 'products_brosur',
+            'select' => "id, title, file, product_id",
+            'where' => [EncKey('id') => $id],
+            'guard' => ['product_id:hash']
         ]);
     }
 
