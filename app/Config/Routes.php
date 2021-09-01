@@ -279,6 +279,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
             $routes->get('clients/order/(:any)', 'PublicApi::getClientsOrders/$1');
             $routes->get('clients/select/(:any)', 'PublicApi::getClientsSelect/$1');
             $routes->get('products', 'PublicApi::getProducts');
+            $routes->get('products-brosur/(:any)', 'PublicApi::getProductsBrosur/$1');
             $routes->get('products-demo', 'PublicApi::getProductsDemo');
             $routes->get('products/demo/(:any)', 'PublicApi::getProductsDemo/$1');
             $routes->get('products/(:any)', 'PublicApi::getProducts/$1');
