@@ -15,27 +15,27 @@
             <h2>News</h2>
             <ol>
                 <li><a href="<?php echo base_url('/home'); ?>">Home</a></li>
-                <li><a href="<?php echo base_url('/news'); ?>">News</a></li>
+                <li><a href="#">News</a></li>
             </ol>
         </div>
 
     </div>
 </section>
 
-<section id="blog" class="blog">
+<section id="blog" class="blog aos-init aos-animate">
 
-    <div class="container aos-init aos-animate">
+    <div class="container" data-aos="fade-down" data-aos-delay="1000">
 
         <div class="row">
 
             <!-- Blog entries list -->
             <div class="col-lg-8 entries articles">
-                <div id="articleSection" data-aos="fade-down" data-aos-delay="100">
+                <div id="articleSection">
                     <?php foreach ($newsData as $news) : ?>
                     <a href="<?php echo base_url('/news/'.$news->slug); ?>">
                         <article class="entry" id="<?php echo $news->id; ?>">
-                            <div class="entry-img coverGan h-100">
-                                <img src="<?php echo base_url('/uploads/cover/'.$news->cover); ?>" alt="cover"
+                            <div class="entry-img h-100">
+                                <img src="<?php echo base_url('/uploads/cover/'.$news->cover); ?>" alt="<?php echo $news->title; ?>"
                                     class="img-fluid" style="object-fit: cover; margin: auto; display: block;">
                             </div>
                             <h2 class="entry-title">
@@ -97,7 +97,7 @@
 
             <!-- Blog sidebar -->
             <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="sidebar" data-aos="fade-left" data-aos-delay="200">
+                <div class="sidebar">
 
                     <?php require 'sidebar.php'; ?>
 

@@ -7,20 +7,21 @@ function initSlick() {
   $('#teamApi').not('.slick-initialized').slick({
     infinite: false,
     slidesToShow: 3,
-    slidesToScroll: 2,
+    slidesToScroll: 1,
     dots: false,
     autoplay: true,
     adaptiveHeight: false,
     pauseOnFocus: true,
-    autoplaySpeed: 3000,
-    speed: 1000,
+    autoplaySpeed: 6000,
+    speed: 300,
     centerMode: false,
+    lazyLoad:'ondemand',
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 2
+          slidesToScroll: 1
         }
       },
       {
@@ -84,7 +85,7 @@ async function addTeam() {
                 <div class="member w-100 h-100 d-flex justify-content-center border border-1" style="box-shadow:unset;">
                   <div class="card" style="width: 100%; max-height:60vh; border:none;">
                     <div class="container p-2">
-                    <img src="${BASE_URL}/uploads/users/${items.photo == '' ? 'default.png' : items.photo}" alt="${items.name}" style="width:15rem; height:15rem; object-fit: cover; border-radius:50%" class="d-block mx-auto">
+                    <img data-lazy="${BASE_URL}/uploads/users/${items.photo == '' ? 'default.png' : items.photo}" alt="${items.name}" style="width:15rem; height:15rem; object-fit: cover; border-radius:50%" class="d-block mx-auto">
                     </div>
                     <div class="social d-flex flex-row">`;
           $.each(items.socials, function (i, social) {

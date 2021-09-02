@@ -12,20 +12,24 @@
     </div>
 </section>
 
-<div class="map-section aos-init aos-animate" data-aos="zoom-in" data-aos-delay="50">
+<div class="map-section aos-init aos-animate" data-aos="zoom-in" data-aos-delay="800">
+
     <iframe style="border:0; width: 100%; height: 350px;"
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1980.259104724501!2d107.65843140705127!3d-6.948032461914047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwNTYnNTQuOCJTIDEwN8KwMzknMjcuNSJF!5e0!3m2!1sid!2sid!4v1629251925201!5m2!1sid!2sid"
-        frameborder="0" allowfullscreen></iframe>
+        frameborder="0" allowfullscreen>
+    </iframe>
+
 </div>
 
-<section id="contact" class="contact">
-    <div class="container aos-init aos-animate">
+<section id="contact" class="contact aos-init aos-animate">
 
-        <div class="section-title" data-aos="fade-up" data-aos-delay="80">
+    <div class="container" data-aos="fade-up" data-aos-delay="1000">
+
+        <div class="section-title">
             <h2>Our Location</h2>
         </div>
 
-        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
+        <div class="row justify-content-center">
 
             <div class="col-lg-10">
 
@@ -58,7 +62,7 @@
 
         </div>
 
-        <div class="row mt-5 justify-content-center" data-aos="fade-up" data-aos-delay="200">
+        <div class="row mt-5 justify-content-center">
             <div class="col-lg-10">
                 <form action="#" method="post" role="form" class="php-email-form">
                     <div class="row">
@@ -91,28 +95,31 @@
         </div>
 
     </div>
+
 </section>
 
-<section id="faq" class="faq pt-0">
-    <div class="container aos-init aos-animate">
+<section id="faq" class="faq pt-0 aos-init aos-animate">
 
-        <div class="section-title" data-aos="fade-up" data-aos-delay="400">
+    <div class="container" data-aos="fade-up" data-aos-delay="1500">
+
+        <div class="section-title">
             <h2>FAQ</h2>
         </div>
 
         <div class="row portfolio">
-            <div class="col-lg-12 d-flex justify-content-center" data-aos="zoom-out" data-aos-delay="600">
+            <div class="col-lg-12 d-flex justify-content-center">
                 <ul id="portfolio-flters">
                 </ul>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-lg-12 col-md-6 col-sm-6 faq-list" data-aos="fade-down" data-aos-delay="600">
+            <div class="col-lg-12 col-md-6 col-sm-6 faq-list">
                 <ul class="border border-success" id="faqData"></ul>
                 </ul>
             </div>
         </div>
 
     </div>
+
 </section>

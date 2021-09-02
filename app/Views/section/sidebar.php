@@ -7,32 +7,32 @@
 </div> -->
 <!-- End sidebar search formn-->
 
-<h3 class="sidebar-title" data-aos="zoom-in" data-aos-delay="300">Categories</h3>
-<div class="sidebar-item categories" data-aos="zoom-in" data-aos-delay="300">
+<h3 class="sidebar-title">Categories</h3>
+<div class="sidebar-item categories">
 
     <ul id="newsCategory"></ul>
 
 </div>
 <!-- End sidebar categories-->
 
-<h3 class="sidebar-title" data-aos="zoom-in" data-aos-delay="400">Recent Posts</h3>
-<div class="sidebar-item recent-posts" data-aos="zoom-in" data-aos-delay="400">
+<h3 class="sidebar-title">Recent Posts</h3>
+<div class="sidebar-item recent-posts">
 
     <div id="recentPost"></div>
 
 </div>
 <!-- End sidebar recent posts-->
 
-<h3 class="sidebar-title" data-aos="zoom-in" data-aos-delay="500">Tags</h3>
-<div class="sidebar-item tags" data-aos="zoom-in" data-aos-delay="500">
+<h3 class="sidebar-title">Tags</h3>
+<div class="sidebar-item tags">
     <ul>
         <div id="newsTags"></div>
     </ul>
 </div>
 <!-- End sidebar tags-->
 
-<h3 class="sidebar-title py-2" data-aos="zoom-in" data-aos-delay="600">Follow Us On Instagram</h3>
-<div class="sidebar-item py-2" data-aos="zoom-in" data-aos-delay="600">
+<h3 class="sidebar-title py-2">Follow Us On Instagram</h3>
+<div class="sidebar-item py-2">
     <div class="container">
         <a href="https://bit.ly/35Fqhft" class="text-decoration-none" target="_blank">
             <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="purple" class="bi bi-instagram"

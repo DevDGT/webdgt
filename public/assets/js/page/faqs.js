@@ -29,7 +29,6 @@ async function getCategoryFaq() {
     });
 }
 
-
 async function getFaq(ids = null) {
     return new Promise((resolve) => {
         var faqAPI = `${API_PATH}/public/get/faq`;
@@ -48,7 +47,7 @@ async function getFaq(ids = null) {
                         faq += ``;
                     } else {
                         faq += `
-                        <li data-aos="zoom-out portfolio-item filter-${items.category}" data-aos-delay="${i + 1}000">
+                        <li data-aos="zoom-out portfolio-item filter-${items.category}">
                             <i class="bx bx-help-circle icon-help"></i>
                             <a href="#" data-bs-toggle="collapse" data-bs-target="#faq-list-${i + 1}" class="collapsed">${items.question}
                                 <i class="bx bx-chevron-down icon-show"></i>
@@ -63,7 +62,7 @@ async function getFaq(ids = null) {
                     }
                 } else {
                     faq += `
-                    <li data-aos="zoom-out portfolio-item filter-${items.category}" data-aos-delay="${i + 1}000">
+                    <li data-aos="zoom-out portfolio-item filter-${items.category}">
                         <i class="bx bx-help-circle icon-help"></i>
                         <a href="#" data-bs-toggle="collapse" data-bs-target="#faq-list-${i + 1}" class="collapsed">${items.question}
                             <i class="bx bx-chevron-down icon-show"></i>

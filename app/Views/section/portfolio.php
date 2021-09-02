@@ -24,23 +24,22 @@
     
 </section>
 
-<section id="clients" class="clients pt-3">
+<section id="clients" class="clients pt-3 aos-init aos-animate">
 
-    <div class="container aos-init aos-animate">
+    <div class="container" data-aos="zoom-out" data-aos-delay="1000">
 
-        <div class="section-title" data-aos="zoom-out" data-aos-delay="100">
+        <div class="section-title">
             <h2>Our Users</h2>
         </div>
 
-        <div class="row no-gutters clients-wrap clearfix clientSlick" style="border:none;" id="clientsData"
-            data-aos="fade" data-aos-delay="200">
+        <div class="row no-gutters clients-wrap clearfix clientSlick" style="border:none;" id="clientsData">
         </div>
 
-        <div class="section-title mt-4" data-aos="zoom-out" data-aos-delay="300">
+        <div class="section-title mt-4">
             <h2>User Products</h2>
         </div>
 
-        <div class="row testimonials" data-aos="fade" data-aos-delay="400" id="clientsDataDetails">
+        <div class="row testimonials" id="clientsDataDetails">
             <h4 class="text-center" id="titleItems">Klik user for more information</h4>
         </div>
 

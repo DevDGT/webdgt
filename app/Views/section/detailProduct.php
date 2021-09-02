@@ -25,18 +25,18 @@
 
 </section>
 
-<section id="blog" class="blog">
+<section id="blog" class="blog aos-init aos-animate">
 
-    <div class="container aos-init aos-animate">
+    <div class="container" data-aos="fade-up" data-aos-delay="1000" >
 
-        <div class="section-title" data-aos="fade-up" data-aos-delay="100" id="productDetail"
+        <div class="section-title" id="productDetail"
             data-id="<?php echo $productsData['0']->id ?? ''; ?>">
             <h2><?php echo $productsData['0']->name ?? ''; ?> Detail</h2>
         </div>
 
-        <div class="member" data-aos="fade-up" data-aos-delay="200">
+        <div class="member">
 
-            <div class="container-fluid" data-aos="fade-up" data-aos-delay="300">
+            <div class="container-fluid">
                 <div class="row justify-content-center">
                     <div class="col-lg-10" style="height: 30rem;">
                         <iframe class="w-100 h-100" src="<?php echo $productsData['0']->video ?? ''; ?>?controls=0"
@@ -52,8 +52,8 @@
                         <p class="card-text"><?php echo $productsData['0']->description ?? ''; ?></p>
                         <h5 class="card-title"><?php echo 'Other Videos '.$productsData['0']->name ?? ''; ?></h5>
                         <div id="carouselProduct"></div>
-                        <!-- <h5 class="card-title">Download Catalog</h5>
-                        <div id="catalogProduct"></div> -->
+                        <h5 class="card-title mt-4">Download Catalog</h5>
+                        <div class="d-flex flex-row" id="catalogProduct"></div>
                     </div>
                 </div>
                 <div class="row justify-content-center testimonials mt-4" id="productClient">
@@ -66,25 +66,23 @@
 
 </section>
 
-<!-- End Client Section -->
-<section id="portfolio" class="portfolio">
+<section id="portfolio" class="portfolio aos-init aos-animate">
 
-    <div class="container aos-init aos-animate">
+    <div class="container" data-aos="fade-up" data-aos-delay="1500">
 
-        <div class="section-title" data-aos="fade-up" data-aos-delay="400">
+        <div class="section-title">
             <h2>Other Products</h2>
         </div>
 
         <div class="row" data-aos="fade-up">
-            <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="500">
+            <div class="col-lg-12 d-flex justify-content-center">
                 <ul id="portfolio-flters">
 
                 </ul>
             </div>
         </div>
 
-        <div class="row d-flex justify-content-center portfolio-container" data-aos="fade-up" data-aos-delay="600"
-            id="productData">
+        <div class="row d-flex justify-content-center portfolio-container" id="productData">
 
         </div>
 

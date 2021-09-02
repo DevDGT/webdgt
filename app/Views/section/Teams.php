@@ -21,9 +21,9 @@ iframe {
 
 </section>
 
-<section id="team" class="team" data-aos="fade-up">
+<section id="team" class="team aos-init aos-animate">
 
-    <div class="section-title">
+    <div class="section-title" data-aos="fade-up" data-aos-delay="1000">
         <h2 id="pagesName"></h2>
     </div>
 
@@ -34,9 +34,9 @@ iframe {
 </section>
 
 <!-- About Section -->
-<section id="aboutSection" class="services">
+<section id="aboutSection" class="services aos-init aos-animate">
 
-    <div class="section-title">
+    <div class="section-title" data-aos="fade-up" data-aos-delay="1500">
 
         <div class="container-fluid" style="height:5rem;">
         </div>

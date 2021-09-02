@@ -44,17 +44,17 @@ async function getClients() {
             let clients = '';
             $.each(response.data, function (i, items) {
                 clients += `
-                            <div class="col" style="border:1px solid #ececec;">
-                                <div class="client-logo" style="border: unset; widht:auto; height: 7rem;">
-                                    <img src="${BASE_URL}/uploads/clients/${items.icon}" class="img-fluid" style="border:none; height: -webkit-fill-available;" alt="${items.name}" title="${items.description}">
-                                </div>
-                                <div class="container text-center text-truncate fw-light">
-                                    <a href="#" onclick=getDetailsProducts('${items.id}')>
-                                    ${items.name}
-                                    </a>
-                                </div> 
-                            </div>
-                            `;
+                    <div class="col" style="border:1px solid #ececec;">
+                        <div class="client-logo" style="border: unset; widht:auto; height: 7rem;">
+                            <img data-lazy="${BASE_URL}/uploads/clients/${items.icon}" class="img-fluid" style="border:none; height: -webkit-fill-available;" alt="${items.name}" title="${items.description}">
+                        </div>
+                        <div class="container text-center text-truncate fw-light">
+                            <a href="#" onclick=getDetailsProducts('${items.id}')>
+                            ${items.name}
+                            </a>
+                        </div> 
+                    </div>
+                    `;
                 $('#clientsData').html(clients);
                 // $('#clientsData').removeClass('d-none');
                 resolve(true);
@@ -70,9 +70,10 @@ async function initSlick() {
         autoplay: true,
         pauseOnFocus: true,
         autoplaySpeed: 6000,
-        speed: 2000,
+        speed: 300,
         centerMode: false,
         mobileFirst: true,
+        lazyLoad: 'ondemand',
         responsive: [
             {
                 breakpoint: 1024,
