@@ -6,50 +6,48 @@ $(document).ready(function () {
 async function initSlick() {
     $('#clientsData').not('.slick-initialized').slick({
         infinite: false,
-        dots: false,
+        dots: true,
         autoplay: true,
         pauseOnFocus: true,
-        autoplaySpeed: 6000,
-        speed: 2000,
-        centerMode: false,
+        autoplaySpeed: 10000,
+        speed: 300,
         mobileFirst: true,
+        lazyLoad:'ondemand',
         responsive: [
             {
                 breakpoint: 1024,
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 2,
+                    dots: false,
                 }
             },
             {
                 breakpoint: 600,
                 settings: {
                     slidesToShow: 2,
-                    slidesToScroll: 2
+                    slidesToScroll: 2,
+                    dots: false,
                 }
             },
             {
                 breakpoint: 480,
                 settings: {
                     slidesToShow: 2,
-                    slidesToScroll: 1
+                    slidesToScroll: 1,
+                    dots: false,
                 }
             },
             {
                 breakpoint: 300,
                 settings: {
                     slidesToShow: 2,
-                    slidesToScroll: 1
+                    slidesToScroll: 1,
+                    dots: false,
                 }
             }
         ]
     });
-}
-
-async function reloadSlick() {
-    $("#clientsData").addClass('d-none').slick('unslick');
-    // $('.clientSlick').slick('unslick');
-    getClients();
 }
 
 async function getClients() {
@@ -61,21 +59,28 @@ async function getClients() {
             let clients = '';
             $.each(response.data, function (i, items) {
                 clients += `
-                            <div class="col" style="border:1px solid #ececec;">
-                                <div class="client-logo" style="border: unset; widht:auto; height: 7rem;">
-                                    <img src="${BASE_URL}/uploads/clients/${items.icon}" class="img-fluid" style="border:none; height: -webkit-fill-available;" alt="${items.name}" title="${items.description}">
-                                </div>
-                                <div class="container">
-                                    <p class="text-center text-truncate fw-light">${items.name}</p>
-                                </div> 
-                            </div>
-                            `;
+                    <div class="col" style="border:1px solid #ececec;">
+                        <div class="client-logo d-block mx-auto" style="border: unset; width:8rem; height: 8rem;">
+                            <img data-lazy="${BASE_URL}/uploads/clients/${items.icon}" style="height: -webkit-fill-available;
+                            width: -webkit-fill-available; alt="${items.name}" title="${items.description}">
+                        </div>
+                        <div class="container">
+                            <p class="text-center text-truncate fw-light">${items.name}</p>
+                        </div> 
+                    </div>
+                    `;
                 $('#clientsData').html(clients);
                 // $('#clientsData').removeClass('d-none');
                 resolve(true);
             });
         });
     });
+}
+
+async function reloadSlick() {
+    $("#clientsData").addClass('d-none').slick('unslick');
+    // $('.clientSlick').slick('unslick');
+    getClients();
 }
 
 async function initFetch() {

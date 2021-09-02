@@ -35,19 +35,19 @@
 </section>
 
 <!-- Service Section -->
-<section id="services" class="services pb-0">
+<section id="services" class="services aos-init aos-animate">
 
-    <div class="container aos-init aos-animate">
-        <div class="section-title" data-aos="fade-up" data-aos-delay="100">
+    <div class="container" data-aos="fade-up" data-aos-delay="1000">
+        <div class="section-title">
             <h2>The Problems</h2>
             <p class="lead">Modern <strong>Problem</strong> Require Modern <strong>Solutions</strong></p>
         </div>
 
         <div class="container">
 
-            <div class="row aos-init aos-animate">
+            <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 d-flex flex-row justify-content-around">
-                    <div class="card" style="width: 15rem; border: none;" data-aos="fade-right" data-aos-delay="200">
+                    <div class="card" style="width: 15rem; border: none;">
                         <img src="<?php echo base_url('/uploads/produk/Productivity.png'); ?>" class="card-img-top"
                             alt="Productivity">
                         <div class="card-body">
@@ -55,7 +55,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="card" style="width: 15rem; border: none;" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card" style="width: 15rem; border: none;">
                         <img src="<?php echo base_url('/uploads/produk/User_Frustation.png'); ?>" class="card-img-top"
                             alt="User_Frustation">
                         <div class="card-body">
@@ -63,7 +63,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="card" style="width: 15rem; border: none;" data-aos="fade-left" data-aos-delay="400">
+                    <div class="card" style="width: 15rem; border: none;">
                         <img src="<?php echo base_url('/uploads/produk/Price.png'); ?>" class="card-img-top"
                             alt="Price">
                         <div class="card-body">
@@ -81,24 +81,22 @@
 </section>
 <!-- End Service Section -->
 
-<!-- End Client Section -->
-<section id="portfolio" class="portfolio pb-0 pt-4">
+<section id="portfolio" class="portfolio aos-init aos-animate">
 
-    <div class="container aos-init aos-animate">
+    <div class="container" data-aos="fade-up" data-aos-delay="1500">
 
-        <div class="section-title" data-aos="fade-up" data-aos-delay="500">
+        <div class="section-title">
             <h2>The Solutions</h2>
         </div>
 
         <div class="row">
-            <div class="col-lg-12 d-flex justify-content-center" data-aos="zoom-out" data-aos-delay="600">
+            <div class="col-lg-12 d-flex justify-content-center">
                 <ul id="portfolio-flters">
                 </ul>
             </div>
         </div>
 
-        <div id="productData" class="row d-flex justify-content-center portfolio-container" data-aos="zoom-in"
-            data-aos-delay="600">
+        <div id="productData" class="row d-flex justify-content-center portfolio-container">
         </div>
 
     </div>
@@ -106,16 +104,15 @@
 </section>
 
 <!-- Client Section -->
-<section id="clients" class="clients pt-0">
+<section id="clients" class="clients aos-init aos-animate">
 
-    <div class="container aos-init aos-animate">
+    <div class="container" data-aos="fade-up" data-aos-delay="2000">
         
-        <div class="section-title" data-aos="fade-up" data-aos-delay="800">
+        <div class="section-title">
             <h2>Users</h2>
         </div>
 
-        <div class="row no-gutters clients-wrap clearfix userProduct" style="border:none;" id="clientsData"
-            data-aos="fade-up" data-aos-delay="900">
+        <div class="row no-gutters clients-wrap clearfix userProduct" style="border:none;" id="clientsData">
         </div>
 
     </div>

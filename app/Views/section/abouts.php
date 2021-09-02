@@ -34,29 +34,29 @@
     <div class="parallax d-block mx-auto aos-init aos-animate" data-aos="fade" data-aos-delay="100"></div>
 </div>
 
-<section id="team" class="team pb-0 pt-4">
+<section id="team" class="team pb-0 pt-4 aos-init aos-animate">
 
-    <div class="container aos-init aos-animate">
+    <div class="container" data-aos="fade" data-aos-delay="1000">
 
-        <div class="section-title" data-aos="fade" data-aos-delay="200">
+        <div class="section-title">
             <h2 class="text-uppercase">
                 Get To Know About Us
             </h2>
         </div>
 
-        <div id="teamCEO" class="row" data-aos="zoom-in" data-aos-delay="300"></div>
+        <div id="teamCEO" class="row"></div>
 
-        <div id="teamApi" class="row dgtTeam" data-aos="fade-up" data-aos-delay="500">></div>
+        <div id="teamApi" class="row dgtTeam"></div>
 
     </div>
 
 </section>
 
-<section id="history" class="team pb-0 pt-2">
+<section id="history" class="team pb-0 pt-2 aos-init aos-animate">
 
-    <div class="container aos-init aos-animate">
+    <div class="container" data-aos="fade" data-aos-delay="1500">
 
-        <div class="section-title pt-4" data-aos="fade" data-aos-delay="600">
+        <div class="section-title pt-4">
             <h2 class="text-uppercase">
                 <span>
                     Our <strong>History</strong>
@@ -64,7 +64,7 @@
             </h2>
         </div>
 
-        <div class="row dgtVideo mt-2" data-aos="fade-up" data-aos-delay="800">
+        <div class="row dgtVideo mt-2">
 
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="member" style="box-shadow:unset;">
@@ -110,11 +110,11 @@
 
 </section>
 
-<section id="about-us" class="about-us">
+<section id="about-us" class="about-us aos-init aos-animate">
 
-    <div class="container aos-init aos-animate">
+    <div class="container" data-aos="fade-up" data-aos-delay="2000">
 
-        <div class="section-title" data-aos="fade-up" data-aos-delay="900">
+        <div class="section-title">
             <h2>Our <strong>Goals</strong></h2>
         </div>
 
@@ -150,16 +150,16 @@
 
 </section>
 
-<section id="benefits" class="about-us">
+<section id="benefits" class="about-us aos-init aos-animate">
 
-    <div class="container aos-init aos-animate">
+    <div class="container" data-aos="fade" data-aos-delay="2500">
 
-        <div class="section-title" data-aos="fade" data-aos-delay="1100">
+        <div class="section-title">
             <h2 class="text-uppercase">Cooperation Benefits</h2>
         </div>
 
         <div class="row services benefits justify-content-center">
-            <div class="col" data-aos="zoom-in" data-aos-delay="1200">
+            <div class="col">
                 <div class="card" style="height:15rem; border:none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Partner_Oriented@4x-8.png'); ?>" class="img-fluid"
                         alt="Oriented">
@@ -170,7 +170,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col" data-aos="zoom-in" data-aos-delay="1300">
+            <div class="col">
                 <div class="card" style="height:15rem; border:none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Eficient@4x-8.png'); ?>" class="img-fluid"
                         alt="Solution">
@@ -181,7 +181,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col" data-aos="zoom-in" data-aos-delay="1400">
+            <div class="col">
                 <div class="card" style="height:15rem; border:none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Innovation@4x-8.png'); ?>" class="img-fluid"
                         alt="Innovative">
@@ -192,7 +192,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col" data-aos="zoom-in" data-aos-delay="1500">
+            <div class="col">
                 <div class="card" style="height:15rem; border:none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Service_Commitment@4x-8.png'); ?>" class="img-fluid"
                         alt="Commitment">
@@ -203,7 +203,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col" data-aos="zoom-in" data-aos-delay="1600">
+            <div class="col">
                 <div class="card" style="height:15rem; border:none;">
                     <img src="<?php echo base_url('/uploads/aboutus/Professional_Quality@4x-8.png'); ?>"
                         class="img-fluid" alt="Quality">

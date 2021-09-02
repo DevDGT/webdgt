@@ -7,8 +7,8 @@ $routes = Services::routes();
 
 // Load the system's routing file first, so that the app and ENVIRONMENT
 // can override as needed.
-if (file_exists(SYSTEMPATH.'Config/Routes.php')) {
-    require SYSTEMPATH.'Config/Routes.php';
+if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
+    require SYSTEMPATH . 'Config/Routes.php';
 }
 
 /*
@@ -160,6 +160,16 @@ $routes->group('ruangadmin', ['namespace' => 'App\Controllers\Admin'], function 
         $routes->post('setDemo/(:any)', 'Products::setDemo/$1');
     });
 
+    $routes->group('products-brosur', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
+        $routes->get('/', 'ProductsBrosur::index');
+        $routes->post('store', 'ProductsBrosur::store');
+        $routes->post('delete', 'ProductsBrosur::delete');
+        $routes->post('update', 'ProductsBrosur::update');
+        $routes->post('delete-multiple', 'ProductsBrosur::deleteMultiple');
+        $routes->post('set/(:any)', 'ProductsBrosur::set_/$1');
+        $routes->post('set-multiple', 'ProductsBrosur::setMultiple');
+    });
+
     // Teams Management routes
     $routes->group('teams', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
         $routes->get('/', 'Teams::index');
@@ -232,6 +242,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('clients', 'Admin::dataClients');
         $routes->post('products', 'Admin::dataProducts');
         $routes->post('products-demo', 'Admin::dataProductsDemo');
+        $routes->post('products-brosur', 'Admin::dataProductsBrosur');
         $routes->post('profile', 'Admin::dataProfile');
         $routes->post('clients-orders', 'Admin::dataClientsOrders');
         $routes->post('user-socials', 'Admin::userSocials');
@@ -248,6 +259,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('article/(:any)', 'Admin::getRowArticle/$1');
         $routes->post('clients/(:any)', 'Admin::getRowClients/$1');
         $routes->post('products/(:any)', 'Admin::getRowProducts/$1');
+        $routes->post('products-brosur/(:any)', 'Admin::getRowProductsBrosur/$1');
         $routes->post('productsDemo/(:any)', 'Admin::getRowProductsDemo/$1');
         $routes->post('clients-orders/(:any)', 'Admin::getRowClientsOrders/$1');
         $routes->post('profile-social/(:any)', 'Admin::getRowProfileSocial/$1');
@@ -267,6 +279,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
             $routes->get('clients/order/(:any)', 'PublicApi::getClientsOrders/$1');
             $routes->get('clients/select/(:any)', 'PublicApi::getClientsSelect/$1');
             $routes->get('products', 'PublicApi::getProducts');
+            $routes->get('products-brosur/(:any)', 'PublicApi::getProductsBrosur/$1');
             $routes->get('products-demo', 'PublicApi::getProductsDemo');
             $routes->get('products/demo/(:any)', 'PublicApi::getProductsDemo/$1');
             $routes->get('products/(:any)', 'PublicApi::getProducts/$1');
@@ -289,6 +302,6 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
  * You will have access to the $routes object within that file without
  * needing to reload it.
  */
-if (file_exists(APPPATH.'Config/'.ENVIRONMENT.'/Routes.php')) {
-    require APPPATH.'Config/'.ENVIRONMENT.'/Routes.php';
+if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
+    require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }

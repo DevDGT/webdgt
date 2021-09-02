@@ -59,6 +59,12 @@
 							<p>Produk</p>
 						</a>
 					</li>
+					<li class="nav-item">
+						<a href="<?= base_url(ADMIN_PATH . '/products-brosur') ?>" class="nav-link menu-item <?= ($subMenu ?? "") == 'product-brosur' ? 'active' : '' ?>">
+							<i class="fas fa-file nav-icon"></i>
+							<p>Produk Brosur</p>
+						</a>
+					</li>
 				</ul>
 			</li>
 		<?php endif ?>

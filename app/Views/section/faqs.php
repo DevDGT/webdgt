@@ -64,24 +64,23 @@
 
 </section>
 
-<section id="faq" class="faq pt-0">
+<section id="faq" class="faq pt-0 portfolio aos-init aos-animate">
 
-    <div class="container aos-init aos-animate portfolio">
+    <div class="container" data-aos="fade-up" data-aos-delay="300">
 
-        <div class="section-title" data-aos="fade-up" data-aos-delay="300">
+        <div class="section-title">
             <h2>FAQ</h2>
         </div>
 
         <div class="row">
-            <div class="col-lg-12 col-md-6 col-sm-6 d-flex justify-content-center" data-aos="zoom-out"
-                data-aos-delay="400">
+            <div class="col-lg-12 col-md-6 col-sm-6 d-flex justify-content-center">
                 <ul id="portfolio-flters">
                 </ul>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-lg-12 col-md-6 col-sm-6 faq-list" data-aos="fade-down" data-aos-delay="400">
+            <div class="col-lg-12 col-md-6 col-sm-6 faq-list">
                 <ul class="border border-success" id="faqData"></ul>
                 </ul>
             </div>

@@ -11,7 +11,14 @@ $(document).ready(function () {
     });
 })
 
-function usersProduct() {
+async function productsData(){
+    $('#productData').not('.slick-initialized').slick({
+        lazyLoad:'progressive',
+    });
+    $('#productData').slick('unslick');
+}
+
+async function usersProduct() {
     $(".userProduct").slick({
         infinite: false,
         slidesToShow: 4,
@@ -65,7 +72,7 @@ async function getProduct() {
                         <div class='card h-100 shadow-sm'>
                             <span class="text-center text-muted">${items.name}</span>
                             <a href="${BASE_URL + '/product/detail/' + items.slug}" class="text-decoration-none">
-                                <img src="${BASE_URL}/uploads/products/${items.icon}" class="card-img-top" alt="${items.name}">
+                                <img data-lazy="${BASE_URL}/uploads/products/${items.icon}" class="card-img-top" alt="${items.name}">
                             </a>
                             <div class="item-card position-absolute w-100" style="overflow:hidden">
                                 <div class='bg-white p-2 pb-3 portfolio-info shadow-sm' style='position:sticky; top:60%; opacity:0.8'>
@@ -78,6 +85,7 @@ async function getProduct() {
                     `;
                 $("#productData").html(products);
                 resolve(true);
+                productsData();
             });
         });
     });
@@ -132,6 +140,7 @@ async function getSelected(id) {
                 }
                 $("#productData").html(products);
                 resolve(true);
+                productsData();
             });
         });
     });
@@ -181,6 +190,7 @@ async function getProductData() {
 
                 $("#carouselProduct").html(catDetail);
                 getProductUser(idProduct);
+                getProductDoc(idProduct);
                 resolve(true);
             });
         }
@@ -214,10 +224,34 @@ async function getProductUser(id) {
     });
 }
 
+async function getProductDoc(id) {
+    return new Promise((resolve) => {
+        {
+            let dataCataProductsAPI = `${API_PATH}/public/get/products-brosur/` + id;
+            $.getJSON(dataCataProductsAPI, {
+                format: "json",
+            }).done(function (response) {
+                let catDetail = ``;
+                $.each(response.data, function (i, items) {
+                    console.log(items);
+                    catDetail += `
+                        <div class="p-2">
+                            <a href="${BASE_URL}/uploads/products/brosur/${items.file}" target="_blank" download="${items.title}.pdf" class="btn btn-outline-info">${items.title}<i class="bi bi-download ms-2"></i></a>
+                        </div>`;
+                });
+
+                $("#catalogProduct").html(catDetail);
+                resolve(true);
+            });
+        }
+    });
+}
+
 async function initFetch() {
     await getProductData();
     await getCategory();
     await getProduct();
     await getClients();
     usersProduct();
+    productsData();
 }
