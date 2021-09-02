@@ -4,7 +4,7 @@ $(document).ready(function () {
     getTags();
 })
 
-function getTags() {
+async function getTags() {
     var tagsAPI = `${API_PATH}/public/get/tags`;
     $.getJSON(tagsAPI, {
         format: 'json'
@@ -19,7 +19,7 @@ function getTags() {
     });
 }
 
-function getCategory() {
+async function getCategory() {
     var categoryAPI = `${API_PATH}/public/get/category`;
     $.getJSON(categoryAPI, {
         format: 'json'
@@ -34,7 +34,7 @@ function getCategory() {
     });
 }
 
-function getRecentPost() {
+async function getRecentPost() {
     var recentAPI = `${API_PATH}/public/get/article?limit=5`;
     $.getJSON(recentAPI, {
         format: 'json'

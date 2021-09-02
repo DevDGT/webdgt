@@ -26,15 +26,15 @@
 </section>
 
 
-<section id="blog" class="blog">
+<section id="blog" class="blog aos-init aos-animate">
 
-    <div class="container aos-init aos-animate">
+    <div class="container" data-aos="fade-down" data-aos-delay="1000">
 
         <div class="row">
 
             <div class="col-lg-8 entries">
-                <article class="entry entry-single" id="articleDetail" data-aos="fade-down" data-aos-delay="100">
-                    <div class="entry-img coverGan">
+                <article class="entry entry-single" id="articleDetail">
+                    <div class="entry-img">
                         <img src="<?php echo base_url('/uploads/cover/'.$newsData[0]->cover); ?>"
                             alt="<?php echo $newsData[0]->cover; ?>" class="img-fluid newsCover"
                             style="align-items: center;object-fit: cover; margin: auto; display: block;">
@@ -79,11 +79,11 @@
 
                 </article>
 
-                <a href="#" class="btn btn-success mb-4" data-aos="fade-right" id="btnBackNews" data-aos-delay="200">
+                <a href="#" class="btn btn-success mb-4"id="btnBackNews">
                     <i class="bi bi-arrow-left-circle me-2"></i>Back
                 </a>
 
-                <div class="blog-author d-flex align-items-center" data-aos="fade-up" data-aos-delay="300">
+                <div class="blog-author d-flex align-items-center">
                     <img src="<?php echo $newsData[0]->author_photo == '' ? base_url('assets/img/user.png') : base_url('uploads/users/'.$newsData[0]->author_photo); ?>"
                         class="rounded float-left" alt="">
                     <div class="container">
@@ -111,8 +111,8 @@
 
             </div>
 
-            <div class="col-lg-4">
-                <div class="sidebar" id="sideBars" data-aos="fade-left" data-aos-delay="200">
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="sidebar" id="sideBars">
 
                     <?php require 'sidebar.php'; ?>
 
