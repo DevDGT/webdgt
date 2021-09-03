@@ -3,7 +3,7 @@
     <div class="footer-top">
         <div class="container">
 
-            <div class="row">
+            <div class="row justify-content-evenly">
 
                 <div class="col-lg-4 col-md-8 col-sm-12 footer-contact">
                     <div class="container">

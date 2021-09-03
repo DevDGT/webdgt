@@ -68,7 +68,7 @@ async function getProduct() {
             let products = "";
             $.each(response.data, function (i, items) {
                 products += `
-                    <div class="col-lg-2 col-md-6 col-sm-6 p-2 portfolio-item filter-${items.id_category_product} ">
+                    <div class="col-lg-2 col-md-2 col-sm-2 p-2 portfolio-item filter-${items.id_category_product} ">
                         <div class='card h-100 shadow-sm'>
                             <span class="text-center text-muted">${items.name}</span>
                             <a href="${BASE_URL + '/product/detail/' + items.slug}" class="text-decoration-none">
@@ -122,7 +122,7 @@ async function getSelected(id) {
                     products += ``;
                 } else {
                     products += `
-                        <div class="col-lg-2 col-md-6 col-sm-6 p-2 portfolio-item filter-${items.id_category_product} ">
+                        <div class="col-lg-2 col-md-2 col-sm-2 p-2 portfolio-item filter-${items.id_category_product} ">
                             <div class='card h-100 shadow-sm'>
                                 <span class="text-center text-muted">${items.name}</span>
                                 <a href="${BASE_URL + '/product/detail/' + items.slug}" class="text-decoration-none">
@@ -224,10 +224,10 @@ async function getProductUser(id) {
     });
 }
 
-async function getProductDoc(id) {
+async function getProductDoc(ids) {
     return new Promise((resolve) => {
         {
-            let dataCataProductsAPI = `${API_PATH}/public/get/products-brosur/` + id;
+            let dataCataProductsAPI = `${API_PATH}/public/get/products-brosur/` + ids;
             $.getJSON(dataCataProductsAPI, {
                 format: "json",
             }).done(function (response) {
@@ -236,7 +236,7 @@ async function getProductDoc(id) {
                     console.log(items);
                     catDetail += `
                         <div class="p-2">
-                            <a href="${BASE_URL}/uploads/products/brosur/${items.file}" target="_blank" download="${items.title}.pdf" class="btn btn-outline-info">Catalog ${i+1}<i class="bi bi-download ms-2"></i></a>
+                            <a href="${BASE_URL}/product/download?file=${items.id}" target="_blank" class="btn btn-outline-info">Catalog ${i+1}<i class="bi bi-download ms-2"></i></a>
                         </div>`;
                 });
 
