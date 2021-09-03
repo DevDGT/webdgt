@@ -7,8 +7,8 @@ $routes = Services::routes();
 
 // Load the system's routing file first, so that the app and ENVIRONMENT
 // can override as needed.
-if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
-    require SYSTEMPATH . 'Config/Routes.php';
+if (file_exists(SYSTEMPATH.'Config/Routes.php')) {
+    require SYSTEMPATH.'Config/Routes.php';
 }
 
 /*
@@ -62,9 +62,10 @@ $routes->group('/news', ['namespace' => 'App\Controllers'], function ($routes) {
 });
 
 $routes->group('/product', ['namespace' => 'App\Controllers'], function ($routes) {
-    $routes->get('/', 'ProductCatalog::index');
-    $routes->get('(:any)', 'ProductCatalog::detail');
+    $routes->get('/', 'Product::index');
+    $routes->get('/detail', 'Product::detail');
     // $routes->get('(:any)', 'ProductCatalog::detailProduct');
+    $routes->get('/download', 'Product::download');
 });
 
 $routes->group('/faqs', ['namespae' => 'App\Controller'], function ($routes) {
@@ -280,6 +281,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
             $routes->get('clients/select/(:any)', 'PublicApi::getClientsSelect/$1');
             $routes->get('products', 'PublicApi::getProducts');
             $routes->get('products-brosur/(:any)', 'PublicApi::getProductsBrosur/$1');
+            $routes->get('products-file/(:any)', 'PublicApi::getProductsFile/$1');
             $routes->get('products-demo', 'PublicApi::getProductsDemo');
             $routes->get('products/demo/(:any)', 'PublicApi::getProductsDemo/$1');
             $routes->get('products/(:any)', 'PublicApi::getProducts/$1');
@@ -302,6 +304,6 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
  * You will have access to the $routes object within that file without
  * needing to reload it.
  */
-if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
-    require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
+if (file_exists(APPPATH.'Config/'.ENVIRONMENT.'/Routes.php')) {
+    require APPPATH.'Config/'.ENVIRONMENT.'/Routes.php';
 }
