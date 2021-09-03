@@ -135,7 +135,7 @@ async function getProduct() {
       let products = "";
       $.each(response.data, function (i, items) {
         products += `
-          <div class="col-lg-2 col-md-6 col-sm-6 p-2 portfolio-item filter-${items.id_category_product}">
+          <div class="col-lg-2 col-md-2 col-sm-2 p-2 portfolio-item filter-${items.id_category_product}">
             <div class="card h-100 shadow-sm">
               <span class="text-center text-decoration-underline text-muted">${items.name}</span>
               <a href="${BASE_URL + '/product/detail/' + items.slug}" class="text-decoration-none">
@@ -192,7 +192,7 @@ async function getSelected(id) {
           products += ``;
         } else {
           products += `
-            <div class="col-lg-2 col-md-6 col-sm-6 p-2 portfolio-item filter-${items.id_category_product}">
+            <div class="col-lg-2 col-md-2 col-sm-2 p-2 portfolio-item filter-${items.id_category_product}">
               <div class="card h-100 shadow-sm">
                 <span class="text-center text-muted">${items.name}</span>
                 <a href="${BASE_URL + '/product/detail/' + items.slug}" class="text-decoration-none">
