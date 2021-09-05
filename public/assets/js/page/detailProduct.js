@@ -119,7 +119,7 @@ async function getSelected(id) {
             let products = "";
             $.each(response.data, function (i, items) {
                 if (items.id_category_product != id) {
-                    products += `<h4 class="text-center" id="titleItems">No data found sorry !</h4>`;
+                    products += ``;
                 } else {
                     products += `
                         <div class="col-lg-2 col-md-2 col-sm-2 p-2 portfolio-item filter-${items.id_category_product} ">
