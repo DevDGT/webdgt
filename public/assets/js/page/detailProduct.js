@@ -119,7 +119,7 @@ async function getSelected(id) {
             let products = "";
             $.each(response.data, function (i, items) {
                 if (items.id_category_product != id) {
-                    products += ``;
+                    products += `<h4 class="text-center" id="titleItems">No data found sorry !</h4>`;
                 } else {
                     products += `
                         <div class="col-lg-2 col-md-2 col-sm-2 p-2 portfolio-item filter-${items.id_category_product} ">
@@ -155,38 +155,45 @@ async function getProductData() {
                 format: "json",
             }).done(function (response) {
                 let lCategory = response.count;
-                let catDetail = `<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-touch="false" data-bs-interval="false">`;
-                catDetail += `<div class="carousel-indicators">`;
-                for (let i = 0; i < lCategory; i++) {
-                    catDetail += `<button type="button" data-bs-target="#carousel${i}" data-bs-slide-to="${i}" aria-current="true" aria-label="Slide${i}" class="${i === 0 ? 'active' : ''}"></button>`;
-                }
-                catDetail += `</div>`;
-                catDetail += `<div class="carousel-inner">`;
-                $.each(response.data, function (i, items) {
-                    catDetail += `
-                        <div class="carousel-item ${i === 0 ? 'active' : ''}">
-                            <div class="row">
-                                <div class="col-lg-12" style="height: 30rem;">
-                                    <iframe class="w-100 h-100" src="${items.link}?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                                    </iframe>
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h5>${items.title}</h5>
+                // console.log(lCategory);
+                let catDetail = ``;
+                if(lCategory === 0 ){
+                    catDetail = `<h4 class="text-center">No others video found sorry !</h4>`;
+                }else{
+                    catDetail = `<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-touch="false" data-bs-interval="false">`;
+                    catDetail += `<div class="carousel-indicators">`;
+                    for (let i = 0; i < lCategory; i++) {
+                        catDetail += `<button type="button" data-bs-target="#carousel${i}" data-bs-slide-to="${i}" aria-current="true" aria-label="Slide${i}" class="${i === 0 ? 'active' : ''}"></button>`;
+                    }
+                    catDetail += `</div>`;
+                    catDetail += `<div class="carousel-inner">`;
+
+                    $.each(response.data, function (i, items) {
+                        catDetail += `
+                            <div class="carousel-item ${i === 0 ? 'active' : ''}">
+                                <div class="row">
+                                    <div class="col-lg-12" style="height: 30rem;">
+                                        <iframe class="w-100 h-100" src="${items.link}?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                                        </iframe>
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h5>${items.title}</h5>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>`;
+                    });
+                    catDetail += `
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                         </div>`;
-                });
-                catDetail += `
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                    </div>`;
+                }
 
                 $("#carouselProduct").html(catDetail);
                 getProductUser(idProduct);
@@ -232,14 +239,18 @@ async function getProductDoc(ids) {
                 format: "json",
             }).done(function (response) {
                 let catDetail = ``;
+                let countCatalog = response.count;
+                if(countCatalog === 0){
+                    catDetail = `<h6 class="card-title text-center">Catalog not available</h6>`;
+                }else{
                 $.each(response.data, function (i, items) {
-                    console.log(items);
                     catDetail += `
                         <div class="p-2">
                             <a href="${BASE_URL}/product/download?file=${items.id}" target="_blank" class="btn btn-outline-info">Catalog ${i+1}<i class="bi bi-download ms-2"></i></a>
                         </div>`;
-                });
-
+                    });
+                }
+                
                 $("#catalogProduct").html(catDetail);
                 resolve(true);
             });
