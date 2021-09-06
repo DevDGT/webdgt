@@ -1,4 +1,4 @@
-<?= $this->extend('admin/layouts/app') ?>
+<?= $this->extend('admin/layouts/app'); ?>
 <?= $this->section('content'); ?>
 <style>
     tbody tr:hover {
@@ -70,8 +70,8 @@
         </div>
     </div>
 </div>
-<?= $this->endSection() ?>
+<?= $this->endSection(); ?>
 <?= $this->section('js'); ?>
-<script src="<?= base_url('/assets/modules/ckeditor/ckeditor.js') ?>" defer></script>
-<script src="<?= base_url('assets/js/page/admin/faq.js') ?>" defer></script>
-<?= $this->endSection() ?>
+<script src="<?= base_url('/assets/modules/ckeditor/ckeditor.js'); ?>" defer></script>
+<script src="<?= base_url('assets/js/page/admin/faq.js'); ?>" defer></script>
+<?= $this->endSection(); ?>

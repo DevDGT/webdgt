@@ -94,32 +94,33 @@
 
                 <div class="col-lg-4 col-md-8 col-sm-12 footer-contact">
                     <div class="container">
-                        <form action="" method="post" style='background: inherit;'>
+                        <form action="<?php echo base_url('/sendmail'); ?>" method="post" style='background: inherit;' id="formInbox">
+                            <?php echo csrf_field(); ?>
                             <div class="row">
                                 <div class="col-lg-6 col-md-12 col-sm-12">
-                                    <input type="text" class="form-control form-control-sm" placeholder="Full Name"
+                                    <input type="text" class="form-control form-control-sm" name="name" placeholder="Full Name"
                                         aria-label="Full Name">
                                 </div>
                                 <div class="col-lg-6 col-md-12 col-sm-12">
-                                    <input type="text" class="form-control form-control-sm" placeholder="Email"
+                                    <input type="email" class="form-control form-control-sm" name="emails" placeholder="Email"
                                         aria-label="Email">
                                 </div>
                             </div>
                             <div class="row my-3">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <input type="text" class="form-control form-control-sm" placeholder="Subject"
+                                    <input type="text" class="form-control form-control-sm" name="subject" placeholder="Subject"
                                         aria-label="Subject">
                                 </div>
                             </div>
                             <div class="row my-3">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <textarea class="form-control" placeholder="Type Message Here..."></textarea>
+                                    <textarea class="form-control" name="message" placeholder="Message"></textarea>
                                 </div>
                             </div>
                             <div class="row my-3">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <div class="d-grid">
-                                        <button type="button" class="btn btn-primary btn-sm btn-block">
+                                        <button type="button" class="btn btn-primary btn-sm btn-block" id="sendMail">
                                             <i class="bi bi-envelope"></i>
                                         </button>
                                     </div>
