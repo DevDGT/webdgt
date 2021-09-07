@@ -29,3 +29,5 @@
 </div>
 
 <!-- End User Page Js  -->
+
+<script type="text/javascript" src="<?php echo base_url('assets/js/footer.js'); ?>" defer></script>
