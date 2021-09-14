@@ -125,7 +125,7 @@ $(document).ready(function () {
 						// disableButton()
 					},
 					success: function (result) {
-						"200" == result.status ? (toastSuccess(result.message), refreshData(), socket.emit?.("affectDataTable", tableId)) : toastError(result.message, "Gagal")
+						"200" == result.status ? (toastSuccess(result.message), refreshData(), socket.emit?.("affectDataTable", tableId)) : toastError(result.message)
 						// console.log(result)
 					},
 					error: function (error) {
@@ -137,7 +137,7 @@ $(document).ready(function () {
 	}))
 })
 
-function inboxInput(options = {
+async function inboxInput(options = {
 	title: 'Input Subject & Message',
 	confirmBtn: "Kirim Imel",
 	cancelBtn: "Batal"
@@ -146,7 +146,7 @@ function inboxInput(options = {
 		icon: "info",
 		title: options.title,
 		html:
-			'<input id="subject" class="swal2-input" placeholder="Cc/Bcc">' +
+			'<input id="subject" class="swal2-input" placeholder="Subject">' +
 			'<textarea id="pesana" class="swal2-input" rows="5" placeholder="Message Here"></textarea>',
 		showCancelButton: !0,
 		confirmButtonColor: '#3085d6',

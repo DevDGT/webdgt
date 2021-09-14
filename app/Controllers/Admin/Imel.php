@@ -4,6 +4,9 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
 
+use CodeIgniter\Controller;
+use CodeIgniter\HTTP\RequestInterface;
+
 class Imel extends BaseController
 {
     public function __construct()
@@ -63,6 +66,11 @@ class Imel extends BaseController
     public function sendmail()
     {
         if ($this->request->isAJAX()) {
+
+            $recaptchaResponse = trim($this->request->getVar('g-recaptcha-response')) ;
+
+            // $userIp = $this->request->ip_address();
+                
             $db = \Config\Database::connect();
             $builder = $db->table('imel');
 
@@ -91,6 +99,7 @@ class Imel extends BaseController
                     'message' => 'OK',
                 ];
             }
+
         } else {
             $result = [
                 'status' => '501',
@@ -105,11 +114,13 @@ class Imel extends BaseController
     public function sendinbox()
     {
         // print_r($_POST);
-        $to = $this->request->getVar('email', FILTER_SANITIZE_STRING);
-        $subject = $this->request->getVar('subject');
+        $to = $this->request->getVar('email', FILTER_SANITIZE_EMAIL);
+        $subject = $this->request->getVar('subject', FILTER_SANITIZE_STRING);
         $message = $this->request->getVar('pesana');
 
         $email = \Config\Services::email();
+        
+        $email->clear(true);
 
         $email->setFrom('info@dianglobaltech.co.id', 'Info Dian Global Tech');
         $email->setTo($to);
@@ -117,16 +128,42 @@ class Imel extends BaseController
         $email->setSubject($subject);
         $email->setMessage($message);
 
-        if ($email->send()) 
+        if ($email->send(false)) 
 		{
             $result['status'] = '200';
             $result['message'] = 'Email successfully sent';
         } else {
             $result['status'] = '501';
-            $result['message'] = $email->printDebugger(['headers']);
+            $result['message'] = $email->printDebugger(['headers','subject', 'body']);
             // print_r($data);
         }
 
         echo json_encode($result);
     }
+
+    private function _capthca($response){
+        $secret = '6LffYGYcAAAAAOk_zaa9s96vXkCp2lP2xCbk_VbA';
+
+        $credential = array(
+            'secret' => $secret,
+            'response' => $this->request->getVar('g-recaptcha-response')
+        );
+
+        $verify = curl_init();
+        curl_setopt($verify, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
+        curl_setopt($verify, CURLOPT_POST, true);
+        curl_setopt($verify, CURLOPT_POSTFIELDS, http_build_query($credential));
+        curl_setopt($verify, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($verify, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($verify);
+    
+        $status= json_decode($response, true);
+        
+        if($status['success']){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }

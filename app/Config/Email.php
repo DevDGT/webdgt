@@ -47,21 +47,21 @@ class Email extends BaseConfig
      *
      * @var string
      */
-    public $SMTPHost = 'mail.dianglobaltech.co.id';
+    public $SMTPHost = '';
 
     /**
      * SMTP Username.
      *
      * @var string
      */
-    public $SMTPUser = 'adm@dianglobaltech.co.id';
+    public $SMTPUser = '';
 
     /**
      * SMTP Password.
      *
      * @var string
      */
-    public $SMTPPass = 'A-9k[5JW*s\*=F``';
+    public $SMTPPass = '*.VmFu,S%El4';
 
     /**
      * SMTP Port.

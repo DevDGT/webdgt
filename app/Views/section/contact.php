@@ -40,20 +40,20 @@
                             <h4>Location:</h4>
                             <p><a href="https://goo.gl/maps/5GdkD4qeCv7a6TP5A" target="_blank">Jl.Saturnus Timur III
                                     BLOK 9 R No 7, Margayu Raya, Bandung</a></p>
-                            <p><a href="https://goo.gl/maps/5GdkD4qeCv7a6TP5A" target="_blank">Jl.Neptunus Timur III A
+                            <p><a href="https://goo.gl/maps/5GdkD4qeCv7a6TP5A" target="_blank">Jl.Neptunus Timur IV A
                                     27 No 10, Margayu Raya, Bandung</a></p>
                         </div>
 
                         <div class="col-lg-4 info mt-4 mt-lg-0">
                             <i class="bi bi-envelope"></i>
                             <h4>Email:</h4>
-                            <p>info@dianglobaltech.co.id</p>
+                            <p><a href="mailto:info@dianglobaltech.co.id">info@dianglobaltech.co.id</a></p>
                         </div>
 
                         <div class="col-lg-4 info mt-4 mt-lg-0">
                             <i class="bi bi-phone"></i>
                             <h4>Call:</h4>
-                            <p>+62 22 - 875 - 13118 </br>+62 22 - 751 - 3012</p>
+                            <p><a href="tel:+62 22-875-13118">+62 22-875-13118</a></br><a href="tel:+62 22-751-3012">+62 22-751-3012</a></p>
                         </div>
                     </div>
                 </div>
