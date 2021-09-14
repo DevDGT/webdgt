@@ -2,7 +2,7 @@
 <nav class="mt-2">
 	<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 		<li class="nav-item">
-			<a href="<?= base_url(ADMIN_PATH.'/dashboard'); ?>" class="nav-link menu-item <?= ($menu ?? '') == 'dashboard' ? 'active' : ''; ?>">
+			<a href="<?= base_url(ADMIN_PATH.'/dashboard'); ?>" class="nav-link menu-item <?php echo ($menu ?? '') == 'dashboard' ? 'active' : ''; ?>">
 				<i class="nav-icon fas fa-tachometer-alt"></i>
 				<p>
 					Dashboard

@@ -217,6 +217,8 @@ $routes->group('ruangadmin', ['namespace' => 'App\Controllers\Admin'], function 
 
     $routes->group('email', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
         $routes->get('/', 'Imel::index');
+        $routes->post('delete','Imel::delete');
+        $routes->post('sendinbox','Imel::sendinbox');
     });
 
     // Article Management routes

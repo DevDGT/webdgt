@@ -21,7 +21,7 @@ $(document).ready(function () {
 			complete: function () {
 				checkPilihan({
 					table: tableId,
-					buttons: ['delete', 'active', 'deactive'],
+					buttons: ['delete'],
 					path: CURRENT_PATH
 				})
 			},
@@ -39,7 +39,7 @@ $(document).ready(function () {
 		fnCreatedRow: function (nRow, aData, iDataIndex) {
 			$(nRow).attr('data-id', aData.id)
 		},
-		columns: dataColumnTable(['id', 'name', 'emails','subject', 'message']),
+		columns: dataColumnTable(['id', 'name', 'emails', 'subject', 'message']),
 		columnDefs: [{
 			targets: [0],
 			orderable: !1,
@@ -68,8 +68,98 @@ $(document).ready(function () {
 			targets: [5],
 			orderable: !0,
 			render: function (data, type, row) {
-				return "<button class='btn btn-danger btn-sm' id='delete' data-id=" + row.id + " title='Hapus Data'><i class='fas fa-trash-alt'></i></button> \n <button class='btn btn-warning btn-sm' id='edit' data-id=" + row.id + " title='Edit Data'><i class='fas fa-pencil-alt'></i></button>"
+				return "<button class='btn btn-info btn-sm' id='sendMailbox' data-mail=" + row.emails + " data-id=" + row.id + " title='Kirim Email'><i class='fas fa-envelope'></i></button>\n<button class='btn btn-danger btn-sm' id='delete' data-id=" + row.id + " title='Hapus Data'><i class='fas fa-trash-alt'></i></button>"
 			}
 		}]
-	})
+	}), $(tableId).delegate("#delete", "click", (function () {
+		confirmSweet("Anda yakin ingin menghapus data ?").then((result) => {
+			if (isConfirmed(result)) {
+				// alert(CURRENT_PATH);
+				let id = $(this).data("id")
+				result && $.ajax({
+					url: CURRENT_PATH + "delete",
+					data: {
+						_token: TOKEN,
+						id: id
+					},
+					type: "POST",
+					dataType: "JSON",
+					beforeSend: function () {
+						disableButton()
+					},
+					success: function (result) {
+						"ok" == result.status ? (enableButton(), toastSuccess(result.message), refreshData(), socket.emit?.("affectDataTable", tableId)) : toastError(result.message, "Gagal")
+					},
+					error: function (error) {
+						errorCode(error)
+					}
+				})
+			}
+		})
+	})), $(tableId).delegate("#sendMailbox", "click", (function () {
+		// confirmSweet("Anda yakin ingin menghapus data ?").then((result) => {
+		inboxInput().then((result) => {
+			if (isConfirmed(result)) {
+				// alert(CURRENT_PATH);
+				let id = $(this).data("id");
+				let email = $(this).data("mail");
+				let subject = JSON.stringify(result.value[0]);
+				let pesana = JSON.stringify(result.value[1]);
+
+				// console.log(email);
+				// console.log(subject);
+				// console.log(pesana);
+				// console.log(JSON.stringify(result.value[0]));
+				result && $.ajax({
+					url: CURRENT_PATH + "sendinbox",
+					data: {
+						_token: TOKEN,
+						// id: id,
+						email: email,
+						subject: subject,
+						pesana: pesana
+					},
+					type: "POST",
+					dataType: "JSON",
+					beforeSend: function () {
+						// disableButton()
+					},
+					success: function (result) {
+						"200" == result.status ? (toastSuccess(result.message), refreshData(), socket.emit?.("affectDataTable", tableId)) : toastError(result.message, "Gagal")
+						// console.log(result)
+					},
+					error: function (error) {
+						errorCode(error)
+					}
+				})
+			}
+		})
+	}))
 })
+
+function inboxInput(options = {
+	title: 'Input Subject & Message',
+	confirmBtn: "Kirim Imel",
+	cancelBtn: "Batal"
+}) {
+	return Swal.fire({
+		icon: "info",
+		title: options.title,
+		html:
+			'<input id="subject" class="swal2-input" placeholder="Cc/Bcc">' +
+			'<textarea id="pesana" class="swal2-input" rows="5" placeholder="Message Here"></textarea>',
+		showCancelButton: !0,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		confirmButtonText: options.confirmBtn,
+		cancelButtonText: options.cancelBtn,
+
+		focusConfirm: false,
+		preConfirm: () => {
+			return [
+				document.getElementById('subject').value,
+				document.getElementById('pesana').value,
+			]
+		}
+	})
+}

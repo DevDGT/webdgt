@@ -99,17 +99,17 @@
                             <div class="row">
                                 <div class="col-lg-6 col-md-12 col-sm-12">
                                     <input type="text" class="form-control form-control-sm" name="name" placeholder="Full Name"
-                                        aria-label="Full Name">
+                                        aria-label="Full Name" required>
                                 </div>
                                 <div class="col-lg-6 col-md-12 col-sm-12">
                                     <input type="email" class="form-control form-control-sm" name="emails" placeholder="Email"
-                                        aria-label="Email">
+                                        aria-label="Email" required>
                                 </div>
                             </div>
                             <div class="row my-3">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <input type="text" class="form-control form-control-sm" name="subject" placeholder="Subject"
-                                        aria-label="Subject">
+                                        aria-label="Subject" required>
                                 </div>
                             </div>
                             <div class="row my-3">
@@ -120,8 +120,8 @@
                             <div class="row my-3">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <div class="d-grid">
-                                        <button type="button" class="btn btn-primary btn-sm btn-block" id="sendMail">
-                                            <i class="bi bi-envelope"></i>
+                                        <button type="button" class="btn btn-primary btn-sm btn-block" id="sendMail" role="status">
+                                            <i class="bi bi-envelope status"></i>
                                         </button>
                                     </div>
                                 </div>
