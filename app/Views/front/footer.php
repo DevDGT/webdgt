@@ -127,7 +127,7 @@
                             </div>
                             <div class="row my-3">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <div class="g-recaptcha" class="form-control" data-sitekey="6LffYGYcAAAAACv3uDAkyBvQZBV71IkT_Quq0jUc"></div>  
+                                    <div class="g-recaptcha" class="form-control" data-sitekey=""></div>  
                                 </div>
                             </div>
                             <div class="row my-3">

@@ -142,7 +142,7 @@ class Imel extends BaseController
     }
 
     private function _capthca($response){
-        $secret = '6LffYGYcAAAAAOk_zaa9s96vXkCp2lP2xCbk_VbA';
+        $secret = '';
 
         $credential = array(
             'secret' => $secret,
