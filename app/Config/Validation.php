@@ -24,6 +24,7 @@ class Validation
 		FormatRules::class,
 		FileRules::class,
 		CreditCardRules::class,
+		\Denis303\ReCaptcha\Validation\ReCaptchaRules::class
 	];
 
 	/**

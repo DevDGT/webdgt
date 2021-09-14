@@ -53,38 +53,46 @@
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <p class="fs-6">
                                     <i class="bi bi-house-door mx-2"></i>
-                                    Jl.Saturnus
-                                    Timur III BLOK 9 R No 7, Margayu Raya, Bandung
+                                    <a href="https://goo.gl/maps/5GdkD4qeCv7a6TP5A" target="_blank">
+                                        Jl.Saturnus
+                                        Timur III BLOK 9 R No 7, Margayu Raya, Bandung
+                                    </a>
                                 </p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12">
-                                <p class="fs-6"><i class="bi bi-house-door mx-2"></i>
-                                    Jl.Neptunus
-                                    Timur III A 27 No 10, Margayu Raya, Bandung
+                                <p class="fs-6">
+                                    <i class="bi bi-house-door mx-2"></i>
+                                    <a href="https://goo.gl/maps/5GdkD4qeCv7a6TP5A" target="_blank">
+                                        Jl.Neptunus
+                                        Timur IV A 27 No 10, Margayu Raya, Bandung
+                                    </a>
                                 </p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <p class="fs-6"><i class="bi bi-phone mx-2"></i>
-                                    +628-1721-5496
-                                    / +628-1220-8717-67
+                                    <a href="tel:+628-1721-5496">+628-1721-5496</a>
+                                    /
+                                    <a href="tel:+628-1220-8717-67">+628-1220-8717-67</a>
                                 </p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <p class="fs-6"><i class="bi bi-telephone mx-2"></i>
-                                    +62 22-875-13118 / +62 22-751-3012
+                                    <a href="tel:+62 22-875-13118">+62 22-875-13118</a>
+                                    /
+                                    <a href="tel:+62 22-751-3012">+62 22-751-3012</a>
                                 </p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <p class="fs-6"><i class="bi bi-envelope mx-2"></i>
-                                    info@dianglobaltech.co.id
+                                <a href="mailto:info@dianglobaltech.co.id">info@dianglobaltech.co.id</a>
                                 </p>
                             </div>
                         </div>
@@ -94,33 +102,37 @@
 
                 <div class="col-lg-4 col-md-8 col-sm-12 footer-contact">
                     <div class="container">
-                        <form action="" method="post" style='background: inherit;'>
+                        <form action="<?php echo base_url('/sendmail'); ?>" method="post" style='background: inherit;' id="formInbox">
+                            <?php echo csrf_field(); ?>
                             <div class="row">
                                 <div class="col-lg-6 col-md-12 col-sm-12">
-                                    <input type="text" class="form-control form-control-sm" placeholder="Full Name"
-                                        aria-label="Full Name">
+                                    <input type="text" class="form-control form-control-sm" name="name" placeholder="Full Name"
+                                        aria-label="Full Name" required>
                                 </div>
                                 <div class="col-lg-6 col-md-12 col-sm-12">
-                                    <input type="text" class="form-control form-control-sm" placeholder="Email"
-                                        aria-label="Email">
+                                    <input type="email" class="form-control form-control-sm" name="emails" placeholder="Email"
+                                        aria-label="Email" required>
                                 </div>
                             </div>
                             <div class="row my-3">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <input type="text" class="form-control form-control-sm" placeholder="Subject"
-                                        aria-label="Subject">
+                                    <input type="text" class="form-control form-control-sm" name="subject" placeholder="Subject"
+                                        aria-label="Subject" required>
                                 </div>
                             </div>
                             <div class="row my-3">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <textarea class="form-control" placeholder="Type Message Here..."></textarea>
+                                    <textarea class="form-control" name="message" placeholder="Message"></textarea>
                                 </div>
+                            </div>
+                            <div class="row my-3">
+                                <?php echo reCaptcha2('reCaptcha2', ['id' => 'recaptcha_v2'], ['theme' => 'dark']); ?>
                             </div>
                             <div class="row my-3">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <div class="d-grid">
-                                        <button type="button" class="btn btn-primary btn-sm btn-block">
-                                            <i class="bi bi-envelope"></i>
+                                        <button type="button" class="btn btn-primary btn-sm btn-block" id="sendMail" role="status">
+                                            <i class="bi bi-envelope status"></i>
                                         </button>
                                     </div>
                                 </div>

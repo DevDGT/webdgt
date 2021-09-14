@@ -72,6 +72,10 @@ $routes->group('/faqs', ['namespae' => 'App\Controller'], function ($routes) {
     $routes->get('(:any)/(:any)', 'Faqs::index/$1/$2');
 });
 
+$routes->group('/sendmail', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
+    $routes->post('/', 'Imel::sendmail');
+});
+
 // Login routes
 $routes->group('/ruangadmin/login', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->get('/', 'Login::index');
@@ -211,6 +215,12 @@ $routes->group('ruangadmin', ['namespace' => 'App\Controllers\Admin'], function 
         $routes->post('set-multiple', 'Faq::setMultiple');
     });
 
+    $routes->group('email', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
+        $routes->get('/', 'Imel::index');
+        $routes->post('delete','Imel::delete');
+        $routes->post('sendinbox','Imel::sendinbox');
+    });
+
     // Article Management routes
     $routes->group('article', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
         $routes->get('/', 'Article::index');
@@ -248,6 +258,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('clients-orders', 'Admin::dataClientsOrders');
         $routes->post('user-socials', 'Admin::userSocials');
         $routes->post('faq', 'Admin::dataFaq');
+        $routes->post('email', 'Admin::dataImel');
     });
 
     $routes->group('row', ['namespace' => 'App\Controllers\Api'], function ($routes) {
