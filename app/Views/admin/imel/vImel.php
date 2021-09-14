@@ -13,11 +13,6 @@
             <div class="card border-0 shadow mb-0">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <div class="float-right ml-3">
-                            <button class="btn btn-sm btn-primary" id="btnAdd" title="Kategori Baru">
-                                <i class="fas fa-plus mr-1"> </i>Baru
-                            </button>
-                        </div>
                         <table id="listImel" class="table table-bordered w-100">
                             <thead>
                                 <tr>

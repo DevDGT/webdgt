@@ -1,7 +1,7 @@
 <!-- Main Script JS -->
 <script type="text/javascript" src="<?php echo base_url('assets/js/module/jquery-1.11.0.min.js'); ?>" defer></script>
-<script type="text/javascript" src="<?php echo base_url('assets/js/module/jquery-migrate-1.2.1.min.js'); ?>" defer>
-</script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/module/jquery-migrate-1.2.1.min.js'); ?>" defer></script>
+<script type="text/javascript" src="<?php echo base_url('assets/modules/sweetalert2.all.min.js') ?>" defer></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/module/slick.min.js'); ?>" defer></script>
 <script src="https://kit.fontawesome.com/62916203c4.js" crossorigin="anonymous" defer></script>
 <!-- <script text="text/javascript" src="<?php //echo base_url('assets/modules/floatingjs/js/jquery.socialfloating.js');?>" defer></script> -->
