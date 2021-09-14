@@ -67,21 +67,20 @@
                 <form action="<?php echo base_url('/sendmail'); ?>" method="post" role="form" class="php-email-form" id="formInbox2">
                     <div class="row">
                         <div class="col-md-6 form-group">
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Full Name"
-                                required>
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Full Name" required>
                         </div>
                         <div class="col-md-6 form-group mt-3 mt-md-0">
-                            <input type="email" class="form-control" name="emails" id="emails" placeholder="Your Email"
-                                required>
+                            <input type="email" class="form-control" name="emails" id="emails" placeholder="Your Email" required>
                         </div>
                     </div>
                     <div class="form-group mt-3">
-                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
-                            required>
+                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
                     </div>
                     <div class="form-group mt-3">
-                        <textarea class="form-control" name="message" rows="5" placeholder="Message"
-                            required></textarea>
+                        <textarea class="form-control" name="message" id="message" rows="5" placeholder="Message" required></textarea>
+                    </div>
+                    <div class="form-group mt-3">
+                        <?php echo reCaptcha2('reCaptcha2', ['id' => 'recaptcha_v2'], ['theme' => 'light']); ?>
                     </div>
                     <div class="text-center"><button type="submit" id="sendMail2" role="status">Send Message</button></div>
                 </form>

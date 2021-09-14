@@ -126,9 +126,7 @@
                                 </div>
                             </div>
                             <div class="row my-3">
-                                <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <div class="g-recaptcha" class="form-control" data-sitekey=""></div>  
-                                </div>
+                                <?php echo reCaptcha2('reCaptcha2', ['id' => 'recaptcha_v2'], ['theme' => 'dark']); ?>
                             </div>
                             <div class="row my-3">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
