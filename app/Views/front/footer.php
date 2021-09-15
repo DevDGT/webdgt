@@ -53,38 +53,46 @@
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <p class="fs-6">
                                     <i class="bi bi-house-door mx-2"></i>
-                                    Jl.Saturnus
-                                    Timur III BLOK 9 R No 7, Margayu Raya, Bandung
+                                    <a href="https://goo.gl/maps/5GdkD4qeCv7a6TP5A" target="_blank">
+                                        Jl.Saturnus
+                                        Timur III BLOK 9 R No 7, Margayu Raya, Bandung
+                                    </a>
                                 </p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12">
-                                <p class="fs-6"><i class="bi bi-house-door mx-2"></i>
-                                    Jl.Neptunus
-                                    Timur III A 27 No 10, Margayu Raya, Bandung
+                                <p class="fs-6">
+                                    <i class="bi bi-house-door mx-2"></i>
+                                    <a href="https://goo.gl/maps/5GdkD4qeCv7a6TP5A" target="_blank">
+                                        Jl.Neptunus
+                                        Timur IV A 27 No 10, Margayu Raya, Bandung
+                                    </a>
                                 </p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <p class="fs-6"><i class="bi bi-phone mx-2"></i>
-                                    +628-1721-5496
-                                    / +628-1220-8717-67
+                                    <a href="tel:+628-1721-5496">+628-1721-5496</a>
+                                    /
+                                    <a href="tel:+628-1220-8717-67">+628-1220-8717-67</a>
                                 </p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <p class="fs-6"><i class="bi bi-telephone mx-2"></i>
-                                    +62 22-875-13118 / +62 22-751-3012
+                                    <a href="tel:+62 22-875-13118">+62 22-875-13118</a>
+                                    /
+                                    <a href="tel:+62 22-751-3012">+62 22-751-3012</a>
                                 </p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <p class="fs-6"><i class="bi bi-envelope mx-2"></i>
-                                    info@dianglobaltech.co.id
+                                <a href="mailto:info@dianglobaltech.co.id">info@dianglobaltech.co.id</a>
                                 </p>
                             </div>
                         </div>
@@ -116,6 +124,9 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <textarea class="form-control" name="message" placeholder="Message"></textarea>
                                 </div>
+                            </div>
+                            <div class="row my-3">
+                                <?php echo reCaptcha2('reCaptcha2', ['id' => 'recaptcha_v2'], ['theme' => 'dark']); ?>
                             </div>
                             <div class="row my-3">
                                 <div class="col-lg-12 col-md-12 col-sm-12">

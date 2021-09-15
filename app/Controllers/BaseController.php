@@ -26,7 +26,7 @@ class BaseController extends Controller
      *
      * @var array
      */
-    protected $helpers = ['function'];
+    protected $helpers = ['function','reCaptcha'];
 
     /**
      * Constructor.
