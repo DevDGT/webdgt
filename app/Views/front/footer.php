@@ -35,7 +35,7 @@
                                         <a href="https://bit.ly/35FkiHm" target="_blank" class="youtube">
                                             <i class="bx bxl-youtube"></i>
                                         </a>
-                                        <a href="https://bit.ly/3vg1A3u" target="_blank" class="whatsapp">
+                                        <a href="https://bit.ly/3CjnlU6" target="_blank" class="whatsapp">
                                             <i class="bx bxl-whatsapp"></i>
                                         </a>
                                     </div>
