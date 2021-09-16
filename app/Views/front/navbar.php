@@ -37,7 +37,7 @@
         <div class="header-social-links d-flex">
             <a href="https://bit.ly/35Fqhft" target="_blank" class="instagram"><i class="bu bi-instagram"></i></a>
             <a href="https://bit.ly/35FkiHm" target="_blank" class="facebook"><i class="bu bi-youtube"></i></a>
-            <a href="https://bit.ly/3vg1A3u" target="_blank" class="whatsapp"><i class="bu bi-whatsapp"></i></a>
+            <a href="https://bit.ly/3CjnlU6" target="_blank" class="whatsapp"><i class="bu bi-whatsapp"></i></a>
         </div>
 
     </div>
