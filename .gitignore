@@ -125,7 +125,7 @@ nb-configuration.xml
 /phpunit*.xml
 /.phpunit.*.cache
 
-app/Common.php
+
 public/uploads/1622446741_image-20210531143901-1.png
 public/uploads/1622446837_a1.png
 public/uploads/1622446894_a1.png
