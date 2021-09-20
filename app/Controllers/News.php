@@ -46,7 +46,7 @@ class News extends BaseController
         $newsData = json_decode($jsonData);
         $paginationUrl = base_url(str_replace('#catOrTag', $catOrTag, $url['pagination']));
         $data = [
-            'title' => 'News',
+            'title' => 'DGT - News',
             'pageTitle' => 'News',
             'logoImg' => '',
             'logoName' => 'DGT',
