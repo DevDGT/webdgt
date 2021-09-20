@@ -77,7 +77,7 @@ class Product extends BaseController
         // echo'</pre>';
 
         $data = [
-            'title' => 'Catalog Product',
+            'title' => 'DGT - Catalog Product',
             'pageTitle' => 'Catalog Product',
             'logoImg' => '',
             'logoName' => 'DGT',

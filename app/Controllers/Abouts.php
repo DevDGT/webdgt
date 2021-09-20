@@ -7,7 +7,7 @@ class Abouts extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'About Us',
+            'title' => 'DGT - About Us',
             'pageTitle' => 'About Us',
             'logoImg' => '',
             'logoName' => 'DGT',

@@ -13,7 +13,7 @@ class Portfolio extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Portfolio',
+            'title' => 'DGT - Portfolio',
             'pageTitle' => 'Portfolio',
             'logoImg' => '',
             'logoName' => 'DGT',

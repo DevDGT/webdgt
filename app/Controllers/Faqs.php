@@ -21,7 +21,7 @@ class Faqs extends BaseController
         }
 
         $data = [
-            'title' => 'Faq',
+            'title' => 'DGT - Faq',
             'pageTitle' => 'Faq',
             'logoImg' => '',
             'logoName' => 'DGT',
