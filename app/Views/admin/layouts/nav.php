@@ -32,7 +32,7 @@
 					<li class="nav-item">
 						<a href="<?= base_url(ADMIN_PATH.'/category'); ?>" class="nav-link menu-item <?= ($subMenu ?? '') == 'category' ? 'active' : ''; ?>">
 							<i class="fas fa-tag nav-icon"></i>
-							<p>Kategori</p>
+							<p>Kategori Artikel</p>
 						</a>
 					</li>
 					<li class="nav-item">
@@ -45,6 +45,12 @@
 						<a href="<?= base_url(ADMIN_PATH.'/category-faq'); ?>" class="nav-link menu-item <?= ($subMenu ?? '') == 'category-faq' ? 'active' : ''; ?>">
 							<i class="fas fa-tag nav-icon"></i>
 							<p>Kategori Faq</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="<?= base_url(ADMIN_PATH.'/category-career'); ?>" class="nav-link menu-item <?= ($subMenu ?? '') == 'category-career' ? 'active' : ''; ?>">
+							<i class="fas fa-tag nav-icon"></i>
+							<p>Kategori Career</p>
 						</a>
 					</li>
 					<li class="nav-item">
@@ -69,6 +75,12 @@
 						<a href="<?= base_url(ADMIN_PATH.'/email'); ?>" class="nav-link menu-item <?= ($subMenu ?? '') == 'email' ? 'active' : ''; ?>">
 							<i class="fas fa-envelope nav-icon"></i>
 							<p>Email</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="<?= base_url(ADMIN_PATH.'/career'); ?>" class="nav-link menu-item <?= ($subMenu ?? '') == 'career' ? 'active' : ''; ?>">
+							<i class="fas fa-briefcase nav-icon"></i>
+							<p>Career</p>
 						</a>
 					</li>
 				</ul>

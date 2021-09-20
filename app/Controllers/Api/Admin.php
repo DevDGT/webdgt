@@ -124,6 +124,14 @@ class Admin extends BaseController
                     'table' => 'products',
                     'protected' => ['id:hash'],
                 ],
+                'career' => [
+                    'table' => 'career',
+                    'protected' => ['id:hash'],
+                ],
+                'category-career' => [
+                    'table' => 'category_career',
+                    'protected' => ['id:hash'],
+                ],
             ];
             if (!array_key_exists($data, $table)) {
                 throw new \Exception('nothing there');
@@ -277,6 +285,18 @@ class Admin extends BaseController
         ]);
     }
 
+    public function dataCategoryCareer()
+    {
+        return $this->dataTables([
+            'table' => 'category_career cat',
+            'selectData' => 'cat.id, cat.name, cat.slug',
+            'field' => ['name', 'slug'],
+            'columnOrder' => [null, 'name', 'slug'],
+            'columnSearch' => ['cat.name', 'cat.slug'],
+            'order' => ['id' => 'desc'],
+        ]);
+    }
+
     public function dataClients()
     {
         return $this->dataTables([
@@ -302,6 +322,18 @@ class Admin extends BaseController
                 'products p' => 'p.id = co.id_products',
             ],
             'order' => ['co.id' => 'desc'],
+        ]);
+    }
+
+    public function dataCareer()
+    {
+        return $this->dataTables([
+            'table' => 'career c',
+            'selectData' => 'c.id, c.name, c.slug, c.icon, c.description, c.active',
+            'field' => ['name', 'slug', 'icon', 'description', 'active'],
+            'columnOrder' => [null, 'name', 'description', 'active'],
+            'columnSearch' => ['c.name', 'c.description'],
+            'order' => ['id' => 'desc'],
         ]);
     }
 
@@ -521,6 +553,16 @@ class Admin extends BaseController
             'table' => 'clients',
             'select' => 'id, name, icon, description',
             'where' => [EncKey('id') => $id],
+        ]);
+    }
+
+    public function getRowCareer($id)
+    {
+        return $this->getRowTable([
+            'table' => 'career',
+            'select' => 'id, name, icon, description, id_category_career',
+            'where' => [EncKey('id') => $id],
+            'guard' => ['id_category_career:hash'],
         ]);
     }
 
