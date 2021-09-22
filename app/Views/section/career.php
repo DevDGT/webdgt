@@ -36,7 +36,7 @@
 
 <section id="portfolio" class="portfolio aos-init aos-animate">
 
-    <div class="container" data-aos="fade-up" data-aos-delay="1500">
+    <div class="container" data-aos="fade-up" data-aos-delay="500">
 
         <div class="section-title">
             <h2>Join Us</h2>
@@ -50,7 +50,7 @@
 <!-- Client Section -->
 <section id="clients" class="clients aos-init aos-animate">
 
-    <div class="container" data-aos="fade-up" data-aos-delay="2000">
+    <div class="container" data-aos="fade-up" data-aos-delay="1000">
         
         <div class="section-title">
             <h2>Career or Internship</h2>
