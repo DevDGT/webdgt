@@ -19,7 +19,7 @@ class Teams extends BaseController
 
         if ($detail === 'true') {
             $data = [
-            'title' => 'Teams Us',
+            'title' => 'DGT - Teams Us',
             'pageTitle' => 'Teams Us',
             'logoImg' => '',
             'logoName' => 'DGT',

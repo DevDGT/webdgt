@@ -6,6 +6,7 @@ class Product extends BaseController
 {
     public function __construct()
     {
+        $this->request = \Config\Services::request();
         $this->api = new \App\Models\ApiModel();
         $this->apiPath = base_url(API_PATH);
     }
@@ -35,19 +36,9 @@ class Product extends BaseController
         $slug = $uri->getSegment(3);
         $jsonData = $this->api->get($this->apiPath.'/public/get/products?slug='.$slug);
         $productsData = json_decode($jsonData);
-        // $jsonSubData = $this->api->get($this->apiPath.'/public/get/products-demo/'.$productsData->data[0]->id);
-        // $productsSubData = json_decode($jsonSubData);
         if ($productsData->count <= 0) {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
         }
-
-        // echo '<pre>';
-        // print_r($productsData->data[0]->id);
-        // print_r($slug);
-        // print_r($jsonData);
-        // echo'</pre>';
-        // var_dump($jsonSubData);
-
         $data = [
             'title' => 'Detail Product',
             'pageTitle' => 'Detail Product',
@@ -69,9 +60,8 @@ class Product extends BaseController
         return substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length / strlen($x)))), 1, $length);
     }
 
-    public function download()
+    public function read()
     {
-        // print_r($_GET);
         $slug = $_GET['file'];
         $jsonData = $this->api->get($this->apiPath.'/public/get/products-file/'.$slug);
         $productsData = json_decode($jsonData);
@@ -79,12 +69,25 @@ class Product extends BaseController
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
         }
         $file = $productsData->data[0]->file;
-        // echo '<pre>';
-        // print_r(base_url().'/uploads/products/brosur/'.$file);
-        // print_r($productsData->data[0]->file);
-        // echo '</pre>';
-        $files = base_url().'/uploads/products/brosur/'.$file;
+        $names = $productsData->data[0]->title;
+        $files = base_url('/uploads/products/brosur/'.$file);
 
-        return $this->response->download($files, true)->setFileName($this->_randomStrings().'.pdf');
+        // echo '<pre>';
+        // print_r($jsonData);
+        // echo'</pre>';
+
+        $data = [
+            'title' => 'DGT - Catalog Product',
+            'pageTitle' => 'Catalog Product',
+            'logoImg' => '',
+            'logoName' => 'DGT',
+            'section' => 'pdf',
+            'productsData' => $files,
+            'productsTitle' => $names,
+            'prev' => previous_url(true),
+            'js' => null,
+        ];
+        echo view('front/canvas', $data);
+
     }
 }

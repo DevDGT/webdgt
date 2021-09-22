@@ -523,7 +523,7 @@ class PublicApi extends BaseController
         try {
             // $idProducts = getUrlParam('id');
             $this->builder = $this->db->table('products_brosur p');
-            $this->builder->select('p.file');
+            $this->builder->select('p.file , p.title');
             $this->builder->where(EncKey('p.id'), $idFile);
             $this->builder->where('active', '1');
             $demo = $this->builder->orderby('p.file', 'desc')->get()->getResult();

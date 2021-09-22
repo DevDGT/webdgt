@@ -246,7 +246,7 @@ async function getProductDoc(ids) {
                 $.each(response.data, function (i, items) {
                     catDetail += `
                         <div class="p-2">
-                            <a href="${BASE_URL}/product/download?file=${items.id}" target="_blank" class="btn btn-outline-info">Catalog ${i+1}<i class="bi bi-download ms-2"></i></a>
+                            <a href="${BASE_URL}/product/read?file=${items.id}" target="_blank" class="btn btn-outline-info">Catalog ${i+1}<i class="bi bi-book ms-2"></i></a>
                         </div>`;
                     });
                 }

@@ -7,7 +7,7 @@ class Contact extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Contact',
+            'title' => 'DGT - Contact',
             'pageTitle' => 'Contact',
             'logoImg' => '',
             'logoName' => 'DGT',

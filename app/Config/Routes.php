@@ -65,7 +65,7 @@ $routes->group('/product', ['namespace' => 'App\Controllers'], function ($routes
     $routes->get('/', 'Product::index');
     $routes->get('/detail', 'Product::detail');
     // $routes->get('(:any)', 'ProductCatalog::detailProduct');
-    $routes->get('/download', 'Product::download');
+    $routes->get('/read', 'Product::read');
 });
 
 $routes->group('/faqs', ['namespae' => 'App\Controller'], function ($routes) {
