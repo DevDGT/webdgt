@@ -5,7 +5,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href=" <?= base_url() ?>"><b>WEB DGT</b></a>
+            <a href=" <?= base_url() ?>"><b>Dian Global Tech - IT Consultan</b></a>
         </div>
         <div class="card">
             <div class="card-body login-card-body">
