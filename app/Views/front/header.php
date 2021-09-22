@@ -3,7 +3,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="description">
     <meta content="" name="keywords">
-    <meta property="og:title" content="<?php echo $newsData[0]->title ?? 'Web DGT'; ?>">
+    <meta property="og:title" content="<?php echo $newsData[0]->title ?? 'Dian Global Tech - IT Consultan'; ?>">
     <meta property="og:description"
         content="<?php echo $newsData[0]->description ?? 'WEB Profile and Product DianGlobalTech'; ?>">
     <meta property="og:image" content="<?php echo base_url('assets/img/logo.png'); ?>">

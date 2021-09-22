@@ -221,6 +221,24 @@ $routes->group('ruangadmin', ['namespace' => 'App\Controllers\Admin'], function 
         $routes->post('sendinbox','Imel::sendinbox');
     });
 
+    $routes->group('career', ['namespace' => 'App\Controllers\Admin'], function ($routes){
+        $routes->get('/', 'Career::index');
+        $routes->post('store', 'Career::store');
+        $routes->post('delete', 'Career::delete');
+        $routes->post('update', 'Career::update');
+        $routes->post('delete-multiple', 'Career::deleteMultiple');
+        $routes->post('set/(:any)', 'Career::set_/$1');
+        $routes->post('set-multiple', 'Career::setMultiple');
+    });
+
+    $routes->group('category-career', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
+        $routes->get('/', 'CategoryCareer::index');
+        $routes->post('store', 'CategoryCareer::store');
+        $routes->post('delete', 'CategoryCareer::delete');
+        $routes->post('update', 'CategoryCareer::update');
+        $routes->post('delete-multiple', 'CategoryCareer::deleteMultiple');
+    });
+
     // Article Management routes
     $routes->group('article', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
         $routes->get('/', 'Article::index');
@@ -247,6 +265,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('category', 'Admin::dataCategory');
         $routes->post('category-product', 'Admin::dataCategoryProduct');
         $routes->post('category-faq', 'Admin::dataCategoryFaq');
+        $routes->post('category-career', 'Admin::dataCategoryCareer');
         $routes->post('jobs', 'Admin::dataJobs');
         $routes->post('teams', 'Admin::dataTeams');
         $routes->post('article', 'Admin::dataArticle');
@@ -259,6 +278,8 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('user-socials', 'Admin::userSocials');
         $routes->post('faq', 'Admin::dataFaq');
         $routes->post('email', 'Admin::dataImel');
+        $routes->post('career', 'Admin::dataCareer');
+
     });
 
     $routes->group('row', ['namespace' => 'App\Controllers\Api'], function ($routes) {
@@ -276,6 +297,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('clients-orders/(:any)', 'Admin::getRowClientsOrders/$1');
         $routes->post('profile-social/(:any)', 'Admin::getRowProfileSocial/$1');
         $routes->post('faq/(:any)', 'Admin::getRowFaq/$1');
+        $routes->post('career/(:any)', 'Admin::getRowCareer/$1');
     });
 
     $routes->group('public', ['namespace' => 'App\Controllers\Api'], function ($routes) {
@@ -298,6 +320,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
             $routes->get('products/(:any)', 'PublicApi::getProducts/$1');
             $routes->get('faq', 'PublicApi::getFaq');
             $routes->get('faq/(:any)', 'PublicApi::getFaq/$1');
+            $routes->get('career', 'PublicApi::getCareer');
         });
     });
 });
