@@ -1,20 +1,69 @@
 <style>
-.item-card {
-    bottom: 10px;
-    opacity: 0;
-    transition: 0.5s all;
+.my-card {
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    background-color: #fff;
+    background-clip: border-box;
+    box-shadow: 0px 0px 8px;
+    margin-bottom: 28px;
+    border-radius: 35px 0;
+    overflow: hidden;
+    transition: .5s
 }
 
-.item-card:hover {
-    opacity: 0.8;
+.my-card:hover {
+    box-shadow: 0px 0px 8px #1BBD36
 }
 
-.clients .client-logo img {
-    height: -webkit-fill-available;
+.my-card img {
+    max-height: 250px;
+    width: 100%
 }
 
-.clients .client-logo {
-    height: 7rem;
+.my-card-body {
+    padding: 20px;
+    margin-bottom: 20px
+}
+
+.my-card-body h5 {
+    text-transform: capitalize;
+    line-height: 25px;
+    font-size: 25px
+}
+
+.my-card-body p {
+    margin: 10px 0;
+    color: #f7941d
+}
+
+/* .social-icons {
+    margin-bottom: 25px
+}
+
+.social-icons a {
+    margin-right: 22px;
+    color: #363842;
+    font-size: 16px
+}
+
+.social-icons a:hover {
+    color: #c81a3b
+} */
+
+.my-card-btn {
+    color: rgb(231, 231, 231);
+    background-color: #1BBD36;
+    padding: 10px 28px;
+    text-decoration: none;
+    text-transform: capitalize;
+    border-radius: 10px 0;
+    transition: .5s
+}
+
+.my-card-btn:hover {
+    color: rgb(15, 15, 15)
 }
 </style>
 
