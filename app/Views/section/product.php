@@ -6,25 +6,26 @@
     min-width: 0;
     background-color: #fff;
     background-clip: border-box;
-    box-shadow: 0px 0px 8px;
-    margin-bottom: 28px;
-    border-radius: 35px 0;
+    box-shadow: 0px 0px 2px;
+    /* margin-bottom: 28px; */
+    border-radius: 50px 0;
     overflow: hidden;
     transition: .5s
 }
 
 .my-card:hover {
-    box-shadow: 0px 0px 8px #1BBD36
+    box-shadow: 0px 0px 4px #1BBD36
 }
 
 .my-card img {
-    max-height: 250px;
-    width: 100%
+    max-height: 160px;
+    /* width: 100% */
+    object-fit:scale-down;
 }
 
 .my-card-body {
     padding: 20px;
-    margin-bottom: 20px
+    margin-bottom: 5px
 }
 
 .my-card-body h5 {
