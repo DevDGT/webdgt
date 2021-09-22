@@ -68,21 +68,18 @@ async function getProduct() {
             let products = "";
             $.each(response.data, function (i, items) {
                 products += `
-                    <div class="col-lg-2 col-md-2 col-sm-2 p-2 portfolio-item filter-${items.id_category_product} ">
-                        <div class='card h-100 shadow-sm'>
-                            <span class="text-center text-muted">${items.name}</span>
-                            <a href="${BASE_URL + '/product/detail/' + items.slug}" class="text-decoration-none">
-                                <img data-lazy="${BASE_URL}/uploads/products/${items.icon}" class="card-img-top" alt="${items.name}">
-                            </a>
-                            <div class="item-card position-absolute w-100" style="overflow:hidden">
-                                <div class='bg-white p-2 pb-3 portfolio-info shadow-sm' style='position:sticky; top:60%; opacity:0.8'>
-                                    <p class="text-truncate">${items.description}</p>
-                                    <a href="${BASE_URL + '/product/detail/' + items.slug}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                                </div>
+                <div class="col-lg-3 col-md-3 col-sm-2 p-2 portfolio-item filter-${items.id_category_product}">
+                    <div class="container mt-5 d-flex justify-content-center">
+                        <div class="my-card"><img class="my-card-img" src="${BASE_URL + '/uploads/products/' + items.icon}" />
+                            <div class="my-card-body trainer-card-body">
+                                <span class="fs-4">${items.name}</span>
+                                <p class="text-truncate mb-4">${items.description}</p>
+                                <a href="${BASE_URL + '/product/detail/' + items.slug}" class="my-card-btn">detail</a>
                             </div>
                         </div>
                     </div>
-                    `;
+                </div>
+                `;
                 $("#productData").html(products);
                 resolve(true);
                 productsData();
@@ -122,21 +119,18 @@ async function getSelected(id) {
                     products += ``;
                 } else {
                     products += `
-                        <div class="col-lg-2 col-md-2 col-sm-2 p-2 portfolio-item filter-${items.id_category_product} ">
-                            <div class='card h-100 shadow-sm'>
-                                <span class="text-center text-muted">${items.name}</span>
-                                <a href="${BASE_URL + '/product/detail/' + items.slug}" class="text-decoration-none">
-                                    <img src="${BASE_URL}/uploads/products/${items.icon}" class="card-img-top" alt="${items.name}">
-                                </a>
-                                <div class="item-card position-absolute w-100" style="overflow:hidden">
-                                    <div class='bg-white p-2 pb-3 portfolio-info shadow-sm' style='position:sticky; top:60%; opacity:0.8'>
-                                        <p class="text-truncate">${items.description}</p>
-                                        <a href="${BASE_URL + '/product/detail/' + items.slug}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-2 p-2 portfolio-item filter-${items.id_category_product}">
+                        <div class="container mt-5 d-flex justify-content-center">
+                            <div class="my-card"><img class="my-card-img" src="${BASE_URL + '/uploads/products/' + items.icon}" />
+                                <div class="my-card-body trainer-card-body">
+                                    <span class="fs-4">${items.name}</span>
+                                    <p class="text-truncate mb-4">${items.description}</p>
+                                    <a href="${BASE_URL + '/product/detail/' + items.slug}" class="my-card-btn">detail</a>
                                 </div>
                             </div>
                         </div>
-                        `;
+                    </div>
+                    `;
                 }
                 $("#productData").html(products);
                 resolve(true);

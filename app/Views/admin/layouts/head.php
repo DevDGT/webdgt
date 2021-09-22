@@ -3,8 +3,8 @@
 
 <head>
 	<meta charset="utf-8">
-	<meta property="og:title" content="WEB DGT">
-	<meta property="og:description" content="Administrator Page WEB DGT">
+	<meta property="og:title" content="Dian Global Tech - IT Consultan">
+	<meta property="og:description" content="Administrator Page Dian Global Tech - IT Consultan">
 	<meta property="og:image" content="<?php echo base_url('assets/img/logo.png'); ?>">
 	<meta property="og:url" content="<?php echo BASE_URL; ?><?php echo ADMIN_PATH; ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">

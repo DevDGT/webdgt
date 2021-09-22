@@ -412,6 +412,53 @@ class PublicApi extends BaseController
         }
     }
 
+    public function getCareer($idCareer = '')
+    {
+        try {
+            $idCareer = getUrlParam('id');
+            $slugCareer = getUrlParam('slug');
+
+            $this->builder = $this->db->table('career');
+            $this->builder->select('id, '.EncKey('id_category_career').' id_category_career, slug, name, icon, description');
+            $this->builder->where('active', '1');
+            if ($idCareer != '') {
+                $this->builder->where(EncKey('id'), $idCareer);
+            }
+            if ($slugCareer != '') {
+                $this->builder->where('slug', $slugCareer);
+            }
+            $clients = $this->builder->orderby('id', 'desc')->get()->getResultArray();
+
+            $field = ['name', 'id_category_career', 'slug', 'icon', 'description'];
+            $data = [];
+            foreach ($clients as $field_) {
+                $row = [];
+                $row['id'] = Enc($field_['id']);
+                foreach ($field as $key) {
+                    $row[$key] = $field_[$key];
+                }
+                $data[] = $row;
+            }
+            $result = [
+                'status' => 'ok',
+                'count' => count($clients),
+                'data' => $data,
+            ];
+        } catch (\Throwable $th) {
+            $result = [
+                'status' => 'fail',
+                'message' => $th->getMessage(),
+            ];
+        } catch (\Exception $ex) {
+            $result = [
+                'status' => 'fail',
+                'message' => $ex->getMessage(),
+            ];
+        } finally {
+            echo json_encode($result);
+        }
+    }
+
     public function getProducts($idProducts = '')
     {
         try {
