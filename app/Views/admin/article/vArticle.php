@@ -67,6 +67,6 @@
 </div>
 <?= $this->endSection(); ?>
 <?= $this->section('js'); ?>
-<script src="<?= base_url('/assets/modules/ckeditor/ckeditor.js') ?>" defer></script>
+<script src="<?= base_url('assets/modules/ckeditor/ckeditor.js') ?>" defer></script>
 <script src="<?= base_url('assets/js/page/admin/article.js') ?>" defer></script>
 <?= $this->endSection() ?>

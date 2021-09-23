@@ -61,7 +61,6 @@ function initTable() {
 				})
 				json?.status == "fail" && toastError(json?.message, "Gagal")
                 return json.data;
-				return json.data;
 			},
 			error: function (error) {
 				errorCode(error)
