@@ -61,9 +61,11 @@ async function getProduct() {
         var productsAPI = `${API_PATH}/public/get/career`;
         $.getJSON(productsAPI, {
         format: "json",
+        contentType: "application/x-www-form-urlencoded"
         }).done(function (response) {
         let products = "";
         $.each(response.data, function (i, items) {
+            console.log(items);
             products += `
             <div class="card m-2" style="max-width: 540px;">
                 <div class="row g-0">
