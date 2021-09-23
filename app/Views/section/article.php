@@ -1,10 +1,3 @@
-<style>
-.newsContent img {
-    width: 100% !important;
-    height: 100% !important;
-}
-</style>
-
 <section id="breadcrumbs" class="breadcrumbs">
     <div class="container">
 
@@ -25,7 +18,6 @@
     </div>
 </section>
 
-
 <section id="blog" class="blog aos-init aos-animate">
 
     <div class="container" data-aos="fade-down" data-aos-delay="1000">
@@ -37,7 +29,7 @@
                     <div class="entry-img">
                         <img src="<?php echo base_url('/uploads/cover/'.$newsData[0]->cover); ?>"
                             alt="<?php echo $newsData[0]->cover; ?>" class="img-fluid newsCover"
-                            style="align-items: center;object-fit: cover; margin: auto; display: block;">
+                            style="align-items: center;object-fit: cover; margin: auto; display: block;" class="coverPage">
                     </div>
                     <h2 class="entry-title newsTitle text-dark">
                         <?php echo $newsData[0]->title; ?>
