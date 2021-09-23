@@ -18,8 +18,8 @@ for ($i = 0; $i < count($dirArray) - 2; ++$i) {
     $filesDir .= $dirArray[$i].DIRECTORY_SEPARATOR;
 }
 
-// define('FILESDIR', $filesDir.'public_html');
-define('FILESDIR', ROOTPATH.'public');
+define('FILESDIR', $filesDir.'public_html');
+// define('FILESDIR', ROOTPATH.'public');
 
 function getUrlParam($param, $default = '')
 {
