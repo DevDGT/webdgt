@@ -69,8 +69,8 @@ async function getProduct() {
             $.each(response.data, function (i, items) {
                 products += `
                 <div class="col-lg-3 col-md-3 col-sm-2 p-2 portfolio-item filter-${items.id_category_product}">
-                    <div class="container mt-5 d-flex justify-content-center">
-                        <div class="my-card"><img class="my-card-img" src="${BASE_URL + '/uploads/products/' + items.icon}" />
+                    <div class="container d-flex justify-content-center">
+                        <div class="my-card"><img class="my-card-img mx-5 mt-3 border border-2 rounded-circle" src="${BASE_URL + '/uploads/products/' + items.icon}" />
                             <div class="my-card-body trainer-card-body">
                                 <span class="fs-4">${items.name}</span>
                                 <p class="text-truncate mb-4">${items.description}</p>
@@ -120,8 +120,8 @@ async function getSelected(id) {
                 } else {
                     products += `
                     <div class="col-lg-3 col-md-3 col-sm-2 p-2 portfolio-item filter-${items.id_category_product}">
-                        <div class="container mt-5 d-flex justify-content-center">
-                            <div class="my-card"><img class="my-card-img" src="${BASE_URL + '/uploads/products/' + items.icon}" />
+                        <div class="container d-flex justify-content-center">
+                            <div class="my-card"><img class="my-card-img mx-5 mt-3 border border-2 rounded-circle" src="${BASE_URL + '/uploads/products/' + items.icon}" />
                                 <div class="my-card-body trainer-card-body">
                                     <span class="fs-4">${items.name}</span>
                                     <p class="text-truncate mb-4">${items.description}</p>
