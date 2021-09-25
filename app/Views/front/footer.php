@@ -106,23 +106,23 @@
                             <?php echo csrf_field(); ?>
                             <div class="row">
                                 <div class="col-lg-6 col-md-12 col-sm-12">
-                                    <input type="text" class="form-control form-control-sm" name="name" placeholder="Full Name"
+                                    <input type="text" class="form-control form-control-sm" id="name" name="name" placeholder="Full Name"
                                         aria-label="Full Name" required>
                                 </div>
                                 <div class="col-lg-6 col-md-12 col-sm-12">
-                                    <input type="email" class="form-control form-control-sm" name="emails" placeholder="Email"
+                                    <input type="email" class="form-control form-control-sm" id="emails" name="emails" placeholder="Email"
                                         aria-label="Email" required>
                                 </div>
                             </div>
                             <div class="row my-3">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <input type="text" class="form-control form-control-sm" name="subject" placeholder="Subject"
+                                    <input type="text" class="form-control form-control-sm" id="subject" name="subject" placeholder="Subject"
                                         aria-label="Subject" required>
                                 </div>
                             </div>
                             <div class="row my-3">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <textarea class="form-control" name="message" placeholder="Message"></textarea>
+                                    <textarea class="form-control" name="message" id="message" placeholder="Message"></textarea>
                                 </div>
                             </div>
                             <div class="row my-3">
