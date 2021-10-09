@@ -72,8 +72,8 @@
                     <div class="container">
                         <div class="row justify-content-center py-2">
                             <div class="col-lg-12 col-md-12 col-sm-12" style="height: 25rem;">
-                                <iframe class="w-100 h-100" src="https://www.youtube.com/embed/m2dCMOed7ww"
-                                    title="YouTube video player" frameborder="0"
+                                <iframe class="w-100 h-100" src="https://www.youtube.com/embed/c3BxgQx--hM"
+                                    title="Dian Global Tech Company Profile" frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowfullscreen>
                                 </iframe>
