@@ -89,8 +89,8 @@
             <div class="row g-0">
                 <div class="col-lg-6 col-md-12 col-sm-12 px-1">
                     <div class="card mb-2" style="max-width: auto; border: none;">
-                        <iframe width="100%" height="320" src="https://www.youtube.com/embed/ogTRRuo86g4"
-                            title="YouTube video player" frameborder="0"
+                        <iframe width="100%" height="320" src="https://www.youtube.com/embed/9lFB3qfCHiM"
+                            title="Dian Global Tech SIAS" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen>
                         </iframe>
@@ -105,8 +105,8 @@
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 px-1">
                     <div class="card mb-2" style="width: auto; border: none;">
-                        <iframe width="100%" height="320" src="https://www.youtube.com/embed/zkE9iidA9fY"
-                            title="YouTube video player" frameborder="0"
+                        <iframe width="100%" height="320" src="https://www.youtube.com/embed/j_aNUArDyzA"
+                            title="Dian Global tech LMS" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen>
                         </iframe>
