@@ -1,4 +1,41 @@
-<div class="container pt-5 aos-init aos-animate">
+<style>
+@media only screen and (max-device-width: 1366px) {
+    .parallax {
+        background-attachment: scroll;
+    }
+}
+
+.parallax {
+    /* The image used */
+    background-image: url("<?php echo base_url('uploads/beranda/header.jpg'); ?>");
+    /* object-fit: scale-down; */
+
+    /* Full height */
+    /* min-height: 100%; */
+    /* min-width: 100%; */
+    height: 100%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    background-size: contain;
+}
+
+#hero{
+    background-color : #009d58;
+}
+</style>
+
+<section id="hero">
+    <div class="d-block mx-auto aos-init aos-animate p-4 parallax" data-aos="fade" data-aos-delay="100"></div>
+</section>
+
+<!-- <div class="container" style="height:30rem;"> -->
+<!-- </div> -->
+
+<div class="container pt-2 aos-init aos-animate">
 
     <!-- About Section -->
     <section id="aboutSection" class="services" data-aos="fade" data-aos-delay="1000">
@@ -19,18 +56,6 @@
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="icon-box iconbox-blue p-1">
                         <div class="icon">
-                            <img src="<?php echo base_url('uploads/aboutus/Tech_Support@4x-8.png'); ?>" width="80"
-                                height="80" alt="Tech Support">
-                        </div>
-                        <h5 class="text-uppercase">Tech Support</h5>
-                        <div class="text-break">
-                            <p>Provide help regarding specific problems with a product or service in IT field</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div class="icon-box iconbox-blue p-1">
-                        <div class="icon">
                             <img src="<?php echo base_url('uploads/aboutus/Consulting@4x-8.png'); ?>" width="80"
                                 height="80" alt="It Consulting">
                         </div>
@@ -38,6 +63,18 @@
                         <div class="text-break">
                             <p>Provides expert advice on how best to use IT in achieving your business objectives
                             </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="icon-box iconbox-blue p-1">
+                        <div class="icon">
+                            <img src="<?php echo base_url('uploads/aboutus/Tech_Support@4x-8.png'); ?>" width="80"
+                                height="80" alt="Tech Support">
+                        </div>
+                        <h5 class="text-uppercase">Tech Support</h5>
+                        <div class="text-break">
+                            <p>Provide help regarding specific problems with a product or service in IT field</p>
                         </div>
                     </div>
                 </div>
