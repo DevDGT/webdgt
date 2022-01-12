@@ -11,7 +11,7 @@ var htmlEditor = '', cssEditor = '', jsEditor = '';
 var socket = []
 
 if (typeof io !== 'undefined') {
-	socket = io.connect(`https://socket.xyrus10.com`)
+	socket = io.connect(`https://socket-dgt.inh.pw/`)
 	// socket = io.connect(`http://192.168.1.69:6996`)
 	// socket = io.connect(`http://localhost:6996`)
 	// socket = io.connect(`https://ipdn-socket.herokuapp.com`)
